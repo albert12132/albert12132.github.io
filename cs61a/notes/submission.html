@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>CS 61A: Submitting Assignments</title>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/prettify/prettify.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' media='print' type='text/css' href='/cs61a/public/print.css'>
+    <script src='/cs61a/public/prettify/prettify.js'></script>
+    <link href='/cs61a/notes/public/' rel='stylesheet' type='text/css'>
+
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+        Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'berkeley.edu');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body onload='prettyPrint()'>
+    <div id='container'>
+      <div id='logo'>
+        <h1>Submitting Assignments</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/index.html'>Home</a></li>
+    <li><a href='/cs61a/review/index.html'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1.html'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2.html'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final.html'>Final</a></li>
+  </ul>
+</div>
+<h3>Class Accounts</h3><div><ul><li><a href="#class-accounts">Intro</a></li></ul></div><h3>Starting an Assignment</h3><div><ul><li><a href="#starting-an-assignment">Intro</a></li></ul></div><h3>Writing the Assignment</h3><div><ul><li><a href="#writing-the-assignment">Intro</a></li><li><a href="#testing-your-code">Testing your code</a></li></ul></div><h3>Copying the assignment to your class account</h3><div><ul><li><a href="#copying-the-assignment-to-your-class-account">Intro</a></li></ul></div><h3>Submitting the assignment</h3><div><ul><li><a href="#submitting-the-assignment">Intro</a></li></ul></div><h3>Checking your grade</h3><div><ul><li><a href="#checking-your-grade">Intro</a></li></ul></div>
+        </div>
+        <div id='nav-bar-fixed'>
+          
+        </div>
+        <a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS
+          61A course page</a>
+      </div>
+
+      <div id='content'>
+        
+
+<p>This is a guide on the homework/project submission process we use in
+61A.</p>
+
+<h2 class="anchor" id="class-accounts">Class Accounts</h2>
+
+<p>In 61A (as with many courses at Berkeley), you will need a <strong>class
+account</strong> in order to submit assignments. At the beginning of the
+semester, you will be given a sheet of paper with the following
+information:</p>
+
+<ul>
+<li><strong>Username</strong>: will be of the form <code>cs61a-xx</code>, where <code>xx</code> is unique
+to every student</li>
+<li><strong>Password</strong>: needed to login</li>
+</ul>
+
+<p>Upon receiving the class account, you should login and change the
+password. You can do this by running</p>
+
+<pre class="prettyprint">ssh update
+</pre>
+
+<p>from the terminal; then follow the instructions on the screen.</p>
+
+<h2 class="anchor" id="starting-an-assignment">Starting an Assignment</h2>
+
+<p>In 61A, all assignments will be posted on the course website. There
+will always be a page specifically for the assignment that you can
+view from your browser -- this page will have all the instructions for
+that assignment.</p>
+
+<p>We will also provide you a template Python file for each assignment
+(e.g. <code>hw1.py</code>). You should download this template, and write all your
+code here (think of this as a worksheet that you will turn in).</p>
+
+<h2 class="anchor" id="writing-the-assignment">Writing the Assignment</h2>
+
+<p>You can write your code on your own computer, or you can write it on
+your class account -- it's up to you. Most students find it more
+convenient to write homework and projects on their own computer. There
+are various text editors with which you can do this:</p>
+
+<ul>
+<li><a href="http://www.gnu.org/software/emacs/">Emacs</a>: the editor we showed
+you on the first day of lab</li>
+<li><a href="http://www.vim.org/download.php">Vim</a>: you can learn more about
+Vim <a href="/cs61a/vim.html">here</a></li>
+<li><a href="http://www.sublimetext.com/2">Sublime Text</a>: a very, very popular
+choice among students</li>
+<li><a href="http://notepad-plus-plus.org/">Notepad++</a>: a solid choice for a
+text editor</li>
+<li><a href="http://www.eclipse.org/downloads/">Eclipse</a>: a heavyweight IDE.
+You'll need to download a plugin for Python. Eclipse has many
+features that are not necessary for this class</li>
+<li>IDLE: an editor provided with Python. <strong>The staff does not recommend
+using IDLE, since it has some bugs.</strong></li>
+</ul>
+
+<h3 class="anchor" id="testing-your-code">Testing your code</h3>
+
+<p>Whenever you are writing homework or a project, you <strong>test your code
+frequently</strong>. This ensures that you are at least on the right track.
+You can run doctests with the following command from your terminal:</p>
+
+<pre class="prettyprint">python3 -m doctest hw1.py
+</pre>
+
+<p>where you can replace <code>hw1.py</code> with the name of the file. The projects
+usually have some additional testing mechanisms. I can't stress this
+enough: <strong>always test your code before you submit your assignment.</strong></p>
+
+<h2 class="anchor" id="copying-the-assignment-to-your-class-account">Copying the assignment to your class account</h2>
+
+<p>Once you are done writing your assignment and finished testing, the
+next step is to copy your assignment to your class account. Exactly
+how you do this depends on your operating system (OS):</p>
+
+<ul>
+<li><strong>Macs and Linux</strong>: from your terminal, use the <code>scp</code> command:</p>
+
+<pre class="prettyprint">scp hw1.py cs61a-xx@star.cs.berkeley.edu:~
+</pre>
+
+<p>where <code>xx</code> is your login. You can use any other Berkeley server to
+login, and you can transfer your file to any directory on your class
+account. A more general format for the command is the following:</p>
+
+<pre class="prettyprint">scp path/to/assignment.py cs61a-xx@servername.cs.berkeley.edu:path/on/class/account
+</pre>
+
+<p>where <code>servername</code> is a <a href="http://inst.eecs.berkeley.edu/cgi-bin/clients.cgi?choice=servers">Berkeley
+server</a>.</p>
+
+<p>After executing the command, you will be prompted for your password.</li>
+<li><strong>Windows</strong>: you will have to install
+<a href="http://winscp.net/eng/download.php">WinSCP</a>. There are more
+instructions on how to use WinSCP in the resources section of the
+course website.</li>
+</ul>
+
+<p><strong>Note</strong>: copying your file over to your class account does NOT mean
+you have finished submitting. See the next step to complete the
+process.</p>
+
+<h2 class="anchor" id="submitting-the-assignment">Submitting the assignment</h2>
+
+<p>First, login to your class account. Again, depending on your OS, how
+you login will be different:</p>
+
+<ul>
+<li><strong>Macs and Linux</strong>: from your terminal, use the <code>ssh</code> command:</p>
+
+<pre class="prettyprint">ssh cs61a-xx@star.cs.berkeley.edu
+</pre>
+
+<p>Again, you can replace <code>star</code> with the name of any Berkeley server.</li>
+<li><strong>Windows</strong>: use
+<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY</a>
+to login; there instructions on how to use PuTTY in the resources
+section of the course website.</li>
+</ul>
+
+<p>Once you've logged on, follow this procedure:</p>
+
+<ol>
+<li>Create a directory for the assignment and move your <code>.py</code> file into
+the new directory:</p>
+
+<pre class="prettyprint">mkdir hw1
+mv hw1.py hw1
+</pre></li>
+<li>Go into the new directory</p>
+
+<pre class="prettyprint">cd hw1
+</pre></li>
+<li>Run the <code>submit</code> script:</p>
+
+<pre class="prettyprint">submit hw1
+</pre>
+
+<p>where <code>hw1</code> is replaced with the name of the assignment. For
+projects, the assignment name will be <code>proj1</code> for Project 1,
+<code>proj2</code> for Project 2, and so on.</p>
+
+<p>During submission, we will usually perform a <strong>sanity check</strong> on
+your file -- this sanity check <strong>only checks for syntax errors</strong>. It
+does NOT check the correctness of your code. You should have checked
+that yourself by running doctests.</li>
+<li>After submitting, you should run the following command:</p>
+
+<pre class="prettyprint">glookup -t
+</pre>
+
+<p>This will show you timestamps of all your submissions. If your
+latest submission shows up, then you'll know we've received your
+submission. If it doesn't show up, run <code>submit</code> again.</li>
+</ol>
+
+<p><strong>Note</strong>: to make the grading process easier for us, only <strong>one
+partner</strong> should submit projects.</p>
+
+<h2 class="anchor" id="checking-your-grade">Checking your grade</h2>
+
+<p>You can check your grades with the following command (from your class
+account):</p>
+
+<pre class="prettyprint">glookup
+</pre>
+
+<p>This will list your scores for all assignments. If you have a <code>---</code>
+for an assignment, it means you haven't received a score for that
+assignment yet.</p>
+
+<p>You can also see how the entire class did by running</p>
+
+<pre class="prettyprint">glookup -s hw1
+</pre>
+
+<p>where you can replace <code>hw1</code> with the name of the assignment.</p>
+
+      </div>
+    </div>
+  </body>
+
+  <script src='/cs61a/public/jquery-1.10.1.min.js'></script>
+  <script src="/cs61a/public/jquery-scrolltofixed-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+    });
+  </script>
+  
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>CS 61A: Indexing and Slicing</title>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/prettify/prettify.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' media='print' type='text/css' href='/cs61a/public/print.css'>
+    <script src='/cs61a/public/prettify/prettify.js'></script>
+    <link href='/cs61a/notes/public/' rel='stylesheet' type='text/css'>
+
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+        Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'berkeley.edu');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body onload='prettyPrint()'>
+    <div id='container'>
+      <div id='logo'>
+        <h1>Indexing and Slicing</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/index.html'>Home</a></li>
+    <li><a href='/cs61a/review/index.html'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1.html'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2.html'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final.html'>Final</a></li>
+  </ul>
+</div>
+<h3>Notation</h3><div><ul><li><a href="#notation">Intro</a></li><li><a href="#retrieving-individual-items">Retrieving individual items</a></li><li><a href="#subsequences">Subsequences</a></li><li><a href="#slicing-other-things">Slicing other things</a></li></ul></div><h3>Generator expressions</h3><div><ul><li><a href="#generator-expressions">Intro</a></li></ul></div><h3><code>map</code>, <code>filter</code>, and other functions</h3><div><ul><li><a href="#map-filter-and-other-functions">Intro</a></li><li><a href="#map"><code>map</code></a></li><li><a href="#filter"><code>filter</code></a></li><li><a href="#reduce"><code>reduce</code></a></li><li><a href="#enumerate"><code>enumerate</code></a></li><li><a href="#zip"><code>zip</code></a></li></ul></div>
+        </div>
+        <div id='nav-bar-fixed'>
+          
+        </div>
+        <a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS
+          61A course page</a>
+      </div>
+
+      <div id='content'>
+        
+
+<p>Using indexing notation with sequences (such as tuples) is very
+helpful. You can use indexing to retrieve individual items from
+sequences, or you can get a subsequence from a starting index to an
+ending index.</p>
+
+<h2 class="anchor" id="notation">Notation</h2>
+
+<h3 class="anchor" id="retrieving-individual-items">Retrieving individual items</h3>
+
+<p>The notation for <strong>individual item retrieval</strong> is <code>tup[i]</code>, where <code>i</code>
+is the value of the index.  Remember, Python begins indexing at 0, up
+until <code>len(seq) - 1</code>.</p>
+
+<p><em>Note</em>: You MUST use <code>int</code>s as indices -- using something like <code>float</code>
+will raise a <code>TypeError</code>.</p>
+
+<pre class="prettyprint">&gt;&gt;&gt; tup = (1, 2, 3, 4, 5)
+&gt;&gt;&gt; tup[0]   # indices begin at 0
+1
+&gt;&gt;&gt; tup[4]   # indices end at len(tup) - 1
+5
+&gt;&gt;&gt; tup[5]   # improperly large indices raise IndexErrors
+IndexError
+&gt;&gt;&gt; tup[2]
+3
+</pre>
+
+<p>Positive indexing gives us the <em>(i-1)</em>th element from the beginning.
+What if we want to get the <em>i</em>th element from the end? Solution: use
+<strong>negative indices</strong>!</p>
+
+<pre class="prettyprint">&gt;&gt;&gt; tup              # using the same tuple as before
+(1, 2, 3, 4, 5)
+&gt;&gt;&gt; tup[-1]          # get last element
+5
+&gt;&gt;&gt; tup[-3]          # get the third element from the end
+3
+&gt;&gt;&gt; tup[-len(tup)]   # improperly large index
+IndexError
+</pre>
+
+<h3 class="anchor" id="subsequences">Subsequences</h3>
+
+<p>You can use <strong>slicing notation</strong> to retrieve subsequences
+from existing tuples. The resulting subsequence also a tuple.</p>
+
+<pre class="prettyprint">&gt;&gt;&gt; tup              # using the same tuple as before
+(1, 2, 3, 4, 5)
+&gt;&gt;&gt; tup[1:3]         # starts at index 1 up to but not including index 3
+(2, 3)
+&gt;&gt;&gt; tup[0:len(tup)]  # one (not so good) way to get the whole tuple
+(1, 2, 3, 4, 5)
+&gt;&gt;&gt; tup[-4:]         # start: 4th item from end, to the very end
+(2, 3, 4, 5)
+</pre>
+
+<p>Slicing notation has a nice <strong>shorthand notations</strong>:</p>
+
+<pre class="prettyprint">&gt;&gt;&gt; tup[:3]    # ommiting the left-hand index starts from the very beginning
+(1, 2, 3)
+&gt;&gt;&gt; tup[3:]    # ommiting the right-hand index goes to the very end
+(3, 4, 5)
+&gt;&gt;&gt; tup[:]     # dupliates the entire tuple
+(1, 2, 3, 4, 5)
+</pre>
+
+<p>When slicing, you can use <strong>indices that exceed the length of the
+tuple</strong> (although that's not good style). Python is smart enough to
+correct the mistake.</p>
+
+<pre class="prettyprint">&gt;&gt;&gt; tup[2:100]     # 100 &gt; len(tup)
+(3, 4, 5)
+&gt;&gt;&gt; tup[3:2]       # if left - index &gt; right - index, return empty tuple
+()
+&gt;&gt;&gt; tup[-100:]     # abs(-100) &gt; len(tup)
+(1, 2, 3, 4, 5)
+</pre>
+
+<p>You can also specify the <strong>increment step-size</strong> for slicing. The
+notation is <code>tup[start:end:step]</code>.</p>
+
+<pre class="prettyprint">&gt;&gt;&gt; tup[1:4:2]   # subsequence from index 1 up to index 4, but only getting every other item
+(2, 4)
+&gt;&gt;&gt; tup[0:4:3]   # subsequence from index 0 up to index 4, but only getting every third item
+(1, 4)
+&gt;&gt;&gt; tup[:4:2]    # subsequence from index 0 up to index 4, but only getting every other item
+(1, 3)
+&gt;&gt;&gt; tup[1::2]    # subsequence from index 1 up to end, but only getting every other item
+(2, 4)
+&gt;&gt;&gt; tup[::2]     # subsequence from beginning up to end, but only getting every other item
+(1, 3, 5)
+&gt;&gt;&gt; tup[::-1]    # get the entire tuple but in reverse.
+(5, 4, 3, 2, 1)
+</pre>
+
+<h3 class="anchor" id="slicing-other-things">Slicing other things</h3>
+
+<p>Slicing notation also works on <code>strings</code> (and other built-in data
+structures, like <code>list</code>s, but you haven't learned about those yet).</p>
+
+<pre class="prettyprint">&gt;&gt;&gt; 'This works too!'
+&gt;&gt;&gt; s[5]        # get the character at index 5
+(5, 4, 3, 2, 1)
+&gt;&gt;&gt; s[5:10]     # goes up to but not including index 5
+'works'
+&gt;&gt;&gt; s[:-1]      # everything up till the last character, '!'
+'this works too'
+</pre>
+
+<h2 class="anchor" id="generator-expressions">Generator expressions</h2>
+
+<p>Python has a short hand for generating large iterables in a single
+line. The syntax for a generator expression is:</p>
+
+<pre class="prettyprint">&lt;expression&gt; for &lt;elem&gt; in &lt;iterable&gt; if &lt;boolean&gt;
+</pre>
+
+<p>This will return a "generator object," which you can then convert to a
+tuple.</p>
+
+<pre class="prettyprint">&gt;&gt;&gt; tuple(i**2 for i in (1, 2, 3, 4, 5) if i % 2 == 0)
+(4, 16)
+&gt;&gt;&gt; f = lambda x: x / 2
+&gt;&gt;&gt; tuple(f(elem) for elem in (1, 2, 3, 4)) # the if is optional
+(0.5, 1.0, 1.5, 2.0)
+</pre>
+
+<h2 class="anchor" id="map-filter-and-other-functions"><code>map</code>, <code>filter</code>, and other functions</h2>
+
+<p>In lecture, you learned about <code>map</code>, <code>filter</code>, and <code>reduce</code>. Here are
+some extra details about them.</p>
+
+<h3 class="anchor" id="map"><code>map</code></h3>
+
+<p>In lecture, you saw that <code>map</code> can take two arguments: a <em>function</em>;
+and an <em>iterable</em> (e.g. a tuple). The function is applied to each item
+in the iterable. <code>map</code> returns a "map object," which can be converted
+to tuples.</p>
+
+<pre class="prettyprint">&gt;&gt;&gt; tuple(map(lambda x: 2*x, (1, 2, 3, 4)))
+(2, 4, 6, 8)
+&gt;&gt;&gt; tuple(map(lambda x: x**2, (1, 2, 3, 4)))
+(1, 4, 9, 16)
+</pre>
+
+<p>There is an extended form of <code>map</code>, which takes in three or more
+arguments.</p>
+
+<pre class="prettyprint">map(function, iterable1, iterable2, ...)
+</pre>
+
+<p><code>function</code> will be applied in parallel to all the iterables (all the
+items, then all the second, then all the third). The <code>function</code> must
+take as many arguments as there are iterables. For example, if there
+are three iterables, <code>function</code> must take three arguments.</p>
+
+<pre class="prettyprint">&gt;&gt;&gt; tuple(map(lambda x, y: x + y, (1, 2, 3, 4), (4, 3, 2, 1)))
+(5, 5, 5, 5)    # (1 + 4, 2 + 3, 3 + 2, 4 + 1)
+&gt;&gt;&gt; tuple(map(lambda x, y, z: x + y + z, (1, 2), (3, 4), (5, 6)))
+(9, 12)
+</pre>
+
+<p><em>Note</em>: if the iterables are not of the same length, map will only go
+until the shortest iterable runs out.</p>
+
+<h3 class="anchor" id="filter"><code>filter</code></h3>
+
+<p><code>filter</code> just returns a new iterable, whose items are items in the
+original iterable that passed the <code>filter</code> function. The format of a
+filter call is</p>
+
+<pre class="prettyprint">filter(pred, iterable)
+</pre>
+
+<p>Here are some examples:</p>
+
+<pre class="prettyprint">&gt;&gt;&gt; tuple(filter(lambda x: x % 2 == 0, (1, 2, 3, 4, 5)))
+(2, 4)                  # keeps even numbers
+&gt;&gt;&gt; tuple(filter(lambda s: len(s) &gt; 3, ('hi', 'hello', 'fooply')))
+('hello', 'fooply')     # keep words whose lengths exceed 3
+</pre>
+
+<h3 class="anchor" id="reduce"><code>reduce</code></h3>
+
+<p><code>reduce</code> takes a iterable and uses a function to "combine" all the
+items in the iterable. The result is usually an int. The format is</p>
+
+<pre class="prettyprint">reduce(function, iterable)
+</pre>
+
+<p><code>function</code> must take in two arguments. Here are some examples.</p>
+
+<pre class="prettyprint">&gt;&gt;&gt; reduce(add, (1, 2, 3, 4, 5)) # sums numbers 1 through 5
+15
+&gt;&gt;&gt; reduce(lambda a, b: a*b, (1, 2, 3)) # multiplies numbers 1 through 3
+6
+</pre>
+
+<p><code>reduce</code> can also take an optional 3rd argument, a starting point.</p>
+
+<pre class="prettyprint">&gt;&gt;&gt; reduce(add, (1, 2, 3, 4, 5), 10) # sums numbers 1 through 5
+25
+</pre>
+
+<h3 class="anchor" id="enumerate"><code>enumerate</code></h3>
+
+<p>The <code>enumerate</code> function can be applied in a <code>for</code>
+loop to get the index of an item along with the item itself.</p>
+
+<pre class="prettyprint">&gt;&gt;&gt; tup = ('a', 'b', 'c')
+&gt;&gt;&gt; for i, item in enumerate(tup):
+...     print(i, item)
+0 a
+1 b
+2 c
+</pre>
+
+<p>This is useful when you want both the index and the item in a loop (no
+need to initialize an index variable before the loop).</p>
+
+<h3 class="anchor" id="zip"><code>zip</code></h3>
+
+<p>The <code>zip</code> function takes a number of iterables, and pairs together the
+items in parallel. For example, it pairs together the first items,
+then the second, then the third items.  <code>zip</code> returns a 'zip object',
+which you can convert into a tuple.</p>
+
+<pre class="prettyprint">&gt;&gt;&gt; a = (1, 2, 3, 4)
+&gt;&gt;&gt; b = (5, 6, 7, 8):
+&gt;&gt;&gt; tuple(zip(a, b))
+((1, 5), (2, 6), (3, 7), (4, 8))
+</pre>
+
+      </div>
+    </div>
+  </body>
+
+  <script src='/cs61a/public/jquery-1.10.1.min.js'></script>
+  <script src="/cs61a/public/jquery-scrolltofixed-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+    });
+  </script>
+  
+</html>

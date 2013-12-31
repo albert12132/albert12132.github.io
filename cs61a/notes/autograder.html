@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>CS 61A: Autograder</title>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/prettify/prettify.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' media='print' type='text/css' href='/cs61a/public/print.css'>
+    <script src='/cs61a/public/prettify/prettify.js'></script>
+    <link href='/cs61a/notes/public/' rel='stylesheet' type='text/css'>
+
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+        Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'berkeley.edu');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body onload='prettyPrint()'>
+    <div id='container'>
+      <div id='logo'>
+        <h1>Autograder</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/index.html'>Home</a></li>
+    <li><a href='/cs61a/review/index.html'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1.html'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2.html'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final.html'>Final</a></li>
+  </ul>
+</div>
+<h3>Grading</h3><div><ul><li><a href="#grading">Intro</a></li></ul></div><h3>Debugging</h3><div><ul><li><a href="#debugging">Intro</a></li></ul></div><h3>Design philosophy</h3><div><ul><li><a href="#design-philosophy">Intro</a></li></ul></div>
+        </div>
+        <div id='nav-bar-fixed'>
+          
+        </div>
+        <a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS
+          61A course page</a>
+      </div>
+
+      <div id='content'>
+        
+
+<p>In 61A, we provide students with an autograder for projects. This
+autograder periodically (usually every 30 minutes) emails students
+about the correctness of their submissions.</p>
+
+<p>It is important to understand a few aspects of the autograder,
+described below.</p>
+
+<h2 class="anchor" id="grading">Grading</h2>
+
+<p>Passing the autograder does NOT ensure a perfect score. The sanity
+autograder we release before the deadline does not run every test that
+we have. When we actually grade your final submission, we will have
+extra tests for edge cases.</p>
+
+<p>Admittedly, this might stress some students out, but the point is to
+get you in the habit of testing your own code. When working on any
+project, it is prudent to make sure your code works, even for edge
+cases.</p>
+
+<p>On the other hand, if you DON'T pass the sanity autograder, you will
+most likely not get a perfect score, so make sure you at least pass
+the sanity autograder.</p>
+
+<p>One more note: some other classes at Berkeley do not even have
+autograders for their projects. Some might even argue this is a better
+educational practice. In any case, keep in mind that the autograder is
+designed to remind you of bugs or implementations you might have
+forgotten.</p>
+
+<h2 class="anchor" id="debugging">Debugging</h2>
+
+<p>The autograder is NOT a debugger. The only thing the autograder does
+is run your code against a suite of inputs. If your code does not
+produce the desired output, the autograder notifies you.</p>
+
+<p>While the autograder is great for detecting the existence of bugs, it
+does not tell you where the bugs are, nor does it tell you how to fix
+them. Debugging is up to you to do.</p>
+
+<p>For this reason, please don't keep submitting to the autograder every
+time you make a minute change in your code. You should do everything
+possible to debug, test, and fix your code before you submit to the
+autograder.</p>
+
+<h2 class="anchor" id="design-philosophy">Design philosophy</h2>
+
+<p>As noted above, the autograder tests your code against a suite of
+inputs and checks against a suite of outputs. While some students
+might find this format "stifles student creativity," keep in mind
+that most programs you write are intended for some target audience. If
+your program doesn't behave in an expected fashion, you will receive
+lots of complaints from that audience. In other words, having an "exact-answer" requirement is not
+unreasonable.</p>
+
+      </div>
+    </div>
+  </body>
+
+  <script src='/cs61a/public/jquery-1.10.1.min.js'></script>
+  <script src="/cs61a/public/jquery-scrolltofixed-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+    });
+  </script>
+  
+</html>

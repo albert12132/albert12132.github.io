@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>CS 61A: Environment Diagrams</title>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/prettify/prettify.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' media='print' type='text/css' href='/cs61a/public/print.css'>
+    <script src='/cs61a/public/prettify/prettify.js'></script>
+    <link href='/cs61a/notes/public/' rel='stylesheet' type='text/css'>
+
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+        Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'berkeley.edu');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body onload='prettyPrint()'>
+    <div id='container'>
+      <div id='logo'>
+        <h1>Environment Diagrams</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/index.html'>Home</a></li>
+    <li><a href='/cs61a/review/index.html'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1.html'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2.html'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final.html'>Final</a></li>
+  </ul>
+</div>
+<h3>Preface: a defense</h3><div><ul><li><a href="#preface-a-defense">Intro</a></li></ul></div><h3>Purpose</h3><div><ul><li><a href="#purpose">Intro</a></li></ul></div><h3>Terminology</h3><div><ul><li><a href="#terminology">Intro</a></li><li><a href="#frames">Frames</a></li><li><a href="#variables-versus-values">Variables versus Values</a></li><li><a href="#arrowspointers">Arrows/Pointers</a></li></ul></div><h3>Drawing diagrams</h3><div><ul><li><a href="#drawing-diagrams">Intro</a></li><li><a href="#global-frame">Global Frame</a></li><li><a href="#bindings">Bindings</a></li><li><a href="#function-calls">Function calls</a></li><li><a href="#additional-rules">Additional rules</a></li></ul></div><h3>Variable lookup</h3><div><ul><li><a href="#variable-lookup">Intro</a></li></ul></div><h3>More complicated examples</h3><div><ul><li><a href="#more-complicated-examples">Intro</a></li><li><a href="#function-calls-in-function-bodies">Function calls in function bodies</a></li><li><a href="#function-calls-as-operands">Function calls as operands</a></li><li><a href="#reassigning-functions">Reassigning functions</a></li><li><a href="#nested-functions">Nested functions</a></li><li><a href="#built-in-functions">Built-in functions</a></li></ul></div>
+        </div>
+        <div id='nav-bar-fixed'>
+          
+        </div>
+        <a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS
+          61A course page</a>
+      </div>
+
+      <div id='content'>
+        
+
+<p>Environment Diagrams are a visual tool to keep track of bindings and
+state of a computer program. In this class, we use Python as our
+primary language, but the diagrams we teach can be applied to similar
+languages.</p>
+
+<h2 class="anchor" id="preface-a-defense">Preface: a defense</h2>
+
+<p>Every semester, lots of students ask why we teach environment
+diagrams. The simple answer is we think environment diagrams help
+students learn the evaluation process of a computer program.</p>
+
+<p>However, this usually isn't a satisfactory explanation, so here is an
+attempt to address the more nuanced concerns of former (and current)
+students.</p>
+
+<p><strong>Disclaimer</strong>: the answers provided are my own (Albert), and do not
+necessarily reflect the views of the rest of the teaching staff.</p>
+
+<ul>
+<li><strong>Environment diagrams are too conceptual/not practical.</strong></p>
+
+<p>61A (and Computer Science in general) is not just about writing code
+-- it's about understanding <em>why</em> things work the way they do.
+Environment diagrams are very conceptual, but that fits into the
+goal of this course.</p>
+
+<p>As for practicallity, I admit that environment diagrams are more of
+a learning tool. They don't scale well to large programs.</li>
+<li><strong>This is a CS class. Why are we drawing things?</strong></p>
+
+<p>Environment diagrams provide a way to visualize the state of a
+program. I've found that having a physical diagram to look at helps
+students learn faster than having them stare at lines of code.</li>
+<li><strong>Environment diagrams are non-intuitive.</strong></p>
+
+<p>There might be two reasons why you find them difficult:</p>
+
+<ol>
+<li>You can't remember all the rules. If that's the case, just keep
+practicing and practicing. Also, keep in mind that these rules
+aren't arbitrary -- they reflect what a computer actually does.
+Each rule exists for a reason.</li>
+<li>You expect the program to behave differently than the diagram. In
+that case, you should take the time to really understand why each
+step occurs.</li>
+</ol></li>
+<li><strong>I can understand programs just fine. Why do I have to learn
+environment diagrams?</strong></p>
+
+<p>From a logistical perspective, the teaching staff needs a way to
+gauge how well students are learning. Having a uniform "system"
+makes it easier for us to do this.</p>
+
+<p>I understand that some students can "run the code in their head" and
+get the correct output. Unfortunately, on a test, by simply asking
+students to write the final output of a program, it is more likely
+that students will be able to guess the answer. That defeats the
+purppose of the exam, which is to see how well students understand
+the material, not how well they can guess.</li>
+<li><strong>Environment diagrams on exams are too difficult.</strong></p>
+
+<p>Sorry. We'll try to keep the tricks to a minimum.</p>
+
+<p>I agree that no sane programmer would write code as confusing as our
+exam questions. That being said, my opinion is if you can
+successfully evaluate something that complicated, you'll be able to
+handle anything you see in the real world.</li>
+<li><strong>I hate environment diagrams.</strong></p>
+
+<p>:(</li>
+</ul>
+
+<h2 class="anchor" id="purpose">Purpose</h2>
+
+<p>Environment diagrams are designed to keep track of name bindings. In
+other words, it acts as a sort of bookkeeping device: if you (or the
+interpreter) wants to know what value is bound to a variable called
+<code>foo</code>, an environment diagram will help you do that.</p>
+
+<p>As programs grow more complex (with higher-order functions, nonlocal
+state, etc.), environment diagrams are designed to provide a
+systematic way to keep track of otherwise unclear effects.</p>
+
+<h2 class="anchor" id="terminology">Terminology</h2>
+
+<h3 class="anchor" id="frames">Frames</h3>
+
+<p>A <strong>frame</strong> keeps track of variable-to-value bindings. Every function
+call keeps track of its own set of bindings (e.g. it has its own
+<strong>scope</strong>), so every <em>function call</em> has a corresponding frame.</p>
+
+<p>The <strong>global frame</strong>, or "Global" for short, is the starting frame.
+Global doesn't correspond to a specific function</p>
+
+<p>Every frame except for Global has a <strong>parent frame</strong>. When function is
+called, its corresponding frame immediately has a parent -- that
+parent is the <em>frame in which that function was defined</em>. When doing
+variable lookup, if you can't find a variable in the current frame,
+you look in its parent.</p>
+
+<p>Frames might also have <strong>frame numbers</strong>. These numbers are used to
+label frames that are parents. If a frame is never a parent, it
+doesn't have to have a number.</p>
+
+<h3 class="anchor" id="variables-versus-values">Variables versus Values</h3>
+
+<p>A <strong>variable</strong> (or a <strong>name</strong>) is distinct from the <strong>value</strong> to which
+it is assigned. For example, consider the following simple assignment:</p>
+
+<pre class="prettyprint">x = 3
+</pre>
+
+<p>The variable is <code>x</code>, and the value is <code>3</code>. Think of a variable as a
+box with a label, and the value is the thing you put inside the box.</p>
+
+<p>This distinction becomes especially important when it comes to
+functions. Consider the following:</p>
+
+<pre class="prettyprint">def square(x):
+    return x*x
+</pre>
+
+<p>In this case, the variable is <code>square</code>, and the value is <em>a function
+object</em>. Remember, in Python, functions are objects just like
+everything else, so they are distinct from the variable to which they
+are bound.</p>
+
+<h3 class="anchor" id="arrowspointers">Arrows/Pointers</h3>
+
+<p>In some bindings, we draw <strong>arrows</strong> (or <strong>pointers</strong>) from the
+variable to the value. This isn't just an arbitrary aesthetic design.
+A pointer represents a <em>reference</em> to a value. We'll talk more about
+this later.</p>
+
+<h2 class="anchor" id="drawing-diagrams">Drawing diagrams</h2>
+
+<p>We'll be using the following code example for this section:</p>
+
+<pre class="prettyprint">x = 3
+y = 1 + 2 + 3
+
+def square(x):
+    return x*x
+
+square(y)
+</pre>
+
+<h3 class="anchor" id="global-frame">Global Frame</h3>
+
+<p>Always start by drawing the Global frame. This occurs before any of
+the code is executed (e.g. before <code>x = 3</code> is executed).</p>
+
+<h3 class="anchor" id="bindings">Bindings</h3>
+
+<p>We draw <strong>bindings</strong> when one of the following occurs:</p>
+
+<ul>
+<li>variable assignment</li>
+<li><code>def</code> statement</li>
+<li><code>import</code> statement</li>
+</ul>
+
+<p>There's a simple three-step process for drawing bindings:</p>
+
+<ol>
+<li><strong>Evaluate the value</strong> of the binding</li>
+<li>In the current frame, <strong>draw a small box with the value</strong></li>
+<li><strong>Write the variable</strong> to the left of the box</li>
+</ol>
+
+<p>There is one small detail for the second step: if the value is a
+<strong>primitive</strong>, we put it <em>in</em> the box; otherwise, we draw an arrow to
+the object. Here are some examples of primitives and non-primitives:</p>
+
+<ul>
+<li><strong>Primitives</strong> (draw <em>in</em> box):
+<ul>
+<li>numbers (<code>42</code>, <code>3.14</code>)</li>
+<li>booleans (<code>True</code>, <code>False</code>)</li>
+<li>Strings (<code>"hello world!"</code>)</li>
+</ul></li>
+<li><strong>Non-primitives</strong> (draw arrow):
+<ul>
+<li>functions (<code>def square(x): ...</code>, <code>lambda x: x*x</code>)</li>
+<li>tuples and lists (<code>(1, 2, 3)</code>, <code>[1, 2, 3]</code>)</li>
+</ul></li>
+</ul>
+
+<p>Let's walk through the example. The first line is a variable
+assignment:</p>
+
+<pre class="prettyprint">x = 3
+</pre>
+
+<p>where <code>x</code> is the variable and <code>3</code> is the value.</p>
+
+<p><img src="/cs61a/public/environments/x-equals-3.png" alt="x = 3" /></p>
+
+<p>The second line is a little more involved. There is a complex
+expression on the right-hand side of the <code>=</code>, so we must <em>evaluate</em> it
+first. Notice in the following diagram that <code>y</code> is bound to <code>6</code>, not
+<code>1 + 2 + 3</code>:</p>
+
+<p><img src="/cs61a/public/environments/y-equals-6.png" alt="y = 1 + 2 + 3" /></p>
+
+<p>The next line is a <code>def</code> statement:</p>
+
+<pre class="prettyprint">def square(x):
+    return x*x
+</pre>
+
+<p>Here, we are just <em>defining</em> a function -- we are <strong>not</strong> <em>calling</em>
+the function. That makes sense; when you type in a <code>def</code> statement to
+an interpreter, you don't execute the body of the function right away
+(e.g. when you define <code>square</code>, you don't immediately calculate
+<code>x*x</code>). Instead, we just make a <strong>binding</strong>.</p>
+
+<p><img src="/cs61a/notes/public/environments/def-square.png" alt="def square(x):" /></p>
+
+<p>The variable is <code>square</code>, and the value is an arrow pointing to a
+function object. Notice the <em>function object</em> also says <code>square</code> --
+this is called its <strong>intrinsic name</strong>, and is a separate entity from
+the <em>variable</em> -- even though, right now, they both say <code>square</code>, they
+are distinct.</p>
+
+<h3 class="anchor" id="function-calls">Function calls</h3>
+
+<p>So far, we've only dealt with bindings, such as variable assignments
+and <code>def</code> statements. Now, we will draw <strong>function calls</strong>. An example
+of a function call is <code>square(y)</code>. There are five simple steps:</p>
+
+<ol>
+<li><strong>Evaluate the operands</strong>. If an operand is itself a function call,
+apply this procedure to it</li>
+<li><strong>Draw a new frame</strong>. Label it with the following:
+<ol>
+<li>the function's <strong>intrinsic name</strong> at the top of the frame</li>
+<li>the frame's <strong>parent</strong> (the frame in which the function was
+defined), in the top-right corner. If the parent is Global, you
+don't have to write anything</li>
+<li>a <strong>frame number</strong> in the top-left corner -- this is only
+needed if there are nested functions.</li>
+</ol></li>
+<li><strong>Bind formal parameters</strong>. In step 1, you already evaluated and
+simplified the operands. Now you you just have to bind variables to
+those values.</li>
+<li><strong>Execute the body of the function</strong>. Depending on what you see,
+you'll be drawing more bindings or drawing new frames.</li>
+<li><strong>Write the return value in the frame</strong>. If the function doesn't
+return anything, write its return value as <code>None</code>.</li>
+</ol>
+
+<p>Let's try the first function call in the example:</p>
+
+<pre class="prettyprint">square(y)
+</pre>
+
+<ol>
+<li><strong>Evaluate the operands</strong>: the only operand is <code>y</code>. Since our
+current frame is still Global, we start looking in Global for the
+value of <code>y</code>, which is <code>6</code>.</li>
+<li><strong>Draw a new frame</strong>.
+<ol>
+<li>The <strong>intrinsic name</strong> of the function is <code>square</code> (we know
+this from the <em>function object</em> on the right-hand side)</li>
+<li>Since the parent is Global, we don't need to label the parent</li>
+<li>Since <code>square</code> won't have any nested functions, we don't need
+to label the frame with a number</li>
+</ol></li>
+<li><strong>Bind formal parameters</strong>: looking at the <code>square</code> function
+object, we see it has one formal parameter, called <code>x</code>. In step 1,
+we evaluated the corresponding operand to have a value of <code>6</code>. Now
+we draw the binding:</p>
+
+<p><img src="/cs61a/notes/public/environments/square-y.png" alt="square(y)" /></li>
+<li><strong>Execute the body of the function</strong>. The body of <code>square</code> just
+says <code>return x*x</code>. There are no bindings and no function calls, so
+just compute <code>x*x</code>.</p>
+
+<p>Notice that this <code>x</code> is different than the one in Global. The <code>x</code>
+in <code>square</code> is called a <strong>local variable</strong>.</li>
+<li><strong>Write the return value</strong> (which is <code>6*6 = 36</code>):</p>
+
+<p><img src="/cs61a/notes/public/environments/return-x-times-x.png" alt="&lt;code&gt;return x*x&lt;/code&gt;" /></li>
+</ol>
+
+<p>And that's it! Once we're done with the function call, we exit the
+frame, and our current frame becomes Global once more.</p>
+
+<h3 class="anchor" id="additional-rules">Additional rules</h3>
+
+<ul>
+<li>Don't draw frames for built-in functions like <code>add</code>, <code>mul</code>, <code>print</code>,
+etc.</li>
+<li>Variables should never have other variables as values</li>
+</ul>
+
+<h2 class="anchor" id="variable-lookup">Variable lookup</h2>
+
+<p>When the looking up a variable, we always start looking in the current
+frame. If that variable cannot be found there, we look in the frame's
+parent next. If the variable still cannot be found, we look in the
+parent's parent, and so on.</p>
+
+<p>If we reach Global and still can't find the variable, Python raises a
+<code>NameError</code> and complains that the variable can't be found.</p>
+
+<p>In procedural form:</p>
+
+<ol>
+<li><strong>Look in the current frame</strong>.</li>
+<li>If not found, <strong>recursively look in the parent frame</strong>.</li>
+<li>If there is no parent, <strong>Error</strong>.</li>
+</ol>
+
+<h2 class="anchor" id="more-complicated-examples">More complicated examples</h2>
+
+<h3 class="anchor" id="function-calls-in-function-bodies">Function calls in function bodies</h3>
+
+<p>Consider this code:</p>
+
+<pre class="prettyprint">x = 3
+
+def square(x):
+    return x*x
+
+def double(x):
+    return square(x+1) - square(x) - 1
+
+double(x)
+</pre>
+
+<p>For this problem, focus on the calls to <code>square</code> -- how many frames
+for <code>square</code> do we draw? What are the parents for those frames?</p>
+
+<p>The first three bindings look like this:</p>
+
+<p><img src="/cs61a/notes/public/environments/bindings.png" alt="bindings" /></p>
+
+<p>The last line says</p>
+
+<pre class="prettyprint">double(x)
+</pre>
+
+<p>This is a function call, so the procedure is as follows.</p>
+
+<ol>
+<li><strong>Evaluate the operands</strong>. The operand to <code>double</code> is <code>x</code>, which is
+<code>3</code> in Global.</li>
+<li><strong>Draw a new frame</strong> for <code>double</code>. <code>double</code> was defined in Global,
+so we don't need to draw a parent label.</li>
+<li><strong>Bind formal parameters</strong>. <code>double</code> has one parameter <code>x</code>, which
+is bound to the operand <code>3</code>.</p>
+
+<p><img src="/cs61a/notes/public/environments/double-x.png" alt="&lt;code&gt;double(x)&lt;/code&gt;" /></li>
+<li><strong>Execute the body of the function</strong>. <code>double</code> has one line that
+says <code>return square(x+1) - square(x) - 1</code>. We have to evaluate each
+part of this expression:</p>
+
+<ul>
+<li><code>square(x+1)</code></p>
+
+<ol>
+<li><strong>Evaluate the operands</strong>. We're currently in <code>double</code>'s
+frame, so <code>x</code> is <code>3</code>. Thus, <code>x + 1 = 4</code>.</li>
+<li><strong>Draw a new frame</strong> for <code>square</code>. Since <code>square</code> was defined
+in Global, its parent is Global.</li>
+<li><strong>Bind formal parameters</strong>. <code>square</code> has one parameter <code>x</code>,
+which is bound to <code>4</code></p>
+
+<p><img src="/cs61a/notes/public/environments/square-x-plus-1.png" alt="&lt;code&gt;square(x+1)&lt;/code&gt;" /></li>
+<li><strong>Execute the body of the function</strong>. <code>square</code> computes <code>x*x</code>,
+which is <code>16</code>.</li>
+<li><strong>Write the return value</strong>, which is <code>16</code>.</p>
+
+<p><img src="/cs61a/notes/public/environments/return-x-times-x3.png" alt="&lt;code&gt;return x*x&lt;/code&gt;" /></li>
+</ol></li>
+<li><code>square(x)</code></p>
+
+<ol>
+<li><strong>Evaluate the operands</strong>. We're back in <code>double</code>'s
+frame, so <code>x</code> is <code>3</code>.</li>
+<li><strong>Draw a new frame</strong> for <code>square</code>. Since <code>square</code> was defined
+in Global, its parent is Global.</li>
+<li><strong>Bind formal parameters</strong>. <code>square</code> has one parameter <code>x</code>,
+which is bound to <code>3</code></p>
+
+<p><img src="/cs61a/notes/public/environments/square-x.png" alt="&lt;code&gt;square(x)&lt;/code&gt;" /></li>
+<li><strong>Execute the body of the function</strong>. <code>square</code> computes <code>x*x</code>,
+which is <code>9</code>.</li>
+<li><strong>Write the return value</strong>, which is <code>9</code>.</p>
+
+<p><img src="/cs61a/notes/public/environments/return-x-times-x4.png" alt="&lt;code&gt;return x*x&lt;/code&gt;" /></li>
+</ol></li>
+</ul>
+
+<p>Now that we know <code>square(x+1)</code> is <code>16</code> and <code>square(x)</code> is <code>9</code>, we
+can compute the original expression to get <code>16 - 9 - 1 = 6</code></li>
+<li><strong>Write the return value</strong> of <code>double</code>, which is <code>6</code>.</p>
+
+<p><img src="/cs61a/notes/public/environments/double-return.png" alt="&lt;code&gt;return square(x + 1) - square(x) - 1&lt;/code&gt;" /></li>
+</ol>
+
+<h3 class="anchor" id="function-calls-as-operands">Function calls as operands</h3>
+
+<p>Consider this code:</p>
+
+<pre class="prettyprint">x = 3
+
+def square(x):
+    return x*x
+
+def double(x):
+    ans = x + x
+    return ans
+
+square(double(x))
+</pre>
+
+<p>Try drawing it on your own first by following the steps illustrated
+above!</p>
+
+<p>The first three bindings look like this:</p>
+
+<p><img src="/cs61a/notes/public/environments/bindings.png" alt="bindings" /></p>
+
+<p>Now for the hard part:</p>
+
+<pre class="prettyprint">square(double(x))
+</pre>
+
+<p>This is a function call. Notice that the operand for <code>square</code> is
+itself a function call! Should you draw the frame for <code>square</code> first
+or <code>double</code>? The procedure is as follows:</p>
+
+<ol>
+<li><strong>Evaluate the operands</strong>. The operand of <code>square</code> is
+<code>double(x)</code>, which is itself a function call:</p>
+
+<ol>
+<li><strong>Evaluate the operands</strong>. The operand of <code>double</code> is <code>x</code>.
+Since we're in Global, the value of <code>x</code> is <code>3</code>.</li>
+<li><strong>Draw a new frame</strong> for <code>double</code>.</li>
+<li><strong>Bind formal parameters</strong>. <code>double</code>'s only parameter is
+<code>x</code>, and its operand is <code>3</code>, so bind <code>x</code> to <code>3</code> in the new
+frame. Your diagram should look like this now:</p>
+
+<p><img src="/cs61a/notes/public/environments/double-x.png" alt="&lt;code&gt;double(x)&lt;/code&gt;" /></li>
+<li><strong>Execute the body of the function</strong>.</p>
+
+<p>The first line binds <code>ans = x + x</code></p>
+
+<ol>
+<li><strong>Evaluate the value</strong>: <code>x + x</code> is <code>3 + 3</code>, so the
+value is <code>6</code></li>
+<li><strong>Draw a box with the value</strong></li>
+<li><strong>Write the variable</strong>, which is <code>ans</code></li>
+</ol>
+
+<p><img src="/cs61a/notes/public/environments/ans-equals-x-plus-x.png" alt="&lt;code&gt;ans = x + x&lt;/code&gt;" /></li>
+<li><strong>Write the return value</strong>. The return value is <code>ans</code>,
+which is <code>6</code>.</p>
+
+<p><p><img src="/cs61a/notes/public/environments/return-ans.png" alt="&lt;code&gt;return ans&lt;/code&gt;" /></li>
+</ol></li>
+<li><strong>Draw a new frame</strong> for <code>square</code></li>
+<li><strong>Bind formal parameters</strong>. We saw in step 1 that <code>double(x)</code>
+is <code>6</code>. <code>square</code> has a single parameter called <code>x</code>, so we bind
+<code>x</code> to <code>6</code> in the new frame for <code>square</code></p>
+
+<p><img src="/cs61a/notes/public/environments/square-double-x.png" alt="&lt;code&gt;square(double(x))&lt;/code&gt;" /></li>
+<li><strong>Execute the body of the function</strong>. <code>square</code> just says
+<code>return x*x</code>. Since <code>x</code> is <code>6</code>, <code>x*x = 36</code></li>
+<li><strong>Write the return value</strong>, which is <code>36</code></p>
+
+<p><p><img src="/cs61a/notes/public/environments/return-x-times-x2.png" alt="&lt;code&gt;return x*x&lt;/code&gt;" /></li>
+</ol></p>
+
+<h3 class="anchor" id="reassigning-functions">Reassigning functions</h3>
+
+<p>In Python, it is possible to reassign a function to something else.
+Consider the following code:</p>
+
+<pre class="prettyprint">def foo():
+    return 10
+
+def bar():
+    return 20
+
+bar = foo
+bar()
+</pre>
+
+<p>Before drawing the diagram, try to predict what the last line
+evaluates to. If you got 10, you are correct! Let's see why, by
+drawing the diagram. The <code>def</code> statements are drawn as follows:</p>
+
+<p><img src="/cs61a/notes/public/environments/bindings3.png" alt="bindings" /></p>
+
+<p>The next line is the function reassignment:</p>
+
+<pre class="prettyprint">bar = foo
+</pre>
+
+<p>Once again, we follow the rules for bindings:</p>
+
+<ol>
+<li><strong>Evaluate the value</strong>. <code>foo</code> points to a function object with
+intrinsic name <code>foo</code>, so that's our value</li>
+<li><strong>Draw the value in a box</strong>. Since we are reassigning <code>bar</code>, we
+just re-use <code>bar</code>'s existing box -- erase its old value and replace
+it with an arrow pointing to the <code>foo</code> function.</li>
+<li><strong>Write the variable</strong>. <code>bar</code> is already written.</p>
+
+<p><img src="/cs61a/notes/public/environments/bar-equals-foo.png" alt="bar = foo" /></li>
+</ol>
+
+<p><strong>Note</strong>: in the picture, the <code>bar</code> function disappears, but you don't
+have to erase it from your diagram.</p>
+
+<p>The final line is</p>
+
+<pre class="prettyprint">bar()
+</pre>
+
+<p>This is a function call, so we follow the corresponding procedure:</p>
+
+<ol>
+<li><strong>Evaluate the operands</strong>. There are no operands.</li>
+<li><strong>Draw a new frame</strong>. Notice that we are calling the function
+object with intrinsic name <code>foo</code>, so that's what we label the frame
+(don't label it <code>bar</code>!)</li>
+<li><strong>Bind formal parameters</strong>. <code>foo</code> has no parameters.</p>
+
+<p><img src="/cs61a/notes/public/environments/bar.png" alt="bar()" /></li>
+<li><strong>Execute the body of the function</strong>. It just returns <code>10</code></li>
+<li><strong>Write the return value</strong>.</p>
+
+<p><img src="/cs61a/notes/public/environments/return-10.png" alt="return 20" /></li>
+</ol>
+
+<h3 class="anchor" id="nested-functions">Nested functions</h3>
+
+<p>Up until now, we haven't had to draw the parent and frame numbers for
+frames. That's because we haven't had any nested function definitions
+yet.</p>
+
+<p>Consider the following code:</p>
+
+<pre class="prettyprint">def outer(x):
+    def inner(y):
+        return x + y
+    return inner
+
+fn = outer(2)
+fn(3)
+</pre>
+
+<p>The first binding (for defining <code>outer</code>) looks like this:</p>
+
+<p><img src="/cs61a/notes/public/environments/bindings2.png" alt="def outer(x):" /></p>
+
+<p><strong>Note</strong>: we haven't drawn a binding for <code>inner</code> yet! That's because
+<code>inner</code> is defined in the body of <code>outer</code>, and we don't execute the
+body of <code>outer</code> when we're just defining it.</p>
+
+<p>The next line is</p>
+
+<pre class="prettyprint">fn = outer(2)
+</pre>
+
+<p>This is a variable assignment, so we follow the procedure for
+bindings:</p>
+
+<ol>
+<li><strong>Evaluate the value</strong>. The right-hand side of the <code>=</code> is a
+function call, so we have to evaluate it</p>
+
+<ol>
+<li><strong>Evaluate the operands</strong>. The operand to <code>outer</code> is just <code>2</code>.</li>
+<li><strong>Draw a new frame</strong> for <code>outer</code>. Since it's defined in Global,
+we don't need to label the parent. We DO need to write a <strong>frame
+number</strong>, since we'll be defining a new function object. Label
+this frame <code>f1</code>.</li>
+<li><strong>Bind formal parameters</strong>. <code>outer</code> has one paramter <code>x</code> that is
+bound to <code>2</code></p>
+
+<p><img src="/cs61a/notes/public/environments/outer-2.png" alt="fn = outer(2)" /></li>
+<li><strong>Execute the body of the function</strong>. The first thing in <code>outer</code>
+is a <code>def</code> statement, so we follow the rules for bindings:</p>
+
+<ol>
+<li><strong>Evaluate the value</strong>. Since it's a <code>def</code> statement, the
+value is a <em>function object</em> with an intrinsic name of
+<code>inner</code>. Also, since <code>inner</code> is defined in <code>outer</code></li>
+<li><strong>Draw the value in the box</strong>. Since a function is not a
+primitive, we need to draw an arrow to the function object</li>
+<li><strong>Write the variable</strong>, which is <code>inner</code>.</p>
+
+<p><img src="/cs61a/notes/public/environments/def-inner.png" alt="def inner(y)" /></li>
+</ol></li>
+<li><strong>Write the return value</strong>. <code>inner</code> points to a function object,
+so the return value points to what <code>inner</code> points to.</p>
+
+<p><img src="/cs61a/notes/public/environments/return-inner.png" alt="return inner" /></li>
+</ol></li>
+<li><strong>Draw a box with the value</strong>. Since the value is a function
+object, we draw an arrow pointing to that function object</li>
+<li><strong>Write the variable</strong>, which is <code>fn</code>.</p>
+
+<p><img src="/cs61a/notes/public/environments/fn-equals.png" alt="fn = outer(2)" /></li>
+</ol>
+
+<p>The next line is</p>
+
+<pre class="prettyprint">fn(3)
+</pre>
+
+<p>This is a function call:</p>
+
+<ol>
+<li><strong>Evalute the operands</strong>. The operand is just 3.</li>
+<li><strong>Draw a new frame</strong>. <code>fn</code> points to a function whose <strong>intrinsic
+name</strong> is <code>inner</code>, so that's the label we give the frame. Also,
+since <code>inner</code> was defined in frame <code>f1</code>, we need to put the
+<strong>parent</strong> label as well.</li>
+<li><strong>Bind formal parameters</strong>. <code>inner</code> has one parameter <code>y</code>, which is
+bound to 3.</p>
+
+<p><img src="/cs61a/notes/public/environments/fn-3.png" alt="fn(3)" /></li>
+<li><strong>Execute the body of the function</strong>. <code>inner</code> just says <code>return x +
+y</code>. It gets a little tricky, though. Currently, we're in the frame
+for <code>inner</code>, but there's no binding for <code>x</code> in that frame! Where do
+we look next? <strong>We look in f1, the parent of inner</strong>. In <code>f1</code>,
+there is a variable <code>x</code> bound to <code>2</code>, so that's the value we'll
+use.</li>
+<li><strong>Write the return value</strong>, which is <code>2 + 3 = 5</code>.</p>
+
+<p><img src="/cs61a/notes/public/environments/return-x-plus-y.png" alt="return x + y" /></li>
+</ol>
+
+<h3 class="anchor" id="built-in-functions">Built-in functions</h3>
+
+<p>Recall that when we call built-in functions, we do not draw new
+frames. Here's an example:</p>
+
+<pre class="prettyprint">def square1(x):
+    return x*x
+
+def square2(x):
+    print(x*x)
+
+a = square1(4)
+b = square2(4)
+</pre>
+
+<p>In the example, <code>print</code> is the built-in function. This example also
+demonstrates the difference between <code>print</code> and <code>return</code>.</p>
+
+<p>The function findings are as follows:</p>
+
+<p><img src="/cs61a/notes/public/environments/bindings4.png" alt="bindings" /></p>
+
+<p>The next line is</p>
+
+<pre class="prettyprint">a = square1(4)
+</pre>
+
+<p>which is a binding. This should be straightforward by now:</p>
+
+<ol>
+<li><strong>Evaluate the value</strong>. The value is a function call, <code>square1(4)</code>:</p>
+
+<ol>
+<li><strong>Evalute the operands</strong>. The operand is 4</li>
+<li><strong>Draw a new frame</strong> for <code>square1</code>.</li>
+<li><strong>Bind formal parameters</strong>. <code>square1</code> has a single paramter
+<code>x</code>, which is bound to <code>4</code>.</p>
+
+<p><img src="/cs61a/notes/public/environments/square1-4.png" alt="square1(4)" /></li>
+<li><strong>Execute the body of the function</strong>. <code>x</code> is bound to <code>4</code>, so
+<code>x*x = 16</code>.</li>
+<li><strong>Write the return value</strong>, which is 16.</p>
+
+<p><img src="/cs61a/notes/public/environments/return-x-times-x5.png" alt="&lt;code&gt;return x*x&lt;/code&gt;" /></li>
+</ol></li>
+<li><strong>Draw a box with the value</strong>. We're back in Global, so that's
+where we put the value <code>16</code>.</li>
+<li><strong>Write the variable</strong>, which is <code>a</code></p>
+
+<p><img src="/cs61a/notes/public/environments/a-equals.png" alt="a = square1(4)" /></li>
+</ol>
+
+<p>And thus, <code>a</code> is bound to <code>16</code>. Nothing new here.</p>
+
+<p>The next line is</p>
+
+<pre class="prettyprint">a = square1(4)
+</pre>
+
+<p>The procedure is as follows:</p>
+
+<ol>
+<li><strong>Evaluate the value</strong>. The value is a function call, <code>square2(4)</code>:</p>
+
+<ol>
+<li><strong>Evalute the operands</strong>. The operand is 4</li>
+<li><strong>Draw a new frame</strong> for <code>square1</code>.</li>
+<li><strong>Bind formal parameters</strong>. <code>square1</code> has a single paramter
+<code>x</code>, which is bound to <code>4</code>.</p>
+
+<p><img src="/cs61a/notes/public/environments/square2-4.png" alt="square2(4)" /></li>
+<li><strong>Execute the body of the function</strong>. Here, the line is to
+<code>print(x*x)</code>. This <strong>is a function call</strong>, but <code>print</code> is a
+built-in function, so we do NOT draw a new frame for it.</p>
+
+<p>Also recall that the return value of <code>print</code> is always <code>None</code>.</li>
+<li><strong>Write the return value</strong>. Since there's no <code>return</code>
+statement, the <code>square2</code> implicitly returns <code>None</code>.</p>
+
+<p><img src="/cs61a/notes/public/environments/print-x-times-x.png" alt="&lt;code&gt;print(x*x)&lt;/code&gt;" /></li>
+</ol></li>
+<li><strong>Draw a box with the value</strong>. We're back in Global, so that's
+where we put the value <code>None</code>.</li>
+<li><strong>Write the variable</strong>, which is <code>b</code></p>
+
+<p><img src="/cs61a/notes/public/environments/b-equals.png" alt="b = square2(4)" /></li>
+</ol>
+
+<p>Notice that <code>b</code> is bound to <code>None</code>, not 16 -- that's the difference
+between <code>return</code> and <code>print</code>!</p>
+
+      </div>
+    </div>
+  </body>
+
+  <script src='/cs61a/public/jquery-1.10.1.min.js'></script>
+  <script src="/cs61a/public/jquery-scrolltofixed-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+    });
+  </script>
+  
+</html>

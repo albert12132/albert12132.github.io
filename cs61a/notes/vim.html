@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>CS 61A: Vim</title>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/prettify/prettify.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' media='print' type='text/css' href='/cs61a/public/print.css'>
+    <script src='/cs61a/public/prettify/prettify.js'></script>
+    <link href='/cs61a/notes/public/' rel='stylesheet' type='text/css'>
+
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+        Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'berkeley.edu');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body onload='prettyPrint()'>
+    <div id='container'>
+      <div id='logo'>
+        <h1>Vim</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/index.html'>Home</a></li>
+    <li><a href='/cs61a/review/index.html'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1.html'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2.html'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final.html'>Final</a></li>
+  </ul>
+</div>
+<h3>Introduction</h3><div><ul><li><a href="#introduction">Intro</a></li></ul></div><h3>Getting Vim</h3><div><ul><li><a href="#getting-vim">Intro</a></li><li><a href="#linux">Linux</a></li><li><a href="#macs">Macs</a></li><li><a href="#windows">Windows</a></li></ul></div><h3>Basics</h3><div><ul><li><a href="#basics">Intro</a></li><li><a href="#vim-tutor">Vim Tutor</a></li></ul></div><h3>Modes</h3><div><ul><li><a href="#modes">Intro</a></li></ul></div><h3>Insert mode</h3><div><ul><li><a href="#insert-mode">Intro</a></li></ul></div><h3>Normal mode</h3><div><ul><li><a href="#normal-mode">Intro</a></li><li><a href="#navigation">Navigation</a></li><li><a href="#undoing-changes">Undoing changes</a></li><li><a href="#deleting-text">Deleting text</a></li><li><a href="#yanking-text">Yanking text</a></li><li><a href="#putting-text">Putting text</a></li><li><a href="#searching">Searching</a></li><li><a href="#replacing-text">Replacing text</a></li></ul></div><h3>Visual mode</h3><div><ul><li><a href="#visual-mode">Intro</a></li><li><a href="#block-visual-mode">Block visual mode</a></li></ul></div><h3>Command mode</h3><div><ul><li><a href="#command-mode">Intro</a></li><li><a href="#find-and-replace">Find and replace</a></li></ul></div><h3>Multiple Windows</h3><div><ul><li><a href="#multiple-windows">Intro</a></li></ul></div><h3>.vimrc</h3><div><ul><li><a href="#vimrc">Intro</a></li></ul></div>
+        </div>
+        <div id='nav-bar-fixed'>
+          
+        </div>
+        <a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS
+          61A course page</a>
+      </div>
+
+      <div id='content'>
+        
+
+<h2 class="anchor" id="introduction">Introduction</h2>
+
+<p>Vim is a <em>mode-based</em> editor, meaning it has different modes with
+different behaviors. To use Vim, you switch between modes depending on
+what you want to do.</p>
+
+<p>It often takes time to get used to this feature. You might ask why we
+bother having modes in the first place. However, you'll find that,
+with practice, switching between and using different modes becomes
+effortless and makes coding much faster.</p>
+
+<p>One <strong>note</strong> before we begin: when first learning Vim, you'll be
+tempted to use your mouse and/or the arrow keys. <strong>Don't do it</strong>. The
+whole point of using Vim is to "throw away the mouse" -- you'll find
+that, after some practice, using Vim's shortcuts will be more
+productive.</p>
+
+<h2 class="anchor" id="getting-vim">Getting Vim</h2>
+
+<p>Vim is already installed on the instructional machines (i.e. your
+class account), but it behaves strangely by default. To fix this, type</p>
+
+<pre class="prettyprint">echo "set nocompatible" &gt; ~/.vimrc
+</pre>
+
+<p>This creates a file in your home directory called <code>.vimrc</code>, which is
+Vim's <a href="/cs61a/vimrc.html">configuration file</a>. The <code>.vimrc</code>
+will contain one line that says <code>set nocompatible</code>, which tells Vim
+not to be compatible with Vi, Vim's predecessor.</p>
+
+<p>You can also get Vim on your own machines. The download site is
+<a href="http://www.vim.org/download.php">here</a>.</p>
+
+<h3 class="anchor" id="linux">Linux</h3>
+
+<p>You can use your package manager to install Vim. For Ubuntu, use the
+<code>apt-get</code> package manager:</p>
+
+<pre class="prettyprint">sudo apt-get install vim
+</pre>
+
+<h3 class="anchor" id="macs">Macs</h3>
+
+<p>OS X comes pre-installed with Vim. If you want the graphical user
+interface (GUI) version, you can also install
+<a href="https://code.google.com/p/macvim/">MacVim</a>.</p>
+
+<h3 class="anchor" id="windows">Windows</h3>
+
+<p>You can find the files to download
+<a href="http://www.vim.org/download.php#pc">here</a>. I personally haven't used
+Vim on Windows before -- I suspect it won't be as satisfactory as
+using it on a UNIX-based machine.</p>
+
+<h2 class="anchor" id="basics">Basics</h2>
+
+<p>You can start Vim from the command line just by typing</p>
+
+<pre class="prettyprint">vim
+</pre>
+
+<p>You can also open a file with Vim:</p>
+
+<pre class="prettyprint">vim myfile.py
+</pre>
+
+<p>If you are using the text-based version, Vim will take up your entire
+terminal.</p>
+
+<p>Try typing some words. You'll notice what you type is not rendered on
+the screen. Vim uses different <em>modes</em> -- the mode Vim starts in is
+called <strong>normal mode</strong>.</p>
+
+<p>We'll talk more about normal mode in a bit. Students usually find it
+reassuring to know how to type text first. The mode for regular
+editing is called <strong>insert mode</strong>. To switch from normal mode to
+insert mode, press the letter <code>i</code>. Now try typing -- text should be
+showing up.</p>
+
+<p>To save the file, we need to return to normal mode. To do so, just
+press the <code>ESC</code> button. Next, type the following:</p>
+
+<pre class="prettyprint">:w
+</pre>
+
+<p>that is, a colon followed by the letter <code>w</code> (for <code>w</code>rite). After
+pressing <code>Enter</code>, your file will be saved.</p>
+
+<p>To exit Vim, go to normal mode and type in</p>
+
+<pre class="prettyprint">:q
+</pre>
+
+<p>If there are unsaved changes, Vim will prevent you from exiting. You
+can either save the changes, or if you want to quit without saving,
+add an exclamation mark after the command:</p>
+
+<pre class="prettyprint">:q!
+</pre>
+
+<p>And there you have it -- a (very, very, very) basic work cycle in Vim!</p>
+
+<p><strong>Note</strong>: you might have noticed that pressing the <code>ESC</code> key every
+time you want to switch back to normal mode takes quite a bit of work,
+since the <code>ESC</code> key is all the way in the top-left corner of your
+keyboard. Most people who use Vim remap their <code>ESC</code> key to something
+else (such as <code>CAPS</code> lock).</p>
+
+<h3 class="anchor" id="vim-tutor">Vim Tutor</h3>
+
+<p>Vim provides a great built-in tutor to teach you the basics. From the
+terminal, type</p>
+
+<pre class="prettyprint">vimtutor
+</pre>
+
+<p><code>vimtutor</code> is interactive, and gives you a feel for how to use the
+commands.</p>
+
+<h2 class="anchor" id="modes">Modes</h2>
+
+<p>You've already seen <strong>insert mode</strong> and <strong>normal mode</strong>. Here is a
+full list of modes:</p>
+
+<ul>
+<li><a href="#insert-mode">Insert mode</a></li>
+<li><a href="#normal-mode">Normal mode</a></li>
+<li><a href="#visual-mode">Visual mode</a></li>
+<li><a href="#command-mode">Command mode</a></li>
+</ul>
+
+<p>There's also an <strong>Ex-mode</strong>, but we won't talk about it here.</p>
+
+<h2 class="anchor" id="insert-mode">Insert mode</h2>
+
+<p>There's not much to say about insert mode. This is where you type like
+you would with any other text editor.</p>
+
+<p>Most of the time, you'll be switching between normal mode and insert
+mode. To go from insert to normal, just press <code>ESC</code>.</p>
+
+<p>There are more options to go the other way, to switch from normal to
+insert:</p>
+
+<ul>
+<li><code>i</code>: start inserting text where the cursor is</li>
+<li><code>a</code>: start inserting text right <em>after</em> the cursor</li>
+<li><code>I</code>: insert text at the beginning of the line</li>
+<li><code>A</code>: insert text at the end of the line</li>
+<li><code>o</code>: insert a newline <em>after</em> this line and enter insert mode</li>
+<li><code>O</code>: same as lower-case <code>o</code>, but inserts a newline <em>above</em> this line</li>
+<li><code>s</code>: deletes the character under the cursor and enters insert mode</li>
+<li><code>S</code>: deletes the entire line and enters insert mode</li>
+</ul>
+
+<p>Experiment with each one -- I personally use <code>i</code>, <code>A</code>, <code>I</code>, and <code>o</code> the
+most.</p>
+
+<h2 class="anchor" id="normal-mode">Normal mode</h2>
+
+<p>Normal mode is used for navigation and manipulating text. There is a
+wide variety of commands -- the most frequently used are described
+here.</p>
+
+<p>Remember, to enter normal mode, just press <code>ESC</code>.</p>
+
+<h3 class="anchor" id="navigation">Navigation</h3>
+
+<p>In normal mode, the four basic navigation keys are <code>h</code>, <code>j</code>, <code>k</code>, <code>l</code>.</p>
+
+<ul>
+<li><code>j</code>: down</li>
+<li><code>k</code>: up</li>
+<li><code>h</code>: left</li>
+<li><code>l</code>: right</li>
+</ul>
+
+<p>While you can use the arrow keys, you'll find (with time) that using
+<code>hjkl</code> is much faster. Trust me, take the time to learn how to use
+them -- it'll pay off.</p>
+
+<p>There are lots of other navigation keys:</p>
+
+<ul>
+<li>words:
+<ul>
+<li><code>w</code>: moves forward to the beginning of the next word</li>
+<li><code>e</code>: moves forward to the end of the next word</li>
+<li><code>b</code>: moves backward to the beginning of the previous word</li>
+</ul></li>
+<li>sentences (if applicable)
+<ul>
+<li><code>(</code>: moves backward to the beginning of the previous sentence</li>
+<li><code>)</code>: moves forward to the beginning of the next sentence</li>
+</ul></li>
+<li>paragraphs (if applicable)
+<ul>
+<li><code>{</code>: moves backward to the previous paragraph</li>
+<li><code>}</code>: moves foward to the next paragraph</li>
+</ul></li>
+<li>lines
+<ul>
+<li><code>0</code>: moves to the beginning of the line</li>
+<li><code>$</code>: moves to the end of the line</li>
+</ul></li>
+<li>screen:
+<ul>
+<li><code>CTRL-f</code>: moves an entire "page" down</li>
+<li><code>CTRL-b</code>: moves an entire "page" up</li>
+<li><code>CTRL-d</code>: moves half a "page" down</li>
+<li><code>CTRL-u</code>: moves half a "page" up</li>
+</ul></li>
+<li>document-level
+<ul>
+<li><code>gg</code>: moves to the top of the document</li>
+<li><code>G</code>: moves to the bottom of the document</li>
+</ul></li>
+</ul>
+
+<h3 class="anchor" id="undoing-changes">Undoing changes</h3>
+
+<p>The undo key is <code>u</code> -- it undoes any modifications to the text. Vim
+remembers several levels of modifications, so you can keep pressing
+<code>u</code> to undo further and futher back. You can configure Vim to remember
+a certain number of levels.</p>
+
+<p>There is also a redo functionality -- to undo an undo, press <code>CTRL-r</code>.
+Again, Vim will remember multiple levels, so you can redo multiple
+times.</p>
+
+<h3 class="anchor" id="deleting-text">Deleting text</h3>
+
+<p>The <code>x</code> command deletes a single character:</p>
+
+<ul>
+<li><code>x</code>: deletes the character right underneath the cursor</li>
+<li><code>X</code>: (i.e. <code>SHIFT-x</code>) deletes the character right before the cursor</li>
+</ul>
+
+<p>Using <code>d</code> provides more flexibility and range:</p>
+
+<ul>
+<li><code>dd</code>: deletes the entire line</li>
+<li><code>dw</code>: deletes the rest of the current word, starting from the cursor</li>
+<li><code>db</code>: deletes the beginning of the current word, starting from
+cursor</li>
+<li><code>dj</code>: deletes this line and the next (2 lines)</li>
+<li><code>dk</code>: deletes this line and the previous one (2 lines)</li>
+<li><code>D</code>: deletes from the cursor to the end of the line</li>
+</ul>
+
+<p>I use <code>x</code>, <code>dd</code>, <code>dw</code>, and <code>D</code> the most. Of course, play around with
+the commands and see which ones you're comfortable with.</p>
+
+<p><strong>Note</strong>: Vim's delete functionality acts like <em>cut</em> -- Vim remembers
+what you deleted, and you can immediately paste the deleted text.</p>
+
+<h3 class="anchor" id="yanking-text">Yanking text</h3>
+
+<p><em>Yanking</em> is the same as copying text. The primary operator to do so
+is <code>y</code>:</p>
+
+<ul>
+<li><code>yy</code>: copy the entire line (<code>Y</code> works too)</li>
+<li><code>yw</code>: copy the rest of the current word, starting from the cursor</li>
+<li><code>yj</code>: copy this line and the next</li>
+</ul>
+
+<p><strong>Note</strong>: Yanking and deleting use the same buffer to store text, so
+they will overwrite each other.</p>
+
+<h3 class="anchor" id="putting-text">Putting text</h3>
+
+<p>In Vim, pasting is called <em>putting</em> text. The primary key to do so is
+<code>p</code>:</p>
+
+<ul>
+<li><code>p</code>: puts copied text right after the cursor</li>
+<li><code>P</code>: (i.e. <code>SHIFT-p</code>) puts copied text right before the cursor</li>
+</ul>
+
+<p>Note that, if you had deleted or yanked an entire line, <code>p</code> will place
+the line after the current one, and <code>P</code> will place the line before the
+current one.</p>
+
+<h3 class="anchor" id="searching">Searching</h3>
+
+<p>You can initiate a search from normal mode in the following ways:</p>
+
+<ul>
+<li><code>/</code>: starts a <em>forward search</em> -- moving to the "next" match will go
+down the document</li>
+<li><code>?</code>: starts a <em>backward search</em> -- moving to the "next" match will go
+up the document</li>
+</ul>
+
+<p>To search for a string, press one of the keys above, and type in the
+pattern you want to look for. For example, to search the pattern
+"class", type</p>
+
+<pre class="prettyprint">/class
+</pre>
+
+<p>and press enter. To move through matches:</p>
+
+<ul>
+<li><code>n</code>: move to the next match (down if <code>/</code>, up if <code>?</code>)</li>
+<li><code>N</code>: move to the previous match (up if <code>/</code>, down if <code>?</code>)</li>
+</ul>
+
+<p>Vim's search uses regular expressions, which can come in handy.</p>
+
+<p>Vim has a <a href="#find-and-replace">find-and-replace</a> functionality that you can use in Command
+mode.</p>
+
+<h3 class="anchor" id="replacing-text">Replacing text</h3>
+
+<p>There are two ways to replace text from normal mode:</p>
+
+<ul>
+<li><code>r</code>: replaces the character under the cursor. After pressing <code>r</code>, type
+the new character, and it will take the place of the old one.</li>
+<li><code>R</code>: enters <strong>replace mode</strong>, which is like pressing the Insert key
+-- it allows you type text, but replaces existing text.</li>
+</ul>
+
+<p>There are lots of other commands in normal mode -- look for them on
+the internet.</p>
+
+<h2 class="anchor" id="visual-mode">Visual mode</h2>
+
+<p>Visual mode is used for selecting and highlighting text. There are
+several ways to switch from normal mode to visual mode:</p>
+
+<ul>
+<li><code>v</code>: enters regular visual mode.</li>
+<li><code>V</code>: (i.e. <code>SHIFT-v</code>) highlights entire lines at a time.</li>
+<li><code>CTRL-v</code>: "block" visual mode</li>
+</ul>
+
+<p>In each visual mode, you can use normal mode commands for various
+things:</p>
+
+<ul>
+<li>navigation (<code>hjkl</code>, <code>w</code>, etc.)</li>
+<li>deleting and yanking: <code>d</code> will delete all highlighted text; <code>y</code> will
+yank the highlighted text. Both then return to normal mode</li>
+<li>replacing (<code>r</code>): replaces all highlighted characters with a new
+character (<code>R</code> just deletes the lines of the highlighted text)</li>
+</ul>
+
+<p>In this way, visual mode is useful for moving large bodies of text
+around. I usually use line-visual mode (<code>V</code>) instead of regular visual
+mode.</p>
+
+<h3 class="anchor" id="block-visual-mode">Block visual mode</h3>
+
+<p>You'll notice that in regular visual mode, navigating up and down will
+highlight all text on the line. "Block" visual mode highlights a block
+of text. The best way to understand it is to try it: from normal mode,
+type <code>CTRL-v</code>, and then press <code>k</code> to go up -- notice that it literally
+highlights the character above the cursor, without any of the other
+characters on the line!</p>
+
+<h2 class="anchor" id="command-mode">Command mode</h2>
+
+<p>Vim supports a command line similar to your terminal, except the
+commands are specific to Vim. To enter command mode from normal mode,
+press <code>:</code> (the colon). At the bottom of your screen you should see a
+<code>:</code> appear. Now you can type in a Vim command.</p>
+
+<p>There are tons of Vim commands out there, so we'll only cover a few of
+the most frequently used ones.</p>
+
+<ul>
+<li><code>:w</code> saves the file. You can also save the file with a name by
+typing <code>:w filename</code></li>
+<li><code>:q</code> quits Vim. If you have unsaved work, Vim will warn you. To
+ignore the warning, following the command with a <code>!</code>, like <code>:q!</code></li>
+<li><code>:x</code> saves and quits Vim in one command.</li>
+</ul>
+
+<p>There are commands for doing terminal work:</p>
+
+<ul>
+<li><code>:sh</code> switches to the terminal. This is useful if you need to
+naviagte through your filesystem or execute some UNIX commands.
+(Note: <code>:sh</code> opens up a new process)</li>
+<li><code>:!unix command</code> executes a single UNIX command (for example, to
+<code>ls</code> your current directory, type <code>:!ls</code>)</li>
+</ul>
+
+<p>These two commands come in handy; for example, if you want to run a
+doctest, you can type</p>
+
+<pre class="prettyprint">:!python3 -m doctest %
+</pre>
+
+<p>and it will run the doctests for the file you are currently working on
+(the <code>%</code> is a special character in Vim that stands for the name of the
+current file).</p>
+
+<p>Finally, there's the help utility:</p>
+
+<ul>
+<li><code>:help feature</code> brings up Vim's help documentation on the
+specified feature</li>
+</ul>
+
+<p>As you use Vim more, you can look up different features and how they
+work.</p>
+
+<h3 class="anchor" id="find-and-replace">Find and replace</h3>
+
+<p>As mentioned above, Vim also has a find-and-replace utility. It
+behaves like the UNIX program <code>sed</code>, so it has regular expression
+capabilities. To get the full benefit of Vim's <code>sed</code>-like utility, you
+should take the time to learn both regular expressions and <code>sed</code>.</p>
+
+<p>However, for a simple find-and-replace job, the following command will
+suffice:</p>
+
+<pre class="prettyprint">:%s/search pattern/replace pattern/g
+</pre>
+
+<p>The <code>:</code> indicates that this is a Command mode utility. There are a
+couple of characters to be aware of:</p>
+
+<ul>
+<li><code>%</code>: tells Vim to search the entire document. You can also specify a
+range of lines. You can even highlight text in Visual mode, and
+press <code>:s</code> to begin find-and-replace for just the highlighted text</li>
+<li><code>s</code>: stands for "substitute." The <code>s</code> should follow the range.</li>
+<li><code>/</code>: the forward slashes are delimiters that separate the different
+fields. Technically, you can replace the <code>/</code> with any character you
+want, as long as you are consistent -- for example, you can do
+<code>:%s_search pattern_replace pattern_g</code>, but then any unescaped <code>_</code>s
+in the search and replace patterns will be interpreted as
+delimeters.</li>
+<li><code>g</code>: an optional argument, <code>g</code> stands for "global" and tells Vim to
+find-and-replace all instances on a line. If you omit the <code>g</code>, Vim
+will only find-and-replace the first instance of the search pattern
+on each line.</li>
+</ul>
+
+<p>Some example usage:</p>
+
+<pre class="prettyprint"># finds all instances of "def" and replaces them with "class"
+:%s/def/class/g
+
+# finds all instances of "TODO" and deletes them
+:%s/TODO//g
+
+# finds "foo" between lines 403 and 411 and replaces with "bar"
+:403,411s/foo/bar/g
+</pre>
+
+<h2 class="anchor" id="multiple-windows">Multiple Windows</h2>
+
+<p>When working on large projects, it is useful to have multiple files
+open at the same time. You can always open multiple terminals, but
+that can get annoying. Vim supports multiple windows.</p>
+
+<p>There are two ways to open windows from command mode:</p>
+
+<ul>
+<li><code>:split</code> opens up a horizontal window. By default, the window
+contains the same file you are editing, so you can view the same
+file from different places at the same time.</li>
+<li><code>:vsplit</code> is the same as <code>:split</code>, but opens a vertical window</li>
+</ul>
+
+<p>Both <code>split</code> and <code>vsplit</code> can also open up a new file by following the
+command with the file name</p>
+
+<pre class="prettyprint">:split filename
+:vsplit filename
+</pre>
+
+<p>To navigate between windows, type <code>CTRL-w</code>, followed by one of the
+<code>hjkl</code> keys.</p>
+
+<p>To close a window, move to that window and quit (type <code>:q</code>).</p>
+
+<h2 class="anchor" id="vimrc">.vimrc</h2>
+
+<p>To configure Vim, you can create a file called a <code>.vimrc</code> (the <code>.</code>
+hides the file from a normal <code>ls</code> command, but it is still there).
+Learn more <a href="/cs61a/vimrc.html">here</a>.</p>
+
+      </div>
+    </div>
+  </body>
+
+  <script src='/cs61a/public/jquery-1.10.1.min.js'></script>
+  <script src="/cs61a/public/jquery-scrolltofixed-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+    });
+  </script>
+  
+</html>
