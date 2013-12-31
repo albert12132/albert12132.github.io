@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>CS 61A: Higher-Order Functions: basic</title>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/prettify/prettify.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' media='print' type='text/css' href='/cs61a/public/print.css'>
+    <script src='/cs61a/public/prettify/prettify.js'></script>
+      <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+        Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'berkeley.edu');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body onload='prettyPrint()'>
+    <div id='container'>
+      <div id='logo'>
+        <h1>Higher-Order Functions: basic</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/index.html'>Home</a></li>
+    <li><a href='/cs61a/review/index.html'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1.html'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2.html'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final.html'>Final</a></li>
+  </ul>
+</div>
+<h3>Conceptual</h3>
+<div><ul>
+  <li><a href="#conceptual1">Q1</a></li>
+  <li><a href="#conceptual2">Q2</a></li>
+</ul></div>
+<h3>What would Python print?</h3>
+<div><ul>
+  <li><a href="#print1">Q1</a></li>
+  <li><a href="#print2">Q2</a></li>
+  <li><a href="#print3">Q3</a></li>
+</ul></div>
+<h3>Environment Diagrams</h3>
+<div><ul>
+  <li><a href="#env1">Q1</a></li>
+  <li><a href="#env2">Q2</a></li>
+  <li><a href="#env3">Q3</a></li>
+  <li><a href="#env4">Q4</a></li>
+  <li><a href="#env5">Q5</a></li>
+</ul></div>
+<h3>Code Writing</h3>
+<div><ul>
+  <li><a href="#code1">Q1</a></li>
+</ul></div>
+        </div>
+        <div id='nav-bar-fixed'>
+          
+        </div>
+        <a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS
+          61A course page</a>
+      </div>
+
+      <div id='content'>
+          <div id='reference'>
+    <h2>References</h2>
+
+    <p>You can review higher-order functions in the following places</p>
+    <ul>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/04-HoF_1pps.pdf">Lecture: Higher-Order Functions</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab02/lab02.php">Lab 2</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion02.pdf">Discussion 2</a></li>
+</ul>
+  </div>
+
+  
+
+  <div id='contents'>
+    <h2>Contents</h2>
+    <ol>
+  <li><a href="#conceptual">Conceptual</a></li>
+  <li><a href="#print">What would Python print?</a></li>
+  <li><a href="#env">Environment Diagrams</a></li>
+  <li><a href="#code">Code Writing</a></li>
+</ol>
+  </div>
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  <h2 id="conceptual" class="subtopic anchor">Conceptual</h2>
+<h3 id="conceptual1" class="question anchor">Q1</h3>
+<p>What is the definition of a higher-order
+        function?</p>
+<button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><p><b>Answer: </b>A function is a higher-order function if it
+        satisfies at least one of the following:
+<li>It takes at least one function as an argument</li>
+<li>It returns a function</li>
+</p>
+</div>
+<h3 id="conceptual2" class="question anchor">Q2</h3>
+<p>In the following code, what type of object
+        (number, boolean, string, function) does <tt>foo</tt> return?
+        What type of object should <tt>x</tt> be for this function to
+        work?</p>
+<pre class="prettyprint">
+def foo(x):
+    def inner(y):
+        return x(y)
+    return inner
+</pre>
+<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><b>Answer: </b><tt>foo</tt> should return a <b>function</b>
+        object (in particular, the function <tt>inner</tt>).
+        <tt>x</tt> should also be a <b>function</b>, or else calling
+        <tt>inner</tt> will result in an error (because it will try
+        <tt>x(y)</tt>).</p>
+</div>
+
+<h2 id="print" class="subtopic anchor">What would Python print?</h2>
+<h3 id="print1" class="question anchor">Q1</h3>
+<pre class="prettyprint">&gt;&gt;&gt; def silly():
+...     def rabbit(y):
+...         return 'Tricks are for kids!'
+...     print('Lucky Charms?')
+...     return False
+&gt;&gt;&gt; a = silly()
+<span class="blank2">______</span><span class="hidden solution 2">Lucky Charms?</span>
+&gt;&gt;&gt; a
+<span class="blank2">______</span><span class="hidden solution 2">False</span>
+&gt;&gt;&gt; a(5)
+<span class="blank2">______</span><span class="hidden solution 2">TypeError</span></pre>
+<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
+<h3 id="print2" class="question anchor">Q2</h3>
+<pre class="prettyprint">&gt;&gt;&gt; def func1(fn):
+...     def inner():
+...         return fn(2)
+...     return inner
+&gt;&gt;&gt; def func2(fn):
+...     def inner():
+...         return fn(2)
+...     return inner()
+&gt;&gt;&gt; func1(lambda x: x * x)
+<span class="blank3">______</span><span class="hidden solution 3">&lt;function inner at ...&gt;</span>
+&gt;&gt;&gt; func2(lambda x: x * x)
+<span class="blank3">______</span><span class="hidden solution 3">4</span></pre>
+<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
+<h3 id="print3" class="question anchor">Q3</h3>
+<pre class="prettyprint">&gt;&gt;&gt; def dream1(totem):
+...     def dream2(totem_guess):
+...         print('I think my totem is a', totem_guess)
+...         return totem_guess == totem
+...     return dream2
+&gt;&gt;&gt; inception = dream1('top')
+&gt;&gt;&gt; inception
+<span class="blank4">______</span><span class="hidden solution 4">&lt;function dream2 at ...&gt;</span>
+&gt;&gt;&gt; inception('spinning top')
+<span class="blank4">______</span><span class="hidden solution 4">I think my totem is a spinning top
+False</span></pre>
+<button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
+
+<h2 id="env" class="subtopic anchor">Environment Diagrams</h2>
+<h3 id="env1" class="question anchor">Q1</h3>
+<pre class="prettyprint">
+def my_strat(score):
+    return score + 2
+
+def play(strat):
+    i, roll = 0, strat(0)
+    while i &lt; roll:
+        result = my_strat(i)
+        i += 1
+    return i
+
+result = play(my_strat)
+
+# How many times do we call my_strat?
+# Remember to label the frames with the intrinsic
+# name of the functions</pre>
+<button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Adef+my_strat%28score%29%3A%0A++++return+score+%2B+2%0A%0Adef+play%28strat%29%3A%0A++++i%2C+roll+%3D+0%2C+strat%280%29%0A++++while+i+%3C+roll%3A%0A++++++++result+%3D+my_strat%28i%29%0A++++++++i+%2B%3D+1%0A++++return+i%0A%0Aresult+%3D+play%28my_strat%29%0A%0A%23+How+many+times+do+we+call+my_strat%3F%0A%23+Remember+to+label+the+frames+with+the+intrinsic%0A%23+name+of+the+functions"></iframe></p>
+</div>
+<h3 id="env2" class="question anchor">Q2</h3>
+<pre class="prettyprint">
+def fun(x):
+    return x**2
+
+def time(y):
+    y, x = 4, 5
+    def fun(y):
+        return y + x
+    return fun
+
+a = time(10)
+b = a(2)
+
+# Which fun is called?
+# Which y is used?
+# What type of object is a?</pre>
+<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Adef+fun%28x%29%3A%0A++++return+x%2A%2A2%0A%0Adef+time%28y%29%3A%0A++++y%2C+x+%3D+4%2C+5%0A++++def+fun%28y%29%3A%0A++++++++return+y+%2B+x%0A++++return+fun%0A%0Aa+%3D+time%2810%29%0Ab+%3D+a%282%29%0A%0A%23+Which+fun+is+called%3F%0A%23+Which+y+is+used%3F%0A%23+What+type+of+object+is+a%3F"></iframe></p>
+</div>
+<h3 id="env3" class="question anchor">Q3</h3>
+<pre class="prettyprint">
+def square(x):
+    return x * x
+
+def boom(fn):
+    def bam(x):
+        print(x)
+        return fn(x)
+    return bam
+
+boom(square)
+a = boom(square)
+a(4)</pre>
+<button id='7' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 7"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Adef+square%28x%29%3A%0A++++return+x+%2A+x%0A%0Adef+boom%28fn%29%3A%0A++++def+bam%28x%29%3A%0A++++++++print%28x%29%0A++++++++return+fn%28x%29%0A++++return+bam%0A%0Aboom%28square%29%0Aa+%3D+boom%28square%29%0Aa%284%29"></iframe></p>
+</div>
+<h3 id="env4" class="question anchor">Q4</h3>
+<pre class="prettyprint">
+x = 4
+
+def outer(f):
+    def inner(g):
+        return f(g(x))
+    return inner
+
+def square(x):
+    return x**2
+
+c = outer(square)(square)</pre>
+<button id='8' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 8"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Ax+%3D+4%0A%0Adef+outer%28f%29%3A%0A++++def+inner%28g%29%3A%0A++++++++return+f%28g%28x%29%29%0A++++return+inner%0A%0Adef+square%28x%29%3A%0A++++return+x%2A%2A2%0A%0Ac+%3D+outer%28square%29%28square%29"></iframe></p>
+</div>
+<h3 id="env5" class="question anchor">Q5</h3>
+<pre class="prettyprint">
+def one(f):
+    a = 1
+    def two(g):
+        b = 2
+        def three(h):
+            c = 3
+            return f(a) + g(b) + h(c)
+        return three
+    return two
+
+def identity(x):
+    return x
+
+def square(x):
+    return x**2
+
+def cube(x):
+    return x**3
+
+middle = one(identity)(square)
+result = middle(cube)
+
+# what function is middle?
+# What are the parents of each frame?</pre>
+<button id='9' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 9"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Adef+one%28f%29%3A%0A++++a+%3D+1%0A++++def+two%28g%29%3A%0A++++++++b+%3D+2%0A++++++++def+three%28h%29%3A%0A++++++++++++c+%3D+3%0A++++++++++++return+f%28a%29+%2B+g%28b%29+%2B+h%28c%29%0A++++++++return+three%0A++++return+two%0A%0Adef+identity%28x%29%3A%0A++++return+x%0A%0Adef+square%28x%29%3A%0A++++return+x%2A%2A2%0A%0Adef+cube%28x%29%3A%0A++++return+x%2A%2A3%0A%0Amiddle+%3D+one%28identity%29%28square%29%0Aresult+%3D+middle%28cube%29%0A%0A%23+what+function+is+middle%3F%0A%23+What+are+the+parents+of+each+frame%3F"></iframe></p>
+</div>
+
+<h2 id="code" class="subtopic anchor">Code Writing</h2>
+<h3 id="code1" class="question anchor">Q1</h3>
+<p>Write a function <tt>make_mod</tt> that
+        takes a number, <tt>n</tt>, as an argument, and returns a new
+        function. The new function should take a single argument,
+        <tt>x</tt>, and return the result of <tt>x</tt> modulo
+        <tt>n</tt>.</p>
+<pre class="prettyprint">
+def make_mod(n):
+    """Returns a function that takes an argument x.
+    That function will return x modulo n.
+
+    &gt;&gt;&gt; mod_7 = make_mod(7)
+    &gt;&gt;&gt; mod_7(3)
+    3
+    &gt;&gt;&gt; mod_7(41)
+    6
+    """
+    "*** YOUR CODE HERE ***"
+</pre>
+<button id='10' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 10"><pre class="prettyprint">
+def make_mod(n):
+    def mod_n(x):
+        return x % n
+    return mod_n
+</pre>
+</div>
+
+  </div>
+      </div>
+    </div>
+  </body>
+
+  <script src='/cs61a/public/jquery-1.10.1.min.js'></script>
+  <script src="/cs61a/public/jquery-scrolltofixed-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+    });
+  </script>
+    <script src='/cs61a/review/public/nav-bar.js'></script>
+  <script src='/cs61a/review/public/toggle.js'></script>
+  
+</html>

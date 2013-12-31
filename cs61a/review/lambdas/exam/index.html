@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>CS 61A: Lambda Expressions: exam</title>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/prettify/prettify.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' media='print' type='text/css' href='/cs61a/public/print.css'>
+    <script src='/cs61a/public/prettify/prettify.js'></script>
+      <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+        Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'berkeley.edu');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body onload='prettyPrint()'>
+    <div id='container'>
+      <div id='logo'>
+        <h1>Lambda Expressions: exam</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/index.html'>Home</a></li>
+    <li><a href='/cs61a/review/index.html'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1.html'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2.html'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final.html'>Final</a></li>
+  </ul>
+</div>
+<h3>Environment Diagrams</h3>
+<div><ul>
+  <li><a href="#env1">Q1</a></li>
+  <li><a href="#env2">Q2</a></li>
+  <li><a href="#env3">Q3</a></li>
+</ul></div>
+<h3>Code Writing</h3>
+<div><ul>
+  <li><a href="#code1">Q1</a></li>
+  <li><a href="#code2">Q2</a></li>
+  <li><a href="#code3">Q3</a></li>
+</ul></div>
+        </div>
+        <div id='nav-bar-fixed'>
+          
+        </div>
+        <a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS
+          61A course page</a>
+      </div>
+
+      <div id='content'>
+          <div id='reference'>
+    <h2>References</h2>
+
+    <p>You can review lambda expressions in the following places</p>
+    <ul>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/04-HoF_1pps.pdf">Lecture: Higher-Order Functions</a></li>
+</ul>
+  </div>
+
+  
+
+  <div id='contents'>
+    <h2>Contents</h2>
+    <ol>
+  <li><a href="#env">Environment Diagrams</a></li>
+  <li><a href="#code">Code Writing</a></li>
+</ol>
+  </div>
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  <h2 id="env" class="subtopic anchor">Environment Diagrams</h2>
+<h3 id="env1" class="question anchor">Q1</h3>
+<pre class="prettyprint">
+f = lambda x: lambda y: lambda z: g(x + y + z)
+
+g = f(3)
+f(4)(5)(6)</pre>
+<button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Af+%3D+lambda+x%3A+lambda+y%3A+lambda+z%3A+g%28x+%2B+y+%2B+z%29%0A%0Ag+%3D+f%283%29%0Af%284%29%285%29%286%29"></iframe></p>
+</div>
+<h3 id="env2" class="question anchor">Q2</h3>
+<pre class="prettyprint">
+fn = lambda f, a: f(f(2*a))
+
+result = fn(lambda x: x*x, 2)</pre>
+<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Afn+%3D+lambda+f%2C+a%3A+f%28f%282%2Aa%29%29%0A%0Aresult+%3D+fn%28lambda+x%3A+x%2Ax%2C+2%29"></iframe></p>
+</div>
+<h3 id="env3" class="question anchor">Q3</h3>
+<pre class="prettyprint">
+fn = lambda: lambda: print('hi')
+
+def example(x):
+    print('example')
+    return x
+
+result = example(fn())()</pre>
+<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Afn+%3D+lambda%3A+lambda%3A+print%28%27hi%27%29%0A%0Adef+example%28x%29%3A%0A++++print%28%27example%27%29%0A++++return+x%0A%0Aresult+%3D+example%28fn%28%29%29%28%29"></iframe></p>
+</div>
+
+<h2 id="code" class="subtopic anchor">Code Writing</h2>
+<h3 id="code1" class="question anchor">Q1</h3>
+<p>Fill in the blanks for the following
+        expression so that <tt>result</tt> is the number 42.</p>
+<pre class="prettyprint">
+x = lambda x, y: lambda: x - y
+result = (lambda ____, question: one(__________)(x, 4)</pre>
+<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><pre class="prettyprint">
+result = (lambda one, question: one(46, question)())(x, 4)</pre>
+</div>
+<h3 id="code2" class="question anchor">Q2</h3>
+<p>Fill in the blanks for the following
+        expression so that <tt>result</tt> is the boolean True.</p>
+<pre class="prettyprint">
+x = lambda x: lambda y: x(y)
+result = (lambda ______: x(fair)(dice))(lambda fair: fair == 3, 3)</pre>
+<button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><pre class="prettyprint">
+result = (lambda fair, dice: x(fair)(dice))(lambda fair: fair == 3, 3)</pre>
+</div>
+<h3 id="code3" class="question anchor">Q3</h3>
+<p>Fill in the blanks for the following
+        expression so that each call to <tt>mapper</tt> prints the
+        output displayed below:</p>
+<pre class="prettyprint">
+&gt;&gt;&gt; def mapper(fn, num):
+...     i = 0
+...     while i &lt; num:
+...         print(fn(i))
+...         i = i + 1
+&gt;&gt;&gt; mapper(lambda x: ______, 4)
+1
+3
+5
+7
+&gt;&gt;&gt; mapper(lambda x: ______, 5)
+-2
+-1
+0
+1
+2
+&gt;&gt;&gt; mapper(lambda x: ______, 5)
+0
+-1
+1
+-2
+2</pre>
+<button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><pre class="prettyprint">
+mapper(lambda x: 2 * x + 1, 4)
+mapper(lambda x: x - 2, 5)
+mapper(lambda x: (-1 ** x) * (x + 1) // 2, 5)</pre>
+</div>
+
+  </div>
+      </div>
+    </div>
+  </body>
+
+  <script src='/cs61a/public/jquery-1.10.1.min.js'></script>
+  <script src="/cs61a/public/jquery-scrolltofixed-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+    });
+  </script>
+    <script src='/cs61a/review/public/nav-bar.js'></script>
+  <script src='/cs61a/review/public/toggle.js'></script>
+  
+</html>

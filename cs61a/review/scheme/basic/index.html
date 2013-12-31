@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>CS 61A: Scheme: basic</title>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/prettify/prettify.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' media='print' type='text/css' href='/cs61a/public/print.css'>
+    <script src='/cs61a/public/prettify/prettify.js'></script>
+      <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+        Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'berkeley.edu');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body onload='prettyPrint()'>
+    <div id='container'>
+      <div id='logo'>
+        <h1>Scheme: basic</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/index.html'>Home</a></li>
+    <li><a href='/cs61a/review/index.html'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1.html'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2.html'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final.html'>Final</a></li>
+  </ul>
+</div>
+<h3>What would Scheme print?</h3>
+<div><ul>
+  <li><a href="#print1">Q1</a></li>
+  <li><a href="#print2">Q2</a></li>
+  <li><a href="#print3">Q3</a></li>
+  <li><a href="#print4">Q4</a></li>
+</ul></div>
+<h3>Code Writing</h3>
+<div><ul>
+  <li><a href="#code1">Q1</a></li>
+  <li><a href="#code2">Q2</a></li>
+  <li><a href="#code3">Q3</a></li>
+</ul></div>
+        </div>
+        <div id='nav-bar-fixed'>
+          
+        </div>
+        <a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS
+          61A course page</a>
+      </div>
+
+      <div id='content'>
+          <div id='reference'>
+    <h2>References</h2>
+
+    <p>You can review scheme in the following places</p>
+    <ul>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/23-Scheme_1pps.pdf">Lecture: Functional Programming</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab08/lab8-scheme.html">Lab 8</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion09_sol.pdf">Discussion 9</a></li>
+</ul>
+  </div>
+
+  
+
+  <div id='contents'>
+    <h2>Contents</h2>
+    <ol>
+  <li><a href="#print">What would Scheme print?</a></li>
+  <li><a href="#code">Code Writing</a></li>
+</ol>
+  </div>
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  <h2 id="print" class="subtopic anchor">What would Scheme print?</h2>
+<h3 id="print1" class="question anchor">Q1</h3>
+<pre class="prettyprint">STk&gt; (+ 4 3)
+<span class="blank0">______</span><span class="hidden solution 0">7</span>
+STk&gt; (4 + 3)
+<span class="blank0">______</span><span class="hidden solution 0">Error</span>
+STk&gt; (+ 1 2 3 4)
+<span class="blank0">______</span><span class="hidden solution 0">10</span>
+STk&gt; (- 1 2 3 4)
+<span class="blank0">______</span><span class="hidden solution 0">-8</span>
+STk&gt; (/ 1 2 2)
+<span class="blank0">______</span><span class="hidden solution 0">0.25</span></pre>
+<button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
+<h3 id="print2" class="question anchor">Q2</h3>
+<pre class="prettyprint">STk&gt; (if #t (+ 2 3))
+<span class="blank1">______</span><span class="hidden solution 1">5</span>
+STk&gt; (if #f (+ 2 3))
+<span class="blank1">______</span><span class="hidden solution 1">okay   ; i.e. returns nothing</span>
+STk&gt; (if #f (/ 1 0) 4)
+<span class="blank1">______</span><span class="hidden solution 1">4</span>
+STk&gt; (and #t #f #t)
+<span class="blank1">______</span><span class="hidden solution 1">#f</span>
+STk&gt; (and #t 0 #t)
+<span class="blank1">______</span><span class="hidden solution 1">#t</span>
+STk&gt; (and 3 5 2)
+<span class="blank1">______</span><span class="hidden solution 1">2</span>
+STk&gt; (or #t #f #t)
+<span class="blank1">______</span><span class="hidden solution 1">#t</span>
+STk&gt; (or #f 4 #t)
+<span class="blank1">______</span><span class="hidden solution 1">4</span></pre>
+<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
+<h3 id="print3" class="question anchor">Q3</h3>
+<pre class="prettyprint">STk&gt; (define x 2)
+<span class="blank2">______</span><span class="hidden solution 2">x</span>
+STk&gt; x
+<span class="blank2">______</span><span class="hidden solution 2">2</span>
+STk&gt; (define (f x) (* x x))
+<span class="blank2">______</span><span class="hidden solution 2">f</span>
+STk&gt; (f 4)
+<span class="blank2">______</span><span class="hidden solution 2">16</span>
+STk&gt; (define (g x) (lambda (y) (* x y)))
+<span class="blank2">______</span><span class="hidden solution 2">g</span>
+STk&gt; ((g 4) 5)
+<span class="blank2">______</span><span class="hidden solution 2">20</span></pre>
+<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
+<h3 id="print4" class="question anchor">Q4</h3>
+<pre class="prettyprint">STk&gt; (cons 1 (cons 2 nil))
+<span class="blank3">______</span><span class="hidden solution 3">(1 2)</span>
+STk&gt; (cons 1 2)
+<span class="blank3">______</span><span class="hidden solution 3">(1 . 2)</span>
+STk&gt; (car (cons 1 (cons 2 nil)))
+<span class="blank3">______</span><span class="hidden solution 3">1</span>
+STk&gt; (cdr (cons 1 (cons 2 nil)))
+<span class="blank3">______</span><span class="hidden solution 3">(2)</span>
+STk&gt; (cdr (cons 1 2))
+<span class="blank3">______</span><span class="hidden solution 3">2</span>
+STk&gt; (null? (cons 1 nil))
+<span class="blank3">______</span><span class="hidden solution 3">#f</span>
+STk&gt; (null? (cdr (cons 1 nil)))
+<span class="blank3">______</span><span class="hidden solution 3">#t</span>
+STk&gt; (list 1 2 3 4)
+<span class="blank3">______</span><span class="hidden solution 3">(1 2 3 4)</span>
+STk&gt; (cdr (list 1 2 3 4))
+<span class="blank3">______</span><span class="hidden solution 3">(2 3 4)</span></pre>
+<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
+
+<h2 id="code" class="subtopic anchor">Code Writing</h2>
+<h3 id="code1" class="question anchor">Q1</h3>
+<p>Implement the function <tt>filter</tt>,
+        which takes a predicate and a Scheme list as arguments.
+        <tt>filter</tt> will return a new list that only contains
+        elements of the original list that satisfy the predicate.</p>
+<pre class="prettyprint">
+(define (filter pred lst)
+    ; YOUR CODE HERE
+    )
+
+; Tests
+STk&gt; (define (less-3 x) (&lt; x 3))
+less-3
+STk&gt; (filter less-3 (list 1 2 3 4))
+(1 2)</pre>
+<button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><pre class="prettyprint">
+(define (filter pred lst)
+    (cond ((null? lst) nil)
+          ((pred (car lst)) (cons (car lst)
+                                  (filter pred (cdr lst))))
+          (else (filter pred (cdr lst)))))</pre>
+</div>
+<h3 id="code2" class="question anchor">Q2</h3>
+<p>Implement the function <tt>interleave</tt>,
+        which takes a two lists as arguments. <tt>interleave</tt> will
+        return a new list that interleaves the elements of the two
+        lists, with <tt>list1</tt> starting first. Refer to the tests
+        for sample input/output.</p>
+<pre class="prettyprint">
+(define (interleave list1 list2)
+    ; YOUR CODE HERE
+    )
+
+; Tests
+STk&gt; (interleave (list 1 3 5) (list 2 4 6))
+(1 2 3 4 5 6)
+STk&gt; (interleave (list 1 3 5) nil)
+(1 3 5)
+STk&gt; (interleave (list 1 3 5) (list 2 4))
+(1 2 3 4 5)</pre>
+<button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><pre class="prettyprint">
+(define (interleave list1 ist2)
+    (if (or (null? list1) (null? list2))
+        (append list1 list2)
+        (cons (car list1)
+              (cons (car list2)
+                    (interleave (cdr list1) (cdr list2))))))</pre>
+</div>
+<h3 id="code3" class="question anchor">Q3</h3>
+<p>Implement the function 
+        <tt>count-stairways</tt>, which takes a number (of steps).
+        Assuming we can take 1 or 2 steps, return the number of ways
+        we can climb up the stairs.</p>
+<pre class="prettyprint">
+(define (count-stairways n)
+    ; YOUR CODE HERE
+    )
+
+; Tests
+STk&gt; (count-stairways 4)
+5
+STk&gt; (count-stairways 5)
+8</pre>
+<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><pre class="prettyprint">
+(define (count-stairways n)
+    (cond ((= n 1) 1)
+          ((= n 2) 2)
+          (else (+ (count-stairways (- n 1))
+                   (count-stairways (- n 2))))))</pre>
+</div>
+
+  </div>
+      </div>
+    </div>
+  </body>
+
+  <script src='/cs61a/public/jquery-1.10.1.min.js'></script>
+  <script src="/cs61a/public/jquery-scrolltofixed-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+    });
+  </script>
+    <script src='/cs61a/review/public/nav-bar.js'></script>
+  <script src='/cs61a/review/public/toggle.js'></script>
+  
+</html>

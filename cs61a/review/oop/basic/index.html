@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>CS 61A: OOP: basic</title>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/prettify/prettify.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' media='print' type='text/css' href='/cs61a/public/print.css'>
+    <script src='/cs61a/public/prettify/prettify.js'></script>
+      <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+        Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'berkeley.edu');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body onload='prettyPrint()'>
+    <div id='container'>
+      <div id='logo'>
+        <h1>OOP: basic</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/index.html'>Home</a></li>
+    <li><a href='/cs61a/review/index.html'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1.html'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2.html'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final.html'>Final</a></li>
+  </ul>
+</div>
+<h3>Variables: Conceptual</h3>
+<div><ul>
+  <li><a href="#var-conceptual1">Q1</a></li>
+  <li><a href="#var-conceptual2">Q2</a></li>
+  <li><a href="#var-conceptual3">Q3</a></li>
+</ul></div>
+<h3>Variables: What would Python print?</h3>
+<div><ul>
+  <li><a href="#var-print1">Q1</a></li>
+</ul></div>
+<h3>Methods: Conceptual</h3>
+<div><ul>
+  <li><a href="#method-conceptual1">Q1</a></li>
+  <li><a href="#method-conceptual2">Q2</a></li>
+  <li><a href="#method-conceptual3">Q3</a></li>
+</ul></div>
+<h3>Methods: What would Python print?</h3>
+<div><ul>
+  <li><a href="#meth-print1">Q1</a></li>
+</ul></div>
+        </div>
+        <div id='nav-bar-fixed'>
+          
+        </div>
+        <a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS
+          61A course page</a>
+      </div>
+
+      <div id='content'>
+          <div id='reference'>
+    <h2>References</h2>
+
+    <p>You can review oop in the following places</p>
+    <ul>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/15-Objects_1pps.pdf">Lecture: Objects</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/16-Inheritance_1pps.pdf">Lecture: Inheritance</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion06.pdf">Discussion 6</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php">Lab 6</a></li>
+</ul>
+  </div>
+
+  
+
+  <div id='contents'>
+    <h2>Contents</h2>
+    <ol>
+  <li><a href="#var-conceptual">Variables: Conceptual</a></li>
+  <li><a href="#var-print">Variables: What would Python print?</a></li>
+  <li><a href="#method-conceptual">Methods: Conceptual</a></li>
+  <li><a href="#meth-print">Methods: What would Python print?</a></li>
+</ol>
+  </div>
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  <h2 id="var-conceptual" class="subtopic anchor">Variables: Conceptual</h2>
+<h3 id="var-conceptual1" class="question anchor">Q1</h3>
+<p>Define each of the following terms:<ol>
+  <li>Local variable</li>
+  <li>Instance variable</li>
+  <li>Class variable</li>
+</ol></p>
+<button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><p><b>Answer: </b><ol>
+  <li>Local variable: a variable that is only visible within
+            the scope of a method. Once the method finishes executing,
+            the local variable is erased.</li>
+  <li>Instance variable: a variable that persists -- even
+            after methods are done executing, these variables will
+            still exist and retain their value.<ul>
+  <li><b>Tip</b>: you can tell a variable is an instance
+                variable if it has <tt>self.</tt> in front of it (e.g.
+                <tt>self.name</tt>). Instance variable</li>
+  <li>Instance variables can only be used within methods.</li>
+  <li>Instance variables are unique to each instance of
+                the class. They are not shared by instances.</li>
+</ul></li>
+  <li>Class variable: like instance variables, class
+            variables also persist. However, class variables ARE
+            shared by all instances of the class.<ul>
+  <li>When initialized outside of methods (which is
+                usually the case), the class variable has no "dot"
+                modifier (e.g. just <tt>num_of_accounts</tt></li>
+  <li>When referenced in methods, the class variable must
+                be referenced with the following syntax:
+                <tt>class_name.variable</tt> (e.g.
+                <tt>Account.num_of_accounts)</tt></li>
+</ul></li>
+</ol></p>
+</div>
+<h3 id="var-conceptual2" class="question anchor">Q2</h3>
+<p>For the following code, determine whether
+        each of these variables are local, instance, or class
+        variables:<ul>
+  <li><code class="prettyprint">name</code></li>
+  <li><code class="prettyprint">self.name</code></li>
+  <li><code class="prettyprint">balance</code></li>
+  <li><code class="prettyprint">self.balance</code></li>
+  <li><code class="prettyprint">interest</code></li>
+  <li><code class="prettyprint">amt</code></li>
+  <li><code class="prettyprint">total</code></li>
+</ul></p>
+<pre class="prettyprint">
+class Account:
+    interest = 0.02
+    def __init__(self, name, balance):
+        self.name = name
+        self.balance = balance
+
+    def deposit(self, amt):
+        total = self.balance + amt
+        self.balance = total</pre>
+<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><b>Answer: </b><ul>
+  <li><code class="prettyprint">name</code>: local</li>
+  <li><code class="prettyprint">self.name</code>: instance</li>
+  <li><code class="prettyprint">balance</code>: local</li>
+  <li><code class="prettyprint">self.balance</code>: instance</li>
+  <li><code class="prettyprint">interest</code>: class</li>
+  <li><code class="prettyprint">amt</code>: local</li>
+  <li><code class="prettyprint">total</code>: local</li>
+</ul></p>
+</div>
+<h3 id="var-conceptual3" class="question anchor">Q3</h3>
+<p>For the following code, let's say we want
+        to have a variable that keeps track of all the Person
+        objects ever created.<ul>
+  <li>What type of variable should this be? (local, instance,
+            or class)</li>
+  <li>Modify the code to initialize <tt>population</tt> to 0,
+            and to increment it by 1 every time you create a new
+            Person object.</li>
+</ul></p>
+<pre class="prettyprint">
+class Person:
+    def __init__(self, name):
+        self.name = name</pre>
+<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><p><b>Answer: </b><ul>
+  <li>Class Variable</li>
+  <li>New code:<pre class="prettyprint">
+class Person:
+    <b>population = 0</b>
+    def __init__(self, name):
+        self.name = name
+        <b>Person.population += 1</b></pre>
+</li>
+</ul></p>
+</div>
+
+<h2 id="var-print" class="subtopic anchor">Variables: What would Python print?</h2>
+<h3 id="var-print1" class="question anchor">Q1</h3>
+<p>For the following questions, use the
+        following class definition:<pre class="prettyprint">
+class Account:
+    """A class computer account. Each account has a two-letter ID
+    and the name of the student who is registered to the account.
+    """
+    num_of_accounts = 0
+    def __init__(self, id):
+        self.id = id
+        Account.num_of_accounts += 1
+
+    def register(self, student):
+        self.student = student
+        print('Registered!')
+
+    @property
+    def type(self):
+        return type(self)</pre>
+</p>
+<pre class="prettyprint">&gt;&gt;&gt; self.id
+<span class="blank3">______</span><span class="hidden solution 3">NameError</span>
+&gt;&gt;&gt; acc_aa = Account("aa")
+&gt;&gt;&gt; acc_aa.id
+<span class="blank3">______</span><span class="hidden solution 3">'aa'</span>
+&gt;&gt;&gt; acc_aa.student
+<span class="blank3">______</span><span class="hidden solution 3">AttributeError (self.student not defined yet)</span>
+&gt;&gt;&gt; acc_aa.register("Peter Perfect")
+<span class="blank3">______</span><span class="hidden solution 3">Registered!</span>
+&gt;&gt;&gt; acc_aa.student
+<span class="blank3">______</span><span class="hidden solution 3">'Peter Perfect'</span>
+&gt;&gt;&gt; num_of_accounts
+<span class="blank3">______</span><span class="hidden solution 3">NameError</span>
+&gt;&gt;&gt; Account.num_of_accounts
+<span class="blank3">______</span><span class="hidden solution 3">1</span>
+&gt;&gt;&gt; acc_aa.num_of_accounts
+<span class="blank3">______</span><span class="hidden solution 3">1</span>
+&gt;&gt;&gt; acc_zz = Account("zz")
+&gt;&gt;&gt; Account.num_of_accounts
+<span class="blank3">______</span><span class="hidden solution 3">2</span>
+&gt;&gt;&gt; acc_aa.num_of_accounts
+<span class="blank3">______</span><span class="hidden solution 3">2</span>
+&gt;&gt;&gt; acc_zz.num_of_accounts
+<span class="blank3">______</span><span class="hidden solution 3">2</span>
+&gt;&gt;&gt; acc_aa.num_of_accounts = 100
+&gt;&gt;&gt; acc_aa.num_of_accounts
+<span class="blank3">______</span><span class="hidden solution 3">100</span>
+&gt;&gt;&gt; acc_zz.num_of_accounts
+<span class="blank3">______</span><span class="hidden solution 3">2</span>
+&gt;&gt;&gt; Account.num_of_accounts
+<span class="blank3">______</span><span class="hidden solution 3">2</span>
+&gt;&gt;&gt; Account.num_of_accounts = 9001
+&gt;&gt;&gt; acc_aa.num_of_accounts
+<span class="blank3">______</span><span class="hidden solution 3">100</span>
+&gt;&gt;&gt; acc_zz.num_of_accounts
+<span class="blank3">______</span><span class="hidden solution 3">9001</span></pre>
+<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
+
+<h2 id="method-conceptual" class="subtopic anchor">Methods: Conceptual</h2>
+<h3 id="method-conceptual1" class="question anchor">Q1</h3>
+<p>Consider the <tt>Account</tt> class defined
+        <a href='#var-print'>above</a>. Why is it that, when I call
+        <tt>acc_aa.register('me')</tt> no errors will be raised, even
+        though I didn't pass in an argument for <tt>self</tt>?</p>
+<button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><p><b>Answer: </b>The dot notation will implicitly pass
+        <tt>acc_aa</tt> into <tt>type</tt> as <tt>self</tt>. This is
+        known as a <b>bound method</b>. Another way to think about it
+        is that <tt>acc_aa.register</tt> acts like a curried function:
+        <pre class="prettyprint">
+>>> acc_aa.register = curry2(Account.register)(acc_aa)
+>>> acc_aa.register('me')
+Registered!</pre>
+</p>
+</div>
+<h3 id="method-conceptual2" class="question anchor">Q2</h3>
+<p>Can a method have the same name as a
+        variable?</p>
+<button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><p><b>Answer: </b>No; in python, variables and methods share the
+        same namespace, so variable and method names can collide if
+        you aren't careful.</p>
+</div>
+<h3 id="method-conceptual3" class="question anchor">Q3</h3>
+<p>What does the
+        <code class='prettyprint'>@property</code> decorator do?</p>
+<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><p><b>Answer: </b>The <code class='prettyprint'>@property</code>
+        decorator allows you to use the affected method to be accessed
+        like a variable. For example, the following method<pre class="prettyprint">
+class Example:
+    @property
+    def foo(self):
+        return 3</pre>
+can be accessed like
+        this:<pre class="prettyprint">
+>>> a = Example()
+>>> a.foo
+3</pre>
+</p>
+</div>
+
+<h2 id="meth-print" class="subtopic anchor">Methods: What would Python print?</h2>
+<h3 id="meth-print1" class="question anchor">Q1</h3>
+<p>For the following questions, use the
+        <tt>Account</tt> class defined <a href='#var-print'>above</a>.
+        </p>
+<pre class="prettyprint">&gt;&gt;&gt; acc_aa = Account("aa")
+&gt;&gt;&gt; acc_aa.register
+<span class="blank7">______</span><span class="hidden solution 7">&lt;bound method Account.register ...&gt;</span>
+&gt;&gt;&gt; Account.register
+<span class="blank7">______</span><span class="hidden solution 7">&lt;function register at ...&gt; # (not a bound method!)</span>
+&gt;&gt;&gt; acc_aa.register(self, "Peter Perfect")
+<span class="blank7">______</span><span class="hidden solution 7">NameError</span>
+&gt;&gt;&gt; acc_aa.register("Peter Perfect")
+<span class="blank7">______</span><span class="hidden solution 7">Registered!</span>
+&gt;&gt;&gt; acc_aa.type()
+<span class="blank7">______</span><span class="hidden solution 7">TypeError</span>
+&gt;&gt;&gt; acc_aa.type
+<span class="blank7">______</span><span class="hidden solution 7">&lt;class '__main__.Account'&gt;</span>
+&gt;&gt;&gt; acc_aa.type = "Nothing"
+<span class="blank7">______</span><span class="hidden solution 7">AttributeError</span></pre>
+<button id='7' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
+
+  </div>
+      </div>
+    </div>
+  </body>
+
+  <script src='/cs61a/public/jquery-1.10.1.min.js'></script>
+  <script src="/cs61a/public/jquery-scrolltofixed-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+    });
+  </script>
+    <script src='/cs61a/review/public/nav-bar.js'></script>
+  <script src='/cs61a/review/public/toggle.js'></script>
+  
+</html>

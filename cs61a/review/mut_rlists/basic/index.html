@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>CS 61A: Rlists as Classes: basic</title>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/prettify/prettify.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' media='print' type='text/css' href='/cs61a/public/print.css'>
+    <script src='/cs61a/public/prettify/prettify.js'></script>
+      <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+        Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'berkeley.edu');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body onload='prettyPrint()'>
+    <div id='container'>
+      <div id='logo'>
+        <h1>Rlists as Classes: basic</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/index.html'>Home</a></li>
+    <li><a href='/cs61a/review/index.html'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1.html'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2.html'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final.html'>Final</a></li>
+  </ul>
+</div>
+<h3>Conceptual</h3>
+<div><ul>
+  <li><a href="#conceptual1">Q1</a></li>
+  <li><a href="#conceptual2">Q2</a></li>
+</ul></div>
+<h3>Code Writing</h3>
+<div><ul>
+  <li><a href="#code1">Q1</a></li>
+  <li><a href="#code2">Q2</a></li>
+</ul></div>
+        </div>
+        <div id='nav-bar-fixed'>
+          
+        </div>
+        <a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS
+          61A course page</a>
+      </div>
+
+      <div id='content'>
+          <div id='reference'>
+    <h2>References</h2>
+
+    <p>You can review rlists as classes in the following places</p>
+    <ul>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/17-Structure_1pps.pdf">Recursive Objects</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php">Lab 6</a></li>
+</ul>
+  </div>
+
+  For this section, we will be using the <tt>Rlist</tt>
+class implementation from lecture:<pre class="prettyprint">
+class Rlist(object):
+    class EmptyList(object):
+        def __len__(self):
+            return 0
+    empty = EmptyList()
+
+    def __init__(self, first, rest=empty):
+        self.first = first
+        self.rest = rest
+
+    def__len__(self):
+        return 1 + len(self.rest)
+
+    def __getitem__(self, i):
+        if i == 0:
+            return self.first
+        return self.rest[i - 1]
+
+    def __repr__(self):
+        if self.rest is empty:
+            return 'Rlist({})'.format(repr(self.first))
+        return 'Rlist({}, {})'.format(repr(self.first),
+                                      repr(self.rest))</pre>
+
+
+  <div id='contents'>
+    <h2>Contents</h2>
+    <ol>
+  <li><a href="#conceptual">Conceptual</a></li>
+  <li><a href="#code">Code Writing</a></li>
+</ol>
+  </div>
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  <h2 id="conceptual" class="subtopic anchor">Conceptual</h2>
+<h3 id="conceptual1" class="question anchor">Q1</h3>
+<p>What type of object can <tt>self.first</tt>
+        be? What type of object can <tt>self.rest</tt> be?</p>
+<button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><p><b>Answer: </b><tt>self.first</tt> can be any type of object,
+        including an <tt>Rlist</tt>. <tt>self.rest</tt> can only be
+        an <tt>Rlist</tt> or an <tt>EmptyList</tt>.</p>
+</div>
+<h3 id="conceptual2" class="question anchor">Q2</h3>
+<p>How is the <tt>Rlist</tt> class different
+        the <tt>rlist</tt> abstract data type we saw earlier in the
+        course?</p>
+<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><b>Answer: </b>The <tt>Rlist</tt> class is mutable, meaning
+        we can modify its contents. On the other hand, the
+        <tt>rlist</tt> abstract data type is immutable, so it can not
+        be mutated after it is created.</p>
+</div>
+
+<h2 id="code" class="subtopic anchor">Code Writing</h2>
+<h3 id="code1" class="question anchor">Q1</h3>
+<p>Implement a function <tt>seq_to_rlist</tt>,
+        which takes any type of sequence (e.g. tuple, list) and
+        converts it to an <tt>Rlist</tt>.</p>
+<pre class="prettyprint">
+def seq_to_rlist(seq):
+    """Converts SEQ into an Rlist.
+
+    &gt;&gt;&gt; seq = [1, 2, 3, 4]
+    &gt;&gt;&gt; seq_to_rlist(seq)
+    Rlist(1, Rlist(2, Rlist(3, Rlist(4))))
+    &gt;&gt;&gt; null = ()
+    &gt;&gt;&gt; seq_to_rlist(null) is Rlist.empty
+    True
+    """ </pre>
+<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><pre class="prettyprint">
+# recursive
+def seq_to_rlist(seq):
+    if not seq:
+        return Rlist.empty
+    return Rlist(seq[0], seq_to_rlist(seq[1:]))
+
+# iterative
+def seq_to_rlist(seq):
+    new = Rlist.empty
+    for elem in seq[::-1]:
+        new = Rlist(elem, new)
+    return new</pre>
+</div>
+<h3 id="code2" class="question anchor">Q2</h3>
+<p>Implement a function <tt>map_rlist</tt>,
+        which takes an Rlist and a function <tt>fn</tt>, and applies
+        <tt>fn</tt> to every element in the Rlist. <tt>map_rlist</tt>
+        should <b>mutate</b> the Rlist -- do not return a new one!</p>
+<pre class="prettyprint">
+def map_rlist(fn, r):
+    """Maps FN onto every element of the Rlist R.
+
+    &gt;&gt;&gt; r = Rlist(1, Rlist(2, Rlist(3)))
+    &gt;&gt;&gt; map_rlist(lambda x: x*x, r)
+    &gt;&gt;&gt; r
+    Rlist(1, Rlist(4, Rlist(9)))
+    """ </pre>
+<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><pre class="prettyprint">
+# recursive
+def map_rlist(fn, r):
+    if r is not Rlist.empty:
+        r.first = fn(r.first)
+        map_rlist(fn, r.rest)
+
+# iterative
+def map_rlist(fn, r):
+    while r is not Rlist.empty:
+        r.first = fn(r.first)
+        r = r.rest</pre>
+</div>
+
+  </div>
+      </div>
+    </div>
+  </body>
+
+  <script src='/cs61a/public/jquery-1.10.1.min.js'></script>
+  <script src="/cs61a/public/jquery-scrolltofixed-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+    });
+  </script>
+    <script src='/cs61a/review/public/nav-bar.js'></script>
+  <script src='/cs61a/review/public/toggle.js'></script>
+  
+</html>

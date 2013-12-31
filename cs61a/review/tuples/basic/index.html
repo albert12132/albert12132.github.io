@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>CS 61A: Tuples: basic</title>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/prettify/prettify.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' media='print' type='text/css' href='/cs61a/public/print.css'>
+    <script src='/cs61a/public/prettify/prettify.js'></script>
+      <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+        Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'berkeley.edu');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body onload='prettyPrint()'>
+    <div id='container'>
+      <div id='logo'>
+        <h1>Tuples: basic</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/index.html'>Home</a></li>
+    <li><a href='/cs61a/review/index.html'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1.html'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2.html'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final.html'>Final</a></li>
+  </ul>
+</div>
+<h3>Conceptual</h3>
+<div><ul>
+  <li><a href="#conceptual1">Q1</a></li>
+</ul></div>
+<h3>What would Python print?</h3>
+<div><ul>
+  <li><a href="#print1">Q1</a></li>
+  <li><a href="#print2">Q2</a></li>
+  <li><a href="#print3">Q3</a></li>
+  <li><a href="#print4">Q4</a></li>
+</ul></div>
+<h3>Environment Diagrams</h3>
+<div><ul>
+  <li><a href="#env1">Q1</a></li>
+  <li><a href="#env2">Q2</a></li>
+</ul></div>
+<h3>Code Writing</h3>
+<div><ul>
+  <li><a href="#code1">Q1</a></li>
+  <li><a href="#code2">Q2</a></li>
+  <li><a href="#code3">Q3</a></li>
+</ul></div>
+        </div>
+        <div id='nav-bar-fixed'>
+          
+        </div>
+        <a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS
+          61A course page</a>
+      </div>
+
+      <div id='content'>
+          <div id='reference'>
+    <h2>References</h2>
+
+    <p>You can review tuples in the following places</p>
+    <ul>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/11-Sequences_1pps.pdf">Lecture: Sequences, Iterables</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab05/lab05.php">Lab 5</a></li>
+</ul>
+  </div>
+
+  
+
+  <div id='contents'>
+    <h2>Contents</h2>
+    <ol>
+  <li><a href="#conceptual">Conceptual</a></li>
+  <li><a href="#print">What would Python print?</a></li>
+  <li><a href="#env">Environment Diagrams</a></li>
+  <li><a href="#code">Code Writing</a></li>
+</ol>
+  </div>
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  <h2 id="conceptual" class="subtopic anchor">Conceptual</h2>
+<h3 id="conceptual1" class="question anchor">Q1</h3>
+<p>What does <i>immutability</i> mean? How does
+        it relate to tuples?</p>
+<button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><p><b>Answer: </b>An object that is <i>immutable</i> cannot be
+    modified after it is created. For example, tuples and strings are
+    immutable. Consider the following:<pre class="prettyprint">
+x = (1, 2, 3, 4)
+x[0] = 4</pre>
+This will cause an error:
+    since tuples are immutable, we cannot change its elements. The
+    question then is, why does this work?<pre class="prettyprint">
+x = (1, 2, 3, 4)
+x += (5,)</pre>
+The reason why this doesn't
+    cause an error is because we <b>are not mutating the original
+    tuple</b>. Instead we are creating a new tuple, and assigning it
+    to <tt>x</tt>.</p>
+</div>
+
+<h2 id="print" class="subtopic anchor">What would Python print?</h2>
+<h3 id="print1" class="question anchor">Q1</h3>
+<pre class="prettyprint">&gt;&gt;&gt; x = (1, 2, 3, 4)
+&gt;&gt;&gt; x[0]
+<span class="blank1">______</span><span class="hidden solution 1">1</span>
+&gt;&gt;&gt; x[3]
+<span class="blank1">______</span><span class="hidden solution 1">4</span>
+&gt;&gt;&gt; x[4]
+<span class="blank1">______</span><span class="hidden solution 1">IndexError</span>
+&gt;&gt;&gt; x[-1]
+<span class="blank1">______</span><span class="hidden solution 1">4</span>
+&gt;&gt;&gt; x[-4]
+<span class="blank1">______</span><span class="hidden solution 1">1</span>
+&gt;&gt;&gt; x[-5]
+<span class="blank1">______</span><span class="hidden solution 1">IndexError</span>
+&gt;&gt;&gt; x[5.0]
+<span class="blank1">______</span><span class="hidden solution 1">TypeError</span></pre>
+<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
+<h3 id="print2" class="question anchor">Q2</h3>
+<pre class="prettyprint">&gt;&gt;&gt; x = (1, 2, 3, 4)
+&gt;&gt;&gt; x[0:4]
+<span class="blank2">______</span><span class="hidden solution 2">(1, 2, 3, 4)</span>
+&gt;&gt;&gt; x[1:3]
+<span class="blank2">______</span><span class="hidden solution 2">(2, 3)</span>
+&gt;&gt;&gt; x[:3]
+<span class="blank2">______</span><span class="hidden solution 2">(1, 2, 3)</span>
+&gt;&gt;&gt; x[0:]
+<span class="blank2">______</span><span class="hidden solution 2">(1, 2, 3, 4)</span>
+&gt;&gt;&gt; x[:]
+<span class="blank2">______</span><span class="hidden solution 2">(1, 2, 3, 4)</span>
+&gt;&gt;&gt; x[:10000]
+<span class="blank2">______</span><span class="hidden solution 2">(1, 2, 3, 4)</span>
+&gt;&gt;&gt; x[100:10000]
+<span class="blank2">______</span><span class="hidden solution 2">()</span></pre>
+<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
+<h3 id="print3" class="question anchor">Q3</h3>
+<pre class="prettyprint">&gt;&gt;&gt; x = (1, 2, 3, 4)
+&gt;&gt;&gt; x[0:3:2]
+<span class="blank3">______</span><span class="hidden solution 3">(1, 3)</span>
+&gt;&gt;&gt; x[:3:2]
+<span class="blank3">______</span><span class="hidden solution 3">(1, 3)</span>
+&gt;&gt;&gt; x[1::2]
+<span class="blank3">______</span><span class="hidden solution 3">(2, 4)</span>
+&gt;&gt;&gt; x[::2]
+<span class="blank3">______</span><span class="hidden solution 3">(1, 3)</span>
+&gt;&gt;&gt; x[::-1]
+<span class="blank3">______</span><span class="hidden solution 3">(4, 3, 2, 1)</span>
+&gt;&gt;&gt; x[0:4:-1]
+<span class="blank3">______</span><span class="hidden solution 3">()</span></pre>
+<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
+<h3 id="print4" class="question anchor">Q4</h3>
+<pre class="prettyprint">&gt;&gt;&gt; x = (1, 2, 3, 4)
+&gt;&gt;&gt; x[0]
+<span class="blank4">______</span><span class="hidden solution 4">1</span>
+&gt;&gt;&gt; x[0:1]
+<span class="blank4">______</span><span class="hidden solution 4">(1,)</span>
+&gt;&gt;&gt; len(x)
+<span class="blank4">______</span><span class="hidden solution 4">4</span>
+&gt;&gt;&gt; 1 in x
+<span class="blank4">______</span><span class="hidden solution 4">True</span>
+&gt;&gt;&gt; 10 not in x
+<span class="blank4">______</span><span class="hidden solution 4">True</span>
+&gt;&gt;&gt; (1, 2) in x
+<span class="blank4">______</span><span class="hidden solution 4">False</span>
+&gt;&gt;&gt; if x:
+...     print("hi")
+<span class="blank4">______</span><span class="hidden solution 4">hi</span>
+&gt;&gt;&gt; y = ()
+&gt;&gt;&gt; if y:
+...     print("hi")
+<span class="blank4">______</span><span class="hidden solution 4"># nothing</span></pre>
+<button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
+
+<h2 id="env" class="subtopic anchor">Environment Diagrams</h2>
+<h3 id="env1" class="question anchor">Q1</h3>
+<pre class="prettyprint">
+def draw(me):
+    return me[2]
+
+y = (4, 5, 6)
+x = (1, 2, draw(y))</pre>
+<button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Adef+draw%28me%29%3A%0A++++return+me%5B2%5D%0A%0Ay+%3D+%284%2C+5%2C+6%29%0Ax+%3D+%281%2C+2%2C+draw%28y%29%29"></iframe></p>
+</div>
+<h3 id="env2" class="question anchor">Q2</h3>
+<pre class="prettyprint">
+def draw(me, too):
+    tup = (too,)
+    return me + tup
+
+y = (1, 2)
+x = draw(y, 3)</pre>
+<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Adef+draw%28me%2C+too%29%3A%0A++++tup+%3D+%28too%2C%29%0A++++return+me+%2B+tup%0A%0Ay+%3D+%281%2C+2%29%0Ax+%3D+draw%28y%2C+3%29"></iframe></p>
+</div>
+
+<h2 id="code" class="subtopic anchor">Code Writing</h2>
+<h3 id="code1" class="question anchor">Q1</h3>
+<p>Write a function <tt>reverse</tt> that reverses
+        a given tuple.</p>
+<pre class="prettyprint">
+def reverse(tup):
+    """Reverse the given tuple.
+
+    &gt;&gt;&gt; reverse((1, 2, 3, 4))
+    (4, 3, 2, 1)
+    &gt;&gt;&gt; reverse(())
+    ()</pre>
+<button id='7' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 7"><pre class="prettyprint">
+def reverse(tup):
+    if not tup:
+        return ()
+    return reverse(tup[1:]) + (tup[0],)</pre>
+</div>
+<h3 id="code2" class="question anchor">Q2</h3>
+<p>Write a function <tt>map</tt> that applies a
+    function to every element in a given tuple. The result should be
+    a newly created tuple.</p>
+<pre class="prettyprint">
+def map(f, tup):
+    """Applies F to every element in TUP, and returns the results
+    as a new tuple.
+
+    &gt;&gt;&gt; map(lambda x: x*x, (1, 2, 3, 4))
+    (1, 4, 9, 16)
+    &gt;&gt;&gt; map(lambda x: x*x, ())
+    ()</pre>
+<button id='8' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 8"><pre class="prettyprint">
+def map(fn, tup):
+    if not tup:
+        return ()
+    return (fn(tup[0]),) + map(fn, tup[1:])</pre>
+</div>
+<h3 id="code3" class="question anchor">Q3</h3>
+<p>Write a function <tt>filter</tt> that takes a
+    predicate function <tt>cond</tt> and a tuple <tt>tup</tt>, and
+    returns a new tuple that contains only the elements in <tt>tup</tt>
+    that satisfy <tt>cond</tt>.</p>
+<pre class="prettyprint">
+def filter(cond, tup):
+    """Filters out elements of TUP using the predicate COND.
+
+    &gt;&gt;&gt; filter(lambda x: x % 2 == 0, (1, 2, 3, 4, 5))
+    (2, 4)
+    &gt;&gt;&gt; filter(lambda x: x % 2 == 0, ())
+    ()</pre>
+<button id='9' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 9"><pre class="prettyprint">
+def filter(cond, tup):
+    if not tup:
+        return ()
+    elif cond(tup[0]):
+        return (tup[0],) + filter(cond, tup[1:])
+    else:
+        return filter(cond, tup[1:])</pre>
+</div>
+
+  </div>
+      </div>
+    </div>
+  </body>
+
+  <script src='/cs61a/public/jquery-1.10.1.min.js'></script>
+  <script src="/cs61a/public/jquery-scrolltofixed-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+    });
+  </script>
+    <script src='/cs61a/review/public/nav-bar.js'></script>
+  <script src='/cs61a/review/public/toggle.js'></script>
+  
+</html>

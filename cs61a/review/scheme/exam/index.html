@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>CS 61A: Scheme: exam</title>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/prettify/prettify.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' media='print' type='text/css' href='/cs61a/public/print.css'>
+    <script src='/cs61a/public/prettify/prettify.js'></script>
+      <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
+        Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'berkeley.edu');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body onload='prettyPrint()'>
+    <div id='container'>
+      <div id='logo'>
+        <h1>Scheme: exam</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/index.html'>Home</a></li>
+    <li><a href='/cs61a/review/index.html'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1.html'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2.html'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final.html'>Final</a></li>
+  </ul>
+</div>
+<h3>What would Scheme print?</h3>
+<div><ul>
+  <li><a href="#print1">Q1</a></li>
+</ul></div>
+<h3>Code Writing</h3>
+<div><ul>
+  <li><a href="#code1">Q1</a></li>
+  <li><a href="#code2">Q2</a></li>
+</ul></div>
+        </div>
+        <div id='nav-bar-fixed'>
+          
+        </div>
+        <a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS
+          61A course page</a>
+      </div>
+
+      <div id='content'>
+          <div id='reference'>
+    <h2>References</h2>
+
+    <p>You can review scheme in the following places</p>
+    <ul>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/23-Scheme_1pps.pdf">Lecture: Functional Programming</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab08/lab8-scheme.html">Lab 8</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion09_sol.pdf">Discussion 9</a></li>
+</ul>
+  </div>
+
+  
+
+  <div id='contents'>
+    <h2>Contents</h2>
+    <ol>
+  <li><a href="#print">What would Scheme print?</a></li>
+  <li><a href="#code">Code Writing</a></li>
+</ol>
+  </div>
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  <h2 id="print" class="subtopic anchor">What would Scheme print?</h2>
+<h3 id="print1" class="question anchor">Q1</h3>
+<p>For the following questions, write the value
+        that the expression evaluates to if you type it into
+        <tt>STk</tt>. If the expression contains a function (or
+        multiple), write "FUNCTION" in place of that function. If the
+        expression causes an error, write "ERROR".</p>
+<pre class="prettyprint">STk&gt; (cons 1 (cons 2 (cons 3 (cons 4 nil))))
+<span class="blank0">______</span><span class="hidden solution 0">(1 2 3 4)</span>
+STk&gt; (cons (cons (cons 3 2) 1) (cons 4 nil))
+<span class="blank0">______</span><span class="hidden solution 0">(((3 . 2) . 1) 4</span>
+STk&gt; (cdr (cons (cdr (list 1 2)) (cons 3 (cons 4 nil))))
+<span class="blank0">______</span><span class="hidden solution 0">(3 4)</span>
+STk&gt; (define lst (cons (lambda (x) (cons x x)) nil))
+STk&gt; ((car lst) lst)
+<span class="blank0">______</span><span class="hidden solution 0">((FUNCTION) FUNCTION)</span>
+STk&gt; (define (x) (lambda (x) (list x x)))
+STk&gt; (((car ((x) x))) 4)
+<span class="blank0">______</span><span class="hidden solution 0">(4 4)</span></pre>
+<button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
+
+<h2 id="code" class="subtopic anchor">Code Writing</h2>
+<h3 id="code1" class="question anchor">Q1</h3>
+<p>Implement a function
+        <tt>count-stairways</tt>, which takes a number <tt>n</tt> as
+        an argument. Assuming you can only take 2 or 3 steps at a
+        time, return the number of ways you can reach the top of a
+        staircase with <tt>n</tt> stairs.</p>
+<pre class="prettyprint">
+(define (count-stairways n)
+    ; YOUR CODE HERE
+    )
+
+; Tests
+STk&gt; (count-stairways 1)
+0
+STk&gt; (count-stairways 4)
+1
+STk&gt; (count-stairways 5)
+2
+STk&gt; (count-stairways 8)
+4</pre>
+<p class="hint"><b>Hint</b>: This is different than the usual
+        <tt>count-stairways</tt> -- notice that this time, we can
+        only take 2 or 3 steps, rather than 1 or 2.</p>
+<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><pre class="prettyprint">
+(define (count-stairways n)
+    (cond ((= n 1) 0)
+          ((or (= n 2) (= n 3)) 1)
+          (else (+ (count-stairways (- n 2))
+                   (count-stairways (- n 3))))))</pre>
+</div>
+<h3 id="code2" class="question anchor">Q2</h3>
+<p>Implement a function
+        <tt>count-serpinski</tt>, which takes a numbero
+        <tt>depth</tt> as an argument. The function calculates how
+        many triangles are contained in a Serpinski's triangle with
+        the given depth. See the tests for examples.<br/>
+        <a href='http://en.wikipedia.org/wiki/File:Sierpinski_triangle_evolution.svg'>Picture</a></p>
+<pre class="prettyprint">
+(define (count-serpinski depth)
+    ; YOUR CODE HERE
+    )
+
+; Tests
+STk&gt; (count-serpinski 1)
+1
+STk&gt; (count-serpinski 2)
+5
+STk&gt; (count-stairways 3)
+17
+STk&gt; (count-stairways 4)
+53</pre>
+<p class="hint"><b>Hint</b>: You should count triangles of all sizes.</p>
+<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><pre class="prettyprint">
+(define (count-serpinski n)
+    (if (= n 1)
+        1
+        (+ 2 (* 3 (count-serpinski (- n 1))))))</pre>
+<p><b>Explanation: </b>The recursive call can be derived as follows:
+        <ol>
+  <li>There are three smaller <i>n-1</i> serpinski triangles
+            at each of the corners</li>
+  <li>There are two additional triangles drawn -- the triangle
+            in the center, and the overall triangle.</li>
+</ol></p>
+</div>
+
+  </div>
+      </div>
+    </div>
+  </body>
+
+  <script src='/cs61a/public/jquery-1.10.1.min.js'></script>
+  <script src="/cs61a/public/jquery-scrolltofixed-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+    });
+  </script>
+    <script src='/cs61a/review/public/nav-bar.js'></script>
+  <script src='/cs61a/review/public/toggle.js'></script>
+  
+</html>
