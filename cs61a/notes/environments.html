@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta name='author' content='Albert Wu'>
-    <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>CS 61A: Environment Diagrams</title>
-    <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/cs61a/public/prettify/prettify.css'>
+    <meta name='description' content=''>
+    <title>Environment Diagrams</title>
+    <link rel='stylesheet' type='text/css' href='/public/style.css'>
+    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' media='print' type='text/css' href='/cs61a/public/print.css'>
-    <script src='/cs61a/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' media='print' type='text/css' href='/public/print.css'>
+    <script src='/public/prettify/prettify.js'></script>
     <link href='/cs61a/notes/public/' rel='stylesheet' type='text/css'>
 
     
@@ -37,13 +37,13 @@
           <h3>Navigation</h3>
 <div>
   <ul>
-    <li><a href='/cs61a/index.html'>Home</a></li>
-    <li><a href='/cs61a/review/index.html'>All Topics</a></li>
-    <li><a href='/cs61a/review/mt1.html'>Midterm
+    <li><a href='/cs61a'>Home</a></li>
+    <li><a href='/cs61a/review'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1'>Midterm
       1</a></li>
-    <li><a href='/cs61a/review/mt2.html'>Midterm
+    <li><a href='/cs61a/review/mt2'>Midterm
       2</a></li>
-    <li><a href='/cs61a/review/final.html'>Final</a></li>
+    <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
 <h3>Preface: a defense</h3><div><ul><li><a href="#preface-a-defense">Intro</a></li></ul></div><h3>Purpose</h3><div><ul><li><a href="#purpose">Intro</a></li></ul></div><h3>Terminology</h3><div><ul><li><a href="#terminology">Intro</a></li><li><a href="#frames">Frames</a></li><li><a href="#variables-versus-values">Variables versus Values</a></li><li><a href="#arrowspointers">Arrows/Pointers</a></li></ul></div><h3>Drawing diagrams</h3><div><ul><li><a href="#drawing-diagrams">Intro</a></li><li><a href="#global-frame">Global Frame</a></li><li><a href="#bindings">Bindings</a></li><li><a href="#function-calls">Function calls</a></li><li><a href="#additional-rules">Additional rules</a></li></ul></div><h3>Variable lookup</h3><div><ul><li><a href="#variable-lookup">Intro</a></li></ul></div><h3>More complicated examples</h3><div><ul><li><a href="#more-complicated-examples">Intro</a></li><li><a href="#function-calls-in-function-bodies">Function calls in function bodies</a></li><li><a href="#function-calls-as-operands">Function calls as operands</a></li><li><a href="#reassigning-functions">Reassigning functions</a></li><li><a href="#nested-functions">Nested functions</a></li><li><a href="#built-in-functions">Built-in functions</a></li></ul></div>
@@ -51,8 +51,6 @@
         <div id='nav-bar-fixed'>
           
         </div>
-        <a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS
-          61A course page</a>
       </div>
 
       <div id='content'>
@@ -254,14 +252,14 @@ assignment:</p>
 
 <p>where <code>x</code> is the variable and <code>3</code> is the value.</p>
 
-<p><img src="/cs61a/public/environments/x-equals-3.png" alt="x = 3" /></p>
+<p><img src="/public/environments/x-equals-3.png" alt="x = 3" /></p>
 
 <p>The second line is a little more involved. There is a complex
 expression on the right-hand side of the <code>=</code>, so we must <em>evaluate</em> it
 first. Notice in the following diagram that <code>y</code> is bound to <code>6</code>, not
 <code>1 + 2 + 3</code>:</p>
 
-<p><img src="/cs61a/public/environments/y-equals-6.png" alt="y = 1 + 2 + 3" /></p>
+<p><img src="/public/environments/y-equals-6.png" alt="y = 1 + 2 + 3" /></p>
 
 <p>The next line is a <code>def</code> statement:</p>
 
@@ -794,8 +792,8 @@ between <code>return</code> and <code>print</code>!</p>
     </div>
   </body>
 
-  <script src='/cs61a/public/jquery-1.10.1.min.js'></script>
-  <script src="/cs61a/public/jquery-scrolltofixed-min.js"></script>
+  <script src='/public/jquery-1.10.1.min.js'></script>
+  <script src="/public/jquery-scrolltofixed-min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   <script>
     $(document).ready(function() {
