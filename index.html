@@ -1,1 +1,70 @@
-hello world!
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content=''>
+    <title>Albert Wu</title>
+    <link rel='stylesheet' type='text/css' href='/public/style.css'>
+    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' media='print' type='text/css' href='/public/print.css'>
+    <script src='/public/prettify/prettify.js'></script>
+    
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'albertwu.org');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body onload='prettyPrint()'>
+    <div id='container'>
+      <div id='logo'>
+        <h1>Albert Wu</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='accordion'>
+          <h3>CS 61A</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a'>Home</a></li>
+    <li><a href='/cs61a/review/mt1'>Midterm 1 Review</a></li>
+    <li><a href='/cs61a/review/mt2'>Midterm 2 Review</a></li>
+    <li><a href='/cs61a/review/final'>Final Review</a></li>
+  </ul>
+</div>
+        </div>
+        <div id='nav-bar-fixed'>
+          
+        </div>
+      </div>
+
+      <div id='content'>
+        <div id='about'>
+  <p>Stuff here.</p>
+</div>
+      </div>
+    </div>
+  </body>
+
+  <script src='/public/jquery-1.10.1.min.js'></script>
+  <script src="/public/jquery-scrolltofixed-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+    });
+  </script>
+  
+</html>
