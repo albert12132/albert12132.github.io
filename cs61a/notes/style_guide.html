@@ -3,7 +3,7 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content=''>
-    <title>Style Guide</title>
+    <title></title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
     <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
@@ -29,10 +29,17 @@
   <body onload='prettyPrint()'>
     <div id='container'>
       <div id='logo'>
-        <h1>Style Guide</h1>
+        <h1 id='nav-bar-hide'>Style Guide</h1>
       </div>
 
       <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
         <div id='accordion'>
           <h3>Navigation</h3>
 <div>
@@ -526,6 +533,7 @@ expressions.</p>
   <script src='/public/jquery-1.10.1.min.js'></script>
   <script src="/public/jquery-scrolltofixed-min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/nav-bar.js"></script>
   <script>
     $(document).ready(function() {
       $('#accordion').accordion({
