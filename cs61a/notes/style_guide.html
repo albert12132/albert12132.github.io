@@ -2,15 +2,16 @@
 <html>
   <head>
     <meta name='author' content='Albert Wu'>
-    <meta name='description' content=''>
-    <title></title>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>CS 61A: Style Guide</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
     <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' media='print' type='text/css' href='/public/print.css'>
     <script src='/public/prettify/prettify.js'></script>
-    <link href='/cs61a/notes/public/style_guide.css' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
+<link href='/cs61a/notes/public/style_guide.css' rel='stylesheet' type='text/css'>
 
     
 
@@ -41,22 +42,13 @@
           </ul>
         </div>
         <div id='accordion'>
-          <h3>Navigation</h3>
-<div>
-  <ul>
-    <li><a href='/cs61a'>Home</a></li>
-    <li><a href='/cs61a/review'>All Topics</a></li>
-    <li><a href='/cs61a/review/mt1'>Midterm
-      1</a></li>
-    <li><a href='/cs61a/review/mt2'>Midterm
-      2</a></li>
-    <li><a href='/cs61a/review/final'>Final</a></li>
-  </ul>
-</div>
-<h3>Introduction</h3><div><ul><li><a href="#introduction">Intro</a></li></ul></div><h3>Names and variables</h3><div><ul><li><a href="#names-and-variables">Intro</a></li><li><a href="#meaningful-names">Meaningful names</a></li><li><a href="#indices-and-mathematical-symbols">Indices and mathematical symbols</a></li><li><a href="#o-and-l">'o' and 'l'</a></li><li><a href="#unnecessary-variables">Unnecessary variables</a></li><li><a href="#profanity">Profanity</a></li><li><a href="#naming-convention">Naming convention:</a></li></ul></div><h3>Spacing and Indentation</h3><div><ul><li><a href="#spacing-and-indentation">Intro</a></li><li><a href="#spaces-vs-tabs">Spaces vs. tabs</a></li><li><a href="#indent-size">Indent size</a></li><li><a href="#line-length">Line Length</a></li><li><a href="#double-spacing">Double-spacing</a></li><li><a href="#spaces-with-operators">Spaces with operators</a></li><li><a href="#spacing-lists">Spacing lists</a></li><li><a href="#line-wrapping">Line wrapping</a></li><li><a href="#blank-lines">Blank lines</a></li><li><a href="#trailing-whitespace">Trailing whitespace</a></li></ul></div><h3>Repetition</h3><div><ul><li><a href="#repetition">Intro</a></li><li><a href="#complex-expressions">Complex expressions</a></li><li><a href="#computation-heavy-function-calls">Computation-heavy function calls</a></li><li><a href="#ifelse-conditions">if/else conditions</a></li></ul></div><h3>Comments</h3><div><ul><li><a href="#comments">Intro</a></li><li><a href="#docstrings">Docstrings</a></li><li><a href="#remove-commented-out-code">Remove commented-out code</a></li><li><a href="#unnecessary-comments">Unnecessary comments</a></li></ul></div><h3>Control Structures</h3><div><ul><li><a href="#control-structures">Intro</a></li><li><a href="#boolean-comparisons">Boolean comparisons</a></li><li><a href="#redundant-ifelse">Redundant if/else</a></li><li><a href="#similar-ifelse-suites">Similar if/else suites</a></li><li><a href="#while-vs-if">while vs. if</a></li><li><a href="#parentheses">Parentheses</a></li></ul></div><h3>Miscellaneous</h3><div><ul><li><a href="#miscellaneous">Intro</a></li><li><a href="#semicolons">Semicolons</a></li><li><a href="#checking-none">Checking <code>None</code></a></li><li><a href="#implicit-false">Implicit <code>False</code></a></li><li><a href="#generator-expressions">Generator expressions</a></li></ul></div>
+          <h3>Introduction</h3><div><ul><li><a href="#introduction">Intro</a></li></ul></div><h3>Names and variables</h3><div><ul><li><a href="#names-and-variables">Intro</a></li><li><a href="#meaningful-names">Meaningful names</a></li><li><a href="#indices-and-mathematical-symbols">Indices and mathematical symbols</a></li><li><a href="#o-and-l">'o' and 'l'</a></li><li><a href="#unnecessary-variables">Unnecessary variables</a></li><li><a href="#profanity">Profanity</a></li><li><a href="#naming-convention">Naming convention:</a></li></ul></div><h3>Spacing and Indentation</h3><div><ul><li><a href="#spacing-and-indentation">Intro</a></li><li><a href="#spaces-vs-tabs">Spaces vs. tabs</a></li><li><a href="#indent-size">Indent size</a></li><li><a href="#line-length">Line Length</a></li><li><a href="#double-spacing">Double-spacing</a></li><li><a href="#spaces-with-operators">Spaces with operators</a></li><li><a href="#spacing-lists">Spacing lists</a></li><li><a href="#line-wrapping">Line wrapping</a></li><li><a href="#blank-lines">Blank lines</a></li><li><a href="#trailing-whitespace">Trailing whitespace</a></li></ul></div><h3>Repetition</h3><div><ul><li><a href="#repetition">Intro</a></li><li><a href="#complex-expressions">Complex expressions</a></li><li><a href="#computation-heavy-function-calls">Computation-heavy function calls</a></li><li><a href="#ifelse-conditions">if/else conditions</a></li></ul></div><h3>Comments</h3><div><ul><li><a href="#comments">Intro</a></li><li><a href="#docstrings">Docstrings</a></li><li><a href="#remove-commented-out-code">Remove commented-out code</a></li><li><a href="#unnecessary-comments">Unnecessary comments</a></li></ul></div><h3>Control Structures</h3><div><ul><li><a href="#control-structures">Intro</a></li><li><a href="#boolean-comparisons">Boolean comparisons</a></li><li><a href="#redundant-ifelse">Redundant if/else</a></li><li><a href="#similar-ifelse-suites">Similar if/else suites</a></li><li><a href="#while-vs-if">while vs. if</a></li><li><a href="#parentheses">Parentheses</a></li></ul></div><h3>Miscellaneous</h3><div><ul><li><a href="#miscellaneous">Intro</a></li><li><a href="#semicolons">Semicolons</a></li><li><a href="#checking-none">Checking <code>None</code></a></li><li><a href="#implicit-false">Implicit <code>False</code></a></li><li><a href="#generator-expressions">Generator expressions</a></li></ul></div>
         </div>
         <div id='nav-bar-fixed'>
           
+
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
         </div>
       </div>
 
