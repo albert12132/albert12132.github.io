@@ -5,8 +5,10 @@ $(document).ready(function(){
   $('#nav-bar-hide').click(function(){
     if ($('#content').css('margin-left') === navBarWidth) {
       $('#content').animate({'margin-left':0}, navBarSpeed);
+      $('#nav-bar-toggle-icon').text('>');
     } else {
       $('#content').animate({'margin-left':navBarWidth}, navBarSpeed);
+      $('#nav-bar-toggle-icon').text('<');
     }
   });
 });
