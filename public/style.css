@@ -218,7 +218,24 @@ a tt, a code {
     height:inherit;
   }
 
-  #nav-bar {
+  #nav-bar, #nav-bar-toggle {
+    display:none;
+  }
+
+  #content {
+    margin-left:0;
+    margin-top:inherit;
+  }
+}
+
+@media (max-device-width: 480px) {
+  #logo {
+    position:static;
+    height:inherit;
+  }
+
+
+  #nav-bar, #nav-bar-toggle {
     display:none;
   }
 
