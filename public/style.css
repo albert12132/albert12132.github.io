@@ -56,16 +56,20 @@ h1, h2, a {
   width:25px;
   transition: background-color .2s linear;
   -webkit-transition: background-color .2s linear;
+  transition: color .2s linear;
+  -webkit-transition: color .2s linear;
   display:table;
+  color:#0072c1;
+  background-color:#ebebeb;
 }
 
 #nav-bar-toggle:hover {
   background-color:#bfefee;
+  cursor:pointer;
 }
 
 #nav-bar-toggle-icon {
   text-align:center;
-  color:#0072c1;
   font-weight:bold;
   display:table-cell;
   vertical-align:middle;
@@ -216,17 +220,6 @@ a tt, a code {
     height:inherit;
   }
 
-  #nav-bar {
-    display:none;
-  }
-
-  #content {
-    margin-left:0;
-    margin-top:inherit;
-  }
-}
-
-@media handheld {
   #nav-bar {
     display:none;
   }
