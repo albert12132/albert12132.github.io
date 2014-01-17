@@ -212,7 +212,7 @@ a tt, a code {
 }
 
 /* print media */
-@media print or (max-device-width: 480px) {
+@media print, (max-device-width: 480px) {
   #logo {
     position:static;
     height:inherit;
