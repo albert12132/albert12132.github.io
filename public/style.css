@@ -52,6 +52,7 @@ h1, h2, a {
 #nav-bar-toggle {
   position:fixed;
   height:100%;
+  top:70px;
   width:25px;
   transition: background-color .2s linear;
   -webkit-transition: background-color .2s linear;
@@ -63,6 +64,8 @@ h1, h2, a {
 
 #nav-bar-toggle-icon {
   text-align:center;
+  color:#0072c1;
+  font-weight:bold;
 }
 
 #nav-bar {
