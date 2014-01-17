@@ -2,15 +2,15 @@
 <html>
   <head>
     <meta name='author' content='Albert Wu'>
-    <meta name='description' content=''>
-    <title>Git</title>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>Git | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
     <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' media='print' type='text/css' href='/public/print.css'>
     <script src='/public/prettify/prettify.js'></script>
-    <link href='/cs61a/notes/public/' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
+<link href='/cs61a/notes/public/' rel='stylesheet' type='text/css'>
 
     
 
@@ -27,29 +27,33 @@
 
   </head>
   <body onload='prettyPrint()'>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
     <div id='container'>
       <div id='logo'>
-        <h1>Git</h1>
+        <h1 id='nav-bar-hide'>Git</h1>
       </div>
 
       <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
         <div id='accordion'>
-          <h3>Navigation</h3>
-<div>
-  <ul>
-    <li><a href='/cs61a'>Home</a></li>
-    <li><a href='/cs61a/review'>All Topics</a></li>
-    <li><a href='/cs61a/review/mt1'>Midterm
-      1</a></li>
-    <li><a href='/cs61a/review/mt2'>Midterm
-      2</a></li>
-    <li><a href='/cs61a/review/final'>Final</a></li>
-  </ul>
-</div>
-<h3>Introduction</h3><div><ul><li><a href="#introduction">Intro</a></li><li><a href="#installing-git">Installing Git</a></li><li><a href="#online-hosting">Online Hosting</a></li></ul></div><h3>Getting Started</h3><div><ul><li><a href="#getting-started">Intro</a></li><li><a href="#joining-a-repo">Joining a repo</a></li></ul></div><h3>Basic Work Cycle</h3><div><ul><li><a href="#basic-work-cycle">Intro</a></li><li><a href="#pull">Pull</a></li><li><a href="#add">Add</a></li><li><a href="#commit">Commit</a></li><li><a href="#push">Push</a></li></ul></div><h3>.gitignore</h3><div><ul><li><a href="#gitignore">Intro</a></li></ul></div><h3>Merge Conflicts</h3><div><ul><li><a href="#merge-conflicts">Intro</a></li></ul></div><h3>Revision Selection</h3><div><ul><li><a href="#revision-selection">Intro</a></li><li><a href="#commit-logs">Commit logs</a></li><li><a href="#revert">Revert</a></li><li><a href="#checkout">Checkout</a></li></ul></div><h3>Branching</h3><div><ul><li><a href="#branching">Intro</a></li><li><a href="#creating-a-branch">Creating a branch</a></li><li><a href="#switching-between-branches">Switching between branches</a></li><li><a href="#merging-branches">Merging branches</a></li><li><a href="#pushing-and-pulling-branches">Pushing and Pulling branches</a></li></ul></div>
+          <h3>Introduction</h3><div><ul><li><a href="#introduction">Intro</a></li><li><a href="#installing-git">Installing Git</a></li><li><a href="#online-hosting">Online Hosting</a></li></ul></div><h3>Getting Started</h3><div><ul><li><a href="#getting-started">Intro</a></li><li><a href="#joining-a-repo">Joining a repo</a></li></ul></div><h3>Basic Work Cycle</h3><div><ul><li><a href="#basic-work-cycle">Intro</a></li><li><a href="#pull">Pull</a></li><li><a href="#add">Add</a></li><li><a href="#commit">Commit</a></li><li><a href="#push">Push</a></li></ul></div><h3>.gitignore</h3><div><ul><li><a href="#gitignore">Intro</a></li></ul></div><h3>Merge Conflicts</h3><div><ul><li><a href="#merge-conflicts">Intro</a></li></ul></div><h3>Revision Selection</h3><div><ul><li><a href="#revision-selection">Intro</a></li><li><a href="#commit-logs">Commit logs</a></li><li><a href="#revert">Revert</a></li><li><a href="#checkout">Checkout</a></li></ul></div><h3>Branching</h3><div><ul><li><a href="#branching">Intro</a></li><li><a href="#creating-a-branch">Creating a branch</a></li><li><a href="#switching-between-branches">Switching between branches</a></li><li><a href="#merging-branches">Merging branches</a></li><li><a href="#pushing-and-pulling-branches">Pushing and Pulling branches</a></li></ul></div>
         </div>
         <div id='nav-bar-fixed'>
           
+
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
         </div>
       </div>
 
@@ -637,6 +641,7 @@ link</a>.</p>
   <script src='/public/jquery-1.10.1.min.js'></script>
   <script src="/public/jquery-scrolltofixed-min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/nav-bar.js"></script>
   <script>
     $(document).ready(function() {
       $('#accordion').accordion({
