@@ -56,8 +56,6 @@ h1, h2, a {
   width:25px;
   transition: background-color .2s linear;
   -webkit-transition: background-color .2s linear;
-  transition: color .2s linear;
-  -webkit-transition: color .2s linear;
   display:table;
   color:#0072c1;
   background-color:#ebebeb;
