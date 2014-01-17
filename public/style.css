@@ -212,7 +212,7 @@ a tt, a code {
 }
 
 /* print media */
-@media print {
+@media print and (max-device-width: 480px) {
   #logo {
     position:static;
     height:inherit;
@@ -224,23 +224,11 @@ a tt, a code {
 
   #content {
     margin-left:0;
-    margin-top:inherit;
-  }
-}
-
-@media (max-device-width: 480px) {
-  #logo {
-    position:static;
-    height:inherit;
+    margin-top:0px;
   }
 
-
-  #nav-bar, #nav-bar-toggle {
-    display:none;
-  }
-
-  #content {
-    margin-left:0;
-    margin-top:inherit;
+  .anchor:before {
+    height:0px;
+    margin-top:0px;
   }
 }
