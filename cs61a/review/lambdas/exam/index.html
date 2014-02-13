@@ -112,14 +112,14 @@ f = lambda x: lambda y: lambda z: g(x + y + z)
 
 g = f(3)
 f(4)(5)(6)</pre>
-<button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Af+%3D+lambda+x%3A+lambda+y%3A+lambda+z%3A+g%28x+%2B+y+%2B+z%29%0A%0Ag+%3D+f%283%29%0Af%284%29%285%29%286%29"></iframe></p>
+<button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Af+%3D+lambda+x%3A+lambda+y%3A+lambda+z%3A+g%28x+%2B+y+%2B+z%29%0A%0Ag+%3D+f%283%29%0Af%284%29%285%29%286%29"></iframe></p>
 </div>
 <h3 id="env2" class="question anchor">Q2</h3>
 <pre class="prettyprint">
 fn = lambda f, a: f(f(2*a))
 
 result = fn(lambda x: x*x, 2)</pre>
-<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Afn+%3D+lambda+f%2C+a%3A+f%28f%282%2Aa%29%29%0A%0Aresult+%3D+fn%28lambda+x%3A+x%2Ax%2C+2%29"></iframe></p>
+<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Afn+%3D+lambda+f%2C+a%3A+f%28f%282%2Aa%29%29%0A%0Aresult+%3D+fn%28lambda+x%3A+x%2Ax%2C+2%29"></iframe></p>
 </div>
 <h3 id="env3" class="question anchor">Q3</h3>
 <pre class="prettyprint">
@@ -130,7 +130,7 @@ def example(x):
     return x
 
 result = example(fn())()</pre>
-<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Afn+%3D+lambda%3A+lambda%3A+print%28%27hi%27%29%0A%0Adef+example%28x%29%3A%0A++++print%28%27example%27%29%0A++++return+x%0A%0Aresult+%3D+example%28fn%28%29%29%28%29"></iframe></p>
+<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Afn+%3D+lambda%3A+lambda%3A+print%28%27hi%27%29%0A%0Adef+example%28x%29%3A%0A++++print%28%27example%27%29%0A++++return+x%0A%0Aresult+%3D+example%28fn%28%29%29%28%29"></iframe></p>
 </div>
 
 <h2 id="code" class="subtopic anchor">Code Writing</h2>

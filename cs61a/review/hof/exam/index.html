@@ -113,7 +113,7 @@ def g(x):
 
 y = 2
 result = f(g(f))</pre>
-<button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Adef+f%28x%29%3A%0A++++return+lambda+y%3A+x%28y%29%0A%0Adef+g%28x%29%3A%0A++++return+lambda+%3A+f%28x%29+%2B+f%28y%29%0A%0Ay+%3D+2%0Aresult+%3D+f%28g%28f%29%29"></iframe></p>
+<button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+f%28x%29%3A%0A++++return+lambda+y%3A+x%28y%29%0A%0Adef+g%28x%29%3A%0A++++return+lambda+%3A+f%28x%29+%2B+f%28y%29%0A%0Ay+%3D+2%0Aresult+%3D+f%28g%28f%29%29"></iframe></p>
 </div>
 <h3 id="env2" class="question anchor">Q2</h3>
 <pre class="prettyprint">
@@ -127,7 +127,7 @@ def make_bad_strategy(p):
     return strategy
 
 num_rolls = make_bad_strategy(1)(50, 50)</pre>
-<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Adef+always_roll%28n%29%3A%0A++++return+lambda+s0%2C+s1%3A+n%0A%0Adef+make_bad_strategy%28p%29%3A%0A++++def+strategy%28s0%2C+s1%29%3A%0A++++++++%23+next+line+is+bad+style%21%0A++++++++return+always_roll%281+-+p%29%28s0%2C+s1%29%0A++++return+strategy%0A%0Anum_rolls+%3D+make_bad_strategy%281%29%2850%2C+50%29"></iframe></p>
+<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+always_roll%28n%29%3A%0A++++return+lambda+s0%2C+s1%3A+n%0A%0Adef+make_bad_strategy%28p%29%3A%0A++++def+strategy%28s0%2C+s1%29%3A%0A++++++++%23+next+line+is+bad+style%21%0A++++++++return+always_roll%281+-+p%29%28s0%2C+s1%29%0A++++return+strategy%0A%0Anum_rolls+%3D+make_bad_strategy%281%29%2850%2C+50%29"></iframe></p>
 </div>
 <h3 id="env3" class="question anchor">Q3</h3>
 <pre class="prettyprint">
@@ -141,7 +141,7 @@ def test(fn):
 x = 10
 new = test(lambda score: score - x)
 new(42)</pre>
-<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Adef+test%28fn%29%3A%0A++++def+new_fn%28x%29%3A%0A++++++++if+x+%3E+10%3A%0A++++++++++++return+new_fn%28x+%25+10%29%0A++++++++else%3A%0A++++++++++++return+fn%28x%29%0A++++return+new_fn%0Ax+%3D+10%0Anew+%3D+test%28lambda+score%3A+score+-+x%29%0Anew%2842%29"></iframe></p>
+<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+test%28fn%29%3A%0A++++def+new_fn%28x%29%3A%0A++++++++if+x+%3E+10%3A%0A++++++++++++return+new_fn%28x+%25+10%29%0A++++++++else%3A%0A++++++++++++return+fn%28x%29%0A++++return+new_fn%0Ax+%3D+10%0Anew+%3D+test%28lambda+score%3A+score+-+x%29%0Anew%2842%29"></iframe></p>
 </div>
 <h3 id="env4" class="question anchor">Q4</h3>
 <pre class="prettyprint">
@@ -154,7 +154,7 @@ def foo(foo):
     return bar
 x = 5
 foo(5)(4)()</pre>
-<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Ax+%3D+4%0Adef+foo%28foo%29%3A%0A++++def+bar%28y%29%3A%0A++++++++y+%2B%3D+foo%0A++++++++return+lambda+%3A+y+%2B+x%0A++++foo+%2B%3D+3%0A++++return+bar%0Ax+%3D+5%0Afoo%285%29%284%29%28%29"></iframe></p>
+<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Ax+%3D+4%0Adef+foo%28foo%29%3A%0A++++def+bar%28y%29%3A%0A++++++++y+%2B%3D+foo%0A++++++++return+lambda+%3A+y+%2B+x%0A++++foo+%2B%3D+3%0A++++return+bar%0Ax+%3D+5%0Afoo%285%29%284%29%28%29"></iframe></p>
 </div>
 <h3 id="env5" class="question anchor">Q5</h3>
 <pre class="prettyprint">
@@ -167,7 +167,7 @@ def dream1(f):
 
 inception = lambda secret: lambda: secret
 real = dream1(inception)(42)</pre>
-<button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Adef+dream1%28f%29%3A%0A++++kick+%3D+lambda+x%3A+mind%28%29%0A++++def+dream2%28secret%29%3A%0A++++++++mind+%3D+f%28secret%29%0A++++++++kick%282%29%0A++++return+dream2%0A%0Ainception+%3D+lambda+secret%3A+lambda%3A+secret%0Areal+%3D+dream1%28inception%29%2842%29"></iframe></p>
+<button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+dream1%28f%29%3A%0A++++kick+%3D+lambda+x%3A+mind%28%29%0A++++def+dream2%28secret%29%3A%0A++++++++mind+%3D+f%28secret%29%0A++++++++kick%282%29%0A++++return+dream2%0A%0Ainception+%3D+lambda+secret%3A+lambda%3A+secret%0Areal+%3D+dream1%28inception%29%2842%29"></iframe></p>
 </div>
 <h3 id="env6" class="question anchor">Q6</h3>
 <pre class="prettyprint">
@@ -179,7 +179,7 @@ def albert(albert):
     return albert
 
 albert(lambda: albert)()</pre>
-<button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Adef+albert%28albert%29%3A%0A++++albert+%3D+albert%28%29%0A++++def+albert%28%29%3A%0A++++++++albert+%3D+lambda+albert%3A+albert%0A++++++++return+albert%28albert%29%0A++++return+albert%0A%0Aalbert%28lambda%3A+albert%29%28%29"></iframe></p>
+<button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+albert%28albert%29%3A%0A++++albert+%3D+albert%28%29%0A++++def+albert%28%29%3A%0A++++++++albert+%3D+lambda+albert%3A+albert%0A++++++++return+albert%28albert%29%0A++++return+albert%0A%0Aalbert%28lambda%3A+albert%29%28%29"></iframe></p>
 </div>
 
   </div>

@@ -207,7 +207,7 @@ result = play(my_strat)
 # How many times do we call my_strat?
 # Remember to label the frames with the intrinsic
 # name of the functions</pre>
-<button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Adef+my_strat%28score%29%3A%0A++++return+score+%2B+2%0A%0Adef+play%28strat%29%3A%0A++++i%2C+roll+%3D+0%2C+strat%280%29%0A++++while+i+%3C+roll%3A%0A++++++++result+%3D+my_strat%28i%29%0A++++++++i+%2B%3D+1%0A++++return+i%0A%0Aresult+%3D+play%28my_strat%29%0A%0A%23+How+many+times+do+we+call+my_strat%3F%0A%23+Remember+to+label+the+frames+with+the+intrinsic%0A%23+name+of+the+functions"></iframe></p>
+<button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+my_strat%28score%29%3A%0A++++return+score+%2B+2%0A%0Adef+play%28strat%29%3A%0A++++i%2C+roll+%3D+0%2C+strat%280%29%0A++++while+i+%3C+roll%3A%0A++++++++result+%3D+my_strat%28i%29%0A++++++++i+%2B%3D+1%0A++++return+i%0A%0Aresult+%3D+play%28my_strat%29%0A%0A%23+How+many+times+do+we+call+my_strat%3F%0A%23+Remember+to+label+the+frames+with+the+intrinsic%0A%23+name+of+the+functions"></iframe></p>
 </div>
 <h3 id="env2" class="question anchor">Q2</h3>
 <pre class="prettyprint">
@@ -226,7 +226,7 @@ b = a(2)
 # Which fun is called?
 # Which y is used?
 # What type of object is a?</pre>
-<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Adef+fun%28x%29%3A%0A++++return+x%2A%2A2%0A%0Adef+time%28y%29%3A%0A++++y%2C+x+%3D+4%2C+5%0A++++def+fun%28y%29%3A%0A++++++++return+y+%2B+x%0A++++return+fun%0A%0Aa+%3D+time%2810%29%0Ab+%3D+a%282%29%0A%0A%23+Which+fun+is+called%3F%0A%23+Which+y+is+used%3F%0A%23+What+type+of+object+is+a%3F"></iframe></p>
+<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+fun%28x%29%3A%0A++++return+x%2A%2A2%0A%0Adef+time%28y%29%3A%0A++++y%2C+x+%3D+4%2C+5%0A++++def+fun%28y%29%3A%0A++++++++return+y+%2B+x%0A++++return+fun%0A%0Aa+%3D+time%2810%29%0Ab+%3D+a%282%29%0A%0A%23+Which+fun+is+called%3F%0A%23+Which+y+is+used%3F%0A%23+What+type+of+object+is+a%3F"></iframe></p>
 </div>
 <h3 id="env3" class="question anchor">Q3</h3>
 <pre class="prettyprint">
@@ -242,7 +242,7 @@ def boom(fn):
 boom(square)
 a = boom(square)
 a(4)</pre>
-<button id='7' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 7"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Adef+square%28x%29%3A%0A++++return+x+%2A+x%0A%0Adef+boom%28fn%29%3A%0A++++def+bam%28x%29%3A%0A++++++++print%28x%29%0A++++++++return+fn%28x%29%0A++++return+bam%0A%0Aboom%28square%29%0Aa+%3D+boom%28square%29%0Aa%284%29"></iframe></p>
+<button id='7' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 7"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+square%28x%29%3A%0A++++return+x+%2A+x%0A%0Adef+boom%28fn%29%3A%0A++++def+bam%28x%29%3A%0A++++++++print%28x%29%0A++++++++return+fn%28x%29%0A++++return+bam%0A%0Aboom%28square%29%0Aa+%3D+boom%28square%29%0Aa%284%29"></iframe></p>
 </div>
 <h3 id="env4" class="question anchor">Q4</h3>
 <pre class="prettyprint">
@@ -257,7 +257,7 @@ def square(x):
     return x**2
 
 c = outer(square)(square)</pre>
-<button id='8' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 8"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Ax+%3D+4%0A%0Adef+outer%28f%29%3A%0A++++def+inner%28g%29%3A%0A++++++++return+f%28g%28x%29%29%0A++++return+inner%0A%0Adef+square%28x%29%3A%0A++++return+x%2A%2A2%0A%0Ac+%3D+outer%28square%29%28square%29"></iframe></p>
+<button id='8' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 8"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Ax+%3D+4%0A%0Adef+outer%28f%29%3A%0A++++def+inner%28g%29%3A%0A++++++++return+f%28g%28x%29%29%0A++++return+inner%0A%0Adef+square%28x%29%3A%0A++++return+x%2A%2A2%0A%0Ac+%3D+outer%28square%29%28square%29"></iframe></p>
 </div>
 <h3 id="env5" class="question anchor">Q5</h3>
 <pre class="prettyprint">
@@ -285,7 +285,7 @@ result = middle(cube)
 
 # what function is middle?
 # What are the parents of each frame?</pre>
-<button id='9' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 9"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Adef+one%28f%29%3A%0A++++a+%3D+1%0A++++def+two%28g%29%3A%0A++++++++b+%3D+2%0A++++++++def+three%28h%29%3A%0A++++++++++++c+%3D+3%0A++++++++++++return+f%28a%29+%2B+g%28b%29+%2B+h%28c%29%0A++++++++return+three%0A++++return+two%0A%0Adef+identity%28x%29%3A%0A++++return+x%0A%0Adef+square%28x%29%3A%0A++++return+x%2A%2A2%0A%0Adef+cube%28x%29%3A%0A++++return+x%2A%2A3%0A%0Amiddle+%3D+one%28identity%29%28square%29%0Aresult+%3D+middle%28cube%29%0A%0A%23+what+function+is+middle%3F%0A%23+What+are+the+parents+of+each+frame%3F"></iframe></p>
+<button id='9' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 9"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+one%28f%29%3A%0A++++a+%3D+1%0A++++def+two%28g%29%3A%0A++++++++b+%3D+2%0A++++++++def+three%28h%29%3A%0A++++++++++++c+%3D+3%0A++++++++++++return+f%28a%29+%2B+g%28b%29+%2B+h%28c%29%0A++++++++return+three%0A++++return+two%0A%0Adef+identity%28x%29%3A%0A++++return+x%0A%0Adef+square%28x%29%3A%0A++++return+x%2A%2A2%0A%0Adef+cube%28x%29%3A%0A++++return+x%2A%2A3%0A%0Amiddle+%3D+one%28identity%29%28square%29%0Aresult+%3D+middle%28cube%29%0A%0A%23+what+function+is+middle%3F%0A%23+What+are+the+parents+of+each+frame%3F"></iframe></p>
 </div>
 
 <h2 id="code" class="subtopic anchor">Code Writing</h2>
