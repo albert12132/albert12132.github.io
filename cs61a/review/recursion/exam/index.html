@@ -63,6 +63,10 @@
   <li><a href="#env2">Q2</a></li>
   <li><a href="#env3">Q3</a></li>
 </ul></div>
+<h3>Code Writing</h3>
+<div><ul>
+  <li><a href="#code1">Q1</a></li>
+</ul></div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -91,6 +95,7 @@
     <h2>Contents</h2>
     <ol>
   <li><a href="#env">Environment Diagrams</a></li>
+  <li><a href="#code">Code Writing</a></li>
 </ol>
   </div>
 
@@ -140,6 +145,52 @@ f = 4
 bar(lambda x: x + f)(2)
 </pre>
 <button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Adef+bar%28f%29%3A%0A++++def+g%28x%29%3A%0A++++++++if+x+%3D%3D+1%3A%0A++++++++++++return+f%28x%29%0A++++++++else%3A%0A++++++++++++return+f%28x%29+%2B+g%28x+-+1%29%0A++++return+g%0A%0Af+%3D+4%0Abar%28lambda+x%3A+x+%2B+f%29%282%29%0A"></iframe></p>
+</div>
+
+<h2 id="code" class="subtopic anchor">Code Writing</h2>
+<h3 id="code1" class="question anchor">Q1</h3>
+<p>In game theory, a <i>subtraction game</i> is
+         a simple game with two players, player 0 and player 1.  At the
+         beginning, there is a pile of <i>n</i> cookies. The players
+         alternate turns; each turn, a player can take anywhere from 1
+         to 3 cookies. The player who takes the last cookie wins.  Fill
+         in the function <tt>can_win</tt>, which returns <tt>True</tt>
+         if it is possible to win starting at the given number of
+         cookies. It uses the following ideas:<ul>
+  <li>if the number of cookies is negative, it is impossible
+             to win.</li>
+  <li>otherwise, the current player can choose to take either
+             1, 2, or 3 cookies.</li>
+  <li>evaluate each action: if that action forces the opponent
+            to lose, then return True (since we can win)</li>
+  <li>if none of the actions can force a win, then we
+            can't guarantee a win.</li>
+</ul></p>
+<pre class="prettyprint">
+def can_win(number):
+    """Returns True if the current player is guaranteed a win
+    starting from the given state. It is impossible to win a game from
+    an invalid game state.
+
+    &gt;&gt;&gt; can_win (-1) # invalid game state
+    False
+    &gt;&gt;&gt; can_win (3) # take all three !
+    True
+    &gt;&gt;&gt; can_win (4)
+    False
+    """
+    "*** YOUR CODE HERE ***" </pre>
+<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><pre class="prettyprint">
+def can_win(number):
+    if number &lt;= 0:
+        return False
+    action = 1
+    while action &lt;= 3:
+        new_state = number - action
+        if not can_win ( new_state ):
+            return True
+        action += 1
+    return False</pre>
 </div>
 
   </div>
