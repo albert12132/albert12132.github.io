@@ -173,8 +173,8 @@ doesn't have to have a number.</p>
 <p>A <strong>variable</strong> (or a <strong>name</strong>) is distinct from the <strong>value</strong> to which
 it is assigned. For example, consider the following simple assignment:</p>
 
-<pre class="prettyprint">x = 3
-</pre>
+<pre><code>x = 3
+</code></pre>
 
 <p>The variable is <code>x</code>, and the value is <code>3</code>. Think of a variable as a
 box with a label, and the value is the thing you put inside the box.</p>
@@ -182,9 +182,9 @@ box with a label, and the value is the thing you put inside the box.</p>
 <p>This distinction becomes especially important when it comes to
 functions. Consider the following:</p>
 
-<pre class="prettyprint">def square(x):
+<pre><code>def square(x):
     return x*x
-</pre>
+</code></pre>
 
 <p>In this case, the variable is <code>square</code>, and the value is <em>a function
 object</em>. Remember, in Python, functions are objects just like
@@ -202,14 +202,14 @@ this later.</p>
 
 <p>We'll be using the following code example for this section:</p>
 
-<pre class="prettyprint">x = 3
+<pre><code>x = 3
 y = 1 + 2 + 3
 
 def square(x):
     return x*x
 
 square(y)
-</pre>
+</code></pre>
 
 <h3 class="anchor" id="global-frame">Global Frame</h3>
 
@@ -255,8 +255,8 @@ the object. Here are some examples of primitives and non-primitives:</p>
 <p>Let's walk through the example. The first line is a variable
 assignment:</p>
 
-<pre class="prettyprint">x = 3
-</pre>
+<pre><code>x = 3
+</code></pre>
 
 <p>where <code>x</code> is the variable and <code>3</code> is the value.</p>
 
@@ -271,9 +271,9 @@ first. Notice in the following diagram that <code>y</code> is bound to <code>6</
 
 <p>The next line is a <code>def</code> statement:</p>
 
-<pre class="prettyprint">def square(x):
+<pre><code>def square(x):
     return x*x
-</pre>
+</code></pre>
 
 <p>Here, we are just <em>defining</em> a function -- we are <strong>not</strong> <em>calling</em>
 the function. That makes sense; when you type in a <code>def</code> statement to
@@ -318,8 +318,8 @@ return anything, write its return value as <code>None</code>.</li>
 
 <p>Let's try the first function call in the example:</p>
 
-<pre class="prettyprint">square(y)
-</pre>
+<pre><code>square(y)
+</code></pre>
 
 <ol>
 <li><strong>Evaluate the operands</strong>: the only operand is <code>y</code>. Since our
@@ -385,7 +385,7 @@ parent's parent, and so on.</p>
 
 <p>Consider this code:</p>
 
-<pre class="prettyprint">x = 3
+<pre><code>x = 3
 
 def square(x):
     return x*x
@@ -394,7 +394,7 @@ def double(x):
     return square(x+1) - square(x) - 1
 
 double(x)
-</pre>
+</code></pre>
 
 <p>For this problem, focus on the calls to <code>square</code> -- how many frames
 for <code>square</code> do we draw? What are the parents for those frames?</p>
@@ -405,8 +405,8 @@ for <code>square</code> do we draw? What are the parents for those frames?</p>
 
 <p>The last line says</p>
 
-<pre class="prettyprint">double(x)
-</pre>
+<pre><code>double(x)
+</code></pre>
 
 <p>This is a function call, so the procedure is as follows.</p>
 
@@ -471,7 +471,7 @@ can compute the original expression to get <code>16 - 9 - 1 = 6</code></li>
 
 <p>Consider this code:</p>
 
-<pre class="prettyprint">x = 3
+<pre><code>x = 3
 
 def square(x):
     return x*x
@@ -481,7 +481,7 @@ def double(x):
     return ans
 
 square(double(x))
-</pre>
+</code></pre>
 
 <p>Try drawing it on your own first by following the steps illustrated
 above!</p>
@@ -492,8 +492,8 @@ above!</p>
 
 <p>Now for the hard part:</p>
 
-<pre class="prettyprint">square(double(x))
-</pre>
+<pre><code>square(double(x))
+</code></pre>
 
 <p>This is a function call. Notice that the operand for <code>square</code> is
 itself a function call! Should you draw the frame for <code>square</code> first
@@ -547,7 +547,7 @@ is <code>6</code>. <code>square</code> has a single parameter called <code>x</co
 <p>In Python, it is possible to reassign a function to something else.
 Consider the following code:</p>
 
-<pre class="prettyprint">def foo():
+<pre><code>def foo():
     return 10
 
 def bar():
@@ -555,7 +555,7 @@ def bar():
 
 bar = foo
 bar()
-</pre>
+</code></pre>
 
 <p>Before drawing the diagram, try to predict what the last line
 evaluates to. If you got 10, you are correct! Let's see why, by
@@ -565,8 +565,8 @@ drawing the diagram. The <code>def</code> statements are drawn as follows:</p>
 
 <p>The next line is the function reassignment:</p>
 
-<pre class="prettyprint">bar = foo
-</pre>
+<pre><code>bar = foo
+</code></pre>
 
 <p>Once again, we follow the rules for bindings:</p>
 
@@ -586,8 +586,8 @@ have to erase it from your diagram.</p>
 
 <p>The final line is</p>
 
-<pre class="prettyprint">bar()
-</pre>
+<pre><code>bar()
+</code></pre>
 
 <p>This is a function call, so we follow the corresponding procedure:</p>
 
@@ -613,14 +613,14 @@ yet.</p>
 
 <p>Consider the following code:</p>
 
-<pre class="prettyprint">def outer(x):
+<pre><code>def outer(x):
     def inner(y):
         return x + y
     return inner
 
 fn = outer(2)
 fn(3)
-</pre>
+</code></pre>
 
 <p>The first binding (for defining <code>outer</code>) looks like this:</p>
 
@@ -632,8 +632,8 @@ body of <code>outer</code> when we're just defining it.</p>
 
 <p>The next line is</p>
 
-<pre class="prettyprint">fn = outer(2)
-</pre>
+<pre><code>fn = outer(2)
+</code></pre>
 
 <p>This is a variable assignment, so we follow the procedure for
 bindings:</p>
@@ -679,8 +679,8 @@ object, we draw an arrow pointing to that function object</li>
 
 <p>The next line is</p>
 
-<pre class="prettyprint">fn(3)
-</pre>
+<pre><code>fn(3)
+</code></pre>
 
 <p>This is a function call:</p>
 
@@ -710,7 +710,7 @@ use.</li>
 <p>Recall that when we call built-in functions, we do not draw new
 frames. Here's an example:</p>
 
-<pre class="prettyprint">def square1(x):
+<pre><code>def square1(x):
     return x*x
 
 def square2(x):
@@ -718,7 +718,7 @@ def square2(x):
 
 a = square1(4)
 b = square2(4)
-</pre>
+</code></pre>
 
 <p>In the example, <code>print</code> is the built-in function. This example also
 demonstrates the difference between <code>print</code> and <code>return</code>.</p>
@@ -729,8 +729,8 @@ demonstrates the difference between <code>print</code> and <code>return</code>.<
 
 <p>The next line is</p>
 
-<pre class="prettyprint">a = square1(4)
-</pre>
+<pre><code>a = square1(4)
+</code></pre>
 
 <p>which is a binding. This should be straightforward by now:</p>
 
@@ -761,8 +761,8 @@ where we put the value <code>16</code>.</li>
 
 <p>The next line is</p>
 
-<pre class="prettyprint">a = square1(4)
-</pre>
+<pre><code>a = square1(4)
+</code></pre>
 
 <p>The procedure is as follows:</p>
 

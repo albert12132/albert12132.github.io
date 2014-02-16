@@ -86,8 +86,8 @@ productive.</p>
 <p>Vim is already installed on the instructional machines (i.e. your
 class account), but it behaves strangely by default. To fix this, type</p>
 
-<pre class="prettyprint">echo "set nocompatible" &gt; ~/.vimrc
-</pre>
+<pre><code>echo "set nocompatible" &gt; ~/.vimrc
+</code></pre>
 
 <p>This creates a file in your home directory called <code>.vimrc</code>, which is
 Vim's <a href="/vimrc.html">configuration file</a>. The <code>.vimrc</code>
@@ -102,8 +102,8 @@ not to be compatible with Vi, Vim's predecessor.</p>
 <p>You can use your package manager to install Vim. For Ubuntu, use the
 <code>apt-get</code> package manager:</p>
 
-<pre class="prettyprint">sudo apt-get install vim
-</pre>
+<pre><code>sudo apt-get install vim
+</code></pre>
 
 <h3 class="anchor" id="macs">Macs</h3>
 
@@ -122,13 +122,13 @@ using it on a UNIX-based machine.</p>
 
 <p>You can start Vim from the command line just by typing</p>
 
-<pre class="prettyprint">vim
-</pre>
+<pre><code>vim
+</code></pre>
 
 <p>You can also open a file with Vim:</p>
 
-<pre class="prettyprint">vim myfile.py
-</pre>
+<pre><code>vim myfile.py
+</code></pre>
 
 <p>If you are using the text-based version, Vim will take up your entire
 terminal.</p>
@@ -146,23 +146,23 @@ showing up.</p>
 <p>To save the file, we need to return to normal mode. To do so, just
 press the <code>ESC</code> button. Next, type the following:</p>
 
-<pre class="prettyprint">:w
-</pre>
+<pre><code>:w
+</code></pre>
 
 <p>that is, a colon followed by the letter <code>w</code> (for <code>w</code>rite). After
 pressing <code>Enter</code>, your file will be saved.</p>
 
 <p>To exit Vim, go to normal mode and type in</p>
 
-<pre class="prettyprint">:q
-</pre>
+<pre><code>:q
+</code></pre>
 
 <p>If there are unsaved changes, Vim will prevent you from exiting. You
 can either save the changes, or if you want to quit without saving,
 add an exclamation mark after the command:</p>
 
-<pre class="prettyprint">:q!
-</pre>
+<pre><code>:q!
+</code></pre>
 
 <p>And there you have it -- a (very, very, very) basic work cycle in Vim!</p>
 
@@ -177,8 +177,8 @@ else (such as <code>CAPS</code> lock).</p>
 <p>Vim provides a great built-in tutor to teach you the basics. From the
 terminal, type</p>
 
-<pre class="prettyprint">vimtutor
-</pre>
+<pre><code>vimtutor
+</code></pre>
 
 <p><code>vimtutor</code> is interactive, and gives you a feel for how to use the
 commands.</p>
@@ -364,8 +364,8 @@ up the document</li>
 pattern you want to look for. For example, to search the pattern
 "class", type</p>
 
-<pre class="prettyprint">/class
-</pre>
+<pre><code>/class
+</code></pre>
 
 <p>and press enter. To move through matches:</p>
 
@@ -459,8 +459,8 @@ naviagte through your filesystem or execute some UNIX commands.
 <p>These two commands come in handy; for example, if you want to run a
 doctest, you can type</p>
 
-<pre class="prettyprint">:!python3 -m doctest %
-</pre>
+<pre><code>:!python3 -m doctest %
+</code></pre>
 
 <p>and it will run the doctests for the file you are currently working on
 (the <code>%</code> is a special character in Vim that stands for the name of the
@@ -486,8 +486,8 @@ should take the time to learn both regular expressions and <code>sed</code>.</p>
 <p>However, for a simple find-and-replace job, the following command will
 suffice:</p>
 
-<pre class="prettyprint">:%s/search pattern/replace pattern/g
-</pre>
+<pre><code>:%s/search pattern/replace pattern/g
+</code></pre>
 
 <p>The <code>:</code> indicates that this is a Command mode utility. There are a
 couple of characters to be aware of:</p>
@@ -511,7 +511,7 @@ on each line.</li>
 
 <p>Some example usage:</p>
 
-<pre class="prettyprint"># finds all instances of "def" and replaces them with "class"
+<pre><code># finds all instances of "def" and replaces them with "class"
 :%s/def/class/g
 
 # finds all instances of "TODO" and deletes them
@@ -519,7 +519,7 @@ on each line.</li>
 
 # finds "foo" between lines 403 and 411 and replaces with "bar"
 :403,411s/foo/bar/g
-</pre>
+</code></pre>
 
 <h2 class="anchor" id="multiple-windows">Multiple Windows</h2>
 
@@ -539,9 +539,9 @@ file from different places at the same time.</li>
 <p>Both <code>split</code> and <code>vsplit</code> can also open up a new file by following the
 command with the file name</p>
 
-<pre class="prettyprint">:split filename
+<pre><code>:split filename
 :vsplit filename
-</pre>
+</code></pre>
 
 <p>To navigate between windows, type <code>CTRL-w</code>, followed by one of the
 <code>hjkl</code> keys.</p>

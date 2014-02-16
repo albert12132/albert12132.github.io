@@ -83,8 +83,8 @@ to every student</li>
 <p>Upon receiving the class account, you should login and change the
 password. You can do this by running</p>
 
-<pre class="prettyprint">ssh update
-</pre>
+<pre><code>ssh update
+</code></pre>
 
 <p>from the terminal; then follow the instructions on the screen.</p>
 
@@ -128,8 +128,8 @@ using IDLE, since it has some bugs.</strong></li>
 frequently</strong>. This ensures that you are at least on the right track.
 You can run doctests with the following command from your terminal:</p>
 
-<pre class="prettyprint">python3 -m doctest hw1.py
-</pre>
+<pre><code>python3 -m doctest hw1.py
+</code></pre>
 
 <p>where you can replace <code>hw1.py</code> with the name of the file. The projects
 usually have some additional testing mechanisms. I can't stress this
@@ -144,15 +144,15 @@ how you do this depends on your operating system (OS):</p>
 <ul>
 <li><strong>Macs and Linux</strong>: from your terminal, use the <code>scp</code> command:</p>
 
-<pre class="prettyprint">scp hw1.py cs61a-xx@star.cs.berkeley.edu:~
-</pre>
+<pre><code>scp hw1.py cs61a-xx@star.cs.berkeley.edu:~
+</code></pre>
 
 <p>where <code>xx</code> is your login. You can use any other Berkeley server to
 login, and you can transfer your file to any directory on your class
 account. A more general format for the command is the following:</p>
 
-<pre class="prettyprint">scp path/to/assignment.py cs61a-xx@servername.cs.berkeley.edu:path/on/class/account
-</pre>
+<pre><code>scp path/to/assignment.py cs61a-xx@servername.cs.berkeley.edu:path/on/class/account
+</code></pre>
 
 <p>where <code>servername</code> is a <a href="http://inst.eecs.berkeley.edu/cgi-bin/clients.cgi?choice=servers">Berkeley
 server</a>.</p>
@@ -176,8 +176,8 @@ you login will be different:</p>
 <ul>
 <li><strong>Macs and Linux</strong>: from your terminal, use the <code>ssh</code> command:</p>
 
-<pre class="prettyprint">ssh cs61a-xx@star.cs.berkeley.edu
-</pre>
+<pre><code>ssh cs61a-xx@star.cs.berkeley.edu
+</code></pre>
 
 <p>Again, you can replace <code>star</code> with the name of any Berkeley server.</li>
 <li><strong>Windows</strong>: use
@@ -192,17 +192,17 @@ section of the course website.</li>
 <li>Create a directory for the assignment and move your <code>.py</code> file into
 the new directory:</p>
 
-<pre class="prettyprint">mkdir hw1
+<pre><code>mkdir hw1
 mv hw1.py hw1
-</pre></li>
+</code></pre></li>
 <li>Go into the new directory</p>
 
-<pre class="prettyprint">cd hw1
-</pre></li>
+<pre><code>cd hw1
+</code></pre></li>
 <li>Run the <code>submit</code> script:</p>
 
-<pre class="prettyprint">submit hw1
-</pre>
+<pre><code>submit hw1
+</code></pre>
 
 <p>where <code>hw1</code> is replaced with the name of the assignment. For
 projects, the assignment name will be <code>proj1</code> for Project 1,
@@ -214,8 +214,8 @@ does NOT check the correctness of your code. You should have checked
 that yourself by running doctests.</li>
 <li>After submitting, you should run the following command:</p>
 
-<pre class="prettyprint">glookup -t
-</pre>
+<pre><code>glookup -t
+</code></pre>
 
 <p>This will show you timestamps of all your submissions. If your
 latest submission shows up, then you'll know we've received your
@@ -230,8 +230,8 @@ partner</strong> should submit projects.</p>
 <p>You can check your grades with the following command (from your class
 account):</p>
 
-<pre class="prettyprint">glookup
-</pre>
+<pre><code>glookup
+</code></pre>
 
 <p>This will list your scores for all assignments. If you have a <code>---</code>
 for an assignment, it means you haven't received a score for that
@@ -239,8 +239,8 @@ assignment yet.</p>
 
 <p>You can also see how the entire class did by running</p>
 
-<pre class="prettyprint">glookup -s hw1
-</pre>
+<pre><code>glookup -s hw1
+</code></pre>
 
 <p>where you can replace <code>hw1</code> with the name of the assignment.</p>
 

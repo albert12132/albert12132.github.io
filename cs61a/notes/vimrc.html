@@ -77,8 +77,8 @@ beginning will hide the file from a normal <code>ls</code> UNIX command (so as
 not to clutter), but it is still there. You can edit the file from Vim
 itself:</p>
 
-<pre class="prettyprint">vim .vimrc
-</pre>
+<pre><code>vim .vimrc
+</code></pre>
 
 <h3 class="anchor" id="sample-vimrc">Sample vimrc</h3>
 
@@ -89,26 +89,26 @@ It contains most of the settings described here.</p>
 
 <p>To turn on syntax highlighting, add</p>
 
-<pre class="prettyprint">syntax on
-</pre>
+<pre><code>syntax on
+</code></pre>
 
 <p>You can change the colorscheme (replace <code>desert</code> with any other
 colorscheme):</p>
 
-<pre class="prettyprint">colorscheme desert
-</pre>
+<pre><code>colorscheme desert
+</code></pre>
 
 <p>Indentation rules for different filetypes can be set:</p>
 
-<pre class="prettyprint">filetype plugin indent on
-</pre>
+<pre><code>filetype plugin indent on
+</code></pre>
 
 <h2 class="anchor" id="settings">Settings</h2>
 
 <p>The first thing you'll want to do is</p>
 
-<pre class="prettyprint">set nocompatible
-</pre>
+<pre><code>set nocompatible
+</code></pre>
 
 <p>This turns off Vi compatibility. This is especially important if you
 are using Vim on your class account.</p>
@@ -118,15 +118,15 @@ VimScript.</p>
 
 <h3 class="anchor" id="miscellaneous">Miscellaneous</h3>
 
-<pre class="prettyprint">set noerrorbells    " Gets rid of beeping sound
-</pre>
+<pre><code>set noerrorbells    " Gets rid of beeping sound
+</code></pre>
 
 <h3 class="anchor" id="dimensions">Dimensions</h3>
 
-<pre class="prettyprint">set lines=50        " Vim starts with this many lines
+<pre><code>set lines=50        " Vim starts with this many lines
 set columns=80      " You can change these numbers
 set textwidth=80    " This sets the 'virtual' line number
-</pre>
+</code></pre>
 
 <p>The <code>textwidth</code> setting is useful when writing paragraphs (such as in
 LaTeX), as it automatically forces overflowing text onto a newline. It
@@ -135,17 +135,17 @@ it.</p>
 
 <h3 class="anchor" id="information">Information</h3>
 
-<pre class="prettyprint">set showcmd         " Show (partial) command in status line
+<pre><code>set showcmd         " Show (partial) command in status line
 set showmode        " Show the current mode
 set laststatus=2    " Always show status line
-</pre>
+</code></pre>
 
 <p>The status line can contain useful information. For a full list of
 things you can put there, type the Vim command <code>:help statusline</code>.
 Here is the one I use:</p>
 
-<pre class="prettyprint">set statusline=%.40F%=%m\ %Y\ Line:\ %3l/%L[%3p%%]
-</pre>
+<pre><code>set statusline=%.40F%=%m\ %Y\ Line:\ %3l/%L[%3p%%]
+</code></pre>
 
 <p>The full filepath is displayed on the left, and various things are
 displayed on the right -- whether or not the file has been modified,
@@ -153,37 +153,37 @@ the filetype, the line number, and the percentage through the file.</p>
 
 <h3 class="anchor" id="navigation">Navigation</h3>
 
-<pre class="prettyprint">set nu              " Set line numbering
+<pre><code>set nu              " Set line numbering
 set scrolloff=5     " Keep at least 5 lines above/below cursor
 set mouse=a         " Enable mouse usage in all modes
 set mousehide       " Hide the mouse when typing
-</pre>
+</code></pre>
 
 <p>I personally like <code>scrolloff</code> because it allows me to see ahead, but
 it can be distracting for some people.</p>
 
 <h3 class="anchor" id="searching">Searching</h3>
 
-<pre class="prettyprint">set ignorecase      " Do case insensitive matching
+<pre><code>set ignorecase      " Do case insensitive matching
 set smartcase       " Unless you explicitly search for upper case
 set incsearch       " Incremental search
 set hlsearch        " Highlight searches
 set showmatch       " Show matching parentheses
-</pre>
+</code></pre>
 
 <h3 class="anchor" id="tabs">Tabs</h3>
 
-<pre class="prettyprint">set expandtab       " Uses spaces instead of tabs
+<pre><code>set expandtab       " Uses spaces instead of tabs
 set tabstop=4       " Each tab is 4 spaces
 set shiftwidth=4    " Sets the &gt;&gt; and &lt;&lt; width
 set autoindent
-</pre>
+</code></pre>
 
 <h3 class="anchor" id="backups">Backups</h3>
 
-<pre class="prettyprint">set nobackup        " remove backup files
+<pre><code>set nobackup        " remove backup files
 set noswapfile      " remove swap files
-</pre>
+</code></pre>
 
 <p>Only set these if you don't want backup files. Some people find them
 useful.</p>
@@ -206,43 +206,43 @@ example, normal mode mappings are done with <code>nmap</code>, <code>nremap</cod
 
 <h2 class="anchor" id="normal-mode-key-bindings">Normal Mode Key Bindings</h2>
 
-<pre class="prettyprint">nnoremap ; :              " Enter command mode faster
-</pre>
+<pre><code>nnoremap ; :              " Enter command mode faster
+</code></pre>
 
 <h3 class="anchor" id="windows">Windows</h3>
 
-<pre class="prettyprint">nnoremap &lt;C-k&gt;  &lt;C-w&gt;k    " Move along windows faster
+<pre><code>nnoremap &lt;C-k&gt;  &lt;C-w&gt;k    " Move along windows faster
 nnoremap &lt;C-j&gt;  &lt;C-w&gt;j
 nnoremap &lt;C-h&gt;  &lt;C-w&gt;h
 nnoremap &lt;C-l&gt;  &lt;C-w&gt;l
-</pre>
+</code></pre>
 
 <h3 class="anchor" id="line-movement">Line movement</h3>
 
-<pre class="prettyprint">nnoremap j      gj        " Move along rows, not lines
+<pre><code>nnoremap j      gj        " Move along rows, not lines
 nnoremap k      gk        " Useful for long lines
 nnoremap 0      g0
 nnoremap $      g$
-</pre>
+</code></pre>
 
 <h3 class="anchor" id="screen-centering">Screen centering</h3>
 
-<pre class="prettyprint">nnoremap &lt;space&gt;  zz      " Centers screen around cursor
+<pre><code>nnoremap &lt;space&gt;  zz      " Centers screen around cursor
 nnoremap n        nzz
 nnoremap N        Nzz
-</pre>
+</code></pre>
 
 <h2 class="anchor" id="command-mode-key-bindings">Command Mode Key Bindings</h2>
 
 <p>The following alias accidental shifts:</p>
 
-<pre class="prettyprint">cnoremap W&lt;CR&gt; w&lt;CR&gt;
+<pre><code>cnoremap W&lt;CR&gt; w&lt;CR&gt;
 cnoremap Q&lt;CR&gt; q&lt;CR&gt;
 cnoremap X&lt;CR&gt; x&lt;CR&gt;
 cnoremap Sh&lt;CR&gt; sh&lt;CR&gt;
 cnoremap sH&lt;CR&gt; sh&lt;CR&gt;
 cnoremap SH&lt;CR&gt; sh&lt;CR&gt;
-</pre>
+</code></pre>
 
       </div>
     </div>
