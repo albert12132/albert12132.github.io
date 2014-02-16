@@ -138,8 +138,7 @@ def rest(s):
 </div>
 <h3 id="conceptual2" class="question anchor">Q2</h3>
 <p>Which of the following are valid Rlist constructors?</p>
-<pre><code>
-rlist(1, 3)
+<pre><code>rlist(1, 3)
 rlist(1, None)
 rlist(1, rlist(4, empty_rlist))
 rlist(1, empty_rlist)
@@ -155,8 +154,7 @@ rlist()</code></pre>
 <h3 id="conceptual3" class="question anchor">Q3</h3>
 <p>Construct an rlist that contains the following
     elements:</p>
-<pre><code>
-1, 3, lambda x: x, 'hi'</code></pre>
+<pre><code>1, 3, lambda x: x, 'hi'</code></pre>
 <button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><p><b>Answer: </b><pre><code>
 rlist(1, rlist(3, rlist(lambda x: x, rlist('hi', empty_rlist))))</code></pre>
 </p>
@@ -164,8 +162,7 @@ rlist(1, rlist(3, rlist(lambda x: x, rlist('hi', empty_rlist))))</code></pre>
 <h3 id="conceptual4" class="question anchor">Q4</h3>
 <p>What is the third element of the following
     rlist?</p>
-<pre><code>
-rlist('this', rlist(rlist('is', rlist('a', empty_rlist)), rlist('question', empty_rlist)))</code></pre>
+<pre><code>rlist('this', rlist(rlist('is', rlist('a', empty_rlist)), rlist('question', empty_rlist)))</code></pre>
 <button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><p><b>Answer: </b><tt>'question'</tt></p>
 </div>
 <h3 id="conceptual5" class="question anchor">Q5</h3>
@@ -195,8 +192,7 @@ rlist('this', rlist(rlist('is', rlist('a', empty_rlist)), rlist('question', empt
 <p>Implement a function <tt>rlist_to_tup</tt> that
         takes an rlist as an argument, and returns tuple that
         contains the same elements as the rlist.</p>
-<pre><code>
-def rlist_to_tup(lst):
+<pre><code>def rlist_to_tup(lst):
     """Returns a tuple that contains the same elements as the
     rlist.
 
@@ -205,8 +201,7 @@ def rlist_to_tup(lst):
     (1, 2, 3)
     """
     "*** YOUR CODE HERE ***" </code></pre>
-<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><pre><code>
-# recursive
+<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><pre><code># recursive
 def rlist_to_tup(lst):
     if lst == empty_rlist:
         return ()
@@ -223,8 +218,7 @@ def rlist_to_tup(lst):
 <h3 id="code2" class="question anchor">Q2</h3>
 <p>Implement a function <tt>map_rlist</tt> that
     maps a function <tt>f</tt> onto each element of an rlist.</p>
-<pre><code>
-def map_rlist(lst, f):
+<pre><code>def map_rlist(lst, f):
     """Maps f onto each element in the rlist.
 
     &gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, empty_rlist)))
@@ -232,8 +226,7 @@ def map_rlist(lst, f):
     (1, 4, 9)
     """
     "*** YOUR CODE HERE ***" </code></pre>
-<button id='7' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 7"><pre><code>
-# recursive
+<button id='7' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 7"><pre><code># recursive
 def map_rlist(lst, f):
     if lst == empty_rlist:
         return empty_rlist
