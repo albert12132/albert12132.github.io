@@ -5,10 +5,14 @@
     <meta name='description' content='CS 61A TA website for Albert Wu'>
     <title>Newton's method: exam | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -25,7 +29,7 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
     <div id='nav-bar-toggle'>
       <div id='nav-bar-toggle-icon'>
         &lt;
@@ -84,8 +88,7 @@
   </div>
 
   We will be using the implementation of Newton's method and
-iterative improvement from lecture:<pre class="prettyprint">
-# iterative improvement framework
+iterative improvement from lecture:<pre><code># iterative improvement framework
 
 def improve(update, close, guess=1):
     while not close(guess):
@@ -111,7 +114,7 @@ def newton_update(f, df):
 def find_zero(f, df):
     def near_zero(x):
         return approx_eq(f(x), 0)
-    return improve(newton_update(f, df), near_zero)</pre>
+    return improve(newton_update(f, df), near_zero)</code></pre>
 
 
   <div id='contents'>
@@ -135,13 +138,11 @@ def find_zero(f, df):
         finding the root of the fourth root (since that's just <tt>x =
         0</tt>).
         </p>
-<pre class="prettyprint">
-def fourth_root(x):
-    "*** YOUR CODE HERE ***" </pre>
-<button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><pre class="prettyprint">
-def fourth_root(x):
+<pre><code>def fourth_root(x):
+    "*** YOUR CODE HERE ***" </code></pre>
+<button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><pre><code>def fourth_root(x):
     f = lambda y: y**4 - x
-    return find_zero(f, make_derivative(f))</pre>
+    return find_zero(f, make_derivative(f))</code></pre>
 </div>
 <h3 id="code2" class="question anchor">Q2</h3>
 <p>An elementary exercise in calculus is to
@@ -154,15 +155,13 @@ def fourth_root(x):
         <p>Write a function <tt>critical_point</tt> that takes a
         function <tt>f</tt> and returns a critical point for that
         function.</p>
-<pre class="prettyprint">
-def critical_point(f):
+<pre><code>def critical_point(f):
     """Returns a single critical point for the function F."""
-    "*** YOUR CODE HERE ***" </pre>
-<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><pre class="prettyprint">
-def critical_point(f):
+    "*** YOUR CODE HERE ***" </code></pre>
+<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><pre><code>def critical_point(f):
     df = make_derivative(f)
     ddf = make_derivative(df)
-    return find_zero(df, ddf)</pre>
+    return find_zero(df, ddf)</code></pre>
 </div>
 <h3 id="code3" class="question anchor">Q3</h3>
 <p>If Newton's method reaches a guess that has
@@ -171,18 +170,15 @@ def critical_point(f):
         the derivative of the function = 0). Rewrite
         <tt>newton_update</tt> to add a small <tt>offset</tt> to the
         derivative if it is equal to zero to avoid this problem.</p>
-<pre class="prettyprint">
-def newton_update(f, df, offset=1e-5):
-    "*** YOUR CODE HERE ***" </pre>
-<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><pre class="prettyprint">
-def newton_update(f, df, offset=1e-5):
+<pre><code>def newton_update(f, df, offset=1e-5):
+    "*** YOUR CODE HERE ***" </code></pre>
+<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><pre><code>def newton_update(f, df, offset=1e-5):
     def update(x):
         deriv = df(x)
         if deriv == 0:
             deriv += offset
         return x - f(x) / deriv
-    return update
-</pre>
+    return update</code></pre>
 </div>
 <h3 id="code4" class="question anchor">Q4</h3>
 <p>In economics, <i><a href='http://en.wikipedia.org/wiki/Walrasian_auction'>t&acirc;tonnement</a></i> is an iterative process for finding price equilibria in a market. The price
@@ -202,8 +198,7 @@ def newton_update(f, df, offset=1e-5):
         a price as an argument and output a quantity), and returns
         an approximation of the equilibrium price. See the docstring
         for more details.</p>
-<pre class="prettyprint">
-def equilibrium(supply, demand, tolerance=1e-2):
+<pre><code>def equilibrium(supply, demand, tolerance=1e-2):
     """Calculates the equilibrium price for the given SUPPLY and
     DEMAND functions.
 
@@ -225,10 +220,8 @@ def equilibrium(supply, demand, tolerance=1e-2):
     def close(p):
         "*** YOUR CODE HERE ***"
 
-    return improve(update, isclose, initial_guess)
-</pre>
-<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><pre class="prettyprint">
-def equilibrium(supply, demand, tolerance=1e-2):
+    return improve(update, isclose, initial_guess)</code></pre>
+<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><pre><code>def equilibrium(supply, demand, tolerance=1e-2):
     initial_guess = 1
 
     def update(p):
@@ -237,7 +230,7 @@ def equilibrium(supply, demand, tolerance=1e-2):
     def isclose(p):
         return abs(demand(p) - supply(p)) &lt;= tolerance
 
-    return improve(update, isclose, initial_guess)</pre>
+    return improve(update, isclose, initial_guess)</code></pre>
 </div>
 
   </div>

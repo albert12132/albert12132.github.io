@@ -5,10 +5,14 @@
     <meta name='description' content='CS 61A TA website for Albert Wu'>
     <title>Environment Diagrams: exam | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -25,7 +29,7 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
     <div id='nav-bar-toggle'>
       <div id='nav-bar-toggle-icon'>
         &lt;
@@ -104,8 +108,7 @@
 
   <h2 id="env" class="subtopic anchor">Environment Diagrams</h2>
 <h3 id="env1" class="question anchor">Q1</h3>
-<pre class="prettyprint">
-def funny(joke):
+<pre><code>def funny(joke):
     hoax = joke + 1
     return funny(hoax)
 
@@ -117,12 +120,11 @@ funny, sad = sad, funny
 result = funny(sad(1))
 
 # pay special attention to the names of
-# the frames!</pre>
+# the frames!</code></pre>
 <button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+funny%28joke%29%3A%0A++++hoax+%3D+joke+%2B+1%0A++++return+funny%28hoax%29%0A%0Adef+sad%28joke%29%3A%0A++++hoax+%3D+joke+-+1%0A++++return+hoax+%2B+hoax%0A%0Afunny%2C+sad+%3D+sad%2C+funny%0Aresult+%3D+funny%28sad%281%29%29%0A%0A%23+pay+special+attention+to+the+names+of%0A%23+the+frames%21"></iframe></p>
 </div>
 <h3 id="env2" class="question anchor">Q2</h3>
-<pre class="prettyprint">
-def double(x):
+<pre><code>def double(x):
     return double(x + x)
 
 first = double
@@ -130,12 +132,11 @@ first = double
 def double(y):
     return y + y
 
-result = first(10)</pre>
+result = first(10)</code></pre>
 <button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+double%28x%29%3A%0A++++return+double%28x+%2B+x%29%0A%0Afirst+%3D+double%0A%0Adef+double%28y%29%3A%0A++++return+y+%2B+y%0A%0Aresult+%3D+first%2810%29"></iframe></p>
 </div>
 <h3 id="env3" class="question anchor">Q3</h3>
-<pre class="prettyprint">
-def fun(fun):
+<pre><code>def fun(fun):
     def time(time):
         return fun(x)
     x = 4
@@ -145,12 +146,11 @@ def boo(x):
     return x**2
     x = 5
 
-result = fun(boo)(10)</pre>
+result = fun(boo)(10)</code></pre>
 <button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+fun%28fun%29%3A%0A++++def+time%28time%29%3A%0A++++++++return+fun%28x%29%0A++++x+%3D+4%0A++++return+time%0A%0Adef+boo%28x%29%3A%0A++++return+x%2A%2A2%0A++++x+%3D+5%0A%0Aresult+%3D+fun%28boo%29%2810%29"></iframe></p>
 </div>
 <h3 id="env4" class="question anchor">Q4</h3>
-<pre class="prettyprint">
-from operator import sub
+<pre><code>from operator import sub
 def trick(me, you):
     sub = treat
     return sub
@@ -159,19 +159,18 @@ def treat(me, you):
     return sub(me, 1)
 
 treat = trick
-trick(3, 4)</pre>
+trick(3, 4)</code></pre>
 <button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Afrom+operator+import+sub%0Adef+trick%28me%2C+you%29%3A%0A++++sub+%3D+treat%0A++++return+sub%0A%0Adef+treat%28me%2C+you%29%3A%0A++++return+sub%28me%2C+1%29%0A%0Atreat+%3D+trick%0Atrick%283%2C+4%29"></iframe></p>
 </div>
 <h3 id="env5" class="question anchor">Q5</h3>
-<pre class="prettyprint">
-def easy(x):
+<pre><code>def easy(x):
     def peasy(y):
         def ironic(name):
             return name(x, y)
         return y
     return peasy
 
-result = easy(4)(easy)(2)</pre>
+result = easy(4)(easy)(2)</code></pre>
 <button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+easy%28x%29%3A%0A++++def+peasy%28y%29%3A%0A++++++++def+ironic%28name%29%3A%0A++++++++++++return+name%28x%2C+y%29%0A++++++++return+y%0A++++return+peasy%0A%0Aresult+%3D+easy%284%29%28easy%29%282%29"></iframe></p>
 </div>
 

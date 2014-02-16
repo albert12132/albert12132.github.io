@@ -5,10 +5,14 @@
     <meta name='description' content='CS 61A TA website for Albert Wu'>
     <title>Newton's method: basic | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -25,7 +29,7 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
     <div id='nav-bar-toggle'>
       <div id='nav-bar-toggle-icon'>
         &lt;
@@ -82,8 +86,7 @@
   </div>
 
   We will be using the implementation of Newton's method and
-iterative improvement from lecture:<pre class="prettyprint">
-# iterative improvement framework
+iterative improvement from lecture:<pre><code># iterative improvement framework
 
 def improve(update, close, guess=1):
     while not close(guess):
@@ -109,7 +112,7 @@ def newton_update(f, df):
 def find_zero(f, df):
     def near_zero(x):
         return approx_eq(f(x), 0)
-    return improve(newton_update(f, df), near_zero)</pre>
+    return improve(newton_update(f, df), near_zero)</code></pre>
 
 
   <div id='contents'>
@@ -140,16 +143,14 @@ def find_zero(f, df):
 <p>Conceptually, what is the <tt>update</tt>
         function for Newton's method? What is the <tt>close</tt>
         function for Newton's method?</p>
-<pre class="prettyprint">
-def newton_update(f, df):
+<pre><code>def newton_update(f, df):
     def update(x):
         return x - f(x) / df(x)
     return update
 
 # the following is defined inside find_zero
 def near_zero(x):
-    return approx_eq(f(x), 0)
-</pre>
+    return approx_eq(f(x), 0)</code></pre>
 <button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><b>Answer: </b><tt>newton_update</tt> is not the actual update
     function -- instead, depending on what <tt>f</tt> is given, it
     will create an <tt>update</tt> function that follows the

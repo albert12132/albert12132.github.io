@@ -5,10 +5,14 @@
     <meta name='description' content='CS 61A TA website for Albert Wu'>
     <title>Recursion: basic | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -25,7 +29,7 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
     <div id='nav-bar-toggle'>
       <div id='nav-bar-toggle-icon'>
         &lt;
@@ -139,10 +143,8 @@
 <h3 id="conceptual4" class="question anchor">Q4</h3>
 <p>Describe what is wrong with the following
         function and find a way to fix it:</p>
-<pre class="prettyprint">
-def factorial(n):
-    return n * factorial(n)
-</pre>
+<pre><code>def factorial(n):
+    return n * factorial(n)</code></pre>
 <button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><p><b>Answer: </b>There are two problems with <tt>factorial</tt>.
         <ol>
   <li>First, the recursive call is made on the exact same
@@ -154,12 +156,11 @@ def factorial(n):
             <tt>n == 0</tt></li>
 </ol>Notice that you need to fix both of these problems
         for it to work, otherwise the function will still loop
-        forever!<pre class="prettyprint">
-def factorial(n):
+        forever!<pre><code>def factorial(n):
     if n == 0:
         return 1
     else:
-        return n * factorial(n - 1)</pre>
+        return n * factorial(n - 1)</code></pre>
 </p>
 </div>
 
@@ -175,8 +176,7 @@ def factorial(n):
         <tt>n</tt>, and calculates the sum of the first <tt>n</tt>
         elements of the geometric series defined by <tt>a</tt> and
         <tt>r</tt>. <b>Use recursion!</b></p>
-<pre class="prettyprint">
-def geo_sum(a, r, n):
+<pre><code>def geo_sum(a, r, n):
     """Returns the first n elements of a geometric series.
 
     &gt;&gt;&gt; geo_sum(1, 1/2, 4)  # 1 + 1/2 + 1/4 + 1/8
@@ -184,13 +184,12 @@ def geo_sum(a, r, n):
     &gt;&gt;&gt; geo_sum(2, 2, 3)  # 2 + 4 + 8
     14
     """
-    "*** YOUR CODE HERE ***" </pre>
-<button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><pre class="prettyprint">
-def geo_sum(a, r, n):
+    "*** YOUR CODE HERE ***" </code></pre>
+<button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><pre><code>def geo_sum(a, r, n):
     if n == 1:
         return a
     else:
-        return a + geo_sum(a*r, r, n-1)</pre>
+        return a + geo_sum(a*r, r, n-1)</code></pre>
 </div>
 <h3 id="code2" class="question anchor">Q2</h3>
 <p>Implement a function <tt>num_primes</tt>
@@ -200,8 +199,7 @@ def geo_sum(a, r, n):
         that takes in a number <i>i</i> and returns <tt>True</tt>
         if <i>i</i> is prime, and <tt>False</tt> otherwise.
         <b>Use recursion!</b></p>
-<pre class="prettyprint">
-def num_primes(n):
+<pre><code>def num_primes(n):
     """Returns the number of primes less than or equal to n.
 
     &gt;&gt;&gt; num_primes(6)   # 2, 3, 5
@@ -217,15 +215,14 @@ def is_prime(i):
         if i % m == 0:
             return False
         m += 1
-    return True</pre>
-<button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><pre class="prettyprint">
-def num_primes(n):
+    return True</code></pre>
+<button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><pre><code>def num_primes(n):
     if n &lt; 2:
         return 0
     elif is_prime(n):
         return 1 + num_primes(n - 1)
     else:
-        return num_primes(n - 1)</pre>
+        return num_primes(n - 1)</code></pre>
 </div>
 <h3 id="code3" class="question anchor">Q3</h3>
 <p>Implement a function <tt>any</tt>
@@ -237,8 +234,7 @@ def num_primes(n):
         <tt>b</tt> and <tt>pred(i)</tt> returns <tt>True</tt>). You
         may assume <tt>a</tt> &le; <tt>b</tt>.
         <b>Use recursion!</b></p>
-<pre class="prettyprint">
-def any(a, b, pred):
+<pre><code>def any(a, b, pred):
     """Returns True if any numbers from a to b inclusive satisfy
     pred.
 
@@ -251,13 +247,12 @@ def any(a, b, pred):
     &gt;&gt;&gt; any(0, 6, lambda x: x % 7 == 0)
     True
     """
-    "*** YOUR CODE HERE ***" </pre>
-<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><pre class="prettyprint">
-def any(a, b, pred):
+    "*** YOUR CODE HERE ***" </code></pre>
+<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><pre><code>def any(a, b, pred):
     if a == b:
         return pred(a)
     else:
-        return pred(b) or any(a, b - 1, pred)</pre>
+        return pred(b) or any(a, b - 1, pred)</code></pre>
 </div>
 
   </div>

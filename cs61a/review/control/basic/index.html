@@ -5,10 +5,14 @@
     <meta name='description' content='CS 61A TA website for Albert Wu'>
     <title>Control Structures: basic | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -25,7 +29,7 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
     <div id='nav-bar-toggle'>
       <div id='nav-bar-toggle-icon'>
         &lt;
@@ -115,7 +119,7 @@
 
   <h2 id="print" class="subtopic anchor">What would Python print?</h2>
 <h3 id="print1" class="question anchor">Q1</h3>
-<pre class="prettyprint">&gt;&gt;&gt; x = 4
+<pre><code>&gt;&gt;&gt; x = 4
 &gt;&gt;&gt; x &gt; 2 and x &lt; 6
 <span class="blank0">______</span><span class="hidden solution 0">True</span>
 &gt;&gt;&gt; True and not True    # a.k.a. a contradiciton
@@ -133,10 +137,10 @@
 &gt;&gt;&gt; 3 and 4
 <span class="blank0">______</span><span class="hidden solution 0">4</span>
 &gt;&gt;&gt; 3 or 4
-<span class="blank0">______</span><span class="hidden solution 0">3</span></pre>
+<span class="blank0">______</span><span class="hidden solution 0">3</span></code></pre>
 <button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
 <h3 id="print2" class="question anchor">Q2</h3>
-<pre class="prettyprint">&gt;&gt;&gt; if True:
+<pre><code>&gt;&gt;&gt; if True:
 ...     print('True!')
 ... else:
 ...     print('False!')
@@ -158,10 +162,10 @@
 ...     print('The answer to everthing')
 ... else:
 ...     print('Boring number')
-<span class="blank1">______</span><span class="hidden solution 1">The answer to everything</span></pre>
+<span class="blank1">______</span><span class="hidden solution 1">The answer to everything</span></code></pre>
 <button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
 <h3 id="print3" class="question anchor">Q3</h3>
-<pre class="prettyprint">&gt;&gt;&gt; x = 0
+<pre><code>&gt;&gt;&gt; x = 0
 &gt;&gt;&gt; while x &lt; 5:
 ...     x += 1
 ...     print(x)
@@ -189,13 +193,12 @@ hi!
 &gt;&gt;&gt; foo(3)
 <span class="blank2">______</span><span class="hidden solution 2">False</span>
 &gt;&gt;&gt; foo(9)
-<span class="blank2">______</span><span class="hidden solution 2">True</span></pre>
+<span class="blank2">______</span><span class="hidden solution 2">True</span></code></pre>
 <button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
 
 <h2 id="env" class="subtopic anchor">Environment Diagrams</h2>
 <h3 id="env1" class="question anchor">Q1</h3>
-<pre class="prettyprint">
-def branch(x):
+<pre><code>def branch(x):
     if x &gt; 10:
         x -= 5
     elif x &gt; 7:
@@ -206,30 +209,28 @@ def branch(x):
         return 'odd'
 
 a = branch(12)
-b = branch(8)</pre>
+b = branch(8)</code></pre>
 <button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+branch%28x%29%3A%0A++++if+x+%3E+10%3A%0A++++++++x+-%3D+5%0A++++elif+x+%3E+7%3A%0A++++++++x+-%3D+2%0A++++if+x+%25+2+%3D%3D+0%3A%0A++++++++return+%27even%27%0A++++else%3A%0A++++++++return+%27odd%27%0A%0Aa+%3D+branch%2812%29%0Ab+%3D+branch%288%29"></iframe></p>
 </div>
 <h3 id="env2" class="question anchor">Q2</h3>
-<pre class="prettyprint">
-def uhoh(x):
+<pre><code>def uhoh(x):
     if x:
         y = 5
     return y
 
 a = uhoh(True)
-b = uhoh(False)</pre>
+b = uhoh(False)</code></pre>
 <button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+uhoh%28x%29%3A%0A++++if+x%3A%0A++++++++y+%3D+5%0A++++return+y%0A%0Aa+%3D+uhoh%28True%29%0Ab+%3D+uhoh%28False%29"></iframe></p>
 </div>
 <h3 id="env3" class="question anchor">Q3</h3>
-<pre class="prettyprint">
-def is_even(x):
+<pre><code>def is_even(x):
     return x % 2 == 0
 
 i = 0
 while i &lt; 2:
     if is_even(i):
         print(i)
-    i += 1</pre>
+    i += 1</code></pre>
 <button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+is_even%28x%29%3A%0A++++return+x+%25+2+%3D%3D+0%0A%0Ai+%3D+0%0Awhile+i+%3C+2%3A%0A++++if+is_even%28i%29%3A%0A++++++++print%28i%29%0A++++i+%2B%3D+1"></iframe></p>
 </div>
 
@@ -237,8 +238,7 @@ while i &lt; 2:
 <h3 id="code1" class="question anchor">Q1</h3>
 <p>For each of the following functions, try to
         make the code more concise.</p>
-<pre class="prettyprint">
-def one(x):
+<pre><code>def one(x):
     if x == True:
         return 'input is true'
     else:
@@ -261,10 +261,8 @@ def four(ones_win):
     if ones_win == True:
         result = 6
     elif ones_win == False:
-        result = 4
-</pre>
-<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><pre class="prettyprint">
-def one(x):
+        result = 4</code></pre>
+<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><pre><code>def one(x):
     if x:
         return 'input is true'
     return 'input is false'
@@ -278,16 +276,14 @@ def three(x):
     return x
 
 def four(ones_win):
-    result = 6 if ones_win else 4
-</pre>
+    result = 6 if ones_win else 4</code></pre>
 </div>
 <h3 id="code2" class="question anchor">Q2</h3>
 <p>Write a function <tt>summation</tt> that
         adds the first <tt>n</tt> elements in a sequence. The
         <tt>k</tt>th element in the sequence can be computed by
         evaluating <tt>term(k)</tt>.</p>
-<pre class="prettyprint">
-def summation(n, term):
+<pre><code>def summation(n, term):
     """Computes the summation of the first n numbers in the sequence
     defined by the function term.
 
@@ -295,23 +291,19 @@ def summation(n, term):
     &gt;&gt;&gt; summation(5, square)
     55
     """
-    "*** YOUR CODE HERE ***"
-</pre>
-<button id='7' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 7"><pre class="prettyprint">
-def summation(n, term):
+    "*** YOUR CODE HERE ***"</code></pre>
+<button id='7' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 7"><pre><code>def summation(n, term):
     k, total = 1, 0
     while k &lt;= n:
         total += term(k)
         k += 1
-    return total
-</pre>
+    return total</code></pre>
 </div>
 <h3 id="code3" class="question anchor">Q3</h3>
 <p>Write a function <tt>is_fib</tt> that
         returns <tt>True</tt> if its input is a fibonacci number, and
         False otherwise.</p>
-<pre class="prettyprint">
-def is_fib(n):
+<pre><code>def is_fib(n):
     """Returns True if n is a fibonacci number,
     else False
 
@@ -320,15 +312,12 @@ def is_fib(n):
     &gt;&gt;&gt; is_fib(9)
     False
     """
-    "*** YOUR CODE HERE ***"
-</pre>
-<button id='8' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 8"><pre class="prettyprint">
-def is_fib(n):
+    "*** YOUR CODE HERE ***"</code></pre>
+<button id='8' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 8"><pre><code>def is_fib(n):
     cur, next = 0, 1
     while cur &lt; n:
         cur, next = next, cur + next
-    return cur == n
-</pre>
+    return cur == n</code></pre>
 </div>
 
   </div>

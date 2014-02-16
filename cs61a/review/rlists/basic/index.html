@@ -102,8 +102,7 @@ We will be using the following implementation of immutable recursive
 lists. Keep in mind that your code should not depend on the assumption
 that rlists are implemented as tuples -- preserve data abstraction!
 </p>
-<pre><code>
-empty_rlist = None
+<pre><code>empty_rlist = None
 
 def rlist(first, rest=empty_rlist):
     return (first, rest)
@@ -112,8 +111,7 @@ def first(s):
     return s[0]
 
 def rest(s):
-    return s[1]
-</code></pre>
+    return s[1]</code></pre>
 
 
   <div id='contents'>
@@ -146,8 +144,7 @@ rlist(1, None)
 rlist(1, rlist(4, empty_rlist))
 rlist(1, empty_rlist)
 rlist()</code></pre>
-<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><b>Answer: </b>The correct answers are in bold:<pre><code>
-rlist(1, 3)
+<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><b>Answer: </b>The correct answers are in bold:<pre><code>rlist(1, 3)
 rlist(1, None)
 <b>rlist(1, rlist(4, empty_rlist))</b>
 <b>rlist(1, empty_rlist)</b>
@@ -158,8 +155,7 @@ rlist()</code></pre>
 <p>Construct an rlist that contains the following
     elements:</p>
 <pre><code>1, 3, lambda x: x, 'hi'</code></pre>
-<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><p><b>Answer: </b><pre><code>
-rlist(1, rlist(3, rlist(lambda x: x, rlist('hi', empty_rlist))))</code></pre>
+<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><p><b>Answer: </b><pre><code>rlist(1, rlist(3, rlist(lambda x: x, rlist('hi', empty_rlist))))</code></pre>
 </p>
 </div>
 <h3 id="conceptual4" class="question anchor">Q4</h3>

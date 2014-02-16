@@ -5,10 +5,14 @@
     <meta name='description' content='CS 61A TA website for Albert Wu'>
     <title>Environment Diagrams: basic | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -25,7 +29,7 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
     <div id='nav-bar-toggle'>
       <div id='nav-bar-toggle-icon'>
         &lt;
@@ -105,8 +109,7 @@
 
   <h2 id="env" class="subtopic anchor">Environment Diagrams</h2>
 <h3 id="env1" class="question anchor">Q1</h3>
-<pre class="prettyprint">
-def square1(x):
+<pre><code>def square1(x):
     return x * x
 
 def square2(x):
@@ -115,12 +118,11 @@ def square2(x):
 a = square1(3)
 b = square2(3)
 
-# How does return behave differently than print?</pre>
+# How does return behave differently than print?</code></pre>
 <button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+square1%28x%29%3A%0A++++return+x+%2A+x%0A%0Adef+square2%28x%29%3A%0A++++print%28x+%2A+x%29%0A%0Aa+%3D+square1%283%29%0Ab+%3D+square2%283%29%0A%0A%23+How+does+return+behave+differently+than+print%3F"></iframe></p>
 </div>
 <h3 id="env2" class="question anchor">Q2</h3>
-<pre class="prettyprint">
-def square(x):
+<pre><code>def square(x):
     return x * x
 
 def sum_of_squares(x, y):
@@ -129,12 +131,11 @@ def sum_of_squares(x, y):
 result = sum_of_squares(3, 4)
 
 # How many times do we call mul?
-# How many frames do we draw for mul?</pre>
+# How many frames do we draw for mul?</code></pre>
 <button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+square%28x%29%3A%0A++++return+x+%2A+x%0A%0Adef+sum_of_squares%28x%2C+y%29%3A%0A++++return+square%28x%29+%2B+square%28y%29%0A%0Aresult+%3D+sum_of_squares%283%2C+4%29%0A%0A%23+How+many+times+do+we+call+mul%3F%0A%23+How+many+frames+do+we+draw+for+mul%3F"></iframe></p>
 </div>
 <h3 id="env3" class="question anchor">Q3</h3>
-<pre class="prettyprint">
-from operator import add
+<pre><code>from operator import add
 first = add(3, 4)
 
 def add(a, b):
@@ -143,12 +144,11 @@ def add(a, b):
 second = add(3, 4)
 
 # What changes between the first time we call add and the
-# second time? How does this affect our diagram?</pre>
+# second time? How does this affect our diagram?</code></pre>
 <button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Afrom+operator+import+add%0Afirst+%3D+add%283%2C+4%29%0A%0Adef+add%28a%2C+b%29%3A%0A++++return+a+%2B+b%0A%0Asecond+%3D+add%283%2C+4%29%0A%0A%23+What+changes+between+the+first+time+we+call+add+and+the%0A%23+second+time%3F+How+does+this+affect+our+diagram%3F"></iframe></p>
 </div>
 <h3 id="env4" class="question anchor">Q4</h3>
-<pre class="prettyprint">
-score, opp_score = 0, 0
+<pre><code>score, opp_score = 0, 0
 
 def assign(arg0, arg1):
     score = arg0
@@ -158,12 +158,11 @@ def assign(arg0, arg1):
 success = assign(3, 9001)
 
 # But did we really succeed?
-# Did the global values of score and opp_score change?</pre>
+# Did the global values of score and opp_score change?</code></pre>
 <button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Ascore%2C+opp_score+%3D+0%2C+0%0A%0Adef+assign%28arg0%2C+arg1%29%3A%0A++++score+%3D+arg0%0A++++opp_score+%3D+arg1%0A++++return+True%0A%0Asuccess+%3D+assign%283%2C+9001%29%0A%0A%23+But+did+we+really+succeed%3F%0A%23+Did+the+global+values+of+score+and+opp_score+change%3F"></iframe></p>
 </div>
 <h3 id="env5" class="question anchor">Q5</h3>
-<pre class="prettyprint">
-goal = 100
+<pre><code>goal = 100
 
 def foo(x):
     y = x + goal
@@ -172,12 +171,11 @@ def foo(x):
 result = foo(4)
 
 # What's the lookup procedure for goal?
-# Does result ever show up in the diagram?</pre>
+# Does result ever show up in the diagram?</code></pre>
 <button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Agoal+%3D+100%0A%0Adef+foo%28x%29%3A%0A++++y+%3D+x+%2B+goal%0A++++return+b%0A%0Aresult+%3D+foo%284%29%0A%0A%23+What%27s+the+lookup+procedure+for+goal%3F%0A%23+Does+result+ever+show+up+in+the+diagram%3F"></iframe></p>
 </div>
 <h3 id="env6" class="question anchor">Q6</h3>
-<pre class="prettyprint">
-from operator import add, sub
+<pre><code>from operator import add, sub
 def a_plus_abs_b(a, b):
     if b &lt; 0:
         op = sub
@@ -185,7 +183,7 @@ def a_plus_abs_b(a, b):
         op = add
     return op(a, b)
 
-result = a_plus_abs_b(4, -4)</pre>
+result = a_plus_abs_b(4, -4)</code></pre>
 <button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Afrom+operator+import+add%2C+sub%0Adef+a_plus_abs_b%28a%2C+b%29%3A%0A++++if+b+%3C+0%3A%0A++++++++op+%3D+sub%0A++++else%3A%0A++++++++op+%3D+add%0A++++return+op%28a%2C+b%29%0A%0Aresult+%3D+a_plus_abs_b%284%2C+-4%29"></iframe></p>
 </div>
 
