@@ -3,13 +3,13 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>CS 61A: Recursive Lists: basic</title>
+    <title>Recursive Lists: basic | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' media='print' type='text/css' href='/public/print.css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/default.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>hljs.initiHighlightingOnLoad();</script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -26,24 +26,36 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
     <div id='container'>
       <div id='logo'>
-        <h1>CS 61A: Recursive Lists: basic</h1>
+        <h1 id='nav-bar-hide'>Recursive Lists: basic</h1>
       </div>
 
       <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
         <div id='accordion'>
           <h3>Navigation</h3>
 <div>
   <ul>
-    <li><a href='/cs61a'>Home</a></li>
     <li><a href='/cs61a/review'>All Topics</a></li>
     <li><a href='/cs61a/review/mt1'>Midterm
       1</a></li>
-    <li><a href='/cs61a/review/mt2'>Midterm
-      2</a></li>
-    <li><a href='/cs61a/review/final'>Final</a></li>
+    <!-- <li><a href='/cs61a/review/mt2'>Midterm -->
+    <!--   2</a></li> -->
+    <!-- <li><a href='/cs61a/review/final'>Final</a></li> -->
   </ul>
 </div>
 <h3>Conceptual</h3>
@@ -65,12 +77,10 @@
 </ul></div>
         </div>
         <div id='nav-bar-fixed'>
-          TA page for CS 61A at UC Berkeley
-<br/>
-<a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS 61A course
-  page</a>
+          
 
-
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
         </div>
       </div>
 
@@ -89,7 +99,7 @@ We will be using the following implementation of immutable recursive
 lists. Keep in mind that your code should not depend on the assumption
 that rlists are implemented as tuples -- preserve data abstraction!
 </p>
-<pre class="prettyprint">
+<pre><code>
 empty_rlist = None
 
 def rlist(first, rest=empty_rlist):
@@ -100,7 +110,7 @@ def first(s):
 
 def rest(s):
     return s[1]
-</pre>
+</code></pre>
 
 
   <div id='contents'>
@@ -128,34 +138,34 @@ def rest(s):
 </div>
 <h3 id="conceptual2" class="question anchor">Q2</h3>
 <p>Which of the following are valid Rlist constructors?</p>
-<pre class="prettyprint">
+<pre><code>
 rlist(1, 3)
 rlist(1, None)
 rlist(1, rlist(4, empty_rlist))
 rlist(1, empty_rlist)
-rlist()</pre>
-<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><b>Answer: </b>The correct answers are in bold:<pre class="prettyprint">
+rlist()</code></pre>
+<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><b>Answer: </b>The correct answers are in bold:<pre><code>
 rlist(1, 3)
 rlist(1, None)
 <b>rlist(1, rlist(4, empty_rlist))</b>
 <b>rlist(1, empty_rlist)</b>
-rlist()</pre>
+rlist()</code></pre>
 </p>
 </div>
 <h3 id="conceptual3" class="question anchor">Q3</h3>
 <p>Construct an rlist that contains the following
     elements:</p>
-<pre class="prettyprint">
-1, 3, lambda x: x, 'hi'</pre>
-<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><p><b>Answer: </b><pre class="prettyprint">
-rlist(1, rlist(3, rlist(lambda x: x, rlist('hi', empty_rlist))))</pre>
+<pre><code>
+1, 3, lambda x: x, 'hi'</code></pre>
+<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><p><b>Answer: </b><pre><code>
+rlist(1, rlist(3, rlist(lambda x: x, rlist('hi', empty_rlist))))</code></pre>
 </p>
 </div>
 <h3 id="conceptual4" class="question anchor">Q4</h3>
 <p>What is the third element of the following
     rlist?</p>
-<pre class="prettyprint">
-rlist('this', rlist(rlist('is', rlist('a', empty_rlist)), rlist('question', empty_rlist)))</pre>
+<pre><code>
+rlist('this', rlist(rlist('is', rlist('a', empty_rlist)), rlist('question', empty_rlist)))</code></pre>
 <button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><p><b>Answer: </b><tt>'question'</tt></p>
 </div>
 <h3 id="conceptual5" class="question anchor">Q5</h3>
@@ -167,7 +177,7 @@ rlist('this', rlist(rlist('is', rlist('a', empty_rlist)), rlist('question', empt
 
 <h2 id="print" class="subtopic anchor">What would Python print?</h2>
 <h3 id="print1" class="question anchor">Q1</h3>
-<pre class="prettyprint">&gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, empty_rlist)))
+<pre><code>&gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, empty_rlist)))
 &gt;&gt;&gt; first(r)
 <span class="blank5">______</span><span class="hidden solution 5">1</span>
 &gt;&gt;&gt; rest(r)
@@ -177,7 +187,7 @@ rlist('this', rlist(rlist('is', rlist('a', empty_rlist)), rlist('question', empt
 &gt;&gt;&gt; first(rest(r))
 <span class="blank5">______</span><span class="hidden solution 5">2</span>
 &gt;&gt;&gt; first(rest(rest(r)))
-<span class="blank5">______</span><span class="hidden solution 5">3</span></pre>
+<span class="blank5">______</span><span class="hidden solution 5">3</span></code></pre>
 <button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
 
 <h2 id="code" class="subtopic anchor">Code Writing</h2>
@@ -185,7 +195,7 @@ rlist('this', rlist(rlist('is', rlist('a', empty_rlist)), rlist('question', empt
 <p>Implement a function <tt>rlist_to_tup</tt> that
         takes an rlist as an argument, and returns tuple that
         contains the same elements as the rlist.</p>
-<pre class="prettyprint">
+<pre><code>
 def rlist_to_tup(lst):
     """Returns a tuple that contains the same elements as the
     rlist.
@@ -194,8 +204,8 @@ def rlist_to_tup(lst):
     &gt;&gt;&gt; rlist_to_tup(r)
     (1, 2, 3)
     """
-    "*** YOUR CODE HERE ***" </pre>
-<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><pre class="prettyprint">
+    "*** YOUR CODE HERE ***" </code></pre>
+<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><pre><code>
 # recursive
 def rlist_to_tup(lst):
     if lst == empty_rlist:
@@ -208,12 +218,12 @@ def rlist_to_tup(lst):
     while lst != empty_rlist:
         new += (first(lst),)
         lst = rest(lst)
-    return new</pre>
+    return new</code></pre>
 </div>
 <h3 id="code2" class="question anchor">Q2</h3>
 <p>Implement a function <tt>map_rlist</tt> that
     maps a function <tt>f</tt> onto each element of an rlist.</p>
-<pre class="prettyprint">
+<pre><code>
 def map_rlist(lst, f):
     """Maps f onto each element in the rlist.
 
@@ -221,8 +231,8 @@ def map_rlist(lst, f):
     &gt;&gt;&gt; rlist_to_tup(map_rlist(r, lambda x: x**2))
     (1, 4, 9)
     """
-    "*** YOUR CODE HERE ***" </pre>
-<button id='7' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 7"><pre class="prettyprint">
+    "*** YOUR CODE HERE ***" </code></pre>
+<button id='7' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 7"><pre><code>
 # recursive
 def map_rlist(lst, f):
     if lst == empty_rlist:
@@ -238,7 +248,7 @@ def map_rlist(lst, f):
     while new != empty_rlist:
         lst = rlist(first(lst), lst)
         new = rest(new)
-    return lst</pre>
+    return lst</code></pre>
 </div>
 
   </div>
@@ -249,6 +259,7 @@ def map_rlist(lst, f):
   <script src='/public/jquery-1.10.1.min.js'></script>
   <script src="/public/jquery-scrolltofixed-min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/nav-bar.js"></script>
   <script>
     $(document).ready(function() {
       $('#accordion').accordion({
@@ -256,7 +267,6 @@ def map_rlist(lst, f):
       });
     });
   </script>
-    <script src='/cs61a/review/public/nav-bar.js'></script>
-  <script src='/cs61a/review/public/toggle.js'></script>
+    <script src='/cs61a/review/public/toggle.js'></script>
   
 </html>
