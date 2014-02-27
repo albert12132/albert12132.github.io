@@ -3,13 +3,16 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>CS 61A: Orders of Growth: exam</title>
+    <title>Orders of Growth: exam | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' media='print' type='text/css' href='/public/print.css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -26,24 +29,36 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
     <div id='container'>
       <div id='logo'>
-        <h1>CS 61A: Orders of Growth: exam</h1>
+        <h1 id='nav-bar-hide'>Orders of Growth: exam</h1>
       </div>
 
       <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
         <div id='accordion'>
           <h3>Navigation</h3>
 <div>
   <ul>
-    <li><a href='/cs61a'>Home</a></li>
     <li><a href='/cs61a/review'>All Topics</a></li>
     <li><a href='/cs61a/review/mt1'>Midterm
       1</a></li>
-    <li><a href='/cs61a/review/mt2'>Midterm
-      2</a></li>
-    <li><a href='/cs61a/review/final'>Final</a></li>
+    <!-- <li><a href='/cs61a/review/mt2'>Midterm -->
+    <!--   2</a></li> -->
+    <!-- <li><a href='/cs61a/review/final'>Final</a></li> -->
   </ul>
 </div>
 <h3>Conceptual</h3>
@@ -54,12 +69,10 @@
 </ul></div>
         </div>
         <div id='nav-bar-fixed'>
-          TA page for CS 61A at UC Berkeley
-<br/>
-<a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS 61A course
-  page</a>
+          
 
-
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
         </div>
       </div>
 
@@ -95,8 +108,7 @@ for orders of growth. Take a look!
 <h3 id="conceptual1" class="question anchor">Q1</h3>
 <p>Find the time complexity of <tt>main</tt> in
         big-Theta (&theta;) notation.</p>
-<pre class="prettyprint">
-def helper(x):
+<pre><code>def helper(x):
     for i in range(x):
         print(i)
 
@@ -104,14 +116,13 @@ def main(n):
     if n == 2:
         return 0
     else:
-        return helper(n - 1) + helper(n - 2)</pre>
+        return helper(n - 1) + helper(n - 2)</code></pre>
 <button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><p><b>Answer: </b>&theta;(n)</p>
 </div>
 <h3 id="conceptual2" class="question anchor">Q2</h3>
 <p>Find the time complexity of <tt>bar</tt> in
         big-Theta (&theta;) notation.</p>
-<pre class="prettyprint">
-def foo(x):
+<pre><code>def foo(x):
     for i in range(x):
         for j in range(x):
             print(x)
@@ -119,21 +130,20 @@ def foo(x):
 def bar(n):
     while n &gt; 0:
         foo(100000)
-        n -= 1</pre>
+        n -= 1</code></pre>
 <button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><b>Answer: </b>&theta;(n)</p>
 </div>
 <h3 id="conceptual3" class="question anchor">Q3</h3>
 <p>Find the time complexity of <tt>funny</tt>
         in big-Theta (&theta;) notation.</p>
-<pre class="prettyprint">
-def joke(n):
+<pre><code>def joke(n):
     for i in range(n**2):
         print(i)
 
 def funny(n):
     for i in range(n**2):
         print(joke(100))
-    return 'haha'</pre>
+    return 'haha'</code></pre>
 <button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><p><b>Answer: </b>&theta;(n<sup>2</sup>)</p>
 </div>
 
@@ -145,6 +155,7 @@ def funny(n):
   <script src='/public/jquery-1.10.1.min.js'></script>
   <script src="/public/jquery-scrolltofixed-min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/nav-bar.js"></script>
   <script>
     $(document).ready(function() {
       $('#accordion').accordion({
@@ -152,7 +163,6 @@ def funny(n):
       });
     });
   </script>
-    <script src='/cs61a/review/public/nav-bar.js'></script>
-  <script src='/cs61a/review/public/toggle.js'></script>
+    <script src='/cs61a/review/public/toggle.js'></script>
   
 </html>

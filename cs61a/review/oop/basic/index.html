@@ -3,13 +3,16 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>CS 61A: OOP: basic</title>
+    <title>OOP: basic | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' media='print' type='text/css' href='/public/print.css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -26,24 +29,36 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
     <div id='container'>
       <div id='logo'>
-        <h1>CS 61A: OOP: basic</h1>
+        <h1 id='nav-bar-hide'>OOP: basic</h1>
       </div>
 
       <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
         <div id='accordion'>
           <h3>Navigation</h3>
 <div>
   <ul>
-    <li><a href='/cs61a'>Home</a></li>
     <li><a href='/cs61a/review'>All Topics</a></li>
     <li><a href='/cs61a/review/mt1'>Midterm
       1</a></li>
-    <li><a href='/cs61a/review/mt2'>Midterm
-      2</a></li>
-    <li><a href='/cs61a/review/final'>Final</a></li>
+    <!-- <li><a href='/cs61a/review/mt2'>Midterm -->
+    <!--   2</a></li> -->
+    <!-- <li><a href='/cs61a/review/final'>Final</a></li> -->
   </ul>
 </div>
 <h3>Variables: Conceptual</h3>
@@ -68,12 +83,10 @@
 </ul></div>
         </div>
         <div id='nav-bar-fixed'>
-          TA page for CS 61A at UC Berkeley
-<br/>
-<a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS 61A course
-  page</a>
+          
 
-
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
         </div>
       </div>
 
@@ -146,16 +159,15 @@
 <p>For the following code, determine whether
         each of these variables are local, instance, or class
         variables:<ul>
-  <li><code class="prettyprint">name</code></li>
-  <li><code class="prettyprint">self.name</code></li>
-  <li><code class="prettyprint">balance</code></li>
-  <li><code class="prettyprint">self.balance</code></li>
-  <li><code class="prettyprint">interest</code></li>
-  <li><code class="prettyprint">amt</code></li>
-  <li><code class="prettyprint">total</code></li>
+  <li><code>name</code></li>
+  <li><code>self.name</code></li>
+  <li><code>balance</code></li>
+  <li><code>self.balance</code></li>
+  <li><code>interest</code></li>
+  <li><code>amt</code></li>
+  <li><code>total</code></li>
 </ul></p>
-<pre class="prettyprint">
-class Account:
+<pre><code>class Account:
     interest = 0.02
     def __init__(self, name, balance):
         self.name = name
@@ -163,15 +175,15 @@ class Account:
 
     def deposit(self, amt):
         total = self.balance + amt
-        self.balance = total</pre>
+        self.balance = total</code></pre>
 <button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><b>Answer: </b><ul>
-  <li><code class="prettyprint">name</code>: local</li>
-  <li><code class="prettyprint">self.name</code>: instance</li>
-  <li><code class="prettyprint">balance</code>: local</li>
-  <li><code class="prettyprint">self.balance</code>: instance</li>
-  <li><code class="prettyprint">interest</code>: class</li>
-  <li><code class="prettyprint">amt</code>: local</li>
-  <li><code class="prettyprint">total</code>: local</li>
+  <li><code>name</code>: local</li>
+  <li><code>self.name</code>: instance</li>
+  <li><code>balance</code>: local</li>
+  <li><code>self.balance</code>: instance</li>
+  <li><code>interest</code>: class</li>
+  <li><code>amt</code>: local</li>
+  <li><code>total</code>: local</li>
 </ul></p>
 </div>
 <h3 id="var-conceptual3" class="question anchor">Q3</h3>
@@ -184,18 +196,16 @@ class Account:
             and to increment it by 1 every time you create a new
             Person object.</li>
 </ul></p>
-<pre class="prettyprint">
-class Person:
+<pre><code>class Person:
     def __init__(self, name):
-        self.name = name</pre>
+        self.name = name</code></pre>
 <button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><p><b>Answer: </b><ul>
   <li>Class Variable</li>
-  <li>New code:<pre class="prettyprint">
-class Person:
+  <li>New code:<pre><code>class Person:
     <b>population = 0</b>
     def __init__(self, name):
         self.name = name
-        <b>Person.population += 1</b></pre>
+        <b>Person.population += 1</b></code></pre>
 </li>
 </ul></p>
 </div>
@@ -203,8 +213,7 @@ class Person:
 <h2 id="var-print" class="subtopic anchor">Variables: What would Python print?</h2>
 <h3 id="var-print1" class="question anchor">Q1</h3>
 <p>For the following questions, use the
-        following class definition:<pre class="prettyprint">
-class Account:
+        following class definition:<pre><code>class Account:
     """A class computer account. Each account has a two-letter ID
     and the name of the student who is registered to the account.
     """
@@ -219,9 +228,9 @@ class Account:
 
     @property
     def type(self):
-        return type(self)</pre>
+        return type(self)</code></pre>
 </p>
-<pre class="prettyprint">&gt;&gt;&gt; self.id
+<pre><code>&gt;&gt;&gt; self.id
 <span class="blank3">______</span><span class="hidden solution 3">NameError</span>
 &gt;&gt;&gt; acc_aa = Account("aa")
 &gt;&gt;&gt; acc_aa.id
@@ -256,7 +265,7 @@ class Account:
 &gt;&gt;&gt; acc_aa.num_of_accounts
 <span class="blank3">______</span><span class="hidden solution 3">100</span>
 &gt;&gt;&gt; acc_zz.num_of_accounts
-<span class="blank3">______</span><span class="hidden solution 3">9001</span></pre>
+<span class="blank3">______</span><span class="hidden solution 3">9001</span></code></pre>
 <button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
 
 <h2 id="method-conceptual" class="subtopic anchor">Methods: Conceptual</h2>
@@ -269,10 +278,9 @@ class Account:
         <tt>acc_aa</tt> into <tt>type</tt> as <tt>self</tt>. This is
         known as a <b>bound method</b>. Another way to think about it
         is that <tt>acc_aa.register</tt> acts like a curried function:
-        <pre class="prettyprint">
->>> acc_aa.register = curry2(Account.register)(acc_aa)
+        <pre><code>>>> acc_aa.register = curry2(Account.register)(acc_aa)
 >>> acc_aa.register('me')
-Registered!</pre>
+Registered!</code></pre>
 </p>
 </div>
 <h3 id="method-conceptual2" class="question anchor">Q2</h3>
@@ -284,19 +292,17 @@ Registered!</pre>
 </div>
 <h3 id="method-conceptual3" class="question anchor">Q3</h3>
 <p>What does the
-        <code class='prettyprint'>@property</code> decorator do?</p>
-<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><p><b>Answer: </b>The <code class='prettyprint'>@property</code>
+        <code>@property</code> decorator do?</p>
+<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><p><b>Answer: </b>The <code>@property</code>
         decorator allows you to use the affected method to be accessed
-        like a variable. For example, the following method<pre class="prettyprint">
-class Example:
+        like a variable. For example, the following method<pre><code>class Example:
     @property
     def foo(self):
-        return 3</pre>
+        return 3</code></pre>
 can be accessed like
-        this:<pre class="prettyprint">
->>> a = Example()
+        this:<pre><code>>>> a = Example()
 >>> a.foo
-3</pre>
+3</code></pre>
 </p>
 </div>
 
@@ -305,7 +311,7 @@ can be accessed like
 <p>For the following questions, use the
         <tt>Account</tt> class defined <a href='#var-print'>above</a>.
         </p>
-<pre class="prettyprint">&gt;&gt;&gt; acc_aa = Account("aa")
+<pre><code>&gt;&gt;&gt; acc_aa = Account("aa")
 &gt;&gt;&gt; acc_aa.register
 <span class="blank7">______</span><span class="hidden solution 7">&lt;bound method Account.register ...&gt;</span>
 &gt;&gt;&gt; Account.register
@@ -319,7 +325,7 @@ can be accessed like
 &gt;&gt;&gt; acc_aa.type
 <span class="blank7">______</span><span class="hidden solution 7">&lt;class '__main__.Account'&gt;</span>
 &gt;&gt;&gt; acc_aa.type = "Nothing"
-<span class="blank7">______</span><span class="hidden solution 7">AttributeError</span></pre>
+<span class="blank7">______</span><span class="hidden solution 7">AttributeError</span></code></pre>
 <button id='7' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
 
   </div>
@@ -330,6 +336,7 @@ can be accessed like
   <script src='/public/jquery-1.10.1.min.js'></script>
   <script src="/public/jquery-scrolltofixed-min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/nav-bar.js"></script>
   <script>
     $(document).ready(function() {
       $('#accordion').accordion({
@@ -337,7 +344,6 @@ can be accessed like
       });
     });
   </script>
-    <script src='/cs61a/review/public/nav-bar.js'></script>
-  <script src='/cs61a/review/public/toggle.js'></script>
+    <script src='/cs61a/review/public/toggle.js'></script>
   
 </html>

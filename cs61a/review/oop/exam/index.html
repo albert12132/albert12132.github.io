@@ -3,13 +3,16 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>CS 61A: OOP: exam</title>
+    <title>OOP: exam | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' media='print' type='text/css' href='/public/print.css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -26,24 +29,36 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
     <div id='container'>
       <div id='logo'>
-        <h1>CS 61A: OOP: exam</h1>
+        <h1 id='nav-bar-hide'>OOP: exam</h1>
       </div>
 
       <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
         <div id='accordion'>
           <h3>Navigation</h3>
 <div>
   <ul>
-    <li><a href='/cs61a'>Home</a></li>
     <li><a href='/cs61a/review'>All Topics</a></li>
     <li><a href='/cs61a/review/mt1'>Midterm
       1</a></li>
-    <li><a href='/cs61a/review/mt2'>Midterm
-      2</a></li>
-    <li><a href='/cs61a/review/final'>Final</a></li>
+    <!-- <li><a href='/cs61a/review/mt2'>Midterm -->
+    <!--   2</a></li> -->
+    <!-- <li><a href='/cs61a/review/final'>Final</a></li> -->
   </ul>
 </div>
 <h3>What would Python print?</h3>
@@ -59,12 +74,10 @@
 </ul></div>
         </div>
         <div id='nav-bar-fixed'>
-          TA page for CS 61A at UC Berkeley
-<br/>
-<a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS 61A course
-  page</a>
+          
 
-
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
         </div>
       </div>
 
@@ -100,8 +113,7 @@
   <h2 id="print" class="subtopic anchor">What would Python print?</h2>
 <h3 id="print1" class="question anchor">Q1</h3>
 <p>For the following questions, use the following
-        class definition:<pre class="prettyprint">
-class Account:
+        class definition:<pre><code>class Account:
     """A class computer account. Each account has a two-letter ID
     and the name of the student who is registered to the account.
     """
@@ -116,9 +128,9 @@ class Account:
 
     @property
     def type(self):
-        return type(self)</pre>
+        return type(self)</code></pre>
 </p>
-<pre class="prettyprint">&gt;&gt;&gt; acc_aa = Account("aa")
+<pre><code>&gt;&gt;&gt; acc_aa = Account("aa")
 &gt;&gt;&gt; acc_aa.register("Peter Perfect")
 <span class="blank0">______</span><span class="hidden solution 0">Registered Peter Perfect</span>
 &gt;&gt;&gt; Account.register(self, "Jom Magrotker")
@@ -126,24 +138,24 @@ class Account:
 &gt;&gt;&gt; Account.register(acc_aa, "Jom Magrotker")
 <span class="blank0">______</span><span class="hidden solution 0">Registered Jom Magrotker</span>
 &gt;&gt;&gt; Account.register("Jom Magrotker")
-<span class="blank0">______</span><span class="hidden solution 0">TypeError: requires 2 arguments, since it's not a bound method</span></pre>
+<span class="blank0">______</span><span class="hidden solution 0">TypeError: requires 2 arguments, since it's not a bound method</span></code></pre>
 <button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
 <h3 id="print2" class="question anchor">Q2</h3>
 <p>Use the <tt>acc_aa</tt> from the previous
         question</p>
-<pre class="prettyprint">&gt;&gt;&gt; f1 = Account.register
+<pre><code>&gt;&gt;&gt; f1 = Account.register
 &gt;&gt;&gt; f1(acc_aa, "Peter Perfect")
 <span class="blank1">______</span><span class="hidden solution 1">Registered Peter Perfect</span>
 &gt;&gt;&gt; f2 = acc_aa.register
 &gt;&gt;&gt; f2(acc_aa, "Peter Perfect")
 <span class="blank1">______</span><span class="hidden solution 1">TypeError: should only take one argument, since it is a bound method!</span>
 &gt;&gt;&gt; f2("Peter Perfect")
-<span class="blank1">______</span><span class="hidden solution 1">Registered Peter Perfect</span></pre>
+<span class="blank1">______</span><span class="hidden solution 1">Registered Peter Perfect</span></code></pre>
 <button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
 <h3 id="print3" class="question anchor">Q3</h3>
 <p>Use the <tt>acc_aa</tt> from the previous
         question</p>
-<pre class="prettyprint">&gt;&gt;&gt; Account.register = lambda self: "WAT"
+<pre><code>&gt;&gt;&gt; Account.register = lambda self: "WAT"
 &gt;&gt;&gt; Account.register(acc_aa, "Hello")
 <span class="blank2">______</span><span class="hidden solution 2">TypeError: should only take one argument, self (but it is not a bound method!)</span>
 &gt;&gt;&gt; Account.register("Hello")
@@ -151,13 +163,13 @@ class Account:
 &gt;&gt;&gt; acc_aa.register("goodbye")
 <span class="blank2">______</span><span class="hidden solution 2">TypeError: should only take one argument, given 2 (acc_aa, 'goodbye')</span>
 &gt;&gt;&gt; acc_aa.register()
-<span class="blank2">______</span><span class="hidden solution 2">'WAT'</span></pre>
+<span class="blank2">______</span><span class="hidden solution 2">'WAT'</span></code></pre>
 <button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
 <h3 id="print4" class="question anchor">Q4</h3>
 <p>Assume you have started a new Python
         interactive session with the original definition of the
         <tt>Account</tt> class.</p>
-<pre class="prettyprint">&gt;&gt;&gt; acc_aa = Account("aa")
+<pre><code>&gt;&gt;&gt; acc_aa = Account("aa")
 &gt;&gt;&gt; acc_aa.register("Peter Perfect")
 <span class="blank3">______</span><span class="hidden solution 3">Registered Peter Perfect</span>
 &gt;&gt;&gt; acc_zz = Account("zz")
@@ -167,7 +179,7 @@ class Account:
 &gt;&gt;&gt; acc_aa.student
 <span class="blank3">______</span><span class="hidden solution 3">'Peter Perfect'</span>
 &gt;&gt;&gt; acc_zz.student
-<span class="blank3">______</span><span class="hidden solution 3">'Bozo'</span></pre>
+<span class="blank3">______</span><span class="hidden solution 3">'Bozo'</span></code></pre>
 <button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
 
 <h2 id="code" class="subtopic anchor">Code Writing</h2>
@@ -187,8 +199,7 @@ class Account:
             foods.</li>
 </ul>For finer details of implementation, see the
         doctest.</p>
-<pre class="prettyprint">
-class Chef:
+<pre><code>class Chef:
     """Doctests:
 
     &gt;&gt;&gt; albert = Chef('quiche', ['egg', 'cheese', 'cream', 'salt'])
@@ -214,9 +225,8 @@ class Chef:
     &gt;&gt;&gt; ramsay.fetch_ingredients()
     'No more salt!'
     """
-    "*** YOUR CODE HERE ***" </pre>
-<button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><pre class="prettyprint">
-class Chef:
+    "*** YOUR CODE HERE ***" </code></pre>
+<button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><pre><code>class Chef:
     storage = {}
     finished = []
 
@@ -244,7 +254,7 @@ class Chef:
         if not self.cooked:
             return 'No food to serve!'
         Chef.finished.append(self.food)
-        self.cooked = False</pre>
+        self.cooked = False</code></pre>
 </div>
 
   </div>
@@ -255,6 +265,7 @@ class Chef:
   <script src='/public/jquery-1.10.1.min.js'></script>
   <script src="/public/jquery-scrolltofixed-min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/nav-bar.js"></script>
   <script>
     $(document).ready(function() {
       $('#accordion').accordion({
@@ -262,7 +273,6 @@ class Chef:
       });
     });
   </script>
-    <script src='/cs61a/review/public/nav-bar.js'></script>
-  <script src='/cs61a/review/public/toggle.js'></script>
+    <script src='/cs61a/review/public/toggle.js'></script>
   
 </html>

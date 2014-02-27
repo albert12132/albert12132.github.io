@@ -3,13 +3,16 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>CS 61A: Scheme: exam</title>
+    <title>Scheme: exam | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' media='print' type='text/css' href='/public/print.css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -26,24 +29,36 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
     <div id='container'>
       <div id='logo'>
-        <h1>CS 61A: Scheme: exam</h1>
+        <h1 id='nav-bar-hide'>Scheme: exam</h1>
       </div>
 
       <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
         <div id='accordion'>
           <h3>Navigation</h3>
 <div>
   <ul>
-    <li><a href='/cs61a'>Home</a></li>
     <li><a href='/cs61a/review'>All Topics</a></li>
     <li><a href='/cs61a/review/mt1'>Midterm
       1</a></li>
-    <li><a href='/cs61a/review/mt2'>Midterm
-      2</a></li>
-    <li><a href='/cs61a/review/final'>Final</a></li>
+    <!-- <li><a href='/cs61a/review/mt2'>Midterm -->
+    <!--   2</a></li> -->
+    <!-- <li><a href='/cs61a/review/final'>Final</a></li> -->
   </ul>
 </div>
 <h3>What would Scheme print?</h3>
@@ -57,12 +72,10 @@
 </ul></div>
         </div>
         <div id='nav-bar-fixed'>
-          TA page for CS 61A at UC Berkeley
-<br/>
-<a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS 61A course
-  page</a>
+          
 
-
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
         </div>
       </div>
 
@@ -101,7 +114,7 @@
         <tt>STk</tt>. If the expression contains a function (or
         multiple), write "FUNCTION" in place of that function. If the
         expression causes an error, write "ERROR".</p>
-<pre class="prettyprint">STk&gt; (cons 1 (cons 2 (cons 3 (cons 4 nil))))
+<pre><code>STk&gt; (cons 1 (cons 2 (cons 3 (cons 4 nil))))
 <span class="blank0">______</span><span class="hidden solution 0">(1 2 3 4)</span>
 STk&gt; (cons (cons (cons 3 2) 1) (cons 4 nil))
 <span class="blank0">______</span><span class="hidden solution 0">(((3 . 2) . 1) 4</span>
@@ -112,7 +125,7 @@ STk&gt; ((car lst) lst)
 <span class="blank0">______</span><span class="hidden solution 0">((FUNCTION) FUNCTION)</span>
 STk&gt; (define (x) (lambda (x) (list x x)))
 STk&gt; (((car ((x) x))) 4)
-<span class="blank0">______</span><span class="hidden solution 0">(4 4)</span></pre>
+<span class="blank0">______</span><span class="hidden solution 0">(4 4)</span></code></pre>
 <button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
 
 <h2 id="code" class="subtopic anchor">Code Writing</h2>
@@ -122,8 +135,7 @@ STk&gt; (((car ((x) x))) 4)
         an argument. Assuming you can only take 2 or 3 steps at a
         time, return the number of ways you can reach the top of a
         staircase with <tt>n</tt> stairs.</p>
-<pre class="prettyprint">
-(define (count-stairways n)
+<pre><code>(define (count-stairways n)
     ; YOUR CODE HERE
     )
 
@@ -135,16 +147,15 @@ STk&gt; (count-stairways 4)
 STk&gt; (count-stairways 5)
 2
 STk&gt; (count-stairways 8)
-4</pre>
+4</code></pre>
 <p class="hint"><b>Hint</b>: This is different than the usual
         <tt>count-stairways</tt> -- notice that this time, we can
         only take 2 or 3 steps, rather than 1 or 2.</p>
-<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><pre class="prettyprint">
-(define (count-stairways n)
+<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><pre><code>(define (count-stairways n)
     (cond ((= n 1) 0)
           ((or (= n 2) (= n 3)) 1)
           (else (+ (count-stairways (- n 2))
-                   (count-stairways (- n 3))))))</pre>
+                   (count-stairways (- n 3))))))</code></pre>
 </div>
 <h3 id="code2" class="question anchor">Q2</h3>
 <p>Implement a function
@@ -153,8 +164,7 @@ STk&gt; (count-stairways 8)
         many triangles are contained in a Serpinski's triangle with
         the given depth. See the tests for examples.<br/>
         <a href='http://en.wikipedia.org/wiki/File:Sierpinski_triangle_evolution.svg'>Picture</a></p>
-<pre class="prettyprint">
-(define (count-serpinski depth)
+<pre><code>(define (count-serpinski depth)
     ; YOUR CODE HERE
     )
 
@@ -166,13 +176,12 @@ STk&gt; (count-serpinski 2)
 STk&gt; (count-stairways 3)
 17
 STk&gt; (count-stairways 4)
-53</pre>
+53</code></pre>
 <p class="hint"><b>Hint</b>: You should count triangles of all sizes.</p>
-<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><pre class="prettyprint">
-(define (count-serpinski n)
+<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><pre><code>(define (count-serpinski n)
     (if (= n 1)
         1
-        (+ 2 (* 3 (count-serpinski (- n 1))))))</pre>
+        (+ 2 (* 3 (count-serpinski (- n 1))))))</code></pre>
 <p><b>Explanation: </b>The recursive call can be derived as follows:
         <ol>
   <li>There are three smaller <i>n-1</i> serpinski triangles
@@ -190,6 +199,7 @@ STk&gt; (count-stairways 4)
   <script src='/public/jquery-1.10.1.min.js'></script>
   <script src="/public/jquery-scrolltofixed-min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/nav-bar.js"></script>
   <script>
     $(document).ready(function() {
       $('#accordion').accordion({
@@ -197,7 +207,6 @@ STk&gt; (count-stairways 4)
       });
     });
   </script>
-    <script src='/cs61a/review/public/nav-bar.js'></script>
-  <script src='/cs61a/review/public/toggle.js'></script>
+    <script src='/cs61a/review/public/toggle.js'></script>
   
 </html>

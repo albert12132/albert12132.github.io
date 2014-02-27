@@ -3,13 +3,16 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>CS 61A: Rlists as Classes: basic</title>
+    <title>Rlists as Classes: basic | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' media='print' type='text/css' href='/public/print.css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -26,24 +29,36 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
     <div id='container'>
       <div id='logo'>
-        <h1>CS 61A: Rlists as Classes: basic</h1>
+        <h1 id='nav-bar-hide'>Rlists as Classes: basic</h1>
       </div>
 
       <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
         <div id='accordion'>
           <h3>Navigation</h3>
 <div>
   <ul>
-    <li><a href='/cs61a'>Home</a></li>
     <li><a href='/cs61a/review'>All Topics</a></li>
     <li><a href='/cs61a/review/mt1'>Midterm
       1</a></li>
-    <li><a href='/cs61a/review/mt2'>Midterm
-      2</a></li>
-    <li><a href='/cs61a/review/final'>Final</a></li>
+    <!-- <li><a href='/cs61a/review/mt2'>Midterm -->
+    <!--   2</a></li> -->
+    <!-- <li><a href='/cs61a/review/final'>Final</a></li> -->
   </ul>
 </div>
 <h3>Conceptual</h3>
@@ -58,12 +73,10 @@
 </ul></div>
         </div>
         <div id='nav-bar-fixed'>
-          TA page for CS 61A at UC Berkeley
-<br/>
-<a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS 61A course
-  page</a>
+          
 
-
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
         </div>
       </div>
 
@@ -78,9 +91,8 @@
 </ul>
   </div>
 
-  For this section, we will be using the <tt>Rlist</tt>
-class implementation from lecture:<pre class="prettyprint">
-class Rlist(object):
+  ("For this section, we will be using the <tt>Rlist</tt>
+class implementation from lecture:<pre><code>class Rlist(object):
     class EmptyList(object):
         def __len__(self):
             return 0
@@ -102,8 +114,8 @@ class Rlist(object):
         if self.rest is empty:
             return 'Rlist({})'.format(repr(self.first))
         return 'Rlist({}, {})'.format(repr(self.first),
-                                      repr(self.rest))</pre>
-
+                                      repr(self.rest))</code></pre>
+",)
 
   <div id='contents'>
     <h2>Contents</h2>
@@ -142,8 +154,7 @@ class Rlist(object):
 <p>Implement a function <tt>seq_to_rlist</tt>,
         which takes any type of sequence (e.g. tuple, list) and
         converts it to an <tt>Rlist</tt>.</p>
-<pre class="prettyprint">
-def seq_to_rlist(seq):
+<pre><code>def seq_to_rlist(seq):
     """Converts SEQ into an Rlist.
 
     &gt;&gt;&gt; seq = [1, 2, 3, 4]
@@ -152,9 +163,8 @@ def seq_to_rlist(seq):
     &gt;&gt;&gt; null = ()
     &gt;&gt;&gt; seq_to_rlist(null) is Rlist.empty
     True
-    """ </pre>
-<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><pre class="prettyprint">
-# recursive
+    """ </code></pre>
+<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><pre><code># recursive
 def seq_to_rlist(seq):
     if not seq:
         return Rlist.empty
@@ -165,24 +175,22 @@ def seq_to_rlist(seq):
     new = Rlist.empty
     for elem in seq[::-1]:
         new = Rlist(elem, new)
-    return new</pre>
+    return new</code></pre>
 </div>
 <h3 id="code2" class="question anchor">Q2</h3>
 <p>Implement a function <tt>map_rlist</tt>,
         which takes an Rlist and a function <tt>fn</tt>, and applies
         <tt>fn</tt> to every element in the Rlist. <tt>map_rlist</tt>
         should <b>mutate</b> the Rlist -- do not return a new one!</p>
-<pre class="prettyprint">
-def map_rlist(fn, r):
+<pre><code>def map_rlist(fn, r):
     """Maps FN onto every element of the Rlist R.
 
     &gt;&gt;&gt; r = Rlist(1, Rlist(2, Rlist(3)))
     &gt;&gt;&gt; map_rlist(lambda x: x*x, r)
     &gt;&gt;&gt; r
     Rlist(1, Rlist(4, Rlist(9)))
-    """ </pre>
-<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><pre class="prettyprint">
-# recursive
+    """ </code></pre>
+<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><pre><code># recursive
 def map_rlist(fn, r):
     if r is not Rlist.empty:
         r.first = fn(r.first)
@@ -192,7 +200,7 @@ def map_rlist(fn, r):
 def map_rlist(fn, r):
     while r is not Rlist.empty:
         r.first = fn(r.first)
-        r = r.rest</pre>
+        r = r.rest</code></pre>
 </div>
 
   </div>
@@ -203,6 +211,7 @@ def map_rlist(fn, r):
   <script src='/public/jquery-1.10.1.min.js'></script>
   <script src="/public/jquery-scrolltofixed-min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/nav-bar.js"></script>
   <script>
     $(document).ready(function() {
       $('#accordion').accordion({
@@ -210,7 +219,6 @@ def map_rlist(fn, r):
       });
     });
   </script>
-    <script src='/cs61a/review/public/nav-bar.js'></script>
-  <script src='/cs61a/review/public/toggle.js'></script>
+    <script src='/cs61a/review/public/toggle.js'></script>
   
 </html>

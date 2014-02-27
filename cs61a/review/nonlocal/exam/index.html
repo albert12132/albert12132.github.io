@@ -3,13 +3,16 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>CS 61A: Nonlocal: exam</title>
+    <title>Nonlocal: exam | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' media='print' type='text/css' href='/public/print.css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -26,24 +29,36 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
     <div id='container'>
       <div id='logo'>
-        <h1>CS 61A: Nonlocal: exam</h1>
+        <h1 id='nav-bar-hide'>Nonlocal: exam</h1>
       </div>
 
       <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
         <div id='accordion'>
           <h3>Navigation</h3>
 <div>
   <ul>
-    <li><a href='/cs61a'>Home</a></li>
     <li><a href='/cs61a/review'>All Topics</a></li>
     <li><a href='/cs61a/review/mt1'>Midterm
       1</a></li>
-    <li><a href='/cs61a/review/mt2'>Midterm
-      2</a></li>
-    <li><a href='/cs61a/review/final'>Final</a></li>
+    <!-- <li><a href='/cs61a/review/mt2'>Midterm -->
+    <!--   2</a></li> -->
+    <!-- <li><a href='/cs61a/review/final'>Final</a></li> -->
   </ul>
 </div>
 <h3>Code Writing</h3>
@@ -53,12 +68,10 @@
 </ul></div>
         </div>
         <div id='nav-bar-fixed'>
-          TA page for CS 61A at UC Berkeley
-<br/>
-<a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS 61A course
-  page</a>
+          
 
-
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
         </div>
       </div>
 
@@ -91,8 +104,7 @@
   <h2 id="code" class="subtopic anchor">Code Writing</h2>
 <h3 id="code1" class="question anchor">Q1</h3>
 <p>Implement a function <tt>make_sassy_function</tt> which takes a function <tt>f</tt> and returns a modified version of <tt>f</tt>: the new function should only work every other function call. The other half of the time, it should return a rude message.</p>
-<pre class="prettyprint">
-def make_sassy_function(f, msg):
+<pre><code>def make_sassy_function(f, msg):
     """Returns a version of f that only works every other function
     call.
 
@@ -110,9 +122,8 @@ def make_sassy_function(f, msg):
     2
     &gt;&gt;&gt; sassy_g(5, 4)
     "Don't tell me what to do!"
-    """ </pre>
-<button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><pre class="prettyprint">
-def make_sassy_function(f, msg):
+    """ </code></pre>
+<button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><pre><code>def make_sassy_function(f, msg):
     sassy = True
     def sassy_f(*args):
         nonlocal sassy
@@ -120,12 +131,11 @@ def make_sassy_function(f, msg):
         if sassy:
             return msg
         return f(*args)
-    return sassy_f</pre>
+    return sassy_f</code></pre>
 </div>
 <h3 id="code2" class="question anchor">Q2</h3>
 <p>Implement a function <tt>sentence_buffer</tt> which returns another one-argument function. This function will take in a word at a time, and it saves all the words that it has seen so far. If takes in a word that ends in a period ("."), that denotes the end of a sentence, and the function returns all the words in the sentence. It will also clear its memory, so that it no longer remembers any words.</p>
-<pre class="prettyprint">
-def sentence_buffer():
+<pre><code>def sentence_buffer():
     """Returns a function that will return entire sentences when it
     receives a string that ends in a period.
 
@@ -138,9 +148,8 @@ def sentence_buffer():
     &gt;&gt;&gt; buffer("Spot")
     &gt;&gt;&gt; buffer("run.")
     'See Spot run.'
-    """ </pre>
-<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><pre class="prettyprint">
-def sentence_buffer():
+    """ </code></pre>
+<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><pre><code>def sentence_buffer():
     sentence = ''
     def buffer(word):
         nonlocal sentence
@@ -148,7 +157,7 @@ def sentence_buffer():
         if word[-1] == '.':
             result, sentence = sentence, ''
             return result.strip()
-    return buffer</pre>
+    return buffer</code></pre>
 </div>
 
   </div>
@@ -159,6 +168,7 @@ def sentence_buffer():
   <script src='/public/jquery-1.10.1.min.js'></script>
   <script src="/public/jquery-scrolltofixed-min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/nav-bar.js"></script>
   <script>
     $(document).ready(function() {
       $('#accordion').accordion({
@@ -166,7 +176,6 @@ def sentence_buffer():
       });
     });
   </script>
-    <script src='/cs61a/review/public/nav-bar.js'></script>
-  <script src='/cs61a/review/public/toggle.js'></script>
+    <script src='/cs61a/review/public/toggle.js'></script>
   
 </html>

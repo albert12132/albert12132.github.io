@@ -3,13 +3,16 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>CS 61A: Special Methods: basic</title>
+    <title>Special Methods: basic | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' media='print' type='text/css' href='/public/print.css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -26,24 +29,36 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
     <div id='container'>
       <div id='logo'>
-        <h1>CS 61A: Special Methods: basic</h1>
+        <h1 id='nav-bar-hide'>Special Methods: basic</h1>
       </div>
 
       <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
         <div id='accordion'>
           <h3>Navigation</h3>
 <div>
   <ul>
-    <li><a href='/cs61a'>Home</a></li>
     <li><a href='/cs61a/review'>All Topics</a></li>
     <li><a href='/cs61a/review/mt1'>Midterm
       1</a></li>
-    <li><a href='/cs61a/review/mt2'>Midterm
-      2</a></li>
-    <li><a href='/cs61a/review/final'>Final</a></li>
+    <!-- <li><a href='/cs61a/review/mt2'>Midterm -->
+    <!--   2</a></li> -->
+    <!-- <li><a href='/cs61a/review/final'>Final</a></li> -->
   </ul>
 </div>
 <h3>Conceptual</h3>
@@ -62,12 +77,10 @@
 </ul></div>
         </div>
         <div id='nav-bar-fixed'>
-          TA page for CS 61A at UC Berkeley
-<br/>
-<a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS 61A course
-  page</a>
+          
 
-
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
         </div>
       </div>
 
@@ -135,8 +148,7 @@
 <h3 id="print1" class="question anchor">Q1</h3>
 <p>For the following quesitons, assume the
         following class has been defined in the interpreter:
-        </p><pre class="prettyprint">
-class Box(object):
+        </p><pre><code>class Box(object):
     def __init__(self, item):
         self.item = item
         print('Created a box!')
@@ -153,9 +165,9 @@ class Box(object):
 
     def __str__(self):
         rep = self.item if self.item is not None else ''
-        return '|_{}_|'.format(rep) </pre>
+        return '|_{}_|'.format(rep) </code></pre>
 </p>
-<pre class="prettyprint">&gt;&gt;&gt; d = Box(4)
+<pre><code>&gt;&gt;&gt; d = Box(4)
 <span class="blank2">______</span><span class="hidden solution 2">Created a box!</span>
 &gt;&gt;&gt; repr(d)
 <span class="blank2">______</span><span class="hidden solution 2">'Box(4)'</span>
@@ -169,12 +181,12 @@ class Box(object):
 <span class="blank2">______</span><span class="hidden solution 2">'|__|'</span>
 &gt;&gt;&gt; d[1000] = 1
 &gt;&gt;&gt; str(d)
-<span class="blank2">______</span><span class="hidden solution 2">'|_1_|'</span></pre>
+<span class="blank2">______</span><span class="hidden solution 2">'|_1_|'</span></code></pre>
 <button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
 <h3 id="print2" class="question anchor">Q2</h3>
 <p>Use the <tt>Box</tt> class defined above.
         </p>
-<pre class="prettyprint">&gt;&gt;&gt; a = Box(Box(4))
+<pre><code>&gt;&gt;&gt; a = Box(Box(4))
 <span class="blank3">______</span><span class="hidden solution 3">Created a box!
 Created a box!</span>
 &gt;&gt;&gt; str(a)
@@ -185,15 +197,14 @@ Created a box!</span>
 <span class="blank3">______</span><span class="hidden solution 3">|__|</span>
 &gt;&gt;&gt; a[0] = a
 &gt;&gt;&gt; repr(a)
-<span class="blank3">______</span><span class="hidden solution 3">RuntimeError: maximum recursion depth...</span></pre>
+<span class="blank3">______</span><span class="hidden solution 3">RuntimeError: maximum recursion depth...</span></code></pre>
 <button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
 
 <h2 id="code" class="subtopic anchor">Code Writing</h2>
 <h3 id="code1" class="question anchor">Q1</h3>
 <p>Implement a class called
         <tt>DoubleList</tt>, such that its doctest passes.</p>
-<pre class="prettyprint">
-class DoubleList(object):
+<pre><code>class DoubleList(object):
     """See doctests for behavior.
 
     &gt;&gt;&gt; d = DoubleList([1, 2, 3])
@@ -212,9 +223,8 @@ class DoubleList(object):
     &gt;&gt;&gt; d.append(4)
     &gt;&gt;&gt; str(d)
     '[1, 1, 2, 2, 3, 3, 4, 4]'
-    """ </pre>
-<button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><pre class="prettyprint">
-class DoubleList(object):
+    """ </code></pre>
+<button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><pre><code>class DoubleList(object):
     def __init__(self, lst):
         self.lst = lst
 
@@ -234,7 +244,7 @@ class DoubleList(object):
         return 2 * len(self.lst)
 
     def __getitem__(self, index):
-        return self.lst[index // 2]</pre>
+        return self.lst[index // 2]</code></pre>
 </div>
 
   </div>
@@ -245,6 +255,7 @@ class DoubleList(object):
   <script src='/public/jquery-1.10.1.min.js'></script>
   <script src="/public/jquery-scrolltofixed-min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/nav-bar.js"></script>
   <script>
     $(document).ready(function() {
       $('#accordion').accordion({
@@ -252,7 +263,6 @@ class DoubleList(object):
       });
     });
   </script>
-    <script src='/cs61a/review/public/nav-bar.js'></script>
-  <script src='/cs61a/review/public/toggle.js'></script>
+    <script src='/cs61a/review/public/toggle.js'></script>
   
 </html>

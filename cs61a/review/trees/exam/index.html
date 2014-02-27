@@ -3,13 +3,16 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>CS 61A: Trees: exam</title>
+    <title>Trees: exam | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' media='print' type='text/css' href='/public/print.css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -26,24 +29,36 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
     <div id='container'>
       <div id='logo'>
-        <h1>CS 61A: Trees: exam</h1>
+        <h1 id='nav-bar-hide'>Trees: exam</h1>
       </div>
 
       <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
         <div id='accordion'>
           <h3>Navigation</h3>
 <div>
   <ul>
-    <li><a href='/cs61a'>Home</a></li>
     <li><a href='/cs61a/review'>All Topics</a></li>
     <li><a href='/cs61a/review/mt1'>Midterm
       1</a></li>
-    <li><a href='/cs61a/review/mt2'>Midterm
-      2</a></li>
-    <li><a href='/cs61a/review/final'>Final</a></li>
+    <!-- <li><a href='/cs61a/review/mt2'>Midterm -->
+    <!--   2</a></li> -->
+    <!-- <li><a href='/cs61a/review/final'>Final</a></li> -->
   </ul>
 </div>
 <h3>Code Writing</h3>
@@ -58,12 +73,10 @@
 </ul></div>
         </div>
         <div id='nav-bar-fixed'>
-          TA page for CS 61A at UC Berkeley
-<br/>
-<a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS 61A course
-  page</a>
+          
 
-
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
         </div>
       </div>
 
@@ -79,12 +92,11 @@
 </ul>
   </div>
 
-  We will be using the implementation of Trees from lecture:<pre class="prettyprint">
-class Tree(object):
+  We will be using the implementation of Trees from lecture:<pre><code>class Tree(object):
     def __init__(self, entry, left=None, right=None):
         self.entry = entry
         self.left = left
-        self.right = right</pre>
+        self.right = right</code></pre>
 
 
   <div id='contents'>
@@ -112,8 +124,7 @@ class Tree(object):
             <tt>equal</tt>, and the right children of both trees are
             <tt>equal</tt>.)</li>
 </ul></p>
-<pre class="prettyprint">
-def equal(t1, t2):
+<pre><code>def equal(t1, t2):
     """Returns Tree if t1 and t2 are equal trees.
 
     &gt;&gt;&gt; t1 = Tree(1,
@@ -130,9 +141,8 @@ def equal(t1, t2):
     &gt;&gt;&gt; equal(t1, t3)
     False
     """
-    "*** YOUR CODE HERE ***" </pre>
-<button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><pre class="prettyprint">
-def equal(t1, t2):
+    "*** YOUR CODE HERE ***" </code></pre>
+<button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><pre><code>def equal(t1, t2):
     if t1 is None and t2 is None:
         return True
     elif t1 is None or t2 is None:
@@ -140,13 +150,12 @@ def equal(t1, t2):
     elif t1.entry != t2.entry:
         return False
     else:
-        return equal(t1.left, t2.left) and equal(t1.right, t2.right)</pre>
+        return equal(t1.left, t2.left) and equal(t1.right, t2.right)</code></pre>
 </div>
 <h3 id="code2" class="question anchor">Q2</h3>
 <p>Implement a function <tt>size</tt> that
         returns the number of elements in a given Tree.</p>
-<pre class="prettyprint">
-def size(t):
+<pre><code>def size(t):
     """Returns the number of elements in a tree.
 
     &gt;&gt;&gt; t1 = Tree(1,
@@ -155,21 +164,19 @@ def size(t):
     &gt;&gt;&gt; size(t1)
     4
     """
-    "*** YOUR CODE HERE ***" </pre>
-<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><pre class="prettyprint">
-def size(t):
+    "*** YOUR CODE HERE ***" </code></pre>
+<button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><pre><code>def size(t):
     if t is None:
         return 0
     else:
-        return 1 + size(t.left) + size(t.right)</pre>
+        return 1 + size(t.left) + size(t.right)</code></pre>
 </div>
 <h3 id="code3" class="question anchor">Q3</h3>
 <p>Implement a function <tt>height</tt>, which
         returns the height of a Tree. The <i>height</i> of a tree is
         defined as the number of branches from the <i>root</i> to the
         bottom-most leaf</i> of the Tree.</p>
-<pre class="prettyprint">
-def height(t):
+<pre><code>def height(t):
     """Returns the height of the tree.
 
     &gt;&gt;&gt; leaf = Tree(1)
@@ -181,23 +188,21 @@ def height(t):
     &gt;&gt;&gt; height(t1)
     2
     """
-    "*** YOUR CODE HERE ***" </pre>
+    "*** YOUR CODE HERE ***" </code></pre>
 <p class="hint"><b>Hint</b>: By definition, a leaf has a height of 0, since
         there are 0 branches from the root to the root.</p>
-<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><pre class="prettyprint">
-def height(t):
+<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><pre><code>def height(t):
     if t is None or not t.left and not t.right:
         return 0
     else:
-        return 1 + max(height(t.left), height(t.right))</pre>
+        return 1 + max(height(t.left), height(t.right))</code></pre>
 </div>
 <h3 id="code4" class="question anchor">Q4</h3>
 <p>Implement a function <tt>valid_bst</tt>,
         which takes a Tree object and determines if it is a valid
         <b>binary search tree</b>. If the Tree is a valid BST, then
         return True; if it is invalid, return False.</p>
-<pre class="prettyprint">
-def valid_bst(b):
+<pre><code>def valid_bst(b):
     """If B is a valid BST, return True; else return False.
 
     &gt;&gt;&gt; b1 = Tree(2,
@@ -211,7 +216,7 @@ def valid_bst(b):
     &gt;&gt;&gt; valid_bst(invalid)
     False
     """
-    "*** YOUR CODE HERE ***" </pre>
+    "*** YOUR CODE HERE ***" </code></pre>
 <p class="hint"><b>Hint</b>: Recall that a binary search tree is a binary Tree,
         with these added constraints:<ul>
   <li>Every item in the left branch must be less than the
@@ -220,8 +225,7 @@ def valid_bst(b):
             entry</li>
 </ul>You may assume two functions, <tt>max_tree</tt> and
         <tt>min_tree</tt> are already defined.</p>
-<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><pre class="prettyprint">
-def valid_bst(b):
+<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><pre><code>def valid_bst(b):
     """The solution could be a lot more concise, but is written out
     to be clearer."""
     if b is None:
@@ -233,15 +237,14 @@ def valid_bst(b):
     elif b.right and min_tree(b.left) &lt;= t.entry:
         return False
     else:
-        return True</pre>
+        return True</code></pre>
 </div>
 <h3 id="code5" class="question anchor">Q5</h3>
 <p>Implement the function <tt>contains</tt>,
         which takes a binary search tree and an item, and returns True
         if the binary search tree contains the item, and False if it
         doesn't.</p>
-<pre class="prettyprint">
-def contains(b, item):
+<pre><code>def contains(b, item):
     """Returns True if B contains ITEM.
 
     &gt;&gt;&gt; b1 = Tree(2,
@@ -252,9 +255,8 @@ def contains(b, item):
     &gt;&gt;&gt; contains(b1, 8)
     False
     """
-    "*** YOUR CODE HERE ***" </pre>
-<button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><pre class="prettyprint">
-def contains(b, item):
+    "*** YOUR CODE HERE ***" </code></pre>
+<button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><pre><code>def contains(b, item):
     if b is None:
         return False
     elif b.entry == item:
@@ -262,15 +264,14 @@ def contains(b, item):
     elif b.entry &gt; item:
         return contains(b.left, item)
     elif b.entry &lt; item:
-        return contains(b.right, item)</pre>
+        return contains(b.right, item)</code></pre>
 </div>
 <h3 id="code6" class="question anchor">Q6</h3>
 <p>Implement the function <tt>in_order</tt>,
         which takes a binary search tree, and returns a list
         containing its items from smallest to largest. In computer
         science, this is known as an <b>in-order traversal</b>.</p>
-<pre class="prettyprint">
-def in_order(b):
+<pre><code>def in_order(b):
     """Returns the items in B, a binary search tree, in sorted
     order.
 
@@ -283,15 +284,14 @@ def in_order(b):
     &gt;&gt;&gt; in_order(singleton)
     [4]
     """
-    "*** YOUR CODE HERE ***" </pre>
-<button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><pre class="prettyprint">
-def in_order(b):
+    "*** YOUR CODE HERE ***" </code></pre>
+<button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><pre><code>def in_order(b):
     if b is None:
         return []
     else:
         left = in_order(b.left)
         right = in_order(b.right)
-        return left + [b.entry] + right</pre>
+        return left + [b.entry] + right</code></pre>
 </div>
 <h3 id="code7" class="question anchor">Q7</h3>
 <p>Implement a function <tt>nth_largest</tt>,
@@ -301,8 +301,7 @@ def in_order(b):
         <tt>nth_largest(b, 1)</tt> should return the largest item in
         <tt>b</tt>. If <tt>n</tt> is greater than the number of items
         in the tree, return None.</p>
-<pre class="prettyprint">
-def nth_largest(b, n):
+<pre><code>def nth_largest(b, n):
     """Returns the Nth largest item in T.
 
     &gt;&gt;&gt; b1 = Tree(2,
@@ -315,11 +314,10 @@ def nth_largest(b, n):
     &gt;&gt;&gt; nth_largest(b1, 4)
     1
     """
-    "*** YOUR CODE HERE ***" </pre>
+    "*** YOUR CODE HERE ***" </code></pre>
 <p class="hint"><b>Hint</b>: You can assume there is a <tt>size</tt> function
         that returns the number of elements in a given tree.</p>
-<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><pre class="prettyprint">
-def nth_largest(b, n):
+<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><pre><code>def nth_largest(b, n):
     if b is None:
         return None
     right = size(b.right)
@@ -328,7 +326,7 @@ def nth_largest(b, n):
     elif right &gt; n - 1:
         return nth_largest(b.right, n)
     elif right &lt; n - 1:
-        return nth_largest(b.left, n - 1 - right)</pre>
+        return nth_largest(b.left, n - 1 - right)</code></pre>
 </div>
 
   </div>
@@ -339,6 +337,7 @@ def nth_largest(b, n):
   <script src='/public/jquery-1.10.1.min.js'></script>
   <script src="/public/jquery-scrolltofixed-min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/nav-bar.js"></script>
   <script>
     $(document).ready(function() {
       $('#accordion').accordion({
@@ -346,7 +345,6 @@ def nth_largest(b, n):
       });
     });
   </script>
-    <script src='/cs61a/review/public/nav-bar.js'></script>
-  <script src='/cs61a/review/public/toggle.js'></script>
+    <script src='/cs61a/review/public/toggle.js'></script>
   
 </html>

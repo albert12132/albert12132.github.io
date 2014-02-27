@@ -3,13 +3,16 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>CS 61A: Nonlocal: basic</title>
+    <title>Nonlocal: basic | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' media='print' type='text/css' href='/public/print.css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -26,24 +29,36 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
     <div id='container'>
       <div id='logo'>
-        <h1>CS 61A: Nonlocal: basic</h1>
+        <h1 id='nav-bar-hide'>Nonlocal: basic</h1>
       </div>
 
       <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
         <div id='accordion'>
           <h3>Navigation</h3>
 <div>
   <ul>
-    <li><a href='/cs61a'>Home</a></li>
     <li><a href='/cs61a/review'>All Topics</a></li>
     <li><a href='/cs61a/review/mt1'>Midterm
       1</a></li>
-    <li><a href='/cs61a/review/mt2'>Midterm
-      2</a></li>
-    <li><a href='/cs61a/review/final'>Final</a></li>
+    <!-- <li><a href='/cs61a/review/mt2'>Midterm -->
+    <!--   2</a></li> -->
+    <!-- <li><a href='/cs61a/review/final'>Final</a></li> -->
   </ul>
 </div>
 <h3>Conceptual</h3>
@@ -60,12 +75,10 @@
 </ul></div>
         </div>
         <div id='nav-bar-fixed'>
-          TA page for CS 61A at UC Berkeley
-<br/>
-<a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS 61A course
-  page</a>
+          
 
-
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
         </div>
       </div>
 
@@ -100,13 +113,12 @@
 <h3 id="conceptual1" class="question anchor">Q1</h3>
 <p>Would this code work? If not, how would you
         fix it?</p>
-<pre class="prettyprint">
-def make_counter():
+<pre><code>def make_counter():
     count = 0
     def counter():
         count += 1
         return count
-    return counter</pre>
+    return counter</code></pre>
 <button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><p><b>Answer: </b>No, this code would not work. Here's how we
         can find out:<ol>
   <li>The line <tt>count += 1</tt> is equivalent to
@@ -119,14 +131,13 @@ def make_counter():
   <li>But Python had previously marked <tt>count</tt> as a
             local variable, and it doesn't have a value yet! So Python
             raises an error.</li>
-</ol>To fix it, add a nonlocal statement:<pre class="prettyprint">
-def make_counter():
+</ol>To fix it, add a nonlocal statement:<pre><code>def make_counter():
     count = 0
     def counter():
         <b>nonlocal count</b>
         count += 1
         return count
-    return counter</pre>
+    return counter</code></pre>
 </p>
 </div>
 <h3 id="conceptual2" class="question anchor">Q2</h3>
@@ -141,8 +152,7 @@ def make_counter():
   <li>In which function's frame does Python stop looking for
             <tt>bob</tt>?</li>
 </ol></p>
-<pre class="prettyprint">
-def fn1(bob):
+<pre><code>def fn1(bob):
     def fn2(alice):
         def fn3(alice):
             def fn4():
@@ -150,7 +160,7 @@ def fn1(bob):
                 return bob + alice
             return fn4
         return fn3
-    return fn2</pre>
+    return fn2</code></pre>
 <button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><b>Answer: </b><ol>
   <li><tt>fn3</tt></li>
   <li><tt>fn3</tt></li>
@@ -161,24 +171,22 @@ def fn1(bob):
 <h3 id="conceptual3" class="question anchor">Q3</h3>
 <p>Identify all the errors regarding nonlocal
         in the following code:</p>
-<pre class="prettyprint">
-bob = 2
+<pre><code>bob = 2
 def fn1(bob):
     eve = 3
     def fn2(alice):
         nonlocal bob, alice
         eve = 4
         return eve + alice
-    return fn2</pre>
-<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><p><b>Answer: </b>Errors are bolded:<pre class="prettyprint">
-bob = 2
+    return fn2</code></pre>
+<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><p><b>Answer: </b>Errors are bolded:<pre><code>bob = 2
 def fn1(bob):
     eve = 3
     def fn2(alice):
         nonlocal bob<b>, alice</b>
         <b>eve = 4</b>
         return bob + alice
-    return fn2</pre>
+    return fn2</code></pre>
 <ul>
   <li><b><tt>nonlocal alice</tt></b> is incorrect, since
             <tt>alice</tt> is already defined in the same frame (as a
@@ -193,8 +201,7 @@ def fn1(bob):
 
 <h2 id="env" class="subtopic anchor">Environment Diagrams</h2>
 <h3 id="env1" class="question anchor">Q1</h3>
-<pre class="prettyprint">
-def make_counter():
+<pre><code>def make_counter():
     count = 0
     def counter():
         nonlocal count
@@ -204,12 +211,11 @@ def make_counter():
 
 counter = make_counter()
 counter()
-counter()</pre>
-<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Adef+make_counter%28%29%3A%0A++++count+%3D+0%0A++++def+counter%28%29%3A%0A++++++++nonlocal+count%0A++++++++count+%2B%3D+1%0A++++++++return+count%0A++++return+counter%0A%0Acounter+%3D+make_counter%28%29%0Acounter%28%29%0Acounter%28%29"></iframe></p>
+counter()</code></pre>
+<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+make_counter%28%29%3A%0A++++count+%3D+0%0A++++def+counter%28%29%3A%0A++++++++nonlocal+count%0A++++++++count+%2B%3D+1%0A++++++++return+count%0A++++return+counter%0A%0Acounter+%3D+make_counter%28%29%0Acounter%28%29%0Acounter%28%29"></iframe></p>
 </div>
 <h3 id="env2" class="question anchor">Q2</h3>
-<pre class="prettyprint">
-def foo():
+<pre><code>def foo():
     lst = []
     def bar(m):
         nonlocal lst
@@ -219,12 +225,11 @@ def foo():
 
 bar = foo()
 bar(3)
-bar(4)</pre>
-<button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Adef+foo%28%29%3A%0A++++lst+%3D+%5B%5D%0A++++def+bar%28m%29%3A%0A++++++++nonlocal+lst%0A++++++++lst+%3D+lst+%2B+%5Bm%5D%0A++++++++return+lst%0A++++return+bar%0A%0Abar+%3D+foo%28%29%0Abar%283%29%0Abar%284%29"></iframe></p>
+bar(4)</code></pre>
+<button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+foo%28%29%3A%0A++++lst+%3D+%5B%5D%0A++++def+bar%28m%29%3A%0A++++++++nonlocal+lst%0A++++++++lst+%3D+lst+%2B+%5Bm%5D%0A++++++++return+lst%0A++++return+bar%0A%0Abar+%3D+foo%28%29%0Abar%283%29%0Abar%284%29"></iframe></p>
 </div>
 <h3 id="env3" class="question anchor">Q3</h3>
-<pre class="prettyprint">
-def foo():
+<pre><code>def foo():
     lst = []
     def bar(m):
         lst.append(m)
@@ -233,8 +238,8 @@ def foo():
 
 bar = foo()
 bar(3)
-bar(4)</pre>
-<button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><p><iframe width="900" height="500" frameborder="0" src="http://tutor.composingprograms.com/visualize.html#mode=display&cumulative=true&py=3&code=%0Adef+foo%28%29%3A%0A++++lst+%3D+%5B%5D%0A++++def+bar%28m%29%3A%0A++++++++lst.append%28m%29%0A++++++++return+lst%0A++++return+bar%0A%0Abar+%3D+foo%28%29%0Abar%283%29%0Abar%284%29"></iframe></p>
+bar(4)</code></pre>
+<button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><p><iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=%0Adef+foo%28%29%3A%0A++++lst+%3D+%5B%5D%0A++++def+bar%28m%29%3A%0A++++++++lst.append%28m%29%0A++++++++return+lst%0A++++return+bar%0A%0Abar+%3D+foo%28%29%0Abar%283%29%0Abar%284%29"></iframe></p>
 </div>
 
   </div>
@@ -245,6 +250,7 @@ bar(4)</pre>
   <script src='/public/jquery-1.10.1.min.js'></script>
   <script src="/public/jquery-scrolltofixed-min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/nav-bar.js"></script>
   <script>
     $(document).ready(function() {
       $('#accordion').accordion({
@@ -252,7 +258,6 @@ bar(4)</pre>
       });
     });
   </script>
-    <script src='/cs61a/review/public/nav-bar.js'></script>
-  <script src='/cs61a/review/public/toggle.js'></script>
+    <script src='/cs61a/review/public/toggle.js'></script>
   
 </html>

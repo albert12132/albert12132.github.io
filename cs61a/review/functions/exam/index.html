@@ -3,13 +3,16 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>CS 61A: Map, filter, and friends: exam</title>
+    <title>Map, filter, and friends: exam | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' media='print' type='text/css' href='/public/print.css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -26,24 +29,36 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
     <div id='container'>
       <div id='logo'>
-        <h1>CS 61A: Map, filter, and friends: exam</h1>
+        <h1 id='nav-bar-hide'>Map, filter, and friends: exam</h1>
       </div>
 
       <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
         <div id='accordion'>
           <h3>Navigation</h3>
 <div>
   <ul>
-    <li><a href='/cs61a'>Home</a></li>
     <li><a href='/cs61a/review'>All Topics</a></li>
     <li><a href='/cs61a/review/mt1'>Midterm
       1</a></li>
-    <li><a href='/cs61a/review/mt2'>Midterm
-      2</a></li>
-    <li><a href='/cs61a/review/final'>Final</a></li>
+    <!-- <li><a href='/cs61a/review/mt2'>Midterm -->
+    <!--   2</a></li> -->
+    <!-- <li><a href='/cs61a/review/final'>Final</a></li> -->
   </ul>
 </div>
 <h3>What would Python print?</h3>
@@ -58,12 +73,10 @@
 </ul></div>
         </div>
         <div id='nav-bar-fixed'>
-          TA page for CS 61A at UC Berkeley
-<br/>
-<a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS 61A course
-  page</a>
+          
 
-
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
         </div>
       </div>
 
@@ -99,7 +112,7 @@ too much on these questions!
 
   <h2 id="print" class="subtopic anchor">What would Python print?</h2>
 <h3 id="print1" class="question anchor">Q1</h3>
-<pre class="prettyprint">&gt;&gt;&gt; tup = (1, 2, 3)
+<pre><code>&gt;&gt;&gt; tup = (1, 2, 3)
 &gt;&gt;&gt; pairs = ((1, 2), (3, 4))
 &gt;&gt;&gt; tuple(map(lambda x: tuple(map(lambda y: x*y, tup)), tup))
 <span class="blank0">______</span><span class="hidden solution 0">((1, 2, 3), (2, 4, 6), (3, 6, 9))</span>
@@ -112,10 +125,10 @@ too much on these questions!
 &gt;&gt;&gt; tuple(map(lambda x, y: x + y, (1, 2, 3), (1, 2)))
 <span class="blank0">______</span><span class="hidden solution 0">(2, 4)</span>
 &gt;&gt;&gt; tuple(filter(None, tup))
-<span class="blank0">______</span><span class="hidden solution 0">(1, 2, 3)</span></pre>
+<span class="blank0">______</span><span class="hidden solution 0">(1, 2, 3)</span></code></pre>
 <button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
 <h3 id="print2" class="question anchor">Q2</h3>
-<pre class="prettyprint">&gt;&gt;&gt; f
+<pre><code>&gt;&gt;&gt; f
 &gt;&gt;&gt; reduce(lambda x, y: x + y, tup, 100)
 <span class="blank1">______</span><span class="hidden solution 1">106</span>
 &gt;&gt;&gt; reduce(lambda x, y: (x, y), tup)
@@ -125,7 +138,7 @@ too much on these questions!
 &gt;&gt;&gt; reduce(lambda x, y: x + y, map(lambda x: x**2, tup))
 <span class="blank1">______</span><span class="hidden solution 1">14</span>
 &gt;&gt;&gt; tuple(map(reduce, (lambda x, y: x + y,)*4, pairs))
-<span class="blank1">______</span><span class="hidden solution 1">(3, 7)</span></pre>
+<span class="blank1">______</span><span class="hidden solution 1">(3, 7)</span></code></pre>
 <button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>
 
 <h2 id="code" class="subtopic anchor">Code Writing</h2>
@@ -135,8 +148,7 @@ too much on these questions!
     a sequence. <b>Hint:</b> the <tt>capitalize</tt> string method,
     which capitalizes the first character of a string, may help you
     here.</p>
-<pre class="prettyprint">
-def capitalize(s):
+<pre><code>def capitalize(s):
     """Capitalizes words in the string if they are at the start of
     a sentence.
 
@@ -144,14 +156,13 @@ def capitalize(s):
     &gt;&gt;&gt; capitalize(s)
     'This is spot. See spot run.'
     """
-    "*** YOUR CODE HERE ***" </pre>
-<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><pre class="prettyprint">
-def capitalize(s):
+    "*** YOUR CODE HERE ***" </code></pre>
+<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><pre><code>def capitalize(s):
     return reduce(lambda x, y: x + ' ' + y,
                   map(lambda x, y: x.capitalize() if y.endswith('.') \
                                                   else x,
                       s.split(),
-                      ['.'] + s.split()))</pre>
+                      ['.'] + s.split()))</code></pre>
 </div>
 <h3 id="code2" class="question anchor">Q2</h3>
 <p>Implement <tt>shuffle</tt> that takes a
@@ -159,21 +170,19 @@ def capitalize(s):
     both halves. The return value should be the result of that
     interleave, and should be a list. <b>Note</b>: you may assume the
     list is of even length.</p>
-<pre class="prettyprint">
-def shuffle(seq):
+<pre><code>def shuffle(seq):
     """Splits seq in half and interleaves elements of both halves.
 
     &gt;&gt;&gt; seq = [1, 2, 3, 4, 5, 6]
     &gt;&gt;&gt; shuffle(seq)
     [1, 4, 2, 5, 3, 6]
     """
-    "*** YOUR CODE HERE ***" </pre>
-<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><pre class="prettyprint">
-def shuffle(seq):
+    "*** YOUR CODE HERE ***" </code></pre>
+<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><pre><code>def shuffle(seq):
     return list(reduce(lambda x, y: x + y,
                        map(lambda x, y: [x, y],
                            seq[:len(seq)//2],
-                           seq[len(seq)//2:])))</pre>
+                           seq[len(seq)//2:])))</code></pre>
 </div>
 
   </div>
@@ -184,6 +193,7 @@ def shuffle(seq):
   <script src='/public/jquery-1.10.1.min.js'></script>
   <script src="/public/jquery-scrolltofixed-min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/nav-bar.js"></script>
   <script>
     $(document).ready(function() {
       $('#accordion').accordion({
@@ -191,7 +201,6 @@ def shuffle(seq):
       });
     });
   </script>
-    <script src='/cs61a/review/public/nav-bar.js'></script>
-  <script src='/cs61a/review/public/toggle.js'></script>
+    <script src='/cs61a/review/public/toggle.js'></script>
   
 </html>
