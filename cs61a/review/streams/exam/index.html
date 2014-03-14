@@ -3,13 +3,16 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>CS 61A: Streams: exam</title>
+    <title>Streams: exam | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' media='print' type='text/css' href='/public/print.css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -26,18 +29,30 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
     <div id='container'>
       <div id='logo'>
-        <h1>CS 61A: Streams: exam</h1>
+        <h1 id='nav-bar-hide'>Streams: exam</h1>
       </div>
 
       <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
         <div id='accordion'>
           <h3>Navigation</h3>
 <div>
   <ul>
-    <li><a href='/cs61a'>Home</a></li>
     <li><a href='/cs61a/review'>All Topics</a></li>
     <li><a href='/cs61a/review/mt1'>Midterm
       1</a></li>
@@ -58,12 +73,10 @@
 </ul></div>
         </div>
         <div id='nav-bar-fixed'>
-          TA page for CS 61A at UC Berkeley
-<br/>
-<a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS 61A course
-  page</a>
+          
 
-
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
         </div>
       </div>
 
@@ -98,20 +111,18 @@
   <h2 id="conceptual" class="subtopic anchor">Conceptual</h2>
 <h3 id="conceptual1" class="question anchor">Q1</h3>
 <p>Given the following function, list the first 5 elements of the Stream that is returned by <tt>stream1()</tt>.</p>
-<pre class="prettyprint">
-def stream1():
+<pre><code>def stream1():
     def compute_rest():
         return add_streams(stream1(), stream1().rest)
-    return Stream(0, lambda: Stream(1, compute_rest))</pre>
+    return Stream(0, lambda: Stream(1, compute_rest))</code></pre>
 <button id='0' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 0"><p><b>Answer: </b>0, 1, 1, 2, 3 (the Fibonacci numbers)</p>
 </div>
 <h3 id="conceptual2" class="question anchor">Q2</h3>
 <p>Given the following function, list the first 5 elements of the Stream that is returned by <tt>stream2()</tt>.</p>
-<pre class="prettyprint">
-def stream2():
+<pre><code>def stream2():
     def compute_rest():
         return add_streams(stream2(), stream2())
-    return Stream(1, compute_rest)</pre>
+    return Stream(1, compute_rest)</code></pre>
 <button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><b>Answer: </b>1, 2, 4, 8, 16 (the powers of 2)</p>
 </div>
 
@@ -120,8 +131,7 @@ def stream2():
 <p>Create a function <tt>make_fact_stream</tt>,
         which returns a Stream whose <i>n</i>th element is <i>n</i>!
         (factorial of <i>n</i>).</p>
-<pre class="prettyprint">
-def make_fact_stream():
+<pre><code>def make_fact_stream():
     """Returns a Stream of factorials.
 
     &gt;&gt;&gt; s = make_fact_stream()
@@ -134,13 +144,12 @@ def make_fact_stream():
     &gt;&gt;&gt; s.rest.rest.rest.first  # 3!
     6
     """
-    "*** YOUR CODE HERE ***" </pre>
+    "*** YOUR CODE HERE ***" </code></pre>
 <p class="hint"><b>Hint</b>: This is similar to the <tt>make_fib_stream()</tt>
         function from discussion. Try writing an iterative factorial
         function first, then convert it into the Stream function.
         You should also use a helper function.</p>
-<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><pre class="prettyprint">
-def make_fact_stream():
+<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><pre><code>def make_fact_stream():
     return fact_help(0, 1)
 
 def fact_help(n, total)
@@ -153,7 +162,7 @@ def infinite_fact():
     n, total = 0, 1
     while True:
         print(total)
-        n, total = n + 1, total * n </pre>
+        n, total = n + 1, total * n </code></pre>
 </div>
 <h3 id="code2" class="question anchor">Q2</h3>
 <p>This <a href="http://www-inst.eecs.berkeley.edu/~cs61a/su12/lab/lab13/lab13.php">link</a>
@@ -161,9 +170,9 @@ def infinite_fact():
         problems) from the summer 2012 version of 61A. They are pretty
         tough (probably tougher than final material), so don't get
         discouraged if you get stuck!</p>
-<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><pre class="prettyprint">Solutions are also included in the lab (in the
+<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><pre><code>Solutions are also included in the lab (in the
         form of toggle buttons). Don't worry about the Py section --
-        we didn't cover that this semester.</pre>
+        we didn't cover that this semester.</code></pre>
 </div>
 
   </div>
@@ -174,6 +183,7 @@ def infinite_fact():
   <script src='/public/jquery-1.10.1.min.js'></script>
   <script src="/public/jquery-scrolltofixed-min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/nav-bar.js"></script>
   <script>
     $(document).ready(function() {
       $('#accordion').accordion({
@@ -181,7 +191,6 @@ def infinite_fact():
       });
     });
   </script>
-    <script src='/cs61a/review/public/nav-bar.js'></script>
-  <script src='/cs61a/review/public/toggle.js'></script>
+    <script src='/cs61a/review/public/toggle.js'></script>
   
 </html>

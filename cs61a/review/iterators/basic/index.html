@@ -3,13 +3,16 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>CS 61A: Iterators and Generators: basic</title>
+    <title>Iterators and Generators: basic | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' media='print' type='text/css' href='/public/print.css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -26,18 +29,30 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
     <div id='container'>
       <div id='logo'>
-        <h1>CS 61A: Iterators and Generators: basic</h1>
+        <h1 id='nav-bar-hide'>Iterators and Generators: basic</h1>
       </div>
 
       <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
         <div id='accordion'>
           <h3>Navigation</h3>
 <div>
   <ul>
-    <li><a href='/cs61a'>Home</a></li>
     <li><a href='/cs61a/review'>All Topics</a></li>
     <li><a href='/cs61a/review/mt1'>Midterm
       1</a></li>
@@ -67,12 +82,10 @@
 </ul></div>
         </div>
         <div id='nav-bar-fixed'>
-          TA page for CS 61A at UC Berkeley
-<br/>
-<a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS 61A course
-  page</a>
+          
 
-
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
         </div>
       </div>
 
@@ -112,10 +125,9 @@
 </div>
 <h3 id="iter-conceptual2" class="question anchor">Q2</h3>
 <p>What is wrong with the following code?</p>
-<pre class="prettyprint">
-&gt;&gt;&gt; obj = SomeObj()
+<pre><code>&gt;&gt;&gt; obj = SomeObj()
 &gt;&gt;&gt; i = iter(obj)
-&gt;&gt;&gt; next(obj)</pre>
+&gt;&gt;&gt; next(obj)</code></pre>
 <button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><b>Answer: </b><tt>obj</tt> is not necessarily an iterator, so you should not call <tt>next</tt> on it. <tt>next</tt> should be called on <tt>i</tt> instead.</p>
 
     <p><b>NOTE:</b> even if the <tt>__iter__</tt> method of <tt>SomeObj</tt> returns <tt>self</tt>, you still shoudl nto call <tt>iter</tt> on <tt>obj</tt>. This is to protect abstraction barriers.</p>
@@ -124,8 +136,7 @@
 <h2 id="iter-code" class="subtopic anchor">Iterators: Code Writing</h2>
 <h3 id="iter-code1" class="question anchor">Q1</h3>
 <p>Write an iterator for a Fibonacci class. The iterator should return the next Fibonacci number every time <tt>next</tt> is called on it.</p>
-<pre class="prettyprint">
-class Fibonacci:
+<pre><code>class Fibonacci:
     """Doctests
 
     &gt;&gt;&gt; f = Fibonacci()
@@ -139,9 +150,8 @@ class Fibonacci:
     &gt;&gt;&gt; next(i)
     2
     """
-    "*** YOUR CODE HERE ***" </pre>
-<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><pre class="prettyprint">
-class Fibonacci:
+    "*** YOUR CODE HERE ***" </code></pre>
+<button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><pre><code>class Fibonacci:
     def __init__(self):
         self.cur, self.next = 0, 1
 
@@ -151,18 +161,17 @@ class Fibonacci:
     def __next__(self):
         tmp = self.cur
         self.cur, self.next = self.next, self.next + self.cur
-        return tmp</pre>
+        return tmp</code></pre>
 </div>
 
 <h2 id="gen-conceptual" class="subtopic anchor">Generators: Conceptual</h2>
 <h3 id="gen-conceptual1" class="question anchor">Q1</h3>
 <p>Given the following generator function, what will the call to <tt>gen()</tt> return?</p>
-<pre class="prettyprint">
-def gen():
+<pre><code>def gen():
     start = 0
     while start != 10:
         yield start
-        start += 1</pre>
+        start += 1</code></pre>
 <button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><p><b>Answer: </b><tt>gen()</tt> will return a generator object, NOT the number 0. None of the code inside the generator function will be executed.</p>
 </div>
 <h3 id="gen-conceptual2" class="question anchor">Q2</h3>
@@ -173,8 +182,7 @@ def gen():
 <h2 id="gen-code" class="subtopic anchor">Generators: Code Writing</h2>
 <h3 id="gen-code1" class="question anchor">Q1</h3>
 <p>Write a generator function <tt>map_gen</tt> that takes a one-argument function and an iterator as arguments. The return result should be a generator whose elements are the elements of the iterator, but with the function mapped onto them.</p>
-<pre class="prettyprint">
-def map_gen(fn, iter1):
+<pre><code>def map_gen(fn, iter1):
     """Doctests
 
     &gt;&gt;&gt; i = iter([1, 2, 3, 4])
@@ -193,18 +201,16 @@ def map_gen(fn, iter1):
       ...
     StopIteration
     """
-    "*** YOUR CODE HERE ***" </pre>
-<button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><pre class="prettyprint">
-def map_gen(fn, iter1):
+    "*** YOUR CODE HERE ***" </code></pre>
+<button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><pre><code>def map_gen(fn, iter1):
     for elem in iter1:
-        yield fn(elem)</pre>
+        yield fn(elem)</code></pre>
 <p><b>Explanation: </b>
 Since <tt>iter1</tt> is an iterator, we can iterate over it in a for loop.</p>
 </div>
 <h3 id="gen-code2" class="question anchor">Q2</h3>
 <p>Write another iterator for a Fibonacci class. Like before, the iterator shoudl return the nxt Fibonacci number every time <tt>next</tt> is called on it. This time, write the iterator using a generator function.</p>
-<pre class="prettyprint">
-class Fibonacci:
+<pre><code>class Fibonacci:
     """Doctests
 
     &gt;&gt;&gt; f = Fibonacci()
@@ -218,14 +224,13 @@ class Fibonacci:
     &gt;&gt;&gt; next(i)
     2
     """
-    "*** YOUR CODE HERE ***" </pre>
-<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><pre class="prettyprint">
-class Fibonacci:
+    "*** YOUR CODE HERE ***" </code></pre>
+<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><pre><code>class Fibonacci:
     def __iter__(self):
         cur, next = 0, 1
         while True:
             yield cur
-            cur, next = next, cur + next</pre>
+            cur, next = next, cur + next</code></pre>
 <p><b>Explanation: </b>The generator in the <tt>__iter__</tt> method can keep track of state, so we don't need to initialize anything. We also don't need to write a <tt>__next__</tt> method, since the <tt>__iter__</tt> method is not returning <tt>self</tt>.</p>
 </div>
 
@@ -237,6 +242,7 @@ class Fibonacci:
   <script src='/public/jquery-1.10.1.min.js'></script>
   <script src="/public/jquery-scrolltofixed-min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/nav-bar.js"></script>
   <script>
     $(document).ready(function() {
       $('#accordion').accordion({
@@ -244,7 +250,6 @@ class Fibonacci:
       });
     });
   </script>
-    <script src='/cs61a/review/public/nav-bar.js'></script>
-  <script src='/cs61a/review/public/toggle.js'></script>
+    <script src='/cs61a/review/public/toggle.js'></script>
   
 </html>

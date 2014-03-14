@@ -5,10 +5,14 @@
     <meta name='description' content='CS 61A TA website for Albert Wu'>
     <title>All topics Review | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -25,7 +29,7 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
     <div id='nav-bar-toggle'>
       <div id='nav-bar-toggle-icon'>
         &lt;
@@ -52,9 +56,9 @@
     <li><a href='/cs61a/review'>All Topics</a></li>
     <li><a href='/cs61a/review/mt1'>Midterm
       1</a></li>
-    <!-- <li><a href='/cs61a/review/mt2'>Midterm -->
-    <!--   2</a></li> -->
-    <!-- <li><a href='/cs61a/review/final'>Final</a></li> -->
+    <li><a href='/cs61a/review/mt2'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
 
@@ -91,6 +95,11 @@
     <td><a href="control/exam/index.html">Questions</a></td>
   </tr>
   <tr>
+    <td>Dictionaries</td>
+    <td><a href="dictionaries/basic/index.html">Questions</a></td>
+    <td><a href="dictionaries/exam/index.html">Questions</a></td>
+  </tr>
+  <tr>
     <td>Environment Diagrams</td>
     <td><a href="environments/basic/index.html">Questions</a></td>
     <td><a href="environments/exam/index.html">Questions</a></td>
@@ -101,9 +110,39 @@
     <td><a href="hof/exam/index.html">Questions</a></td>
   </tr>
   <tr>
+    <td>Identity vs. Equality</td>
+    <td><a href="identity/basic/index.html">Questions</a></td>
+    <td><a href="identity/exam/index.html">Questions</a></td>
+  </tr>
+  <tr>
+    <td>Interpreters</td>
+    <td><a href="interpreter/basic/index.html">Questions</a></td>
+    <td><a href="interpreter/exam/index.html">Questions</a></td>
+  </tr>
+  <tr>
+    <td>Iterators and Generators</td>
+    <td><a href="iterators/basic/index.html">Questions</a></td>
+    <td><a href="iterators/exam/index.html">Questions</a></td>
+  </tr>
+  <tr>
     <td>Lambda Expressions</td>
     <td><a href="lambdas/basic/index.html">Questions</a></td>
     <td><a href="lambdas/exam/index.html">Questions</a></td>
+  </tr>
+  <tr>
+    <td>Lists</td>
+    <td><a href="lists/basic/index.html">Questions</a></td>
+    <td><a href="lists/exam/index.html">Questions</a></td>
+  </tr>
+  <tr>
+    <td>Logic</td>
+    <td><a href="logic/basic/index.html">Questions</a></td>
+    <td><a href="logic/exam/index.html">Questions</a></td>
+  </tr>
+  <tr>
+    <td>Map, filter, and friends</td>
+    <td><a href="functions/basic/index.html">Questions</a></td>
+    <td><a href="functions/exam/index.html">Questions</a></td>
   </tr>
   <tr>
     <td>Newton's Method</td>
@@ -111,9 +150,59 @@
     <td><a href="newtons/exam/index.html">Questions</a></td>
   </tr>
   <tr>
+    <td>Nonlocal</td>
+    <td><a href="nonlocal/basic/index.html">Questions</a></td>
+    <td><a href="nonlocal/exam/index.html">Questions</a></td>
+  </tr>
+  <tr>
+    <td>OOP</td>
+    <td><a href="oop/basic/index.html">Questions</a></td>
+    <td><a href="oop/exam/index.html">Questions</a></td>
+  </tr>
+  <tr>
+    <td>Orders of Growth</td>
+    <td><a href="oog/basic/index.html">Questions</a></td>
+    <td><a href="oog/exam/index.html">Questions</a></td>
+  </tr>
+  <tr>
     <td>Recursion</td>
     <td><a href="recursion/basic/index.html">Questions</a></td>
     <td><a href="recursion/exam/index.html">Questions</a></td>
+  </tr>
+  <tr>
+    <td>Rlists</td>
+    <td><a href="rlists/basic/index.html">Questions</a></td>
+    <td><a href="rlists/exam/index.html">Questions</a></td>
+  </tr>
+  <tr>
+    <td>Rlists as Classes</td>
+    <td><a href="mut_rlists/basic/index.html">Questions</a></td>
+    <td><a href="mut_rlists/exam/index.html">Questions</a></td>
+  </tr>
+  <tr>
+    <td>Scheme</td>
+    <td><a href="scheme/basic/index.html">Questions</a></td>
+    <td><a href="scheme/exam/index.html">Questions</a></td>
+  </tr>
+  <tr>
+    <td>Special Methods</td>
+    <td><a href="special/basic/index.html">Questions</a></td>
+    <td><a href="special/exam/index.html">Questions</a></td>
+  </tr>
+  <tr>
+    <td>Streams</td>
+    <td><a href="streams/basic/index.html">Questions</a></td>
+    <td><a href="streams/exam/index.html">Questions</a></td>
+  </tr>
+  <tr>
+    <td>Tail Recursion</td>
+    <td><a href="tail/basic/index.html">Questions</a></td>
+    <td><a href="tail/exam/index.html">Questions</a></td>
+  </tr>
+  <tr>
+    <td>Trees</td>
+    <td><a href="trees/basic/index.html">Questions</a></td>
+    <td><a href="trees/exam/index.html">Questions</a></td>
   </tr>
   <tr>
     <td>Tuples</td>

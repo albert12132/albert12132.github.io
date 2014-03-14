@@ -3,13 +3,16 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>CS 61A: Tail Recursion: basic</title>
+    <title>Tail Recursion: basic | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/style.css'>
-    <link rel='stylesheet' type='text/css' href='/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' media='print' type='text/css' href='/public/print.css'>
-    <script src='/public/prettify/prettify.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
+    <script src='/public/highlight/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
   <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
     
@@ -26,18 +29,30 @@
     </script>
 
   </head>
-  <body onload='prettyPrint()'>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
     <div id='container'>
       <div id='logo'>
-        <h1>CS 61A: Tail Recursion: basic</h1>
+        <h1 id='nav-bar-hide'>Tail Recursion: basic</h1>
       </div>
 
       <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
         <div id='accordion'>
           <h3>Navigation</h3>
 <div>
   <ul>
-    <li><a href='/cs61a'>Home</a></li>
     <li><a href='/cs61a/review'>All Topics</a></li>
     <li><a href='/cs61a/review/mt1'>Midterm
       1</a></li>
@@ -61,12 +76,10 @@
 </ul></div>
         </div>
         <div id='nav-bar-fixed'>
-          TA page for CS 61A at UC Berkeley
-<br/>
-<a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS 61A course
-  page</a>
+          
 
-
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
         </div>
       </div>
 
@@ -129,8 +142,7 @@
 <h3 id="conceptual3" class="question anchor">Q3</h3>
 <p>Which of the following Scheme functions
         are tail recursive?</p>
-<pre class="prettyprint">
-(define (one x)
+<pre><code>(define (one x)
     (if (= x 0)
         1
         (* x (one (- x 1)))))
@@ -148,7 +160,7 @@
 (define (four fn x)
     (if (null? x)
         #t
-        (and (four fn (cdr x)) (fn x))))</pre>
+        (and (four fn (cdr x)) (fn x))))</code></pre>
 <button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><p><b>Answer: </b><ul>
   <li><tt>one</tt>: not tail recursive</li>
   <li><tt>two</tt>: tail recursive</li>
@@ -162,24 +174,21 @@
 <p>Write a function <tt>reverse</tt> that is
         tail recursive. It should take a list <tt>lst</tt> and return
         the reverse of that list.</p>
-<pre class="prettyprint">
-(define (reverse lst)
+<pre><code>(define (reverse lst)
     ; YOUR CODE HERE
     )
 
 STk&gt; (reverse '(1 2 3 4))
 (4 3 2 1)
 STk&gt; (reverse nil)
-()
-</pre>
+()</code></pre>
 <p class="hint"><b>Hint</b>: You should use a helper function</p>
-<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><pre class="prettyprint">
-(define (reverse lst)
+<button id='3' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 3"><pre><code>(define (reverse lst)
     (define (reverse-help lst so-far)
         (if (null? lst)
             so-far
             (reverse-help (cdr lst) (cons (car lst) so-far))))
-    (reverse-help lst nil))</pre>
+    (reverse-help lst nil))</code></pre>
 </div>
 <h3 id="code2" class="question anchor">Q2</h3>
 <p>Write a function <tt>reduce</tt> that is
@@ -187,8 +196,7 @@ STk&gt; (reverse nil)
         <tt>combiner</tt> function, and a <tt>start</tt> value, and
         reduce all the elements in the list using the
         <tt>combiner</tt>, beginnning at <tt>start</tt>.</p>
-<pre class="prettyprint">
-(define (reduce combiner lst start)
+<pre><code>(define (reduce combiner lst start)
     ; YOUR CODE HERE
     )
 
@@ -199,41 +207,36 @@ STk&gt; (reduce - '(1 2 3 4) 0)
 STk&gt; (reduce + '(1 2 3 4) 10)
 20
 STk&gt; (reduce * '(1 2 3 4) 1)
-24
-</pre>
-<button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><pre class="prettyprint">
-(define (reduce combiner lst start)
+24</code></pre>
+<button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><pre><code>(define (reduce combiner lst start)
     (if (null? lst)
         start
-        (reduce combiner (cdr lst) (combiner start (car lst)))))</pre>
+        (reduce combiner (cdr lst) (combiner start (car lst)))))</code></pre>
 </div>
 <h3 id="code3" class="question anchor">Q3</h3>
 <p>Write a function <tt>all</tt> that is
         tail recursive. It should take a list <tt>lst</tt> and a
         function <tt>pred</tt>, and return true (<tt>#t</tt>) only if
         all the elements in the list satisfy the predicate.</p>
-<pre class="prettyprint">
-(define (all lst pred)
+<pre><code>(define (all lst pred)
     ; YOUR CODE HERE
     )
 
 STk&gt; (all '(1 2 3 4) even?)
 #f
 STk&gt; (all '(1 3 5) odd?)
-#t</pre>
-<button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><pre class="prettyprint">
-(define (all lst pred)
+#t</code></pre>
+<button id='5' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 5"><pre><code>(define (all lst pred)
     (if (null? lst)
         #t
-        (and (pred (car lst)) (all (cdr lst) pred))))</pre>
+        (and (pred (car lst)) (all (cdr lst) pred))))</code></pre>
 </div>
 <h3 id="code4" class="question anchor">Q4</h3>
 <p>Write a function <tt>count</tt> that is
         tail recursive. It should take a list <tt>lst</tt> and an
         <tt>item</tt>, and return the number of times that
         <tt>item</tt> occurs in the list.</p>
-<pre class="prettyprint">
-(define (count lst item)
+<pre><code>(define (count lst item)
     ; YOUR CODE HERE
     )
 
@@ -242,14 +245,13 @@ STk&gt; (count '(1 2 3 4) 3)
 STk&gt; (count '(2 3) 5)
 0
 STk&gt; (count '(2 2 4 2 3) 2)
-3</pre>
-<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><pre class="prettyprint">
-(define (count lst item)
+3</code></pre>
+<button id='6' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 6"><pre><code>(define (count lst item)
     (define (count-help lst num)
         (cond ((null? lst) num)
               ((eq? (car lst) item) (count-help (cdr lst) (+ num 1)))
               (else (count-help (cdr lst) num))))
-    (count-help lst 0))</pre>
+    (count-help lst 0))</code></pre>
 </div>
 
   </div>
@@ -260,6 +262,7 @@ STk&gt; (count '(2 2 4 2 3) 2)
   <script src='/public/jquery-1.10.1.min.js'></script>
   <script src="/public/jquery-scrolltofixed-min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/nav-bar.js"></script>
   <script>
     $(document).ready(function() {
       $('#accordion').accordion({
@@ -267,7 +270,6 @@ STk&gt; (count '(2 2 4 2 3) 2)
       });
     });
   </script>
-    <script src='/cs61a/review/public/nav-bar.js'></script>
-  <script src='/cs61a/review/public/toggle.js'></script>
+    <script src='/cs61a/review/public/toggle.js'></script>
   
 </html>
