@@ -13,7 +13,6 @@ pre { white-space: pre-wrap; font-family: monospace; color: #00ff00; background-
 body { font-family: monospace; color: #00ff00; background-color: #000000; }
 .lnr { color: #949494; }
 .Normal { color: #00ff00; }
-.Folded { color: #eeeeee; }
 .Type { color: #00ff00; }
 .Constant { color: #87ff87; }
 .Special { color: #00d75f; }
@@ -245,7 +244,11 @@ body { font-family: monospace; color: #00ff00; background-color: #000000; }
 <span class="lnr">217 </span><span class="Statement">nnoremap</span> <span class="Special">&lt;</span><span class="Special">leader</span><span class="Special">&gt;</span>gc     :Gcommit -m &quot;
 <span class="lnr">218 </span><span class="Statement">nnoremap</span> <span class="Special">&lt;</span><span class="Special">leader</span><span class="Special">&gt;</span>gg     :Git push
 <span class="lnr">219 </span><span class="Statement">function</span>! FugitiveStatus<span class="Special">()</span>
-<span class="Folded">220 +--  5 lines: let branch = fugitive#head()-----------------------------</span>
+<span class="lnr">220 </span>    <span class="Statement">let</span> <span class="Identifier">branch</span> <span class="Statement">=</span> fugitive#<span class="Normal">head</span><span class="Special">()</span>
+<span class="lnr">221 </span>    <span class="Statement">if</span> !<span class="Identifier">empty</span><span class="Special">(</span>branch<span class="Special">)</span>
+<span class="lnr">222 </span>        <span class="Statement">let</span> <span class="Identifier">branch</span> <span class="Statement">=</span> <span class="Constant">&quot; [&quot;</span> <span class="Statement">.</span> branch <span class="Statement">.</span> <span class="Constant">&quot;] &quot;</span>
+<span class="lnr">223 </span>    <span class="Statement">endif</span>
+<span class="lnr">224 </span>    <span class="Statement">return</span> branch
 <span class="lnr">225 </span><span class="Statement">endfunction</span>
 <span class="lnr">226 </span>
 <span class="lnr">227 </span><span class="Comment">&quot;--------------------------------------------------------------------&quot;</span>
@@ -266,7 +269,8 @@ body { font-family: monospace; color: #00ff00; background-color: #000000; }
 <span class="lnr">242 </span><span class="Comment">&quot; Custom mappings for unite buffer</span>
 <span class="lnr">243 </span><span class="Statement">autocmd</span> <span class="Type">FileType</span> unite <span class="Statement">call</span> <span class="Normal">s:unite_settings</span><span class="Special">()</span>
 <span class="lnr">244 </span><span class="Statement">function</span>! <span class="Special">s:</span>unite_settings<span class="Special">()</span>
-<span class="Folded">245 +--  2 lines: nnoremap &lt;silent&gt;&lt;buffer&gt;&lt;expr&gt; s unite#do_action('right')</span>
+<span class="lnr">245 </span>    <span class="Statement">nnoremap</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;&lt;</span><span class="Special">buffer</span><span class="Special">&gt;&lt;</span><span class="Special">expr</span><span class="Special">&gt;</span> s unite#do_action('right')
+<span class="lnr">246 </span>    <span class="Statement">nnoremap</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;&lt;</span><span class="Special">buffer</span><span class="Special">&gt;&lt;</span><span class="Special">expr</span><span class="Special">&gt;</span> i unite#do_action('below')
 <span class="lnr">247 </span><span class="Statement">endfunction</span>!
 <span class="lnr">248 </span>
 <span class="lnr">249 </span><span class="Comment">&quot;--------------------------------------------------------------------&quot;</span>
@@ -275,7 +279,12 @@ body { font-family: monospace; color: #00ff00; background-color: #000000; }
 <span class="lnr">252 </span>
 <span class="lnr">253 </span><span class="Comment">&quot; Conque startup configs</span>
 <span class="lnr">254 </span><span class="Statement">function</span>! MyConqueTerm<span class="Special">(</span>term<span class="Special">)</span>
-<span class="Folded">255 +--  6 lines: Default size of 10 rows----------------------------------</span>
+<span class="lnr">255 </span><span class="Comment">    &quot; Default size of 10 rows</span>
+<span class="lnr">256 </span>    <span class="Statement">resize</span> <span class="Constant">10</span>
+<span class="lnr">257 </span><span class="Comment">    &quot; Remove whitespace indicators</span>
+<span class="lnr">258 </span>    <span class="Statement">setlocal</span> <span class="PreProc">nolist</span>
+<span class="lnr">259 </span><span class="Comment">    &quot; Remove colorcolumn</span>
+<span class="lnr">260 </span>    <span class="Statement">setlocal</span> <span class="PreProc">colorcolumn</span>=
 <span class="lnr">261 </span><span class="Statement">endfunction</span>
 <span class="lnr">262 </span><span class="Statement">call</span> conque_term#<span class="Normal">register_function</span><span class="Special">(</span><span class="Constant">'after_startup'</span>, <span class="Constant">'MyConqueTerm'</span><span class="Special">)</span>
 <span class="lnr">263 </span>
@@ -324,7 +333,12 @@ body { font-family: monospace; color: #00ff00; background-color: #000000; }
 <span class="lnr">306 </span><span class="Comment">&quot; </span><span class="Constant">&quot;Syntax Highlighting utility&quot;</span><span class="Comment">                                      &quot;</span>
 <span class="lnr">307 </span><span class="Comment">&quot;--------------------------------------------------------------------&quot;</span>
 <span class="lnr">308 </span><span class="Statement">function</span>! StatuslineCurrentHighlight<span class="Special">()</span>
-<span class="Folded">309 +--  6 lines: let name = synIDattr(synID(line('.'),col('.'),1),'name')-</span>
+<span class="lnr">309 </span>    <span class="Statement">let</span> <span class="Identifier">name</span> <span class="Statement">=</span> <span class="Identifier">synIDattr</span><span class="Special">(</span><span class="Identifier">synID</span><span class="Special">(</span><span class="Identifier">line</span><span class="Special">(</span><span class="Constant">'.'</span><span class="Special">)</span>,<span class="Identifier">col</span><span class="Special">(</span><span class="Constant">'.'</span><span class="Special">)</span>,<span class="Constant">1</span><span class="Special">)</span>,<span class="Constant">'name'</span><span class="Special">)</span>
+<span class="lnr">310 </span>    <span class="Statement">if</span> name <span class="Statement">==</span> <span class="Constant">''</span>
+<span class="lnr">311 </span>        <span class="Statement">return</span> <span class="Constant">''</span>
+<span class="lnr">312 </span>    <span class="Statement">else</span>
+<span class="lnr">313 </span>        <span class="Statement">return</span> <span class="Constant">'['</span> <span class="Statement">.</span> name <span class="Statement">.</span> <span class="Constant">']'</span>
+<span class="lnr">314 </span>    <span class="Statement">endif</span>
 <span class="lnr">315 </span><span class="Statement">endfunction</span>
 </pre>
 </body>
