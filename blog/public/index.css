@@ -6,6 +6,7 @@ a.link-block {
 .link-block div {
   background-color:#eaeef3;
   padding: 15px;
+  max-width:750px;
   transition: background-color .2s linear;
   -webkit-transition: background-color .2s linear;
 }
