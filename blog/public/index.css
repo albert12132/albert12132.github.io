@@ -1,5 +1,18 @@
-link-block {
-  background-color:#0f0;
+.link-block {
+  background-color:#eaeef3;
+  padding: 15px;
+  transition: background-color .2s linear;
+  -webkit-transition: background-color .2s linear;
 }
+
+.link-block:hover {
+  background-color:#e3e3e3;
+}
+
+.link-block h3 {
+  margin:0;
+  color:#0072c1;
+}
+
 
 
