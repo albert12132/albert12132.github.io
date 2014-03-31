@@ -3,6 +3,7 @@
   padding: 15px;
   transition: background-color .2s linear;
   -webkit-transition: background-color .2s linear;
+  cursor:pointer;
 }
 
 .link-block:hover {
