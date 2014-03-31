@@ -1,5 +1,6 @@
 body {
   margin:0;
+  font-size:100%;
   font-family:'Oxygen', sans-serif;
   height:100%;
 }
@@ -16,7 +17,7 @@ body {
 
 h2 {
   font-size:2em;
-  margin-bottom:10px;
+  margin-bottom:0.625em;
 }
 
 h1, h2, a {
@@ -26,8 +27,8 @@ h1, h2, a {
 .anchor:before {
   content: " ";
   display: block;
-  height: 80px;
-  margin-top: -80px;
+  height: 5em;
+  margin-top: -5em;
   visibility: hidden;
 }
 
@@ -37,7 +38,7 @@ h1, h2, a {
 
 #logo {
   background:#fff;
-  height:70px;
+  height:4.375em;
   position:fixed;
   top:0;
   width:100%;
@@ -78,8 +79,8 @@ h1, h2, a {
   float: left;
   overflow:auto;
   position:fixed;
-  top:80px;
-  width:250px;
+  top:5em;
+  width:15.625em;
 }
 
 #nav-bar h3 {
@@ -93,7 +94,7 @@ h1, h2, a {
 
 #nav-bar-headers {
   text-align:center;
-  padding:3px 0;
+  padding:0.1875em 0;
   border-bottom-style:solid;
   border-bottom-width:2px;
   color:#0072c1;
@@ -110,18 +111,18 @@ h1, h2, a {
 }
 
 #nav-bar-headers a {
-  padding:5px 15px;
+  padding:0.3125em 1em;
   text-decoration:none;
 }
 
 #accordion {
-  padding:10px 0;
+  padding:0.625em 0;
   padding-top:0;
 }
 
 .ui-accordion-header {
-  margin:2px;
-  padding:5px;
+  margin:0.125em;
+  padding:0.3125em;
   transition: background-color .2s linear;
   -webkit-transition: background-color .2s linear;
 }
@@ -136,12 +137,12 @@ h1, h2, a {
 
 
 #nav-bar-fixed {
-  padding:10px 0;
+  padding:0.625em 0;
 }
 
 #content {
-  margin-top:80px;
-  margin-left:270px;
+  margin-top:5em;
+  margin-left:16.85em;
   z-index:10;
   position:relative;
   background-color:#fff;
@@ -150,7 +151,7 @@ h1, h2, a {
 /* HYPERLINKS */
 
 li, li a{
-  padding:5px;
+  padding:0.3125em;
 }
 
 li a {
@@ -170,11 +171,11 @@ a:hover {
 
 th {
   background-color:#74bbfb;
-  padding:10px;
+  padding:0.625em;
 }
 
 td {
-  padding:10px 20px;
+  padding:0.625em 1.25em;
   text-align:center;
 }
 
@@ -232,3 +233,4 @@ a tt, a code {
     margin-top:0px;
   }
 }
+
