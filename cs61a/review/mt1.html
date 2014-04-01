@@ -4,17 +4,17 @@
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
     <title>Midterm 1 Review | Albert Wu</title>
-    <link rel='stylesheet' type='text/css' href='/public/style.css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
-    <script src='/public/highlight/highlight.pack.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <script src='/public/js/highlight.pack.js'></script>
     <script>
       hljs.configure({languages:['python', 'lisp']});
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/style.css'>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
+  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -129,17 +129,20 @@
     </div>
   </body>
 
-  <script src='/public/jquery-1.10.1.min.js'></script>
-  <script src="/public/jquery-scrolltofixed-min.js"></script>
+  <script src='/public/js/jquery-1.10.1.min.js'></script>
+  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
+  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
+  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <script src="/public/nav-bar.js"></script>
+  <script src="/public/js/nav-bar.js"></script>
   <script>
     $(document).ready(function() {
       $('#accordion').accordion({
         heightStyle: 'content'
       });
+      $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/toggle.js'></script>
+    <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

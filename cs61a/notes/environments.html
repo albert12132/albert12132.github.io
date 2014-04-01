@@ -4,17 +4,17 @@
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
     <title>Environment Diagrams | Albert Wu</title>
-    <link rel='stylesheet' type='text/css' href='/public/style.css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' type='text/css' href='/public/highlight/styles/mono-blue.css'>
-    <script src='/public/highlight/highlight.pack.js'></script>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <script src='/public/js/highlight.pack.js'></script>
     <script>
       hljs.configure({languages:['python', 'lisp']});
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/cs61a/public/style.css'>
-<link href='/cs61a/notes/public/' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
+<link href='/cs61a/notes/public/css/' rel='stylesheet' type='text/css'>
 
     
 
@@ -260,14 +260,14 @@ assignment:</p>
 
 <p>where <code>x</code> is the variable and <code>3</code> is the value.</p>
 
-<p><img src="/public/environments/x-equals-3.png" alt="x = 3" /></p>
+<p><img src="/public/img/environments/x-equals-3.png" alt="x = 3" /></p>
 
 <p>The second line is a little more involved. There is a complex
 expression on the right-hand side of the <code>=</code>, so we must <em>evaluate</em> it
 first. Notice in the following diagram that <code>y</code> is bound to <code>6</code>, not
 <code>1 + 2 + 3</code>:</p>
 
-<p><img src="/public/environments/y-equals-6.png" alt="y = 1 + 2 + 3" /></p>
+<p><img src="/public/img/environments/y-equals-6.png" alt="y = 1 + 2 + 3" /></p>
 
 <p>The next line is a <code>def</code> statement:</p>
 
@@ -281,7 +281,7 @@ an interpreter, you don't execute the body of the function right away
 (e.g. when you define <code>square</code>, you don't immediately calculate
 <code>x*x</code>). Instead, we just make a <strong>binding</strong>.</p>
 
-<p><img src="/public/environments/def-square.png" alt="def square(x):" /></p>
+<p><img src="/public/img/environments/def-square.png" alt="def square(x):" /></p>
 
 <p>The variable is <code>square</code>, and the value is an arrow pointing to a
 function object. Notice the <em>function object</em> also says <code>square</code> --
@@ -338,7 +338,7 @@ object, we see it has one formal parameter, called <code>x</code>. In step 1,
 we evaluated the corresponding operand to have a value of <code>6</code>. Now
 we draw the binding:</p>
 
-<p><img src="/cs61a/notes/public/environments/square-y.png" alt="square(y)" /></li>
+<p><img src="/public/img/environments/square-y.png" alt="square(y)" /></li>
 <li><strong>Execute the body of the function</strong>. The body of <code>square</code> just
 says <code>return x*x</code>. There are no bindings and no function calls, so
 just compute <code>x*x</code>.</p>
@@ -347,7 +347,7 @@ just compute <code>x*x</code>.</p>
 in <code>square</code> is called a <strong>local variable</strong>.</li>
 <li><strong>Write the return value</strong> (which is <code>6*6 = 36</code>):</p>
 
-<p><img src="/cs61a/notes/public/environments/return-x-times-x.png" alt="&lt;code&gt;return x*x&lt;/code&gt;" /></li>
+<p><img src="/public/img/environments/return-x-times-x.png" alt="&lt;code&gt;return x*x&lt;/code&gt;" /></li>
 </ol>
 
 <p>And that's it! Once we're done with the function call, we exit the
@@ -401,7 +401,7 @@ for <code>square</code> do we draw? What are the parents for those frames?</p>
 
 <p>The first three bindings look like this:</p>
 
-<p><img src="/cs61a/notes/public/environments/bindings.png" alt="bindings" /></p>
+<p><img src="/cs61a/notes/public/img/environments/bindings.png" alt="bindings" /></p>
 
 <p>The last line says</p>
 
@@ -418,7 +418,7 @@ so we don't need to draw a parent label.</li>
 <li><strong>Bind formal parameters</strong>. <code>double</code> has one parameter <code>x</code>, which
 is bound to the operand <code>3</code>.</p>
 
-<p><img src="/cs61a/notes/public/environments/double-x.png" alt="&lt;code&gt;double(x)&lt;/code&gt;" /></li>
+<p><img src="/cs61a/notes/public/img/environments/double-x.png" alt="&lt;code&gt;double(x)&lt;/code&gt;" /></li>
 <li><strong>Execute the body of the function</strong>. <code>double</code> has one line that
 says <code>return square(x+1) - square(x) - 1</code>. We have to evaluate each
 part of this expression:</p>
@@ -434,12 +434,12 @@ in Global, its parent is Global.</li>
 <li><strong>Bind formal parameters</strong>. <code>square</code> has one parameter <code>x</code>,
 which is bound to <code>4</code></p>
 
-<p><img src="/cs61a/notes/public/environments/square-x-plus-1.png" alt="&lt;code&gt;square(x+1)&lt;/code&gt;" /></li>
+<p><img src="/cs61a/notes/public/img/environments/square-x-plus-1.png" alt="&lt;code&gt;square(x+1)&lt;/code&gt;" /></li>
 <li><strong>Execute the body of the function</strong>. <code>square</code> computes <code>x*x</code>,
 which is <code>16</code>.</li>
 <li><strong>Write the return value</strong>, which is <code>16</code>.</p>
 
-<p><img src="/cs61a/notes/public/environments/return-x-times-x3.png" alt="&lt;code&gt;return x*x&lt;/code&gt;" /></li>
+<p><img src="/cs61a/notes/public/img/environments/return-x-times-x3.png" alt="&lt;code&gt;return x*x&lt;/code&gt;" /></li>
 </ol></li>
 <li><code>square(x)</code></p>
 
@@ -451,12 +451,12 @@ in Global, its parent is Global.</li>
 <li><strong>Bind formal parameters</strong>. <code>square</code> has one parameter <code>x</code>,
 which is bound to <code>3</code></p>
 
-<p><img src="/cs61a/notes/public/environments/square-x.png" alt="&lt;code&gt;square(x)&lt;/code&gt;" /></li>
+<p><img src="/cs61a/notes/public/img/environments/square-x.png" alt="&lt;code&gt;square(x)&lt;/code&gt;" /></li>
 <li><strong>Execute the body of the function</strong>. <code>square</code> computes <code>x*x</code>,
 which is <code>9</code>.</li>
 <li><strong>Write the return value</strong>, which is <code>9</code>.</p>
 
-<p><img src="/cs61a/notes/public/environments/return-x-times-x4.png" alt="&lt;code&gt;return x*x&lt;/code&gt;" /></li>
+<p><img src="/cs61a/notes/public/img/environments/return-x-times-x4.png" alt="&lt;code&gt;return x*x&lt;/code&gt;" /></li>
 </ol></li>
 </ul>
 
@@ -464,7 +464,7 @@ which is <code>9</code>.</li>
 can compute the original expression to get <code>16 - 9 - 1 = 6</code></li>
 <li><strong>Write the return value</strong> of <code>double</code>, which is <code>6</code>.</p>
 
-<p><img src="/cs61a/notes/public/environments/double-return.png" alt="&lt;code&gt;return square(x + 1) - square(x) - 1&lt;/code&gt;" /></li>
+<p><img src="/cs61a/notes/public/img/environments/double-return.png" alt="&lt;code&gt;return square(x + 1) - square(x) - 1&lt;/code&gt;" /></li>
 </ol>
 
 <h3 class="anchor" id="function-calls-as-operands">Function calls as operands</h3>
@@ -488,7 +488,7 @@ above!</p>
 
 <p>The first three bindings look like this:</p>
 
-<p><img src="/cs61a/notes/public/environments/bindings.png" alt="bindings" /></p>
+<p><img src="/cs61a/notes/public/img/environments/bindings.png" alt="bindings" /></p>
 
 <p>Now for the hard part:</p>
 
@@ -511,7 +511,7 @@ Since we're in Global, the value of <code>x</code> is <code>3</code>.</li>
 <code>x</code>, and its operand is <code>3</code>, so bind <code>x</code> to <code>3</code> in the new
 frame. Your diagram should look like this now:</p>
 
-<p><img src="/cs61a/notes/public/environments/double-x.png" alt="&lt;code&gt;double(x)&lt;/code&gt;" /></li>
+<p><img src="/cs61a/notes/public/img/environments/double-x.png" alt="&lt;code&gt;double(x)&lt;/code&gt;" /></li>
 <li><strong>Execute the body of the function</strong>.</p>
 
 <p>The first line binds <code>ans = x + x</code></p>
@@ -523,23 +523,23 @@ value is <code>6</code></li>
 <li><strong>Write the variable</strong>, which is <code>ans</code></li>
 </ol>
 
-<p><img src="/cs61a/notes/public/environments/ans-equals-x-plus-x.png" alt="&lt;code&gt;ans = x + x&lt;/code&gt;" /></li>
+<p><img src="/cs61a/notes/public/img/environments/ans-equals-x-plus-x.png" alt="&lt;code&gt;ans = x + x&lt;/code&gt;" /></li>
 <li><strong>Write the return value</strong>. The return value is <code>ans</code>,
 which is <code>6</code>.</p>
 
-<p><p><img src="/cs61a/notes/public/environments/return-ans.png" alt="&lt;code&gt;return ans&lt;/code&gt;" /></li>
+<p><p><img src="/cs61a/notes/public/img/environments/return-ans.png" alt="&lt;code&gt;return ans&lt;/code&gt;" /></li>
 </ol></li>
 <li><strong>Draw a new frame</strong> for <code>square</code></li>
 <li><strong>Bind formal parameters</strong>. We saw in step 1 that <code>double(x)</code>
 is <code>6</code>. <code>square</code> has a single parameter called <code>x</code>, so we bind
 <code>x</code> to <code>6</code> in the new frame for <code>square</code></p>
 
-<p><img src="/cs61a/notes/public/environments/square-double-x.png" alt="&lt;code&gt;square(double(x))&lt;/code&gt;" /></li>
+<p><img src="/cs61a/notes/public/img/environments/square-double-x.png" alt="&lt;code&gt;square(double(x))&lt;/code&gt;" /></li>
 <li><strong>Execute the body of the function</strong>. <code>square</code> just says
 <code>return x*x</code>. Since <code>x</code> is <code>6</code>, <code>x*x = 36</code></li>
 <li><strong>Write the return value</strong>, which is <code>36</code></p>
 
-<p><p><img src="/cs61a/notes/public/environments/return-x-times-x2.png" alt="&lt;code&gt;return x*x&lt;/code&gt;" /></li>
+<p><p><img src="/cs61a/notes/public/img/environments/return-x-times-x2.png" alt="&lt;code&gt;return x*x&lt;/code&gt;" /></li>
 </ol></p>
 
 <h3 class="anchor" id="reassigning-functions">Reassigning functions</h3>
@@ -561,7 +561,7 @@ bar()
 evaluates to. If you got 10, you are correct! Let's see why, by
 drawing the diagram. The <code>def</code> statements are drawn as follows:</p>
 
-<p><img src="/cs61a/notes/public/environments/bindings3.png" alt="bindings" /></p>
+<p><img src="/cs61a/notes/public/img/environments/bindings3.png" alt="bindings" /></p>
 
 <p>The next line is the function reassignment:</p>
 
@@ -578,7 +578,7 @@ just re-use <code>bar</code>'s existing box -- erase its old value and replace
 it with an arrow pointing to the <code>foo</code> function.</li>
 <li><strong>Write the variable</strong>. <code>bar</code> is already written.</p>
 
-<p><img src="/cs61a/notes/public/environments/bar-equals-foo.png" alt="bar = foo" /></li>
+<p><img src="/cs61a/notes/public/img/environments/bar-equals-foo.png" alt="bar = foo" /></li>
 </ol>
 
 <p><strong>Note</strong>: in the picture, the <code>bar</code> function disappears, but you don't
@@ -598,11 +598,11 @@ object with intrinsic name <code>foo</code>, so that's what we label the frame
 (don't label it <code>bar</code>!)</li>
 <li><strong>Bind formal parameters</strong>. <code>foo</code> has no parameters.</p>
 
-<p><img src="/cs61a/notes/public/environments/bar.png" alt="bar()" /></li>
+<p><img src="/cs61a/notes/public/img/environments/bar.png" alt="bar()" /></li>
 <li><strong>Execute the body of the function</strong>. It just returns <code>10</code></li>
 <li><strong>Write the return value</strong>.</p>
 
-<p><img src="/cs61a/notes/public/environments/return-10.png" alt="return 20" /></li>
+<p><img src="/cs61a/notes/public/img/environments/return-10.png" alt="return 20" /></li>
 </ol>
 
 <h3 class="anchor" id="nested-functions">Nested functions</h3>
@@ -624,7 +624,7 @@ fn(3)
 
 <p>The first binding (for defining <code>outer</code>) looks like this:</p>
 
-<p><img src="/cs61a/notes/public/environments/bindings2.png" alt="def outer(x):" /></p>
+<p><img src="/cs61a/notes/public/img/environments/bindings2.png" alt="def outer(x):" /></p>
 
 <p><strong>Note</strong>: we haven't drawn a binding for <code>inner</code> yet! That's because
 <code>inner</code> is defined in the body of <code>outer</code>, and we don't execute the
@@ -651,7 +651,7 @@ this frame <code>f1</code>.</li>
 <li><strong>Bind formal parameters</strong>. <code>outer</code> has one paramter <code>x</code> that is
 bound to <code>2</code></p>
 
-<p><img src="/cs61a/notes/public/environments/outer-2.png" alt="fn = outer(2)" /></li>
+<p><img src="/cs61a/notes/public/img/environments/outer-2.png" alt="fn = outer(2)" /></li>
 <li><strong>Execute the body of the function</strong>. The first thing in <code>outer</code>
 is a <code>def</code> statement, so we follow the rules for bindings:</p>
 
@@ -663,18 +663,18 @@ value is a <em>function object</em> with an intrinsic name of
 primitive, we need to draw an arrow to the function object</li>
 <li><strong>Write the variable</strong>, which is <code>inner</code>.</p>
 
-<p><img src="/cs61a/notes/public/environments/def-inner.png" alt="def inner(y)" /></li>
+<p><img src="/cs61a/notes/public/img/environments/def-inner.png" alt="def inner(y)" /></li>
 </ol></li>
 <li><strong>Write the return value</strong>. <code>inner</code> points to a function object,
 so the return value points to what <code>inner</code> points to.</p>
 
-<p><img src="/cs61a/notes/public/environments/return-inner.png" alt="return inner" /></li>
+<p><img src="/cs61a/notes/public/img/environments/return-inner.png" alt="return inner" /></li>
 </ol></li>
 <li><strong>Draw a box with the value</strong>. Since the value is a function
 object, we draw an arrow pointing to that function object</li>
 <li><strong>Write the variable</strong>, which is <code>fn</code>.</p>
 
-<p><img src="/cs61a/notes/public/environments/fn-equals.png" alt="fn = outer(2)" /></li>
+<p><img src="/cs61a/notes/public/img/environments/fn-equals.png" alt="fn = outer(2)" /></li>
 </ol>
 
 <p>The next line is</p>
@@ -693,7 +693,7 @@ since <code>inner</code> was defined in frame <code>f1</code>, we need to put th
 <li><strong>Bind formal parameters</strong>. <code>inner</code> has one parameter <code>y</code>, which is
 bound to 3.</p>
 
-<p><img src="/cs61a/notes/public/environments/fn-3.png" alt="fn(3)" /></li>
+<p><img src="/cs61a/notes/public/img/environments/fn-3.png" alt="fn(3)" /></li>
 <li><strong>Execute the body of the function</strong>. <code>inner</code> just says <code>return x +
 y</code>. It gets a little tricky, though. Currently, we're in the frame
 for <code>inner</code>, but there's no binding for <code>x</code> in that frame! Where do
@@ -702,7 +702,7 @@ there is a variable <code>x</code> bound to <code>2</code>, so that's the value 
 use.</li>
 <li><strong>Write the return value</strong>, which is <code>2 + 3 = 5</code>.</p>
 
-<p><img src="/cs61a/notes/public/environments/return-x-plus-y.png" alt="return x + y" /></li>
+<p><img src="/cs61a/notes/public/img/environments/return-x-plus-y.png" alt="return x + y" /></li>
 </ol>
 
 <h3 class="anchor" id="built-in-functions">Built-in functions</h3>
@@ -725,7 +725,7 @@ demonstrates the difference between <code>print</code> and <code>return</code>.<
 
 <p>The function findings are as follows:</p>
 
-<p><img src="/cs61a/notes/public/environments/bindings4.png" alt="bindings" /></p>
+<p><img src="/cs61a/notes/public/img/environments/bindings4.png" alt="bindings" /></p>
 
 <p>The next line is</p>
 
@@ -743,18 +743,18 @@ demonstrates the difference between <code>print</code> and <code>return</code>.<
 <li><strong>Bind formal parameters</strong>. <code>square1</code> has a single paramter
 <code>x</code>, which is bound to <code>4</code>.</p>
 
-<p><img src="/cs61a/notes/public/environments/square1-4.png" alt="square1(4)" /></li>
+<p><img src="/cs61a/notes/public/img/environments/square1-4.png" alt="square1(4)" /></li>
 <li><strong>Execute the body of the function</strong>. <code>x</code> is bound to <code>4</code>, so
 <code>x*x = 16</code>.</li>
 <li><strong>Write the return value</strong>, which is 16.</p>
 
-<p><img src="/cs61a/notes/public/environments/return-x-times-x5.png" alt="&lt;code&gt;return x*x&lt;/code&gt;" /></li>
+<p><img src="/cs61a/notes/public/img/environments/return-x-times-x5.png" alt="&lt;code&gt;return x*x&lt;/code&gt;" /></li>
 </ol></li>
 <li><strong>Draw a box with the value</strong>. We're back in Global, so that's
 where we put the value <code>16</code>.</li>
 <li><strong>Write the variable</strong>, which is <code>a</code></p>
 
-<p><img src="/cs61a/notes/public/environments/a-equals.png" alt="a = square1(4)" /></li>
+<p><img src="/cs61a/notes/public/img/environments/a-equals.png" alt="a = square1(4)" /></li>
 </ol>
 
 <p>And thus, <code>a</code> is bound to <code>16</code>. Nothing new here.</p>
@@ -775,7 +775,7 @@ where we put the value <code>16</code>.</li>
 <li><strong>Bind formal parameters</strong>. <code>square1</code> has a single paramter
 <code>x</code>, which is bound to <code>4</code>.</p>
 
-<p><img src="/cs61a/notes/public/environments/square2-4.png" alt="square2(4)" /></li>
+<p><img src="/cs61a/notes/public/img/environments/square2-4.png" alt="square2(4)" /></li>
 <li><strong>Execute the body of the function</strong>. Here, the line is to
 <code>print(x*x)</code>. This <strong>is a function call</strong>, but <code>print</code> is a
 built-in function, so we do NOT draw a new frame for it.</p>
@@ -784,13 +784,13 @@ built-in function, so we do NOT draw a new frame for it.</p>
 <li><strong>Write the return value</strong>. Since there's no <code>return</code>
 statement, the <code>square2</code> implicitly returns <code>None</code>.</p>
 
-<p><img src="/cs61a/notes/public/environments/print-x-times-x.png" alt="&lt;code&gt;print(x*x)&lt;/code&gt;" /></li>
+<p><img src="/cs61a/notes/public/img/environments/print-x-times-x.png" alt="&lt;code&gt;print(x*x)&lt;/code&gt;" /></li>
 </ol></li>
 <li><strong>Draw a box with the value</strong>. We're back in Global, so that's
 where we put the value <code>None</code>.</li>
 <li><strong>Write the variable</strong>, which is <code>b</code></p>
 
-<p><img src="/cs61a/notes/public/environments/b-equals.png" alt="b = square2(4)" /></li>
+<p><img src="/cs61a/notes/public/img/environments/b-equals.png" alt="b = square2(4)" /></li>
 </ol>
 
 <p>Notice that <code>b</code> is bound to <code>None</code>, not 16 -- that's the difference
@@ -800,15 +800,18 @@ between <code>return</code> and <code>print</code>!</p>
     </div>
   </body>
 
-  <script src='/public/jquery-1.10.1.min.js'></script>
-  <script src="/public/jquery-scrolltofixed-min.js"></script>
+  <script src='/public/js/jquery-1.10.1.min.js'></script>
+  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
+  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
+  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <script src="/public/nav-bar.js"></script>
+  <script src="/public/js/nav-bar.js"></script>
   <script>
     $(document).ready(function() {
       $('#accordion').accordion({
         heightStyle: 'content'
       });
+      $.localScroll();
     });
   </script>
   
