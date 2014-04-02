@@ -234,7 +234,7 @@
         return False
     elif b.left and max_tree(b.left) &gt;= t.entry:
         return False
-    elif b.right and min_tree(b.left) &lt;= t.entry:
+    elif b.right and min_tree(b.right) &lt;= t.entry:
         return False
     else:
         return True</code></pre>
