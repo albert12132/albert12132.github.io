@@ -223,6 +223,30 @@
         list. For more descriptions of the behavior, see the doctest.
         </p>
 <pre><code>class CircularBuffer:
+    """Doctests:
+
+    &gt;&gt;&gt; buffer = CircularBuffer(3)
+    &gt;&gt;&gt; buffer.remove()
+    Buffer is empty
+    &gt;&gt;&gt; buffer.append('a')
+    &gt;&gt;&gt; buffer.remove()
+    'a'
+    &gt;&gt;&gt; buffer.remove()
+    Buffer is empty
+    &gt;&gt;&gt; buffer.append('b')
+    &gt;&gt;&gt; buffer.append('c')
+    &gt;&gt;&gt; buffer.append('d')
+    &gt;&gt;&gt; buffer.append('e')
+    Buffer capacity exceeded
+    &gt;&gt;&gt; buffer.remove()
+    'b'
+    &gt;&gt;&gt; buffer.remove()
+    'c'
+    &gt;&gt;&gt; buffer.remove()
+    'd'
+    &gt;&gt;&gt; buffer.remove()
+    Buffer is empty
+    """
     def __init__(self, n):
         self.array = [None]*n   # list of length n
         self.n = n
@@ -235,7 +259,7 @@
     def remove(self):
         "*** YOUR CODE HERE ***"</code></pre>
 <button id='4' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 4"><pre><code>class CircularBuffer:
-    def __init__(self, food, ingredients):
+    def __init__(self, n):
         self.array = [None]*n   # list of length n
         self.n = n
         self.start = 0
