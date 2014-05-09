@@ -130,7 +130,7 @@
 &gt;&gt;&gt; next(obj)</code></pre>
 <button id='1' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 1"><p><b>Answer: </b><tt>obj</tt> is not necessarily an iterator, so you should not call <tt>next</tt> on it. <tt>next</tt> should be called on <tt>i</tt> instead.</p>
 
-    <p><b>NOTE:</b> even if the <tt>__iter__</tt> method of <tt>SomeObj</tt> returns <tt>self</tt>, you still shoudl nto call <tt>iter</tt> on <tt>obj</tt>. This is to protect abstraction barriers.</p>
+    <p><b>NOTE:</b> even if the <tt>__iter__</tt> method of <tt>SomeObj</tt> returns <tt>self</tt>, you still should not call <tt>next</tt> on <tt>obj</tt>. This is to protect abstraction barriers.</p>
 </div>
 
 <h2 id="iter-code" class="subtopic anchor">Iterators: Code Writing</h2>
