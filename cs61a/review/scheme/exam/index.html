@@ -163,7 +163,7 @@ STk&gt; (count-stairways 8)
         <tt>depth</tt> as an argument. The function calculates how
         many triangles are contained in a Serpinski's triangle with
         the given depth. See the tests for examples.<br/>
-        <a href='http://en.wikipedia.org/wiki/File:Sierpinski_triangle_evolution.svg'>Picture</a></p>
+        <img src='serpinski.svg'></p>
 <pre><code>(define (count-serpinski depth)
     ; YOUR CODE HERE
     )
@@ -177,7 +177,8 @@ STk&gt; (count-stairways 3)
 17
 STk&gt; (count-stairways 4)
 53</code></pre>
-<p class="hint"><b>Hint</b>: You should count triangles of all sizes.</p>
+<p class="hint"><b>Hint</b>: How can you use recursive calls on <i>n-1</i> to
+        build your answer for <i>n</i>?</p>
 <button id='2' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button><div class="solution 2"><pre><code>(define (count-serpinski n)
     (if (= n 1)
         1
