@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>Streams: exam | Albert Wu</title>
+    <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <script src='/public/js/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
+  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'albertwu.org');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
+    <div id='container'>
+      <div id='logo'>
+        <h1 id='nav-bar-hide'>Streams: exam</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/review'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final'>Final</a></li>
+  </ul>
+</div>
+
+        </div>
+        <div id='nav-bar-fixed'>
+          
+
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
+        </div>
+      </div>
+
+      <div id='content'>
+          <div id='reference'>
+    <h2>References</h2>
+
+    <p>You can review Streams in the following places</p>
+    
+
+<ul>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/30-Streams_1pps.pdf">Lecture: Streams</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab10/lab10.php">Lab 10</a>
+  
+  </div>
+
+  
+You can find the source code that contains the Stream class
+<a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/30.py">here</a>.
+
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  
+
+<h2>Conceptual Questions</h2>
+<h3 class="question" id="q1">Question 1: </h3>
+
+<p>Given the following function, list the first 5 elements of the Stream
+that is returned by <code>stream1()</code>.</p>
+
+<pre><code>def stream1():
+    def compute_rest():
+        return add_streams(stream1(), stream1().rest)
+    return Stream(0, lambda: Stream(1, compute_rest))</code></pre>
+
+
+    <button id='0' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 0">
+
+<p>0, 1, 1, 2, 3 (the Fibonacci numbers)</p>
+
+</div>
+    
+
+<h3 class="question" id="q2">Question 2: </h3>
+
+<p>Given the following function, list the first 5 elements of the Stream
+that is returned by <code>stream2()</code>.</p>
+
+<pre><code>def stream2():
+    def compute_rest():
+        return add_streams(stream2(), stream2())
+    return Stream(1, compute_rest)</code></pre>
+
+
+    <button id='1' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 1">
+
+<p>1, 2, 4, 8, 16 (the powers of 2)</p>
+
+</div>
+    
+
+<h2>Code-Writing questions</h2>
+<h3 class="question" id="q3">Question 3: </h3>
+
+<p>Create a function <code>make_fact_stream</code>, which returns a Stream whose
+<em>n</em>th element is <em>n</em>!  (factorial of <em>n</em>).</p>
+
+<pre><code>def make_fact_stream():
+    &quot;&quot;&quot;Returns a Stream of factorials.
+
+    &gt;&gt;&gt; s = make_fact_stream()
+    &gt;&gt;&gt; s.first      # 0!
+    1
+    &gt;&gt;&gt; s.rest.first # 1!
+    1
+    &gt;&gt;&gt; s.rest.rest.first   # 2!
+    2
+    &gt;&gt;&gt; s.rest.rest.rest.first  # 3!
+    6
+    &quot;&quot;&quot;
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+<p><strong>Hint</strong>: This is similar to the <code>make_fib_stream()</code> function from
+discussion. Try writing an iterative factorial function first, then
+convert it into the Stream function.  You should also use a helper
+function.</p>
+
+
+    <button id='2' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 2">
+
+<pre><code>def make_fact_stream():
+    return fact_help(0, 1)
+
+def fact_help(n, total)
+    def rest():
+        return fact_help(n + 1, total * (n + 1))
+    return Stream(total, rest)
+
+# here&#x27;s the iterative factorial we use to convert
+def infinite_fact():
+    n, total = 0, 1
+    while True:
+        print(total)
+        n, total = n + 1, total * n</code></pre>
+
+</div>
+    
+
+<h2>More practice problems</h2>
+This
+<a href="http://www-inst.eecs.berkeley.edu/~cs61a/su12/lab/lab13/lab13.php">link</a>
+contains Stream problems (as well as iterator and generator problems)
+from the summer 2012 version of 61A. They are pretty tough (probably
+tougher than final material), so don't get discouraged if you get
+stuck!
+
+<p>Solutions are also included in the lab (in the form of toggle buttons).
+Don't worry about the Py section -- we didn't cover that this
+semester.</p>
+
+
+  </div>
+      </div>
+    </div>
+  </body>
+
+  <script src='/public/js/jquery-1.10.1.min.js'></script>
+  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
+  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
+  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/js/nav-bar.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+      $.localScroll();
+    });
+  </script>
+    <script src='/cs61a/review/public/js/toggle.js'></script>
+  
+</html>

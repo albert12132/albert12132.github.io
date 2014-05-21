@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>Logic: basic | Albert Wu</title>
+    <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <script src='/public/js/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
+  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'albertwu.org');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
+    <div id='container'>
+      <div id='logo'>
+        <h1 id='nav-bar-hide'>Logic: basic</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/review'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final'>Final</a></li>
+  </ul>
+</div>
+
+        </div>
+        <div id='nav-bar-fixed'>
+          
+
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
+        </div>
+      </div>
+
+      <div id='content'>
+          <div id='reference'>
+    <h2>References</h2>
+
+    <p>You can review Logic in the following places</p>
+    
+
+<ul>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/31-Logic_1pps.pdf">Lecture: Declarative Programming</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/32-Unification_1pps.pdf">Lecture: Unification</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab11/lab11.php">Lab 11</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion12.pdf">Discussion 12</a>
+  
+  </div>
+
+  
+We will be using the Logic interpreter, which you can get
+<a href="http://composingprograms.com/examples/logic/logic.py">here</a>. You will
+also need your Scheme project in the same directory. You can run the
+Logic
+interpreter from your terminal with:
+
+<pre><code>python3 logic.py</code></pre>
+
+<p>You can load a <code>.logic</code> file with</p>
+
+<pre><code>python3 logic.py -load file.logic</code></pre>
+
+<p>Alternatively, you can use the <a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/logic/logic.html">online Logic
+interpreter</a>
+
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  
+
+<h2>Code-Writing questions</h2>
+<h3 class="question" id="q1">Question 1: </h3>
+
+<p>Write a fact or set of facts for the <code>interleave</code> relation, which
+checks if two given lists will interleave into a third given list. You
+cannot assume that the lists are of equal length.</p>
+
+<pre><code>(fact (interleave ; YOUR CODE HERE
+
+; Tests
+logic&gt; (query (interleave (1 2) (3 4) (1 3 2 4)))
+Success!
+logic&gt; (query (interleave (1 2) (3 4) (1 2 3 4)))
+Failed.
+logic&gt; (query (interleave (1 2) (3 4 5) ?what))
+Success!
+what: (1 3 2 4 5)</code></pre>
+
+
+    <button id='0' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 0">
+
+<pre><code>(fact (interleave ?lst () ?lst))
+(fact (interleave () ?lst ?lst))
+(fact (interleave (?a . ?x) (?b . ?y) (?a ?b . ?z))
+      (interleave ?x ?y ?z))</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q2">Question 2: </h3>
+
+<p>Write a fact or set of facts for the <code>zip</code> relation, which checks if
+two given lists will zip into a third given list (see the tests to get
+an idea of what "zip" means). You can assume that the lists are of
+equal length.</p>
+
+<pre><code>(fact (zip ; YOUR CODE HERE
+
+; Tests
+logic&gt; (query (zip (1 2) (3 4) ((1 3) (2 4))))
+Success!
+logic&gt; (query (zip (1 2) (3 4) (1 3 2 4)))
+Failed.</code></pre>
+
+
+    <button id='1' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 1">
+
+<pre><code>(fact (zip () () ()))
+(fact (zip (?a . ?x) (?b . ?y) ((?a ?b) . ?z))
+      (zip ?x ?y ?z))</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q3">Question 3: </h3>
+
+<p>Write a fact or set of facts for the <code>reverse</code> relation, which takes
+two lists and checks if the second list is the reverse of the first.
+You can assume the <code>append</code> relation is already defined.</p>
+
+<pre><code>(fact (reverse ; YOUR CODE HERE
+
+; Tests
+logic&gt; (query (reverse (1 2 3 4) (4 3 2 1)))
+Success!
+logic&gt; (query (reverse (1 2 3) (2 1 3)))
+Failed.
+logic&gt; (query (reverse (4 2 5) ?what))
+Success!
+what: (5 2 4)</code></pre>
+
+
+    <button id='2' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 2">
+
+<pre><code>(fact (reverse () ()))
+(fact (reverse (?f . ?rest) ?lst)
+      (reverse ?rest ?reverse-rest)
+      (append ?reverse-rest (?f) ?lst))</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q4">Question 4: </h3>
+
+<p>Write a fact or set of facts for the <code>subsequence</code> relation, which
+takes two lists, and checks if the first list is a non-contiguous
+subsequence of the second list. <em>Non-contiguous</em> means the elements of
+the first list do not have to appear consecutively in the second list,
+but they do have to appear in order.</p>
+
+<pre><code>(fact (subsequence ; YOUR CODE HERE
+
+; Tests
+logic&gt; (query (subsequence (1 2 3) (0 1 2 0 0 3)))
+Success!
+logic&gt; (query (subsequence (1 2 3) (1 3 2 3)))
+Success!
+logic&gt; (query (subsequence (1 2 3) (1 3 2)))
+Failed.
+logic&gt; (query (subsequence () (1 3 2)))
+Success!</code></pre>
+
+
+    <button id='3' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 3">
+
+<pre><code>(fact (subsequence () ?lst))
+(fact (subsequence (?f . ?r) (?f . ?s))
+      (subsequence ?r ?s))
+(fact (subsequence (?a . ?r) (?b . ?s))
+      (subsequence (?a . ?r) ?s))</code></pre>
+
+</div>
+    
+
+<h2>Logical Trees (courtesy of Sarah Kim)</h2>
+<em>The following questions were written by Sarah Kim for Summer 2013.</em>
+
+<p>Let's create a series of facts on a tree diagram. The facts are of the
+following form:</p>
+
+<pre><code>(fact (tree number entry left right))</code></pre>
+
+<p>Some examples:</p>
+
+<pre><code>(fact (tree tree-1 6 tree-2 tree-3))
+(fact (tree tree-2 4 tree-4 tree-5))
+(fact (tree tree-3 8 tree-6 tree-7))
+(fact (tree tree-4 3 tree-8 none))
+(fact (tree tree-5 5 none none))
+(fact (tree tree-6 7 none none))
+
+(fact (tree tree-7 11 tree-9 tree-10))
+(fact (tree tree-8 2 tree-11 none))
+(fact (tree tree-9 9 none tree-12))
+(fact (tree tree-10 12 none none))
+(fact (tree tree-11 1 none none))
+(fact (tree tree-12 10 none none))</code></pre>
+
+<h3 class="question" id="q5">Question 5: </h3>
+
+<p>Write a <code>find-entry</code> fact that associates tree number to tree entry.</p>
+
+<pre><code>logic&gt; (query (find-entry tree-12 10))
+Success!
+logic&gt; (query (find-entry tree-2 ?x))
+Success!
+x: 4
+logic&gt; (query (find-entry ?tree 11))
+Sucess!
+tree: tree-7</code></pre>
+
+
+    <button id='4' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 4">
+
+<pre><code>(fact (find-entry ?number ?entry)
+      (tree ?number ?entry ?left ?right))</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q6">Question 6: </h3>
+
+<p>Write a <code>check-leaf</code> fact that checks if a tree is a leaf (no trees in
+left or right).</p>
+
+<pre><code>logic&gt; (query (check-leaf tree-12))
+Sucess!
+logic&gt; (query (check-leaf tree-4))
+Failed.</code></pre>
+
+
+    <button id='5' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 5">
+
+<pre><code>(fact (check-leaf ?number)
+      (tree ?number ?leaf none none))</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q7">Question 7: </h3>
+
+<p>What would Logic print?</p>
+
+
+    <pre><code>logic&gt; (query (check-leaf ?x))
+<span class="blank10">______</span><span class="hidden solution 10">Success!</span>
+<span class="blank10">______</span><span class="hidden solution 10">x: tree-5</span>
+<span class="blank10">______</span><span class="hidden solution 10">x: tree-6</span>
+<span class="blank10">______</span><span class="hidden solution 10">x: tree-10</span>
+<span class="blank10">______</span><span class="hidden solution 10">x: tree-11</span>
+<span class="blank10">______</span><span class="hidden solution 10">x: tree-12</span></code></pre>
+
+    <button id='10' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<h3 class="question" id="q8">Question 8: </h3>
+Write a <code>smallest-entry</code> fact that finds the smallest entry of a tree.
+
+<pre><code>logic&gt; (query (smallest-entry tree-2 ?leaf))
+Success!
+leaf: 1
+logic&gt; (query (smallest-entry tree-12 ?leaf))
+Success!
+leaf: 10
+logic&gt; (query (smallest-entry tree-7 ?leaf))
+leaf: 9</code></pre>
+
+
+    <button id='6' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 6">
+
+<pre><code>(fact (smallest-entry ?number ?entry)
+      (tree ?number ?entry none ?right))
+(fact (smallest-entry ?number ?entry)
+      (tree ?number ?other-entry ? left ?right)
+      (smallest-entry ?left ?entry))</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q9">Question 9: </h3>
+
+<p>Write a <code>find-parent</code> fact, which finds the parent of a number.</p>
+
+<pre><code>logic&gt; (query (find-parent tree-11 ?parent))
+Success!
+parent: tree-8</code></pre>
+
+
+    <button id='7' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 7">
+
+<pre><code>(fact (find-parent ?number ?parent)
+      (tree ?parent ?entry ?number ?right))
+(fact (find-parent ?number ?parent)
+      (tree ?parent ?entry ?left ?number))</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q10">Question 10: </h3>
+
+<p>Write a <code>generation</code> fact, which lists all the members of a tree's
+family tree.</p>
+
+<pre><code>logic&gt; (query (generation tree-11 ?members))
+Success!
+members: tree-1
+members: tree-2
+members: tree-4
+members: tree-8
+members: tree-11</code></pre>
+
+
+    <button id='8' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 8">
+
+<pre><code>(fact (generation ?number ?grandfather)
+      (find-parent ?number ?father)
+      (generation ?father ?grandfather))
+(fact (generation ?number ?number))</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q11">Question 11: </h3>
+
+<p>What would happen if for the <code>generation</code> fact, we put the second fact
+before the first fact?</p>
+
+<pre><code>logic&gt; (query (generation tree-11 ?members))</code></pre>
+
+
+    <button id='9' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 9">
+
+<pre><code>Success!
+members: tree-11
+members: tree-8
+members: tree-4
+members: tree-2
+members: tree-1</code></pre>
+
+</div>
+    
+
+
+  </div>
+      </div>
+    </div>
+  </body>
+
+  <script src='/public/js/jquery-1.10.1.min.js'></script>
+  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
+  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
+  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/js/nav-bar.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+      $.localScroll();
+    });
+  </script>
+    <script src='/cs61a/review/public/js/toggle.js'></script>
+  
+</html>

@@ -51,7 +51,7 @@
           </ul>
         </div>
         <div id='accordion'>
-          <h3>Class Accounts</h3><div><ul><li><a href="#class-accounts">Intro</a></li></ul></div><h3>Starting an Assignment</h3><div><ul><li><a href="#starting-an-assignment">Intro</a></li></ul></div><h3>Writing the Assignment</h3><div><ul><li><a href="#writing-the-assignment">Intro</a></li><li><a href="#testing-your-code">Testing your code</a></li></ul></div><h3>Copying the assignment to your class account</h3><div><ul><li><a href="#copying-the-assignment-to-your-class-account">Intro</a></li></ul></div><h3>Submitting the assignment</h3><div><ul><li><a href="#submitting-the-assignment">Intro</a></li></ul></div><h3>Checking your grade</h3><div><ul><li><a href="#checking-your-grade">Intro</a></li></ul></div>
+          
         </div>
         <div id='nav-bar-fixed'>
           
@@ -62,176 +62,162 @@
       </div>
 
       <div id='content'>
-        
-
-<p>This is a guide on the homework/project submission process we use in
+        <p>This is a guide on the homework/project submission process we use in
 61A.</p>
 
-<h2 class="anchor" id="class-accounts">Class Accounts</h2>
-
-<p>In 61A (as with many courses at Berkeley), you will need a <strong>class
+<h2>Class Accounts</h2>
+In 61A (as with many courses at Berkeley), you will need a <strong>class
 account</strong> in order to submit assignments. At the beginning of the
 semester, you will be given a sheet of paper with the following
-information:</p>
+information:
 
 <ul>
-<li><strong>Username</strong>: will be of the form <code>cs61a-xx</code>, where <code>xx</code> is unique
-to every student</li>
-<li><strong>Password</strong>: needed to login</li>
+  <li><strong>Username</strong>: will be of the form <code>cs61a-xx</code>, where <code>xx</code> is unique
+  to every student</li>
+  <li><strong>Password</strong>: needed to login</li>
 </ul>
 
 <p>Upon receiving the class account, you should login and change the
 password. You can do this by running</p>
 
-<pre><code>ssh update
-</code></pre>
+<pre><code>ssh update</code></pre>
 
 <p>from the terminal; then follow the instructions on the screen.</p>
 
-<h2 class="anchor" id="starting-an-assignment">Starting an Assignment</h2>
-
-<p>In 61A, all assignments will be posted on the course website. There
+<h2>Starting an Assignment</h2>
+In 61A, all assignments will be posted on the course website. There
 will always be a page specifically for the assignment that you can
 view from your browser -- this page will have all the instructions for
-that assignment.</p>
+that assignment.
 
 <p>We will also provide you a template Python file for each assignment
 (e.g. <code>hw1.py</code>). You should download this template, and write all your
 code here (think of this as a worksheet that you will turn in).</p>
 
-<h2 class="anchor" id="writing-the-assignment">Writing the Assignment</h2>
-
-<p>You can write your code on your own computer, or you can write it on
+<h2>Writing the Assignment</h2>
+You can write your code on your own computer, or you can write it on
 your class account -- it's up to you. Most students find it more
 convenient to write homework and projects on their own computer. There
-are various text editors with which you can do this:</p>
+are various text editors with which you can do this:
 
 <ul>
-<li><a href="http://www.gnu.org/software/emacs/">Emacs</a>: the editor we showed
-you on the first day of lab</li>
-<li><a href="http://www.vim.org/download.php">Vim</a>: you can learn more about
-Vim <a href="/vim.html">here</a></li>
-<li><a href="http://www.sublimetext.com/2">Sublime Text</a>: a very, very popular
-choice among students</li>
-<li><a href="http://notepad-plus-plus.org/">Notepad++</a>: a solid choice for a
-text editor</li>
-<li><a href="http://www.eclipse.org/downloads/">Eclipse</a>: a heavyweight IDE.
-You'll need to download a plugin for Python. Eclipse has many
-features that are not necessary for this class</li>
-<li>IDLE: an editor provided with Python. <strong>The staff does not recommend
-using IDLE, since it has some bugs.</strong></li>
+  <li><a href="http://www.gnu.org/software/emacs/">Emacs</a>: the editor we showed
+  you on the first day of lab</li>
+  <li><a href="http://www.vim.org/download.php">Vim</a>: you can learn more about
+  Vim <a href="/vim.html">here</a></li>
+  <li><a href="http://www.sublimetext.com/2">Sublime Text</a>: a very, very popular
+  choice among students</li>
+  <li><a href="http://notepad-plus-plus.org/">Notepad++</a>: a solid choice for a
+  text editor</li>
+  <li><a href="http://www.eclipse.org/downloads/">Eclipse</a>: a heavyweight IDE.
+  You'll need to download a plugin for Python. Eclipse has many
+  features that are not necessary for this class</li>
+  <li>IDLE: an editor provided with Python. <strong>The staff does not recommend
+  using IDLE, since it has some bugs.</strong></li>
 </ul>
 
-<h3 class="anchor" id="testing-your-code">Testing your code</h3>
+<h3>Testing your code ###</h3>
 
 <p>Whenever you are writing homework or a project, you <strong>test your code
 frequently</strong>. This ensures that you are at least on the right track.
 You can run doctests with the following command from your terminal:</p>
 
-<pre><code>python3 -m doctest hw1.py
-</code></pre>
+<pre><code>python3 -m doctest hw1.py</code></pre>
 
 <p>where you can replace <code>hw1.py</code> with the name of the file. The projects
 usually have some additional testing mechanisms. I can't stress this
 enough: <strong>always test your code before you submit your assignment.</strong></p>
 
-<h2 class="anchor" id="copying-the-assignment-to-your-class-account">Copying the assignment to your class account</h2>
-
-<p>Once you are done writing your assignment and finished testing, the
+<h2>Copying the assignment to your class account</h2>
+Once you are done writing your assignment and finished testing, the
 next step is to copy your assignment to your class account. Exactly
-how you do this depends on your operating system (OS):</p>
+how you do this depends on your operating system (OS):
 
 <ul>
-<li><strong>Macs and Linux</strong>: from your terminal, use the <code>scp</code> command:</p>
-
-<pre><code>scp hw1.py cs61a-xx@star.cs.berkeley.edu:~
-</code></pre>
-
-<p>where <code>xx</code> is your login. You can use any other Berkeley server to
-login, and you can transfer your file to any directory on your class
-account. A more general format for the command is the following:</p>
-
-<pre><code>scp path/to/assignment.py cs61a-xx@servername.cs.berkeley.edu:path/on/class/account
-</code></pre>
-
-<p>where <code>servername</code> is a <a href="http://inst.eecs.berkeley.edu/cgi-bin/clients.cgi?choice=servers">Berkeley
-server</a>.</p>
-
-<p>After executing the command, you will be prompted for your password.</li>
-<li><strong>Windows</strong>: you will have to install
-<a href="http://winscp.net/eng/download.php">WinSCP</a>. There are more
-instructions on how to use WinSCP in the resources section of the
-course website.</li>
+  <li><p><strong>Macs and Linux</strong>: from your terminal, use the <code>scp</code> command:</p>
+  
+<pre><code>scp hw1.py cs61a-xx@star.cs.berkeley.edu:~</code></pre>
+  
+  <p>where <code>xx</code> is your login. You can use any other Berkeley server to
+  login, and you can transfer your file to any directory on your class
+  account. A more general format for the command is the following:</p>
+  
+<pre><code>scp path/to/assignment.py cs61a-xx@servername.cs.berkeley.edu:path/on/class/account</code></pre>
+  
+  <p>where <code>servername</code> is a <a href="http://inst.eecs.berkeley.edu/cgi-bin/clients.cgi?choice=servers">Berkeley
+  server</a>.</p>
+  
+  <p>After executing the command, you will be prompted for your password.</p></li>
+  <li><strong>Windows</strong>: you will have to install
+  <a href="http://winscp.net/eng/download.php">WinSCP</a>. There are more
+  instructions on how to use WinSCP in the resources section of the
+  course website.</li>
 </ul>
 
 <p><strong>Note</strong>: copying your file over to your class account does NOT mean
 you have finished submitting. See the next step to complete the
 process.</p>
 
-<h2 class="anchor" id="submitting-the-assignment">Submitting the assignment</h2>
-
-<p>First, login to your class account. Again, depending on your OS, how
-you login will be different:</p>
+<h2>Submitting the assignment</h2>
+First, login to your class account. Again, depending on your OS, how
+you login will be different:
 
 <ul>
-<li><strong>Macs and Linux</strong>: from your terminal, use the <code>ssh</code> command:</p>
-
-<pre><code>ssh cs61a-xx@star.cs.berkeley.edu
-</code></pre>
-
-<p>Again, you can replace <code>star</code> with the name of any Berkeley server.</li>
-<li><strong>Windows</strong>: use
-<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY</a>
-to login; there instructions on how to use PuTTY in the resources
-section of the course website.</li>
+  <li><p><strong>Macs and Linux</strong>: from your terminal, use the <code>ssh</code> command:</p>
+  
+<pre><code>ssh cs61a-xx@star.cs.berkeley.edu</code></pre>
+  
+  <p>Again, you can replace <code>star</code> with the name of any Berkeley server.</p></li>
+  <li><strong>Windows</strong>: use
+  <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTY</a>
+  to login; there instructions on how to use PuTTY in the resources
+  section of the course website.</li>
 </ul>
 
-<p>Once you've logged on, follow this procedure:</p>
+<p>Once you've logged on, follow this procedure:
 
 <ol>
-<li>Create a directory for the assignment and move your <code>.py</code> file into
-the new directory:</p>
-
+  <li><p>Create a directory for the assignment and move your <code>.py</code> file into
+  the new directory:</p>
+  
 <pre><code>mkdir hw1
-mv hw1.py hw1
-</code></pre></li>
-<li>Go into the new directory</p>
-
-<pre><code>cd hw1
-</code></pre></li>
-<li>Run the <code>submit</code> script:</p>
-
-<pre><code>submit hw1
-</code></pre>
-
-<p>where <code>hw1</code> is replaced with the name of the assignment. For
-projects, the assignment name will be <code>proj1</code> for Project 1,
-<code>proj2</code> for Project 2, and so on.</p>
-
-<p>During submission, we will usually perform a <strong>sanity check</strong> on
-your file -- this sanity check <strong>only checks for syntax errors</strong>. It
-does NOT check the correctness of your code. You should have checked
-that yourself by running doctests.</li>
-<li>After submitting, you should run the following command:</p>
-
-<pre><code>glookup -t
-</code></pre>
-
-<p>This will show you timestamps of all your submissions. If your
-latest submission shows up, then you'll know we've received your
-submission. If it doesn't show up, run <code>submit</code> again.</li>
-</ol>
+mv hw1.py hw1</code></pre>
+  
+  </li>
+  <li><p>Go into the new directory</p>
+  
+<pre><code>cd hw1</code></pre>
+  
+  </li>
+  <li><p>Run the <code>submit</code> script:</p>
+  
+<pre><code>submit hw1</code></pre>
+  
+  <p>where <code>hw1</code> is replaced with the name of the assignment. For
+  projects, the assignment name will be <code>proj1</code> for Project 1,
+  <code>proj2</code> for Project 2, and so on.</p>
+  
+  <p>During submission, we will usually perform a <strong>sanity check</strong> on
+  your file -- this sanity check <strong>only checks for syntax errors</strong>. It
+  does NOT check the correctness of your code. You should have checked
+  that yourself by running doctests.</p></li>
+  <li><p>After submitting, you should run the following command:</p>
+  
+<pre><code>glookup -t</code></pre>
+  
+  <p>This will show you timestamps of all your submissions. If your
+  latest submission shows up, then you'll know we've received your
+  submission. If it doesn't show up, run <code>submit</code> again.</p></li>
+</ol></p>
 
 <p><strong>Note</strong>: to make the grading process easier for us, only <strong>one
 partner</strong> should submit projects.</p>
 
-<h2 class="anchor" id="checking-your-grade">Checking your grade</h2>
+<h2>Checking your grade</h2>
+You can check your grades with the following command (from your class
+account):
 
-<p>You can check your grades with the following command (from your class
-account):</p>
-
-<pre><code>glookup
-</code></pre>
+<pre><code>glookup</code></pre>
 
 <p>This will list your scores for all assignments. If you have a <code>---</code>
 for an assignment, it means you haven't received a score for that
@@ -239,11 +225,9 @@ assignment yet.</p>
 
 <p>You can also see how the entire class did by running</p>
 
-<pre><code>glookup -s hw1
-</code></pre>
+<pre><code>glookup -s hw1</code></pre>
 
 <p>where you can replace <code>hw1</code> with the name of the assignment.</p>
-
       </div>
     </div>
   </body>

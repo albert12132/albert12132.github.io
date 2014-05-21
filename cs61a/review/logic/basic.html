@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>Logic: basic | Albert Wu</title>
+    <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <script src='/public/js/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
+  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'albertwu.org');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
+    <div id='container'>
+      <div id='logo'>
+        <h1 id='nav-bar-hide'>Logic: basic</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/review'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final'>Final</a></li>
+  </ul>
+</div>
+
+        </div>
+        <div id='nav-bar-fixed'>
+          
+
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
+        </div>
+      </div>
+
+      <div id='content'>
+          <div id='reference'>
+    <h2>References</h2>
+
+    <p>You can review Logic in the following places</p>
+    
+
+<ul>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/31-Logic_1pps.pdf">Lecture: Declarative Programming</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/32-Unification_1pps.pdf">Lecture: Unification</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab11/lab11.php">Lab 11</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion12.pdf">Discussion 12</a>
+  
+  </div>
+
+  
+We will be using the Logic interpreter, which you can get
+<a href="http://composingprograms.com/examples/logic/logic.py">here</a>. You will
+also need your Scheme project in the same directory. You can run the
+Logic
+interpreter from your terminal with:
+
+<pre><code>python3 logic.py</code></pre>
+
+<p>You can load a <code>.logic</code> file with</p>
+
+<pre><code>python3 logic.py -load file.logic</code></pre>
+
+<p>Alternatively, you can use the <a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/logic/logic.html">online Logic
+interpreter</a>
+
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  
+
+<h2>Conceptual Questions</h2>
+<h3 class="question" id="q1">Question 1: </h3>
+
+<p>Explain the difference between declarative programming and imperative
+programming.</p>
+
+
+    <button id='0' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 0">
+
+<p>Imperative programming is a programming paradigm where a sequence of
+instructions tells the computer what to do (Python is one such
+imperative programming language. Declarative programming is a
+programming paradigm where a set of constraints (e.g. facts) are given
+to the computer, and the computer decides what to do in order to solve
+a given problem (Logic is one such declarative programming language.</p>
+
+</div>
+    
+
+<h3 class="question" id="q2">Question 2: </h3>
+
+<p>Describe the difference between a <em>fact</em> and a <em>query</em> in the Logic
+language.</p>
+
+
+    <button id='1' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 1">
+
+<p>A <em>fact</em> declares a certain relation to be true (i.e. once the fact is
+declared, the specified relation is, <em>by definition</em>, true). A <em>query</em>
+is a question that asks if a specified relation is true.  Here is a
+simple example of facts and queries:</p>
+
+<pre><code>logic&gt; (fact (&gt; 3 2))
+logic&gt; (query (&gt; 3 2))
+Success!
+logic&gt; (fact (&gt; 2 3))  ; false in real life, but here it&#x27;s declared true!
+logic&gt; (query (&gt; 2 3))
+Success!</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q3">Question 3: </h3>
+
+<p>Describe the difference between a <em>simple fact</em> and a <em>compound fact</em>
+in the Logic language.</p>
+
+
+    <button id='2' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 2">
+
+<p>A <em>simple fact</em> has only one clause. The syntax looks like this:</p>
+
+<pre><code>(fact (________))</code></pre>
+
+<p>A <em>compound fact</em> is still a fact (it declares a relation to be true),
+but it is composed of a <em>conclusion</em> and <em>hypotheses</em>. The conlusion
+comes first, followed by the hypotheses. Think of it as a fact whose
+truth depends on the truth of smaller facts. The syntax looks like
+this:</p>
+
+<pre><code>(fact (___conclusion___)
+      (___hypothesis1__)
+      (___hypothesis2__)
+      ...)</code></pre>
+
+</div>
+    
+
+<h2>What would Logic print?</h2>
+<h3 class="question" id="q4">Question 4: </h3>
+
+<p>Assume the following facts have been loaded into the Logic interpreter:</p>
+
+<pre><code>(fact (married lucille george-sr))
+(fact (married lindsay tobias))
+
+(fact (parent lucille gob))
+(fact (parent george-sr gob))
+(fact (parent lucille michael))
+(fact (parent george-sr michael))
+(fact (parent lucille buster))
+(fact (parent oscar buster))
+(fact (parent lucille lindsay))
+(fact (parent lucille annyong))
+
+(fact (parent michael george-michael))
+(fact (parent lindsay maeby))
+(fact (parent tobias maeby))
+(fact (parent gob steve))
+
+(fact (sibling ?s1 ?s2)
+      (parent ?p1 ?s1)
+      (parent ?p1 ?s2))
+
+(fact (uncle-or-aunt ?u ?c)
+      (parent ?p ?c)
+      (sibling ?u ?p))</code></pre>
+
+
+    <pre><code>logic&gt; (query (parent lucille michael))
+<span class="blank7">______</span><span class="hidden solution 7">Success!</span>
+logic&gt; (query (parent george-sr buster))
+<span class="blank7">______</span><span class="hidden solution 7">Failed.</span>
+logic&gt; (query (parent ?who gob))
+<span class="blank7">______</span><span class="hidden solution 7">Success!</span>
+<span class="blank7">______</span><span class="hidden solution 7">who: lucille</span>
+<span class="blank7">______</span><span class="hidden solution 7">who: george-sr</span>
+logic&gt; (query (parent lucille ?who))
+<span class="blank7">______</span><span class="hidden solution 7">Success!</span>
+<span class="blank7">______</span><span class="hidden solution 7">who: gob</span>
+<span class="blank7">______</span><span class="hidden solution 7">who: michael</span>
+<span class="blank7">______</span><span class="hidden solution 7">who: buster</span>
+<span class="blank7">______</span><span class="hidden solution 7">who: lindsay</span>
+<span class="blank7">______</span><span class="hidden solution 7">who: annyong</span>
+logic&gt; (query (uncle-or-aunt buster ?who))
+<span class="blank7">______</span><span class="hidden solution 7">Success!</span>
+<span class="blank7">______</span><span class="hidden solution 7">who: george-michael</span>
+<span class="blank7">______</span><span class="hidden solution 7">who: maeby</span>
+<span class="blank7">______</span><span class="hidden solution 7">who: steve</span>
+<span class="blank7">______</span><span class="hidden solution 7">(query (?rel lindsay tobias))</span>
+<span class="blank7">______</span><span class="hidden solution 7">Success!</span>
+<span class="blank7">______</span><span class="hidden solution 7">rel: married</span></code></pre>
+
+    <button id='7' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<h2>Code-Writing question</h2>
+<h3 class="question" id="q5">Question 5: </h3>
+
+<p>Write a fact or set of facts for the <code>first</code> relation, which checks
+if a given item is the first element in a given list.</p>
+
+<pre><code>(fact (first ; YOUR CODE HERE
+
+; Tests
+logic&gt; (query (first 3 (3 2 1)))
+Success!
+logic&gt; (query (first 2 (3 2 1)))
+Failed.
+logic&gt; (query (first ?what (1 2 3)))
+Success!
+what: 1</code></pre>
+
+<p><strong>Hint</strong>: Conceptually, how would you check if a list begins with an
+item? Is the process recursive?</p>
+
+
+    <button id='3' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 3">
+
+<pre><code>(fact (first ?f (?f . ?r)))</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q6">Question 6: </h3>
+
+<p>Write a fact or set of facts for the <code>rest-with</code> relation, which checks
+if a given item is the rest (in the Rlist sense) of a list.</p>
+
+<pre><code>(fact (rest ; YOUR CODE HERE
+
+; Tests
+logic&gt; (query (rest (2 3) (1 2 3)))
+Success!
+logic&gt; (query (rest (3 2) (3 2 1)))
+Failed.
+logic&gt; (query (rest ?what (1 3 2)))
+Success!
+what: (3 2)</code></pre>
+
+
+    <button id='4' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 4">
+
+<pre><code>(fact (rest ?r (?f . ?r)))</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q7">Question 7: </h3>
+
+<p>Write a fact or set of facts for the <code>cons</code> relation, which checks if a
+given first and rest can <code>cons</code> together (in the Scheme sense) to form
+a given list.</p>
+
+<pre><code>(fact (cons ; YOUR CODE HERE
+
+; Tests
+logic&gt; (query (cons 1 (2 3) (1 2 3)))
+Success!
+logic&gt; (query (cons (3 2) 1 (3 2 1)))
+Failed.
+logic&gt; (query (cons 3 ?what (3 1 2)))
+Success!
+what: (1 2)
+logic&gt; (query (cons ?what (1 2) (3 1 2)))
+Success!
+what: 3</code></pre>
+
+
+    <button id='5' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 5">
+
+<pre><code>(fact (cons ?f ?r (?f . ?r)))</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q8">Question 8: </h3>
+
+<p>Write a fact or set of facts for the <code>contains</code> relation, which checks
+if a given list contains a given item.</p>
+
+<pre><code>(fact (contains ; YOUR CODE HERE
+
+; Tests
+logic&gt; (query (contains (2 1 3) 1))
+Success!
+logic&gt; (query (contains (4 2 3) 5))
+Failed.
+logic&gt; (query (contains (3 4 2) ?what))
+Success!
+what: 3
+what: 4
+what: 2</code></pre>
+
+<p><strong>Hint</strong>: Conceptually, how would you check if a list contains an item?
+Is this process recursive?</p>
+
+
+    <button id='6' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 6">
+
+<p>(fact (contains (?item . ?r) ?item))
+(fact (contains (?not-item . ?r) ?item)
+<pre><code>  (contains ?r ?item))</code></pre></p>
+
+</div>
+    
+
+
+  </div>
+      </div>
+    </div>
+  </body>
+
+  <script src='/public/js/jquery-1.10.1.min.js'></script>
+  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
+  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
+  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/js/nav-bar.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+      $.localScroll();
+    });
+  </script>
+    <script src='/cs61a/review/public/js/toggle.js'></script>
+  
+</html>

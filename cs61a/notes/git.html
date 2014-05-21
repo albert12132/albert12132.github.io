@@ -51,7 +51,7 @@
           </ul>
         </div>
         <div id='accordion'>
-          <h3>Introduction</h3><div><ul><li><a href="#introduction">Intro</a></li><li><a href="#installing-git">Installing Git</a></li><li><a href="#online-hosting">Online Hosting</a></li></ul></div><h3>Getting Started</h3><div><ul><li><a href="#getting-started">Intro</a></li><li><a href="#joining-a-repo">Joining a repo</a></li></ul></div><h3>Basic Work Cycle</h3><div><ul><li><a href="#basic-work-cycle">Intro</a></li><li><a href="#pull">Pull</a></li><li><a href="#add">Add</a></li><li><a href="#commit">Commit</a></li><li><a href="#push">Push</a></li></ul></div><h3>.gitignore</h3><div><ul><li><a href="#gitignore">Intro</a></li></ul></div><h3>Merge Conflicts</h3><div><ul><li><a href="#merge-conflicts">Intro</a></li></ul></div><h3>Revision Selection</h3><div><ul><li><a href="#revision-selection">Intro</a></li><li><a href="#commit-logs">Commit logs</a></li><li><a href="#revert">Revert</a></li><li><a href="#checkout">Checkout</a></li></ul></div><h3>Branching</h3><div><ul><li><a href="#branching">Intro</a></li><li><a href="#creating-a-branch">Creating a branch</a></li><li><a href="#switching-between-branches">Switching between branches</a></li><li><a href="#merging-branches">Merging branches</a></li><li><a href="#pushing-and-pulling-branches">Pushing and Pulling branches</a></li></ul></div>
+          
         </div>
         <div id='nav-bar-fixed'>
           
@@ -62,24 +62,21 @@
       </div>
 
       <div id='content'>
-        
-
-<h2 class="anchor" id="introduction">Introduction</h2>
-
-<p>When working on projects for this class, you'll need some way to share
+        <h2>Introduction</h2>
+When working on projects for this class, you'll need some way to share
 code with your partner. Some people simply email code, others use
 Dropbox. Then there's the problem of combining changes. If you've
-tried this, you'll know that it is a hassle.</p>
+tried this, you'll know that it is a hassle.
 
 <p>That's where Git comes in. Git is a version control system that has 2
-features that are useful for this class:</p>
+features that are useful for this class:
 
 <ol>
-<li><strong>Code merging</strong>: automatically merge changes between multiple
-collaborators</li>
-<li><strong>Revision tracking</strong>: keep track of previous changes and revert
-back to them in case of an accident</li>
-</ol>
+  <li><strong>Code merging</strong>: automatically merge changes between multiple
+  collaborators</li>
+  <li><strong>Revision tracking</strong>: keep track of previous changes and revert
+  back to them in case of an accident</li>
+</ol></p>
 
 <p>When using Git, your code is stored in a <strong>repository</strong> (repo for
 short). As you edit code, you will be pushing changes so that
@@ -88,7 +85,7 @@ collaborators will receive your changes.</p>
 <p>This document uses Git's <a href="http://git-scm.com/book/en">book</a> as
 reference.</p>
 
-<h3 class="anchor" id="installing-git">Installing Git</h3>
+<h3>Installing Git</h3>
 
 <p>You can download the latest version of Git
 <a href="http://git-scm.com/downloads">here</a>.</p>
@@ -97,18 +94,18 @@ reference.</p>
 similar to Cygwin. It's basically another command line that you'll be
 using to interact with Git.</p>
 
-<h3 class="anchor" id="online-hosting">Online Hosting</h3>
+<h3>Online Hosting</h3>
 
 <p>In addition to Git (used from the command line), many people also use
 an online hosting service. These services provide a centralized
-overview of your project. Here are two such services:</p>
+overview of your project. Here are two such services:
 
 <ul>
-<li><a href="https://github.com/">GitHub</a>: a very popular choice -- many, if not
-most, people use GitHub.</li>
-<li><a href="https://bitbucket.org/">Bitbucket</a>: allows users to create an
-unlimited number of private repositories.</li>
-</ul>
+  <li><a href="https://github.com/">GitHub</a>: a very popular choice -- many, if not
+  most, people use GitHub.</li>
+  <li><a href="https://bitbucket.org/">Bitbucket</a>: allows users to create an
+  unlimited number of private repositories.</li>
+</ul></p>
 
 <p>GitHub also gives you a small number of private repos, but the number
 is limited. For this reason, we encourage you to use Bitbucket <em>for
@@ -125,10 +122,9 @@ should) use GitHub for your own (not class related) projects.</p>
 hosting service. The process is pretty much the same if you use
 GitHub.</p>
 
-<h2 class="anchor" id="getting-started">Getting Started</h2>
-
-<p>First, <a href="https://bitbucket.org/account/signup/">create an account</a> on
-Bitbucket.</p>
+<h2>Getting Started</h2>
+First, <a href="https://bitbucket.org/account/signup/">create an account</a> on
+Bitbucket.
 
 <p>You'll be taken to your homepage. There should be a button labeled
 "Create repository." Every project starts with a <strong>repository</strong> --
@@ -148,8 +144,7 @@ directory containing those files into a repository:</p>
 
 <pre><code>cd /path/to/your/project
 git init
-git remote add origin &lt;the url displayed on Bitbucket&gt;
-</code></pre>
+git remote add origin &lt;the url displayed on Bitbucket&gt;</code></pre>
 
 <p>If, instead, you created a separate directory for your repository, go
 ahead and follow the steps described on the website. Then move all
@@ -163,31 +158,30 @@ want. Usually, <code>README</code>s provide a summary of your project.</p>
 in your terminal:</p>
 
 <pre><code>git add -A
-git commit -m "First commit"
-git push origin master
-</code></pre>
+git commit -m &quot;First commit&quot;
+git push origin master</code></pre>
 
 <p>We'll explain what these three lines do later. For now, refresh the
 Bitbucket page -- you'll see the code you committed. To see the actual
 source code, click on "Source." You've just created your first repo!</p>
 
-<h3 class="anchor" id="joining-a-repo">Joining a repo</h3>
+<h3>Joining a repo</h3>
 
 <p>If you started the repo, you can invite your partner to join. Since
 we're using private repos, you'll need to send your partner an
-invitation.</p>
+invitation.
 
 <ol>
-<li>From your repo's dashboard (homepage), click on the small cog
-symbol on the right. This takes you to your repo's settings.</li>
-<li>On the left, click on "Access management." You'll see which users
-have access to the repo</li>
-<li>Fill in your partner's information: their Bitbucket username or
-their email, what permissions they have (either "write" or "admin",
-unless you only want your partner to "read" what you've done...)</li>
-<li>Click "Add". Your partner should receive an email inviting them to
-join.</li>
-</ol>
+  <li>From your repo's dashboard (homepage), click on the small cog
+  symbol on the right. This takes you to your repo's settings.</li>
+  <li>On the left, click on "Access management." You'll see which users
+  have access to the repo</li>
+  <li>Fill in your partner's information: their Bitbucket username or
+  their email, what permissions they have (either "write" or "admin",
+  unless you only want your partner to "read" what you've done...)</li>
+  <li>Click "Add". Your partner should receive an email inviting them to
+  join.</li>
+</ol></p>
 
 <p>Once your partner has joined the repo, they can immediately copy the
 source code onto their own computer. From the "Overview" page, find a
@@ -195,22 +189,20 @@ line labeled "HTTPS" on the right side of the page. There should be a
 URL to the right of the "HTTPS" -- copy it, and type this into your
 terminal</p>
 
-<pre><code>git clone &lt;repo url&gt;
-</code></pre>
+<pre><code>git clone &lt;repo url&gt;</code></pre>
 
 <p>This will create a new directory (so no need to create your own) and
 populate it with the contents of the repo.</p>
 
-<h2 class="anchor" id="basic-work-cycle">Basic Work Cycle</h2>
-
-<p>A usualy work cycle in Git has the following steps:</p>
+<h2>Basic Work Cycle</h2>
+A usualy work cycle in Git has the following steps:
 
 <ol>
-<li><code>git pull</code> to get updates</li>
-<li>Edit your code</li>
-<li><code>git add</code> your changes</li>
-<li><code>git commit</code> your changes</li>
-<li><code>git push</code> your changes</li>
+  <li><code>git pull</code> to get updates</li>
+  <li>Edit your code</li>
+  <li><code>git add</code> your changes</li>
+  <li><code>git commit</code> your changes</li>
+  <li><code>git push</code> your changes</li>
 </ol>
 
 <p>All of these are done from your command line.</p>
@@ -219,13 +211,12 @@ populate it with the contents of the repo.</p>
 available to your collaborators. All edits will be local to your
 machine. So how do you publish your changes?</p>
 
-<h3 class="anchor" id="pull">Pull</h3>
+<h3>Pull</h3>
 
 <p>Usually, you will be working with other people (e.g. your project
 partner). To receive updates that they have made, you need to <code>pull</code>:</p>
 
-<pre><code>git pull origin master
-</code></pre>
+<pre><code>git pull origin master</code></pre>
 
 <p><code>origin</code> is the nickname of your repository (so that you don't have to
 type in the full name every time). <code>master</code> is the main <strong>branch</strong> of
@@ -237,43 +228,38 @@ For now, this will be enough to get your partner's updates. All their
 changes will have merged with your code, so you're ready to start
 making some edits of your own!</p>
 
-<h3 class="anchor" id="add">Add</h3>
+<h3>Add</h3>
 
 <p><em>Adding</em> a file tells <code>git</code> that you want to include that file in the
 next commit. After modifying a file, you can add it by typing this:</p>
 
-<pre><code>git add filename
-</code></pre>
+<pre><code>git add filename</code></pre>
 
 <p>You can add more than one file at a time. Git also supports wildcard
 expansion, so the following are valid</p>
 
 <pre><code>git add file1.py file2.py
-git add file*.py          # adds all files that start with 'file'
-                          # and end in '.py'
-</code></pre>
+git add file*.py          # adds all files that start with &#x27;file&#x27;
+                          # and end in &#x27;.py&#x27;</code></pre>
 
 <p>If you want to add all modified files at once, you can use the <code>-A</code>
 flag:</p>
 
-<pre><code>git add -A
-</code></pre>
+<pre><code>git add -A</code></pre>
 
 <p>Git also supports some UNIX-like commands:</p>
 
 <pre><code>git mv filename dest      # records the movement of a file
-git rm filename           # records the removal of a file
-</code></pre>
+git rm filename           # records the removal of a file</code></pre>
 
 <p>You can check which files are waiting to be added and which files have
 been added with this command:</p>
 
-<pre><code>git status
-</code></pre>
+<pre><code>git status</code></pre>
 
 <p>After adding modified files, you are ready to commit those changes.</p>
 
-<h3 class="anchor" id="commit">Commit</h3>
+<h3>Commit</h3>
 
 <p><em>Committing</em> changes tells <code>git</code> to create a new stage in the revision
 history. Think of it as a checkpoint -- if you need to revert to a
@@ -282,8 +268,7 @@ previous stage, you'll reset it to one of the previous commits.</p>
 <p>To commit changes (you'll need to have <a href="#add">added</a> changes
 first), type</p>
 
-<pre><code>git commit -m "Your message here"
-</code></pre>
+<pre><code>git commit -m &quot;Your message here&quot;</code></pre>
 
 <p>Git requires commits to contain a brief message. The message should
 describe the changes you've made. Make sure the message is concise.</p>
@@ -292,13 +277,12 @@ describe the changes you've made. Make sure the message is concise.</p>
 make the changes available to collaborators, you need to <code>push</code> your
 changes.</p>
 
-<h3 class="anchor" id="push">Push</h3>
+<h3>Push</h3>
 
 <p>To make your changes available to collaborators, you should <code>push</code>
 your changes:</p>
 
-<pre><code>git push origin master
-</code></pre>
+<pre><code>git push origin master</code></pre>
 
 <p>Git will prompt you for your Bitbucket credentials. After it's done,
 you can go to the website and view your changes!</p>
@@ -306,17 +290,15 @@ you can go to the website and view your changes!</p>
 <p><strong>Note</strong>: The <code>origin</code> and <code>master</code> represent the same things as in
 <code>git push</code>.</p>
 
-<h2 class="anchor" id="gitignore">.gitignore</h2>
-
-<p>There might be some files that you don't want to push to the remote
+<h2>.gitignore</h2>
+There might be some files that you don't want to push to the remote
 repo. For example, we wouldn't want to clutter our project repo with
 the HTML and CSS files. We can create a file in the repo called
-<code>.gitignore</code> the contains the following lines</p>
+<code>.gitignore</code> the contains the following lines
 
 <pre><code>*.html
 *.css
-*.pyc
-</code></pre>
+*.pyc</code></pre>
 
 <p>These three lines tell git to ignore all HTML, CSS, and <code>.pyc</code> files
 (<code>.pyc</code> files are generated in the <code>__pycache__</code> directory).</p>
@@ -324,18 +306,16 @@ the HTML and CSS files. We can create a file in the repo called
 <p>You can commit and push <code>.gitignore</code> so that your collaborators also
 won't push those files.</p>
 
-<h2 class="anchor" id="merge-conflicts">Merge Conflicts</h2>
-
-<p>You will occasionally face a <strong>merge conflict</strong> when doing <code>git pull</code>.
+<h2>Merge Conflicts</h2>
+You will occasionally face a <strong>merge conflict</strong> when doing <code>git pull</code>.
 This occurs if you and your partner modify the same line(s) in a file;
-Git won't know which modification should be the final one.</p>
+Git won't know which modification should be the final one.
 
 <p>When this happens, Git will notify you of the problem:</p>
 
 <pre><code>Auto-merging hog.py
 CONFLICT (content): Merge conflict in hog.py
-Automatic merge failed; fix conflicts and then commit the result.
-</code></pre>
+Automatic merge failed; fix conflicts and then commit the result.</code></pre>
 
 <p>In the example above, there is a merge conflict in the file <code>hog.py</code>.
 We'll work with this scenario for this example.</p>
@@ -351,8 +331,7 @@ fashion:</p>
 Changes you made
 =======
 Changes your partner made
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; ...
-</code></pre>
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; ...</code></pre>
 
 <p>The <code>...</code> will either be a long hexidecimal number that represents a
 commit ID, or the name of a <a href="#branching">branch</a>.</p>
@@ -363,19 +342,17 @@ you'll want to get rid of the <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> and othe
 <p>Finally, <code>git add</code> the conflicted file and <code>commit</code> it. That's it! If
 you want to push the merge resolution, go ahead.</p>
 
-<h2 class="anchor" id="revision-selection">Revision Selection</h2>
-
-<p>Sometimes, you might want to revert to a previous stage in your
+<h2>Revision Selection</h2>
+Sometimes, you might want to revert to a previous stage in your
 project (e.g. if you made a fatal error that broke your project, or
 perhaps you just want to take a quick look at a certain stage of the
-projct). Git provides a way to revert back to a certain <strong>commit</strong>.</p>
+projct). Git provides a way to revert back to a certain <strong>commit</strong>.
 
-<h3 class="anchor" id="commit-logs">Commit logs</h3>
+<h3>Commit logs</h3>
 
 <p>First, the following command shows you your local commit history:</p>
 
-<pre><code>git log
-</code></pre>
+<pre><code>git log</code></pre>
 
 <p>It will display a summary of each commit in the following format:</p>
 
@@ -384,8 +361,7 @@ Merge: 26bdca5 d4670c0
 Author: ...
 Date:   ...
 
-    &lt;commit message&gt;
-</code></pre>
+    &lt;commit message&gt;</code></pre>
 
 <p>Remember those commit messages? Those will be how you identify which
 backup is the one you want, so make sure you write good messages!</p>
@@ -397,8 +373,7 @@ the log.</p>
 <p>You can also generate a condensed version of the log by using the
 following flag:</p>
 
-<pre><code>git log --pretty=format:'%h %s'
-</code></pre>
+<pre><code>git log --pretty=format:&#x27;%h %s&#x27;</code></pre>
 
 <p>In this case, the string <code>%h %s</code> specifies the format to be the commit
 ID, then a space, followed by the commit message. You can <a href="http://git-scm.com/book/en/Git-Basics-Viewing-the-Commit-History">customize
@@ -409,85 +384,77 @@ format</a>.</p>
 (technically, it's called a <em>hash</em>) -- this is the long hexidecimal
 number found in the line</p>
 
-<pre><code>commit ...
-</code></pre>
+<pre><code>commit ...</code></pre>
 
 <p>It's okay to remember only the first few digits of the ID, as long as
 you remember at least 4 digits (7 digits is a good rule of thumb) and
 those digits are unambigious (can't refer to more than one commit).
 For example, the following ID</p>
 
-<pre><code>d615a5e7612794621f0ab192271ad13b2aaac43d
-</code></pre>
+<pre><code>d615a5e7612794621f0ab192271ad13b2aaac43d</code></pre>
 
 <p>can be shortened to just <code>d615a5e</code>.</p>
 
 <p>You can run the following command to double-check that the ID refers
 to the correct commit:</p>
 
-<pre><code>git show d615a5e    # replace the ID with your own
-</code></pre>
+<pre><code>git show d615a5e    # replace the ID with your own</code></pre>
 
 <p>Remember what the commit ID is, because we will be using it soon.</p>
 
-<h3 class="anchor" id="revert">Revert</h3>
+<h3>Revert</h3>
 
 <p>The following command will undo committed changes:</p>
 
-<pre><code>git revert &lt;commit ID&gt;
-</code></pre>
+<pre><code>git revert &lt;commit ID&gt;</code></pre>
 
 <p>Changes that were made during <code>&lt;commit ID&gt;</code> will be "discarded." There
-are two important aspects of <code>revert</code>:</p>
+are two important aspects of <code>revert</code>:
 
 <ul>
-<li><code>revert</code> does <strong>not</strong> reset your project to its state at <code>&lt;commit
-ID&gt;</code>. Instead, it simply undoes changes introduced by <code>&lt;commit ID&gt;</code>.
-It will appear as if you never made that commit, but all commits you
-made after it will still be reflected in your project.</li>
-<li><code>revert</code> creates a <em>new commit</em> -- it does not delete an old commit.
-Git finds out what changes have to be made in order to undo the
-specified commit, and makes a new commit reflecting these changes.</li>
-</ul>
+  <li><code>revert</code> does <strong>not</strong> reset your project to its state at <code>&lt;commit
+  ID&gt;</code>. Instead, it simply undoes changes introduced by <code>&lt;commit ID&gt;</code>.
+  It will appear as if you never made that commit, but all commits you
+  made after it will still be reflected in your project.</li>
+  <li><code>revert</code> creates a <em>new commit</em> -- it does not delete an old commit.
+  Git finds out what changes have to be made in order to undo the
+  specified commit, and makes a new commit reflecting these changes.</li>
+</ul></p>
 
 <p>If you want to undo changes made by a range of commits, you can do</p>
 
-<pre><code>git revert &lt;ID 1&gt;..&lt;ID 2&gt;
-</code></pre>
+<pre><code>git revert &lt;ID 1&gt;..&lt;ID 2&gt;</code></pre>
 
 <p>For example, if you want to undo all commits after a certain point,
 you can do</p>
 
-<pre><code>git revert d615a5e..HEAD
-</code></pre>
+<pre><code>git revert d615a5e..HEAD</code></pre>
 
 <p>An explanation can be found
 <a href="http://www.atlassian.com/git/tutorial/undoing-changes#!revert">here</a>.</p>
 
 <p><strong>Note</strong>: the two properties above make <code>revert</code> a safe and useful way
-to selectively undo a change:</p>
+to selectively undo a change:
 
 <ul>
-<li>If you just want to get rid of a small bug that was introduced at a
-certain point (but still leave all following changes intact), you
-can do so with <code>revert</code></li>
-<li>Because <code>revert</code> doesn't delete old commits, you can always go back
-(undo the undo).</li>
-</ul>
+  <li>If you just want to get rid of a small bug that was introduced at a
+  certain point (but still leave all following changes intact), you
+  can do so with <code>revert</code></li>
+  <li>Because <code>revert</code> doesn't delete old commits, you can always go back
+  (undo the undo).</li>
+</ul></p>
 
-<h3 class="anchor" id="checkout">Checkout</h3>
+<h3>Checkout</h3>
 
 <p>If you just want to revert a single file, you can use the <code>checkout</code>
 command:</p>
 
-<pre><code>git checkout &lt;commit ID&gt; &lt;file&gt;
-</code></pre>
+<pre><code>git checkout &lt;commit ID&gt; &lt;file&gt;</code></pre>
 
 <p>For example, if we want to restore <code>hog.py</code> to what it was during the
 commit <code>d615a5e</code>, we would do</p>
 
-<pre><code>git checkout d615a5e hog.py
-</code></pre>
+<pre><code>git checkout d615a5e hog.py</code></pre>
 
 <p>This will overwrite our current <code>hog.py</code> file with its former state,
 and we can go ahead and edit it like normal.</p>
@@ -495,66 +462,59 @@ and we can go ahead and edit it like normal.</p>
 <p>If it turns out we didn't want to revert <code>hog.py</code> after all, we can
 get back our most recent version (assuming we haven't committed yet):</p>
 
-<pre><code>git checkout HEAD hog.py
-</code></pre>
+<pre><code>git checkout HEAD hog.py</code></pre>
 
 <p><code>HEAD</code> represents the most recent commit.</p>
 
-<h2 class="anchor" id="branching">Branching</h2>
-
-<p>Branching offers a way to work on different parts of your project
+<h2>Branching</h2>
+Branching offers a way to work on different parts of your project
 without interfering with the changes of other people. For example, if
 you are revising your solution to Q5 of the Hog project, you might not
 want to change the original solution just yet (in case your new one
-breaks!). This is where branching comes in.</p>
+breaks!). This is where branching comes in.
 
 <p>The Git website has a good
 <a href="http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging">tutorial</a>
 for branching.</p>
 
-<p>Branching usually follows a couple of steps:</p>
+<p>Branching usually follows a couple of steps:
 
 <ol>
-<li>Create the branch</li>
-<li>Edit code on that branch</li>
-<li>Merge branches</li>
-</ol>
+  <li>Create the branch</li>
+  <li>Edit code on that branch</li>
+  <li>Merge branches</li>
+</ol></p>
 
 <p>Before we go into details, let's introduce the <code>branch</code> command:</p>
 
-<pre><code>git branch
-</code></pre>
+<pre><code>git branch</code></pre>
 
 <p>Without any additional arguments, <code>git branch</code> displays all the
 branches in your repo, as well as which one you're currently in. The
 output will look something like this:</p>
 
-<pre><code>* master
-</code></pre>
+<pre><code>* master</code></pre>
 
 <p>This tells you there is only one branch so far, and the <code>*</code> means you
 are in the <code>master</code> branch.</p>
 
-<h3 class="anchor" id="creating-a-branch">Creating a branch</h3>
+<h3>Creating a branch</h3>
 
 <p>Continuing with the Hog Q5 scenario, let's create a branch:</p>
 
-<pre><code>git checkout -b q5
-</code></pre>
+<pre><code>git checkout -b q5</code></pre>
 
 <p>This creates a <em>local</em> branch called <code>q5</code> and immediately switches to
 it. This is a shortcut for</p>
 
 <pre><code>git branch q5
-git checkout q5
-</code></pre>
+git checkout q5</code></pre>
 
 <p>As a sanity check, type in <code>git branch</code>. You should see that you now
 have two branches, and that you are in the <code>q5</code> branch:</p>
 
 <pre><code>  master
-* q5
-</code></pre>
+* q5</code></pre>
 
 <p>You can now edit your code, and the changes will not affect the main
 <code>master</code> branch. You can still do <code>add</code> and <code>commit</code>. The commit will
@@ -564,33 +524,30 @@ only affect the current branch.</p>
 else can see the new branch you created. It is only local to your own
 machine.</p>
 
-<h3 class="anchor" id="switching-between-branches">Switching between branches</h3>
+<h3>Switching between branches</h3>
 
 <p>You might need to switch back to the <code>master</code> branch to work on
 something else. To do this, type</p>
 
-<pre><code>git checkout &lt;name of branch&gt;
-</code></pre>
+<pre><code>git checkout &lt;name of branch&gt;</code></pre>
 
 <p>This will switch you to the specified branch. For example, if you want
 to switch back to the <code>master</code> branch, type</p>
 
-<pre><code>git checkout master
-</code></pre>
+<pre><code>git checkout master</code></pre>
 
 <p>Make sure that, when you are <code>git pull</code>ing from a <a href="#pushing-and-pulling-branches">remote
 server</a> (such as Bitbucket), you should
 be in the correct <em>local</em> branch.</p>
 
-<h3 class="anchor" id="merging-branches">Merging branches</h3>
+<h3>Merging branches</h3>
 
 <p>After implementing and testing our new solution for Q5, we can
 incorporate it into our main project. To do this, we merge (make sure
 you've committed all changes on the q5 branch):</p>
 
 <pre><code>git checkout master
-git merge q5
-</code></pre>
+git merge q5</code></pre>
 
 <p>Now, the <code>master</code> branch and the <code>q5</code> branch point to the same commit
 stage -- in other words, the <code>master</code> branch contains all the changes
@@ -599,45 +556,39 @@ you made on the <code>q5</code> branch!</p>
 <p>You can check which branches have been matched to your current branch:</p>
 
 <pre><code>git branch --merged     # lists merged branches
-git branch --no-merged  # lists unmerged branches
-</code></pre>
+git branch --no-merged  # lists unmerged branches</code></pre>
 
 <p>You may want to continue working on the <code>q5</code> branch (maybe you want to
 try out another solution), so you might want to keep it around. If you
 want to delete the branch, however, you can type</p>
 
 <pre><code>git checkout master
-git branch -d q5
-</code></pre>
+git branch -d q5</code></pre>
 
-<h3 class="anchor" id="pushing-and-pulling-branches">Pushing and Pulling branches</h3>
+<h3>Pushing and Pulling branches</h3>
 
 <p>Up until now, all the branches we've created are local to our own
 computer. To share a branch with your collaborators, you need to push
 it:</p>
 
-<pre><code>git checkout q5       # make sure you're in the right local branch
-git push origin q5
-</code></pre>
+<pre><code>git checkout q5       # make sure you&#x27;re in the right local branch
+git push origin q5</code></pre>
 
 <p>To retrieve a branch that you don't have yet (let's call it <code>q10</code>),
 you can do</p>
 
 <pre><code>git checkout -b q10   # create a local q10 branch
-git pull origin q10
-</code></pre>
+git pull origin q10</code></pre>
 
 <p>In general, make sure you are in the correct local branch before you
 pull from the server.</p>
 
 <p>To delete a remote branch, type</p>
 
-<pre><code>git push origin :q10  # deletes the Bitbucket q10 branch
-</code></pre>
+<pre><code>git push origin :q10  # deletes the Bitbucket q10 branch</code></pre>
 
 <p>For more information, see <a href="http://git-scm.com/book/en/Git-Branching-Remote-Branches">this
 link</a>.</p>
-
       </div>
     </div>
   </body>

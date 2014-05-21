@@ -51,7 +51,7 @@
           </ul>
         </div>
         <div id='accordion'>
-          <h3>Introduction</h3><div><ul><li><a href="#introduction">Intro</a></li><li><a href="#list-and-tuple-methods">List and Tuple Methods</a></li><li><a href="#why-use-tuples">Why use tuples?</a></li></ul></div>
+          
         </div>
         <div id='nav-bar-fixed'>
           
@@ -62,16 +62,13 @@
       </div>
 
       <div id='content'>
-        
-
-<h2 class="anchor" id="introduction">Introduction</h2>
-
-<p>Sequences are data structure (objects that organize data) that have
-two properties:</p>
+        <h2>Introduction</h2>
+Sequences are data structure (objects that organize data) that have
+two properties:
 
 <ol>
-<li>Finite Length</li>
-<li>Item selection (through zero-based indexing)</li>
+  <li>Finite Length</li>
+  <li>Item selection (through zero-based indexing)</li>
 </ol>
 
 <p>Recall Python's two built-in sequence types: tuples and lists. Both
@@ -85,52 +82,52 @@ these data types support these properties:</p>
 &gt;&gt;&gt; lst = [1, 2, 3]
 &gt;&gt;&gt; len(lst)
 3
-&gt;&gt;&gt; lst[0]
-</code></pre>
+&gt;&gt;&gt; lst[0]</code></pre>
 
 <p>Lists have the additional benefit of being <em>mutable</em>, meaning their
 contents can be modified after creation. Contrast this with tuples,
 which are <em>immutable</em> (contents cannot be modified after creation).</p>
 
-<h3 class="anchor" id="list-and-tuple-methods">List and Tuple Methods</h3>
+<h3>List and Tuple Methods</h3>
 
-<p>Here are some tuple and list methods:</p>
+<p>Here are some tuple and list methods:
 
 <ul>
-<li>tuples:
-<ul>
-<li><code>count(item)</code>: returns the number of times <code>item</code> appears in the
-tuple.</li>
-<li><code>index(item)</code>: returns the first index at which <code>item</code> appears</li>
-</ul></li>
-<li>lists:
-<ul>
-<li><code>append(item)</code>: adds <code>item</code> to the end of the original list.
-Returns <code>None</code></li>
-<li><code>extend(iterable)</code>: adds elements in <code>iterable</code> to the end of
-the original list</li>
-<li><code>pop()</code>: with no argument, removes the last item in the list and
-returns it. With an index, it deletes the item at the given
-<code>index</code> and returns it.</li>
-<li><code>count(item)</code>: same as the tuple version</li>
-<li><code>index(item)</code>: same as tuple version</li>
-<li><code>insert(index, item)</code>: inserts <code>item</code> before the <code>index</code>.
-Mutates the original list.</li>
-<li><code>remove(item)</code>: removes the first occurrence of <code>item</code>.</li>
-<li><code>reverse()</code>: reverses the list in place (does not return a new
-list)</li>
-<li><code>sort()</code>: sorts the list in place (does not return a new list)</li>
-</ul></li>
-</ul>
+  <li>tuples:
+  
+  <ul>
+    <li><code>count(item)</code>: returns the number of times <code>item</code> appears in the
+    tuple.</li>
+    <li><code>index(item)</code>: returns the first index at which <code>item</code> appears</li>
+  </ul></li>
+  <li>lists:
+  
+  <ul>
+    <li><code>append(item)</code>: adds <code>item</code> to the end of the original list.
+    Returns <code>None</code></li>
+    <li><code>extend(iterable)</code>: adds elements in <code>iterable</code> to the end of
+    the original list</li>
+    <li><code>pop()</code>: with no argument, removes the last item in the list and
+    returns it. With an index, it deletes the item at the given
+    <code>index</code> and returns it.</li>
+    <li><code>count(item)</code>: same as the tuple version</li>
+    <li><code>index(item)</code>: same as tuple version</li>
+    <li><code>insert(index, item)</code>: inserts <code>item</code> before the <code>index</code>.
+    Mutates the original list.</li>
+    <li><code>remove(item)</code>: removes the first occurrence of <code>item</code>.</li>
+    <li><code>reverse()</code>: reverses the list in place (does not return a new
+    list)</li>
+    <li><code>sort()</code>: sorts the list in place (does not return a new list)</li>
+  </ul></li>
+</ul></p>
 
 <p>As you can see, lists support many more methods, mostly due to the
 fact that they are mutable.</p>
 
-<h3 class="anchor" id="why-use-tuples">Why use tuples?</h3>
+<h3>Why use tuples?</h3>
 
 <p>At this point, you might be wondering why we bother using tuples at
-all. </p>
-
+all.</p>
       </div>
     </div>
   </body>

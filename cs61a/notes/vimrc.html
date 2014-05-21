@@ -51,7 +51,7 @@
           </ul>
         </div>
         <div id='accordion'>
-          <h3>Introduction</h3><div><ul><li><a href="#introduction">Intro</a></li><li><a href="#location">Location</a></li><li><a href="#sample-vimrc">Sample vimrc</a></li></ul></div><h3>Filetype Syntax</h3><div><ul><li><a href="#filetype-syntax">Intro</a></li></ul></div><h3>Settings</h3><div><ul><li><a href="#settings">Intro</a></li><li><a href="#miscellaneous">Miscellaneous</a></li><li><a href="#dimensions">Dimensions</a></li><li><a href="#information">Information</a></li><li><a href="#navigation">Navigation</a></li><li><a href="#searching">Searching</a></li><li><a href="#tabs">Tabs</a></li><li><a href="#backups">Backups</a></li></ul></div><h3>Key bindings</h3><div><ul><li><a href="#key-bindings">Intro</a></li></ul></div><h3>Normal Mode Key Bindings</h3><div><ul><li><a href="#normal-mode-key-bindings">Intro</a></li><li><a href="#windows">Windows</a></li><li><a href="#line-movement">Line movement</a></li><li><a href="#screen-centering">Screen centering</a></li></ul></div><h3>Command Mode Key Bindings</h3><div><ul><li><a href="#command-mode-key-bindings">Intro</a></li></ul></div>
+          
         </div>
         <div id='nav-bar-fixed'>
           
@@ -62,187 +62,162 @@
       </div>
 
       <div id='content'>
-        
-
-<h2 class="anchor" id="introduction">Introduction</h2>
-
-<p>The <code>.vimrc</code> is <a href="/vim.html">Vim</a>'s configuration file.
+        <h2>Introduction</h2>
+The <code>.vimrc</code> is <a href="/vim.html">Vim</a>'s configuration file.
 After you get used to using Vim, you can start customizing it by
-adding lines to <code>.vimrc</code>.</p>
+adding lines to <code>.vimrc</code>.
 
-<h3 class="anchor" id="location">Location</h3>
+<h3>Location</h3>
 
 <p>The <code>.vimrc</code> file goes in your home directory. The <code>.</code> at the
 beginning will hide the file from a normal <code>ls</code> UNIX command (so as
 not to clutter), but it is still there. You can edit the file from Vim
 itself:</p>
 
-<pre><code>vim .vimrc
-</code></pre>
+<pre><code>vim .vimrc</code></pre>
 
-<h3 class="anchor" id="sample-vimrc">Sample vimrc</h3>
+<h3>Sample vimrc</h3>
 
 <p>You can find my <code>.vimrc</code> file <a href="/public/vimrc">here</a>.
 It contains most of the settings described here.</p>
 
-<h2 class="anchor" id="filetype-syntax">Filetype Syntax</h2>
+<h2>Filetype Syntax</h2>
+To turn on syntax highlighting, add
 
-<p>To turn on syntax highlighting, add</p>
-
-<pre><code>syntax on
-</code></pre>
+<pre><code>syntax on</code></pre>
 
 <p>You can change the colorscheme (replace <code>desert</code> with any other
 colorscheme):</p>
 
-<pre><code>colorscheme desert
-</code></pre>
+<pre><code>colorscheme desert</code></pre>
 
 <p>Indentation rules for different filetypes can be set:</p>
 
-<pre><code>filetype plugin indent on
-</code></pre>
+<pre><code>filetype plugin indent on</code></pre>
 
-<h2 class="anchor" id="settings">Settings</h2>
+<h2>Settings</h2>
+The first thing you'll want to do is
 
-<p>The first thing you'll want to do is</p>
-
-<pre><code>set nocompatible
-</code></pre>
+<pre><code>set nocompatible</code></pre>
 
 <p>This turns off Vi compatibility. This is especially important if you
 are using Vim on your class account.</p>
 
-<p><strong>Note</strong>: the <code>"</code> (double-quote) character begins a comment in
+<p><strong>Note</strong>: the <code>&quot;</code> (double-quote) character begins a comment in
 VimScript.</p>
 
-<h3 class="anchor" id="miscellaneous">Miscellaneous</h3>
+<h3>Miscellaneous</h3>
 
-<pre><code>set noerrorbells    " Gets rid of beeping sound
-</code></pre>
+<pre><code>set noerrorbells    &quot; Gets rid of beeping sound</code></pre>
 
-<h3 class="anchor" id="dimensions">Dimensions</h3>
+<h3>Dimensions</h3>
 
-<pre><code>set lines=50        " Vim starts with this many lines
-set columns=80      " You can change these numbers
-set textwidth=80    " This sets the 'virtual' line number
-</code></pre>
+<pre><code>set lines=50        &quot; Vim starts with this many lines
+set columns=80      &quot; You can change these numbers
+set textwidth=80    &quot; This sets the &#x27;virtual&#x27; line number</code></pre>
 
 <p>The <code>textwidth</code> setting is useful when writing paragraphs (such as in
 LaTeX), as it automatically forces overflowing text onto a newline. It
 can be distracting when writing code, however, so you can always omit
 it.</p>
 
-<h3 class="anchor" id="information">Information</h3>
+<h3>Information</h3>
 
-<pre><code>set showcmd         " Show (partial) command in status line
-set showmode        " Show the current mode
-set laststatus=2    " Always show status line
-</code></pre>
+<pre><code>set showcmd         &quot; Show (partial) command in status line
+set showmode        &quot; Show the current mode
+set laststatus=2    &quot; Always show status line</code></pre>
 
 <p>The status line can contain useful information. For a full list of
 things you can put there, type the Vim command <code>:help statusline</code>.
 Here is the one I use:</p>
 
-<pre><code>set statusline=%.40F%=%m\ %Y\ Line:\ %3l/%L[%3p%%]
-</code></pre>
+<pre><code>set statusline=%.40F%=%m\ %Y\ Line:\ %3l/%L[%3p%%]</code></pre>
 
 <p>The full filepath is displayed on the left, and various things are
 displayed on the right -- whether or not the file has been modified,
 the filetype, the line number, and the percentage through the file.</p>
 
-<h3 class="anchor" id="navigation">Navigation</h3>
+<h3>Navigation</h3>
 
-<pre><code>set nu              " Set line numbering
-set scrolloff=5     " Keep at least 5 lines above/below cursor
-set mouse=a         " Enable mouse usage in all modes
-set mousehide       " Hide the mouse when typing
-</code></pre>
+<pre><code>set nu              &quot; Set line numbering
+set scrolloff=5     &quot; Keep at least 5 lines above/below cursor
+set mouse=a         &quot; Enable mouse usage in all modes
+set mousehide       &quot; Hide the mouse when typing</code></pre>
 
 <p>I personally like <code>scrolloff</code> because it allows me to see ahead, but
 it can be distracting for some people.</p>
 
-<h3 class="anchor" id="searching">Searching</h3>
+<h3>Searching</h3>
 
-<pre><code>set ignorecase      " Do case insensitive matching
-set smartcase       " Unless you explicitly search for upper case
-set incsearch       " Incremental search
-set hlsearch        " Highlight searches
-set showmatch       " Show matching parentheses
-</code></pre>
+<pre><code>set ignorecase      &quot; Do case insensitive matching
+set smartcase       &quot; Unless you explicitly search for upper case
+set incsearch       &quot; Incremental search
+set hlsearch        &quot; Highlight searches
+set showmatch       &quot; Show matching parentheses</code></pre>
 
-<h3 class="anchor" id="tabs">Tabs</h3>
+<h3>Tabs</h3>
 
-<pre><code>set expandtab       " Uses spaces instead of tabs
-set tabstop=4       " Each tab is 4 spaces
-set shiftwidth=4    " Sets the &gt;&gt; and &lt;&lt; width
-set autoindent
-</code></pre>
+<pre><code>set expandtab       &quot; Uses spaces instead of tabs
+set tabstop=4       &quot; Each tab is 4 spaces
+set shiftwidth=4    &quot; Sets the &gt;&gt; and &lt;&lt; width
+set autoindent</code></pre>
 
-<h3 class="anchor" id="backups">Backups</h3>
+<h3>Backups</h3>
 
-<pre><code>set nobackup        " remove backup files
-set noswapfile      " remove swap files
-</code></pre>
+<pre><code>set nobackup        &quot; remove backup files
+set noswapfile      &quot; remove swap files</code></pre>
 
 <p>Only set these if you don't want backup files. Some people find them
 useful.</p>
 
-<h2 class="anchor" id="key-bindings">Key bindings</h2>
-
-<p>There are a couple of key-binding commands:</p>
+<h2>Key bindings</h2>
+There are a couple of key-binding commands:
 
 <ul>
-<li><code>map</code>: a simple map</li>
-<li><code>remap</code>: a "recursive map", which means that mappings are influenced
-by previous mappings</li>
-<li><code>noremap</code>: a "non-recursive map", which means mappings are <em>not</em>
-influenced by previous mappings</li>
+  <li><code>map</code>: a simple map</li>
+  <li><code>remap</code>: a "recursive map", which means that mappings are influenced
+  by previous mappings</li>
+  <li><code>noremap</code>: a "non-recursive map", which means mappings are <em>not</em>
+  influenced by previous mappings</li>
 </ul>
 
 <p>For mode-specific bindings, add a letter before each command. For
 example, normal mode mappings are done with <code>nmap</code>, <code>nremap</code>, and
 <code>nnoremap</code>.</p>
 
-<h2 class="anchor" id="normal-mode-key-bindings">Normal Mode Key Bindings</h2>
+<h2>Normal Mode Key Bindings</h2>
+<pre><code>nnoremap ; :              &quot; Enter command mode faster</code></pre>
 
-<pre><code>nnoremap ; :              " Enter command mode faster
-</code></pre>
+<h3>Windows</h3>
 
-<h3 class="anchor" id="windows">Windows</h3>
-
-<pre><code>nnoremap &lt;C-k&gt;  &lt;C-w&gt;k    " Move along windows faster
+<pre><code>nnoremap &lt;C-k&gt;  &lt;C-w&gt;k    &quot; Move along windows faster
 nnoremap &lt;C-j&gt;  &lt;C-w&gt;j
 nnoremap &lt;C-h&gt;  &lt;C-w&gt;h
-nnoremap &lt;C-l&gt;  &lt;C-w&gt;l
-</code></pre>
+nnoremap &lt;C-l&gt;  &lt;C-w&gt;l</code></pre>
 
-<h3 class="anchor" id="line-movement">Line movement</h3>
+<h3>Line movement</h3>
 
-<pre><code>nnoremap j      gj        " Move along rows, not lines
-nnoremap k      gk        " Useful for long lines
+<pre><code>nnoremap j      gj        &quot; Move along rows, not lines
+nnoremap k      gk        &quot; Useful for long lines
 nnoremap 0      g0
-nnoremap $      g$
-</code></pre>
+nnoremap $      g$</code></pre>
 
-<h3 class="anchor" id="screen-centering">Screen centering</h3>
+<h3>Screen centering</h3>
 
-<pre><code>nnoremap &lt;space&gt;  zz      " Centers screen around cursor
+<pre><code>nnoremap &lt;space&gt;  zz      &quot; Centers screen around cursor
 nnoremap n        nzz
-nnoremap N        Nzz
-</code></pre>
+nnoremap N        Nzz</code></pre>
 
-<h2 class="anchor" id="command-mode-key-bindings">Command Mode Key Bindings</h2>
-
-<p>The following alias accidental shifts:</p>
+<h2>Command Mode Key Bindings</h2>
+The following alias accidental shifts:
 
 <pre><code>cnoremap W&lt;CR&gt; w&lt;CR&gt;
 cnoremap Q&lt;CR&gt; q&lt;CR&gt;
 cnoremap X&lt;CR&gt; x&lt;CR&gt;
 cnoremap Sh&lt;CR&gt; sh&lt;CR&gt;
 cnoremap sH&lt;CR&gt; sh&lt;CR&gt;
-cnoremap SH&lt;CR&gt; sh&lt;CR&gt;
-</code></pre>
+cnoremap SH&lt;CR&gt; sh&lt;CR&gt;</code></pre>
+
 
       </div>
     </div>

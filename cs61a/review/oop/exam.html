@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>OOP: exam | Albert Wu</title>
+    <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <script src='/public/js/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
+  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'albertwu.org');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
+    <div id='container'>
+      <div id='logo'>
+        <h1 id='nav-bar-hide'>OOP: exam</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/review'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final'>Final</a></li>
+  </ul>
+</div>
+
+        </div>
+        <div id='nav-bar-fixed'>
+          
+
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
+        </div>
+      </div>
+
+      <div id='content'>
+          <div id='reference'>
+    <h2>References</h2>
+
+    <p>You can review OOP in the following places</p>
+    
+
+<ul>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/15-Objects_1pps.pdf">Lecture: Objects</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/16-Inheritance_1pps.pdf">Lecture: Inheritance</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion06.pdf">Discussion 6</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php">Lab 6</a>
+  
+  </div>
+
+  
+
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  
+
+<h2>What would Python print?</h2>
+For the following questions, use the following class definition:
+
+<pre><code>class Account:
+    &quot;&quot;&quot;A class computer account. Each account has a two-letter ID
+    and the name of the student who is registered to the account.
+    &quot;&quot;&quot;
+    num_of_accounts = 0
+    def __init__(self, id):
+        self.id = id
+        Account.num_of_accounts += 1
+
+    def register(self, student):
+        self.student = student
+        print(&#x27;Registered &#x27; + student)
+
+    @property
+    def type(self):
+        return type(self)</code></pre>
+
+<h3 class="question" id="q1">Question 1: </h3>
+
+
+    <pre><code>&gt;&gt;&gt; acc_aa = Account(&quot;aa&quot;)
+&gt;&gt;&gt; acc_aa.register(&quot;Peter Perfect&quot;)
+<span class="blank2">______</span><span class="hidden solution 2">Registered Peter Perfect</span>
+&gt;&gt;&gt; Account.register(self, &quot;Jom Magrotker&quot;)
+<span class="blank2">______</span><span class="hidden solution 2">NameError: &#x27;self&#x27; is not defined</span>
+&gt;&gt;&gt; Account.register(acc_aa, &quot;Jom Magrotker&quot;)
+<span class="blank2">______</span><span class="hidden solution 2">Registered Jom Magrotker</span>
+&gt;&gt;&gt; Account.register(&quot;Jom Magrotker&quot;)
+<span class="blank2">______</span><span class="hidden solution 2">TypeError: requires 2 arguments, since it&#x27;s not a bound method</span></code></pre>
+
+    <button id='2' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<h3 class="question" id="q2">Question 2: </h3>
+
+<p>Use the <code>acc_aa</code> from the previous question.</p>
+
+
+    <pre><code>&gt;&gt;&gt; f1 = Account.register
+&gt;&gt;&gt; f1(acc_aa, &quot;Peter Perfect&quot;)
+<span class="blank3">______</span><span class="hidden solution 3">Registered Peter Perfect</span>
+&gt;&gt;&gt; f2 = acc_aa.register
+&gt;&gt;&gt; f2(acc_aa, &quot;Peter Perfect&quot;)
+<span class="blank3">______</span><span class="hidden solution 3">TypeError: should only take one argument, since it is a bound method!</span>
+&gt;&gt;&gt; f2(&quot;Peter Perfect&quot;)
+<span class="blank3">______</span><span class="hidden solution 3">Registered Peter Perfect</span></code></pre>
+
+    <button id='3' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<h3 class="question" id="q3">Question 3: </h3>
+
+<p>Use the <code>acc_aa</code> from the previous question.</p>
+
+
+    <pre><code>&gt;&gt;&gt; Account.register = lambda self: &quot;WAT&quot;
+&gt;&gt;&gt; Account.register(acc_aa, &quot;Hello&quot;)
+<span class="blank4">______</span><span class="hidden solution 4">TypeError: should only take one argument, self (but it is not a bound method!)</span>
+&gt;&gt;&gt; Account.register(&quot;Hello&quot;)
+<span class="blank4">______</span><span class="hidden solution 4">&#x27;WAT&#x27; # self is &#x27;Hello&#x27;</span>
+&gt;&gt;&gt; acc_aa.register(&quot;goodbye&quot;)
+<span class="blank4">______</span><span class="hidden solution 4">TypeError: should only take one argument, given 2 (acc_aa, &#x27;goodbye&#x27;)</span>
+&gt;&gt;&gt; acc_aa.register()
+<span class="blank4">______</span><span class="hidden solution 4">&#x27;WAT&#x27;</span></code></pre>
+
+    <button id='4' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<h3 class="question" id="q4">Question 4: </h3>
+
+<p>Assume you have started a new Python interactive session with the
+original definition of the <code>Account</code> class.</p>
+
+
+    <pre><code>&gt;&gt;&gt; acc_aa = Account(&quot;aa&quot;)
+&gt;&gt;&gt; acc_aa.register(&quot;Peter Perfect&quot;)
+<span class="blank5">______</span><span class="hidden solution 5">Registered Peter Perfect</span>
+&gt;&gt;&gt; acc_zz = Account(&quot;zz&quot;)
+&gt;&gt;&gt; acc_aa.register = acc_zz.register
+&gt;&gt;&gt; acc_aa.register(&quot;Bozo&quot;)
+<span class="blank5">______</span><span class="hidden solution 5">Registered Bozo</span>
+&gt;&gt;&gt; acc_aa.student
+<span class="blank5">______</span><span class="hidden solution 5">&#x27;Peter Perfect&#x27;</span>
+&gt;&gt;&gt; acc_zz.student
+<span class="blank5">______</span><span class="hidden solution 5">&#x27;Bozo&#x27;</span></code></pre>
+
+    <button id='5' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<h2>Code-Writing questions</h2>
+<h3 class="question" id="q5">Question 5: </h3>
+
+<p>In computer science, a <a href="http://en.wikipedia.org/wiki/Circular_buffer">circular buffer</a>
+a type of data structure that is used to store temporary, sequential
+data in a constant amount of space (this is commonly used to buffer
+data streams) in a first-in-first-out manner (the first element to be
+added is the first element to be removed). A circular buffer has the
+following properties:
+
+<ul>
+  <li>Each buffer has a fixed size of <code>n</code> elements (e.g. strings). This
+  size is determined upon creation of the buffer. Note that the total
+  number of elements that can be inserted into the buffer can exceed
+  <code>n</code>, but the number of elements in buffer at <em>any given time</em> must
+  be less than or equal to <code>n</code>.</li>
+  <li>Each buffer has a <code>start</code> that keeps track of the earliest element
+  that is currently in the buffer.  Similarly, each buffer has a <code>end</code>
+  that keeps track of the most recent element that is currently in the
+  buffer.</li>
+  <li>The buffer has a <code>append</code> method, which adds a given element into the
+  buffer. If the buffer is full, (i.e. the buffer already has <code>n</code>
+  elements), do not add the element, and instead print "Buffer exceeded
+  capacity".</li>
+  <li>The buffer has a <code>remove</code> method, which removes the earliest element
+  that is still in the buffer. If there are no elements in the buffer,
+  print "Buffer is empty".</li>
+</ul></p>
+
+<p>In order to implement the <code>append</code> and <code>remove</code> methods, you should
+have list of length <code>n</code> that stores the elements currently in the
+buffer. When you append the <em>i</em>th element, you should insert it into
+index (<em>i</em> mod <em>n</em>) of the list. Similarly, when you are removing the
+<em>j</em>th element, you should extract the element at index (<em>j</em> mod <em>n</em>) of
+the list. For more descriptions of the behavior, see the doctest.</p>
+
+<pre><code>class CircularBuffer:
+    &quot;&quot;&quot;Doctests:
+
+    &gt;&gt;&gt; buffer = CircularBuffer(3)
+    &gt;&gt;&gt; buffer.remove()
+    Buffer is empty
+    &gt;&gt;&gt; buffer.append(&#x27;a&#x27;)
+    &gt;&gt;&gt; buffer.remove()
+    &#x27;a&#x27;
+    &gt;&gt;&gt; buffer.remove()
+    Buffer is empty
+    &gt;&gt;&gt; buffer.append(&#x27;b&#x27;)
+    &gt;&gt;&gt; buffer.append(&#x27;c&#x27;)
+    &gt;&gt;&gt; buffer.append(&#x27;d&#x27;)
+    &gt;&gt;&gt; buffer.append(&#x27;e&#x27;)
+    Buffer capacity exceeded
+    &gt;&gt;&gt; buffer.remove()
+    &#x27;b&#x27;
+    &gt;&gt;&gt; buffer.remove()
+    &#x27;c&#x27;
+    &gt;&gt;&gt; buffer.remove()
+    &#x27;d&#x27;
+    &gt;&gt;&gt; buffer.remove()
+    Buffer is empty
+    &quot;&quot;&quot;
+    def __init__(self, n):
+        self.array = [None]*n   # list of length n
+        self.n = n
+        self.start = 0
+        self.end = 0
+
+    def append(self, elem):
+        &quot;*** YOUR CODE HERE ***&quot;
+
+    def remove(self):
+        &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+
+    <button id='0' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 0">
+
+<pre><code>class CircularBuffer:
+    def __init__(self, n):
+        self.array = [None]*n   # list of length n
+        self.n = n
+        self.start = 0
+        self.end = 0
+
+    def append(self, elem):
+        if self.end - self.start == self.n:
+            print(&#x27;Buffer exceeded capacity&#x27;)
+        else:
+            self.array[self.end] = elem
+            self.end = (self.end + 1) % self.n
+
+    def remove(self):
+        if self.end == self.start:
+            print(&#x27;Buffer is empty&#x27;)
+        else:
+            elem = self.array[self.start]
+            self.start = (self.start + 1) % self.n
+            return elem</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q6">Question 6: </h3>
+
+<p>Write a <code>Chef</code> class with the following qualities:
+
+<ul>
+  <li>Each <code>Chef</code> is initialized with a list of required ingredients. Each
+  item in the list is added to a storage that is shared by all the
+  <code>Chef</code>s with an initial stock of 2. If the item is already in the
+  storage, do NOT add it in again.</li>
+  <li>Each <code>Chef</code> can <code>fetch_ingredients</code> from a storage that is shared by
+  all the <code>Chef</code>s. Each <code>Chef</code> only needs 1 of each ingredient.</li>
+  <li>Each <code>Chef</code> can <code>serve</code>, where they put their finished food in a
+  shared list of <code>finished</code> foods.</li>
+</ul></p>
+
+<p>For finer details of implementation, see the doctest.</p>
+
+<pre><code>class Chef:
+    &quot;&quot;&quot;Doctests:
+
+    &gt;&gt;&gt; albert = Chef(&#x27;quiche&#x27;, [&#x27;egg&#x27;, &#x27;cheese&#x27;, &#x27;cream&#x27;, &#x27;salt&#x27;])
+    &gt;&gt;&gt; ramsay = Chef(&#x27;steak&#x27;, [&#x27;meat&#x27;, &#x27;bbq sauce&#x27;, &#x27;salt&#x27;])
+    &gt;&gt;&gt; ramsay.cook()
+    &#x27;Not enogh ingredients!&#x27;
+    &gt;&gt;&gt; ramsay.serve()
+    &#x27;No food to serve!&#x27;
+    &gt;&gt;&gt; ramsay.fetch_ingredients()     # 1 salt remaining
+    &quot;Fetched: [&#x27;meat&#x27;, &#x27;bbq sauce&#x27;, &#x27;salt&#x27;]&quot;
+    &gt;&gt;&gt; ramsay.cook()
+    &#x27;Cooked steak!&#x27;
+    &gt;&gt;&gt; ramsay.serve()
+    &gt;&gt;&gt; Chef.finished
+    [&#x27;steak&#x27;]
+    &gt;&gt;&gt; albert.fetch_ingredients()     # 0 salt remaining
+    &quot;Fetched: [&#x27;egg&#x27;, &#x27;cheese&#x27;, &#x27;cream&#x27;, &#x27;salt&#x27;]&quot;
+    &gt;&gt;&gt; albert.cook()
+    &#x27;Cooked quiche!&#x27;
+    &gt;&gt;&gt; albert.serve()
+    &gt;&gt;&gt; Chef.finished
+    [&#x27;steak&#x27;, &#x27;quiche&#x27;]
+    &gt;&gt;&gt; ramsay.fetch_ingredients()
+    &#x27;No more salt!&#x27;
+    &quot;&quot;&quot;
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+
+    <button id='1' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 1">
+
+<pre><code>class Chef:
+    storage = {}
+    finished = []
+
+    def __init__(self, food, ingredients):
+        self.food, self.ingredients = food, ingredients
+        self.fetched, self.cooked = False, False
+        for elem in self.ingredients:
+            Chef.storage[elem] = 2
+
+    def fetch_ingredients(self):
+        for elem in self.ingredients:
+            if Chef.storage[elem] == 0:
+                return &#x27;No more &#x27; + elem + &#x27;!&#x27;
+            Chef.storage[elem] -= 1
+        self.fetched = True
+        return &#x27;Fetched: &#x27; + str(self.ingredients)
+
+    def cook(self):
+        if self.fetched:
+            self.cooked, self.fetched = True, False
+            return &#x27;Cooked &#x27; + self.food + &#x27;!&#x27;
+        return &#x27;Not enough ingredients!&#x27;
+
+    def serve(self):
+        if not self.cooked:
+            return &#x27;No food to serve!&#x27;
+        Chef.finished.append(self.food)
+        self.cooked = False</code></pre>
+
+</div>
+    
+
+
+  </div>
+      </div>
+    </div>
+  </body>
+
+  <script src='/public/js/jquery-1.10.1.min.js'></script>
+  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
+  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
+  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/js/nav-bar.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+      $.localScroll();
+    });
+  </script>
+    <script src='/cs61a/review/public/js/toggle.js'></script>
+  
+</html>

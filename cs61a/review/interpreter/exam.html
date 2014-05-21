@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>Interpreters: exam | Albert Wu</title>
+    <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <script src='/public/js/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
+  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'albertwu.org');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
+    <div id='container'>
+      <div id='logo'>
+        <h1 id='nav-bar-hide'>Interpreters: exam</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/review'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final'>Final</a></li>
+  </ul>
+</div>
+
+        </div>
+        <div id='nav-bar-fixed'>
+          
+
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
+        </div>
+      </div>
+
+      <div id='content'>
+          <div id='reference'>
+    <h2>References</h2>
+
+    <p>You can review Interpreters in the following places</p>
+    
+
+<ul>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/25-Calculator_1pps.pdf">Lecture: Calculator</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/26-Interpreters_1pps.pdf">Lecture: Interpreters</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab08/lab08.php">Lab 8</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion10.pdf">Discussion 10</a>
+  
+  </div>
+
+  
+
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  
+
+<h2>Conceptual Questions</h2>
+<h3 class="question" id="q1">Question 1: </h3>
+
+<p>Given the following Scheme expressions, what would <code>scheme_read</code> from
+Project 4 return? If the parser would raise an error, write ERROR.</p>
+
+
+    <pre><code>&gt; (+ 2 3)
+<span class="blank2">______</span><span class="hidden solution 2">Pair(&#x27;+&#x27;, Pair(2, Pair(3, nil)))</span>
+&gt; &#x27;(1 2 3)
+<span class="blank2">______</span><span class="hidden solution 2">Pair(&#x27;quote&#x27;, Pair(Pair(1, Pair(2, Pair(3, nil))), nil))</span>
+&gt; (1 . 2)
+<span class="blank2">______</span><span class="hidden solution 2">Pair(1, 2)</span>
+&gt; 3
+<span class="blank2">______</span><span class="hidden solution 2">3</span>
+&gt; (1 . (3 2))
+<span class="blank2">______</span><span class="hidden solution 2">Pair(1, Pair(3, Pair(2, nil)))</span>
+&gt; (&#x27;hi . 3 4)
+<span class="blank2">______</span><span class="hidden solution 2">ERROR</span></code></pre>
+
+    <button id='2' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<h3 class="question" id="q2">Question 2: </h3>
+
+<p>Given each of the following Pair objects, determine how many times
+<code>scheme_eval</code> and <code>scheme_apply</code> are called (not <code>calc_eval</code> and
+<code>calc_apply</code>!). Be sure to include the first <code>scheme_eval</code>. The first
+one has been done for you.</p>
+
+<p><strong>Note</strong>: assume that the following <code>double</code> function has been defined:</p>
+
+<pre><code>(define (double x) (+ x x))</code></pre>
+
+<p>Don't include the calls to <code>scheme_eval</code> and <code>scheme_apply</code> for the
+code above in your answers.</p>
+
+<pre><code>(+ 2 3)
+; eval  4   (1 for whole expression, 1 for each element in list)
+; apply 1   (&#x27;+&#x27; is primitive)
+
+3
+; eval  ________
+; apply ________
+
+(+ 3 (+ 5 2))
+; eval  ________
+; apply ________
+
+(double 4)
+; eval  ________
+; apply ________
+
+(double (double 4))
+; eval  ________
+; apply ________</code></pre>
+
+
+    <button id='0' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 0">
+
+<pre><code>3
+; eval  1
+; apply 0
+
+(+ 3 (+ 5 2))
+; eval  7
+; apply 2
+
+(double 4)
+; eval  7
+; apply 2
+
+(double (double 4))
+; eval  13
+; apply 4</code></pre>
+
+</div>
+    
+
+<h2>Code-Writing question</h2>
+<h3 class="question" id="q3">Question 3: </h3>
+
+<p>Write a function <code>is_pyramid</code> that takes in a list of tokens, and
+checks if the list of tokens forms a pyramid. A <em>pyramid</em> is a list
+that is symmetric in <em>shape</em> (not necessarily the contents), and each
+list can only have one nested list at its level. The following are
+examples of valid pyramids:</p>
+
+<pre><code>(3 4 (5 (1) 3) 2 3)
+(1 2 3 4)           # no nested lists is okay
+(1 (2 () 3) 4)      # empty lists are okay
+(1 (2) 3) )()       # junk, )(), after a valid pyramid is okay
+(1 () 2) s d fs     # junk after a valid pyramid is okay</code></pre>
+
+<p>The following are examples of invalid pyramids:</p>
+
+<pre><code>(2 (3) 4 5)     # too many elements on the right side
+((3) (4))       # too many nested lists on the first level
+(3 4            # missing closing parenthesis</code></pre>
+
+<p>Given the examples above, implement the <code>is_pyramid</code> function:</p>
+
+<pre><code>def is_pyramid(tokens):
+    &quot;&quot;&quot;Returns true if the list of tokens begins with a valid
+    pyramid. Junk at the end is okay.
+
+    &gt;&gt;&gt; t1 = [&#x27;(&#x27;, 3, &#x27;(&#x27;, 4, &#x27;)&#x27;, 5, &#x27;)&#x27;]  # (3 (4) 5)
+    &gt;&gt;&gt; is_pyramid(t1)
+    True
+    &gt;&gt;&gt; t2 = [&#x27;(&#x27;, &#x27;(&#x27;, &#x27;(&#x27;, &#x27;)&#x27;, &#x27;)&#x27;, &#x27;)&#x27;] # ((()))
+    &gt;&gt;&gt; is_pyramid(t2)
+    True
+    &gt;&gt;&gt; t3 = [&#x27;(&#x27;, 3, &#x27;(&#x27;, 2, 3, &#x27;)&#x27;, 4, &#x27;)&#x27;, 3, 4] # (3 (2 3) 4) 3 4
+    &gt;&gt;&gt; is_pyramid(t3)
+    True
+    &gt;&gt;&gt; f1 = [&#x27;(&#x27;, 2, &#x27;(&#x27;, 3, &#x27;)&#x27;, 4, 5, &#x27;)&#x27;] # (2 (3) 4 5)
+    &gt;&gt;&gt; is_pyramid(f1)
+    False
+    &gt;&gt;&gt; f2 = [&#x27;(&#x27;, &#x27;(&#x27;, 3, &#x27;)&#x27;, &#x27;(&#x27;, 4, &#x27;)&#x27;, &#x27;)&#x27;] # ((3) (4))
+    &gt;&gt;&gt; is_pyramid(f2)
+    False
+    &gt;&gt;&gt; f3 = [&#x27;(&#x27;, 3, 4] # (3 4
+    &gt;&gt;&gt; is_pyramid(f3)
+    False
+    &quot;&quot;&quot;
+    if not tokens or tokens[0] != &#x27;(&#x27;:
+        return False
+    tokens.pop(0)
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+
+    <button id='1' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 1">
+
+<pre><code>def is_pyramid(tokens):
+    if not tokens or tokens[0] != &#x27;(&#x27;:
+        return False
+    tokens.pop(0)
+    count, direction = 0, 1
+    while tokens and tokens[0] != &#x27;)&#x27;:
+        if direction == -1 and count == 0:
+            return False
+        elif tokens[0] == &#x27;(&#x27;:
+            if direction == -1 or not is_pyramid(tokens):
+                return False
+            else:
+                direction = -1
+        else:
+            tokens.pop(0)
+            count += direction
+    if not tokens:
+        return False
+    else:
+        tokens.pop(0)
+        return direction == 1 or count == 0</code></pre>
+
+<p><strong>Explanation</strong>: The base case that is provided checks that the tokens
+begin with an '('. If it doesn't, then we immediately know that it is
+not a pyramid. We then remove the '('.</p>
+
+<p>First, let's write code that simply goes through each element and
+removes it from the list of tokens. The word <em>each</em> indicates that we
+need some looping structure, so we'll use a while look. Our while loop
+should stop if we reach the end of the list of tokens, or if we see a
+')':</p>
+
+<pre><code>def is_pyramid(tokens):
+    if not tokens or tokens[0] != &#x27;(&#x27;:
+        return False
+    tokens.pop(0)
+    while tokens and tokens[0] != &#x27;)&#x27;:
+        if tokens[0] == &#x27;(&#x27;:
+            # handle case for nested lists
+        else:
+            # handle case for numbers</code></pre>
+
+<p>How do we handle a nested list? Simply make a recursive call; if the
+nested list is not a valid pyramid, the recursive call will return
+False. The recursive call has the additional benefit of removing the
+nested list, including its closing parenthesis:</p>
+
+<pre><code>...
+if tokens[0] == &#x27;(&#x27;:
+    if not is_pyramid(tokens):
+        return False
+...&quot;&quot;&quot;) + &quot;&quot;&quot;How do we handle a number? Simply
+        remove it from the list of tokens:&quot;&quot;&quot; + prettify(&quot;&quot;&quot;
+...
+else:
+    tokens.pop(0)
+...</code></pre>
+
+<p>What happens if we break out of our while loop? There are two
+scenarios: 1) if we run out of tokens, and 2) if the first token is a
+')'. If we run out of tokens, we should return False, because that
+means we never saw the corresponding ')'. If the first token is a ')',
+then we successfully closed the list and we can just pop it off and
+return True:</p>
+
+<pre><code>...
+while tokens and tokens[0] != &#x27;)&#x27;:
+    ...
+if not tokens:
+    return False
+else:
+    tokens.pop(0)
+    return True&quot;&quot;&quot;) + &quot;&quot;&quot;At this point, our code
+    looks like this:&quot;&quot;&quot; + prettify(&quot;&quot;&quot;
+def is_pyramid(tokens):
+    if not tokens or tokens[0] != &#x27;(&#x27;:
+        return False
+    tokens.pop(0)
+    while tokens and tokens != &#x27;)&#x27;:
+        if tokens[0] == &#x27;(&#x27;:
+            if not is_pyramid(tokens):
+                return False
+        else:
+            tokens.pop(0)
+    if not tokens:
+        return False
+    else:
+        return True</code></pre>
+
+<p>This looks promising, but it doesn't account for the symmetry of the
+list.  Here's the idea. We'll keep track of two variables: 1) a
+<code>count</code>, which counts the number of elements before the nested list,
+and then checks that the number of elements after the nested list
+matches; 2) a <code>direction</code>, that tells us whether we're before the
+nested list or after it:</p>
+
+<pre><code>...
+tokens.pop(0)
+count, direction = 0, 1
+while tokens and tokens[0] != &#x27;)&#x27;:
+    ...</code></pre>
+
+<p>We'll use the convention that, when direction is 1, we are incrementing
+our count, and when direction is -1, we are decrementing our count.</p>
+
+<p>Now, let's go in the while loop. If <code>tokens[0] == &#x27;(&#x27;</code> (meaning we
+see a nested list), this tells us that we've reached our midpoint, and
+we should begin decrementing count after this:</p>
+
+<pre><code>if tokens[0] == &#x27;(&#x27;:
+    if not is_pyramid(tokens):
+        return False
+    else:
+        direction = -1</code></pre>
+
+<p>In addition, if our direction is already -1 (meaning we've already seen
+a nested list), and we see another nested list, this breaks our
+definition of a pyramid, so we should return False (e.g. the case <code>((3)
+(4))</code>):</p>
+
+<pre><code>if tokens[0] == &#x27;(&#x27;:
+    if direction == -1 or not is_pyramid(tokens):
+        return False
+    else:
+        direction = -1</code></pre>
+
+<p>What about the case of regular numbers? In addition to removing the
+token, we also need to update our <code>count</code>. If direction is 1, we should
+increment; if it is -1 (i.e. we've seen a nested list already), we
+should decrement:</p>
+
+<pre><code>else:
+    tokens.pop(0)
+    count += direction</code></pre>
+
+<p>We need one other case inside the while loop; what happens if we see
+<code>(3 (4) 5 6)</code>? There are too many elements on the right side! Walk
+through the code we have right now, and you'll notice that when we
+reach the 6, <code>count</code> will be 0, and <code>direction</code> will be -1. This is the
+red flag we look for to tell us to return False:</p>
+
+<pre><code>while tokens and tokens[0] != &#x27;)&#x27;:
+    if direction == -1 and count == 0:
+        return False
+    if tokens[0] == &#x27;(&#x27;:
+        ...</code></pre>
+
+<p>Almost done! At the end, we need to update the case where <code>tokens</code> is
+not empty.  Consider this example: <code>(3 4 () 3)</code>. The right side
+contains too few elements. How can we tell? <code>count</code> will be nonzero!
+Instead of just returning True, we add the additional check on
+count:</p>
+
+<pre><code>if not tokens:
+    return False
+else:
+    return direction == 1 or count == 0&quot;&quot;&quot;) + &quot;&quot;&quot;Overall,
+    our code looks like this:
+
+def is_pyramid(tokens):
+    if not tokens or tokens[0] != &#x27;(&#x27;:
+        return False
+    tokens.pop(0)
+    count, direction = 0, 1
+    while tokens and tokens[0] != &#x27;)&#x27;:
+        if direction == -1 and count == 0:
+            return False
+        elif tokens[0] == &#x27;(&#x27;:
+            if direction == -1 or not is_pyramid(tokens):
+                return False
+            else:
+                direction = -1
+        else:
+            tokens.pop(0)
+            count += direction
+    if not tokens:
+        return False
+    else:
+        tokens.pop(0)
+        return direction == 1 or count == 0</code></pre>
+
+</div>
+    
+
+
+  </div>
+      </div>
+    </div>
+  </body>
+
+  <script src='/public/js/jquery-1.10.1.min.js'></script>
+  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
+  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
+  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/js/nav-bar.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+      $.localScroll();
+    });
+  </script>
+    <script src='/cs61a/review/public/js/toggle.js'></script>
+  
+</html>

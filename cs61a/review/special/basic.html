@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>Interfaces: basic | Albert Wu</title>
+    <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <script src='/public/js/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
+  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'albertwu.org');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
+    <div id='container'>
+      <div id='logo'>
+        <h1 id='nav-bar-hide'>Interfaces: basic</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/review'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final'>Final</a></li>
+  </ul>
+</div>
+
+        </div>
+        <div id='nav-bar-fixed'>
+          
+
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
+        </div>
+      </div>
+
+      <div id='content'>
+          <div id='reference'>
+    <h2>References</h2>
+
+    <p>You can review Interfaces in the following places</p>
+    
+<a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/20-Interfaces_1pps.pdf">Lecture: Multiple representations</a>
+
+  </div>
+
+  
+
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  
+
+<h2>Conceptual Questions</h2>
+<h3 class="question" id="q1">Question 1: </h3>
+
+<p>Special methods provide a common interface across many different types
+of objects. List some special methods and the contexts in which they
+are used.</p>
+
+
+    <button id='0' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 0">
+
+<p>Here are some examples:
+
+<ul>
+  <li><code>__init__</code>: used to create instances of a class.</li>
+  <li><code>__len__</code>: called by the built-in <code>len</code> to calculate the "length" of
+  an object.</li>
+  <li><code>__getitem__</code>: used with square brackets (<code>[ ]</code>) to retrieve an
+  element at a certain index.</li>
+  <li><code>__repr__</code>: returns a string representation of an object that is
+  "Python readable" (could be typed into Python to replicate the same
+  object).</li>
+  <li><code>__str__</code>: returns a string representation of an object that is human
+  readable".</li>
+  <li><code>__eq__</code>: called when the <code>==</code> operator is used. Determines how to
+  check if two objects are equal.</li>
+  <li><code>__add__</code>: called when the <code>+</code> operator is used.</li>
+</ul></p>
+
+</div>
+    
+
+<h3 class="question" id="q2">Question 2: </h3>
+
+<p>What do the underscores (e.g.  <code>__init__</code>) in special method names do?</p>
+
+
+    <button id='1' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 1">
+
+<p>Functionally, the underscores don't do anything -- they are just part
+of the method name. However, when Python looks for a certain special
+method, it expects the name to have those underscores, so you can't
+leave them out!</p>
+
+</div>
+    
+
+<h2>What would Python print?</h2>
+For the following questions, assume the following class has been
+defined in the interpreter:
+
+<pre><code>class Box(object):
+    def __init__(self, item):
+        self.item = item
+        print(&#x27;Created a box!&#x27;)
+
+    def __getitem__(self, index):
+        item, self.item = self.item, None
+        return item
+
+    def __setitem__(self, index, item):
+        self.item = item
+
+    def __repr__(self):
+        return &#x27;Box(&#x27; + repr(self.item) + &#x27;)&#x27;
+
+    def __str__(self):
+        rep = self.item if self.item is not None else &#x27;&#x27;
+        return &#x27;|_{}_|&#x27;.format(rep)</code></pre>
+
+<h3 class="question" id="q3">Question 3: </h3>
+
+
+    <pre><code>&gt;&gt;&gt; d = Box(4)
+<span class="blank3">______</span><span class="hidden solution 3">Created a box!</span>
+&gt;&gt;&gt; repr(d)
+<span class="blank3">______</span><span class="hidden solution 3">&#x27;Box(4)&#x27;</span>
+&gt;&gt;&gt; str(d)
+<span class="blank3">______</span><span class="hidden solution 3">&#x27;|_4_|&#x27;</span>
+&gt;&gt;&gt; d
+<span class="blank3">______</span><span class="hidden solution 3">&#x27;Box(4)&#x27;</span>
+&gt;&gt;&gt; d[0]
+<span class="blank3">______</span><span class="hidden solution 3">4</span>
+&gt;&gt;&gt; str(d)
+<span class="blank3">______</span><span class="hidden solution 3">&#x27;|__|&#x27;</span>
+&gt;&gt;&gt; d[1000] = 1
+&gt;&gt;&gt; str(d)
+<span class="blank3">______</span><span class="hidden solution 3">&#x27;|_1_|&#x27;</span></code></pre>
+
+    <button id='3' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<h3 class="question" id="q4">Question 4: </h3>
+
+
+    <pre><code>&gt;&gt;&gt; a = Box(Box(4))
+<span class="blank4">______</span><span class="hidden solution 4">Created a box!</span>
+<span class="blank4">______</span><span class="hidden solution 4">Created a box!</span>
+&gt;&gt;&gt; str(a)
+<span class="blank4">______</span><span class="hidden solution 4">&#x27;|_|_4_|_|&#x27;</span>
+&gt;&gt;&gt; a[0][0]
+<span class="blank4">______</span><span class="hidden solution 4">4</span>
+&gt;&gt;&gt; str(a)
+<span class="blank4">______</span><span class="hidden solution 4">|__|</span>
+&gt;&gt;&gt; a[0] = a
+&gt;&gt;&gt; repr(a)
+<span class="blank4">______</span><span class="hidden solution 4">RuntimeError: maximum recursion depth...</span></code></pre>
+
+    <button id='4' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<h2>Code-Writing questions</h2>
+<h3 class="question" id="q5">Question 5: </h3>
+
+<p>Implement a class called <code>DoubleList</code>, such that its doctest passes.</p>
+
+<pre><code>class DoubleList(object):
+    &quot;&quot;&quot;See doctests for behavior.
+
+    &gt;&gt;&gt; d = DoubleList([1, 2, 3])
+    &gt;&gt;&gt; repr(d)
+    &#x27;DoubleList([1, 2, 3])&#x27;
+    &gt;&gt;&gt; str(d)
+    &#x27;[1, 1, 2, 2, 3, 3]&#x27;
+    &gt;&gt;&gt; d[2]
+    2
+    &gt;&gt;&gt; d[3]
+    2
+    &gt;&gt;&gt; d[4]
+    3
+    &gt;&gt;&gt; len(d)
+    6
+    &gt;&gt;&gt; d.append(4)
+    &gt;&gt;&gt; str(d)
+    &#x27;[1, 1, 2, 2, 3, 3, 4, 4]&#x27;
+    &quot;&quot;&quot;</code></pre>
+
+
+    <button id='2' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 2">
+
+<pre><code>class DoubleList(object):
+    def __init__(self, lst):
+        self.lst = lst
+
+    def append(self, item):
+        self.lst.append(item)
+
+    def __repr__(self):
+        return &#x27;DoubleList(&#x27; + repr(self.lst) + &#x27;)&#x27;
+
+    def __str__(self):
+        rep = &#x27;[&#x27;
+        for elem in self.lst:
+            rep += &#x27;{0}, {0}, &#x27;.format(elem)
+        return rep[:-2] + &#x27;]&#x27;
+
+    def __len__(self):
+        return 2 * len(self.lst)
+
+    def __getitem__(self, index):
+        return self.lst[index // 2]</code></pre>
+
+</div>
+    
+
+
+  </div>
+      </div>
+    </div>
+  </body>
+
+  <script src='/public/js/jquery-1.10.1.min.js'></script>
+  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
+  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
+  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/js/nav-bar.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+      $.localScroll();
+    });
+  </script>
+    <script src='/cs61a/review/public/js/toggle.js'></script>
+  
+</html>

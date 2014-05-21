@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>Streams: basic | Albert Wu</title>
+    <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <script src='/public/js/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
+  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'albertwu.org');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
+    <div id='container'>
+      <div id='logo'>
+        <h1 id='nav-bar-hide'>Streams: basic</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/review'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final'>Final</a></li>
+  </ul>
+</div>
+
+        </div>
+        <div id='nav-bar-fixed'>
+          
+
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
+        </div>
+      </div>
+
+      <div id='content'>
+          <div id='reference'>
+    <h2>References</h2>
+
+    <p>You can review Streams in the following places</p>
+    
+
+<ul>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/30-Streams_1pps.pdf">Lecture: Streams</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab10/lab10.php">Lab 10</a>
+  
+  </div>
+
+  
+You can find the source code that contains the Stream class
+<a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/30.py">here</a>.
+
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  
+
+<h2>Conceptual Questions</h2>
+<h3 class="question" id="q1">Question 1: </h3>
+
+<p>What are the advantages to using a stream as opposed to a regular
+list?</p>
+
+
+    <button id='0' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 0">
+
+<p>A stream can be used to "store" infinite amounts of data. Because the
+data is not computed until you need it, you can use memory more
+efficiently.</p>
+
+</div>
+    
+
+<h3 class="question" id="q2">Question 2: </h3>
+
+<p>The signature of the Stream constructor is <code>Stream(item, compute_rest)</code>
+-- <code>compute_rest</code> will be a function that computes the rest of the
+Stream. How many arguments can <code>compute_rest</code> take? What type of object
+must it return?</p>
+
+
+    <button id='1' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 1">
+
+<p><code>compute_rest</code> must take zero arguments, or else the <code>Stream.rest</code>
+property method will not work. <code>compute_rest</code> must return another
+Stream object.</p>
+
+</div>
+    
+
+<h3 class="question" id="q3">Question 3: </h3>
+
+<p>Given the following function, list the first 5 numbers in the Stream
+that <code>my_stream()</code> returns.</p>
+
+<pre><code>def my_stream():
+    def compute_rest():
+        return add_streams(integer_stream(),
+                           map_stream(lambda x: 3*x,
+                                      integer_stream()))
+    return Stream(0, compute_rest)</code></pre>
+
+
+    <button id='2' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 2">
+
+<p>0, 4, 8, 12, 16</p>
+
+</div>
+    
+
+<h2>Code-Writing questions</h2>
+<h3 class="question" id="q4">Question 4: </h3>
+
+<p>Write a function <code>odd_stream()</code> that returns a stream of odd-numbered
+integers, start from 1.</p>
+
+<pre><code>def odd_stream():
+    &quot;&quot;&quot;Returns a Stream of odd numbers starting at 1.
+
+    &gt;&gt;&gt; s = odd_stream()
+    &gt;&gt;&gt; first_k_as_list(s, 5)
+    [1, 3, 5, 7, 9]
+    &quot;&quot;&quot;
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+
+    <button id='3' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 3">
+
+<pre><code>def odd_stream():
+    def compute_rest():
+        return map_stream(lambda x: x + 2, odd_stream())
+    return Stream(1, compute_rest)</code></pre>
+
+<p>Let <code>s</code> be the result of calling <code>odd_Stream()</code>:</p>
+
+<pre><code>s = 1,    3,        5,      7,    ...
+  = 1, (1 + 2), (3 + 2), (5 + 2), ...</code></pre>
+
+<p>The rest of <code>s</code> is just the elements of <code>s</code>, but with 2 added to each
+element.</p>
+
+</div>
+    
+
+<h3 class="question" id="q5">Question 5: </h3>
+
+<p>Write a function <code>reduce_first_k()</code> that reduces the first <em>k</em>
+elements in a given Stream, using a given combiner. If the stream has
+fewer than <em>k</em> elements, reduce all the elements in the stream.</p>
+
+<pre><code>def reduce_first_k(s, k, combiner):
+    &quot;&quot;&quot;Reduces the first k elements in s with combiner.
+
+    &gt;&gt;&gt; s = integer_stream()
+    &gt;&gt;&gt; reduce_first_k(s, 4, lambda x, y: x + y)
+    10
+    &gt;&gt;&gt; s1 = Stream(1, lambda: Stream(2))
+    &gt;&gt;&gt; reduce_first_k(s1, 4, lambda x, y: x + y)
+    3
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+
+    <button id='4' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 4">
+
+<pre><code>def reduce_first_k(s, k, combiner):
+    total, s = s.first, s.rest
+    while k &gt; 1 and s != Stream.empty:
+        total = combiner(total, s.first)
+        s = s.rest
+        k -= 1
+    return total</code></pre>
+
+<p>We start the total with the first element of <code>s</code>. We keep iterating
+until <code>k</code> is equal to 1, because we've already visited the first
+element of <code>s</code> (so we only need to iterate <code>k - 1</code> times.</p>
+
+</div>
+    
+
+
+  </div>
+      </div>
+    </div>
+  </body>
+
+  <script src='/public/js/jquery-1.10.1.min.js'></script>
+  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
+  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
+  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/js/nav-bar.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+      $.localScroll();
+    });
+  </script>
+    <script src='/cs61a/review/public/js/toggle.js'></script>
+  
+</html>

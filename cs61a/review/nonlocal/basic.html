@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>Nonlocal: basic | Albert Wu</title>
+    <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <script src='/public/js/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
+  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'albertwu.org');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
+    <div id='container'>
+      <div id='logo'>
+        <h1 id='nav-bar-hide'>Nonlocal: basic</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/review'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final'>Final</a></li>
+  </ul>
+</div>
+
+        </div>
+        <div id='nav-bar-fixed'>
+          
+
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
+        </div>
+      </div>
+
+      <div id='content'>
+          <div id='reference'>
+    <h2>References</h2>
+
+    <p>You can review Nonlocal in the following places</p>
+    
+
+<ul>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/14-Mutation_1pps.pdf">Lecture: Mutable Data</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab05/lab05.php">Lab 5</a>
+  
+  </div>
+
+  
+
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  
+
+<h2>Conceptual Questions</h2>
+<h3 class="question" id="q1">Question 1: </h3>
+
+<p>Would this code work? If not, how would you fix it?</p>
+
+<pre><code>def make_counter():
+    count = 0
+    def counter():
+        count += 1
+        return count
+    return counter</code></pre>
+
+
+    <button id='0' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 0">
+
+<p>No, this code would not work. Here's how we can find out:
+
+<ul>
+  <li>The line <code>count += 1</code> is equivalent to <code>count = count + 1</code>, so we
+  rewrite it as such.</li>
+  <li>Python notices that <code>count</code> appears on the left side of an assignment
+  statement, so Python remembers to treat <code>count</code> as a local variable.</li>
+  <li>Python then begins executing the line. To compute <code>count + 1</code> Python
+  must look up <code>count</code>.</li>
+  <li>But Python had previously marked <code>count</code> as a local variable, and it
+  doesn't have a value yet! So Python raises an error.</li>
+</ul></p>
+
+<p>To fix it, add a nonlocal statement:</p>
+
+<pre><code>def make_counter():
+    count = 0
+    def counter():
+        nonlocal count
+        count += 1
+        return count
+    return counter</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q2">Question 2: </h3>
+
+<p>Consider the following code:</p>
+
+<pre><code>def fn1(bob):
+    def fn2(alice):
+        def fn3(alice):
+            def fn4():
+                nonlocal bob, alice
+                return bob + alice
+            return fn4
+        return fn3
+    return fn2</code></pre>
+
+<p>Answer the following questions:
+
+<ol>
+  <li>In which function's frame does Python start looking for <code>alice</code>?</li>
+  <li>In which function's frame does Python stop looking for <code>alice</code>?</li>
+  <li>In which function's frame does Python start looking for <code>bob</code>?</li>
+  <li>In which function's frame does Python stop looking for <code>bob</code>?</li>
+</ol></p>
+
+
+    <button id='1' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 1">
+
+<ol>
+  <li><code>fn3</code></li>
+  <li><code>fn3</code></li>
+  <li><code>fn3</code></li>
+  <li><code>fn1</code></li>
+</ol>
+
+</div>
+    
+
+<h3 class="question" id="q3">Question 3: </h3>
+
+<p>Identify all the errors regarding nonlocal in the following code:</p>
+
+<pre><code>bob = 2
+def fn1(bob):
+    eve = 3
+    def fn2(alice):
+        nonlocal bob, alice
+        eve = 4
+        return eve + alice
+    return fn2</code></pre>
+
+
+    <button id='2' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 2">
+
+<p><strong><code>nonlocal alice</code></strong> is incorrect, since
+<code>alice</code> is already defined in the same frame (as a
+parameter to <code>fn2</code>).</p>
+
+<p><strong><code>eve = 4</code></strong> will NOT cause any errors,
+since <code>eve</code> is not being referenced before
+assignment.  However, because <code>eve</code> is not declared
+as nonlocal, the <code>eve</code> in <code>fn1</code> will retain
+the value of 3.</p>
+
+</div>
+    
+
+<h2>Environment Diagrams</h2>
+<h3 class="question" id="q4">Question 4: </h3>
+
+<pre><code>def make_counter():
+    count = 0
+    def counter():
+        nonlocal count
+        count += 1
+        return count
+    return counter
+
+counter = make_counter()
+counter()
+counter()</code></pre>
+
+    <button id='3' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    <div class="solution 3">
+    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+make_counter%28%29%3A%0A++++count+%3D+0%0A++++def+counter%28%29%3A%0A++++++++nonlocal+count%0A++++++++count+%2B%3D+1%0A++++++++return+count%0A++++return+counter%0A%0Acounter+%3D+make_counter%28%29%0Acounter%28%29%0Acounter%28%29">
+    </iframe>
+    </div>
+    
+
+<h3 class="question" id="q5">Question 5: </h3>
+
+<pre><code>def foo():
+    lst = []
+    def bar(m):
+        nonlocal lst
+        lst = lst + [m]
+        return lst
+    return bar
+
+bar = foo()
+bar(3)
+bar(4)</code></pre>
+
+    <button id='4' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    <div class="solution 4">
+    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+foo%28%29%3A%0A++++lst+%3D+%5B%5D%0A++++def+bar%28m%29%3A%0A++++++++nonlocal+lst%0A++++++++lst+%3D+lst+%2B+%5Bm%5D%0A++++++++return+lst%0A++++return+bar%0A%0Abar+%3D+foo%28%29%0Abar%283%29%0Abar%284%29">
+    </iframe>
+    </div>
+    
+
+<h3 class="question" id="q6">Question 6: </h3>
+
+<pre><code>def foo():
+    lst = []
+    def bar(m):
+        lst.append(m)
+        return lst
+    return bar
+
+bar = foo()
+bar(3)
+bar(4)</code></pre>
+
+    <button id='5' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    <div class="solution 5">
+    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+foo%28%29%3A%0A++++lst+%3D+%5B%5D%0A++++def+bar%28m%29%3A%0A++++++++lst.append%28m%29%0A++++++++return+lst%0A++++return+bar%0A%0Abar+%3D+foo%28%29%0Abar%283%29%0Abar%284%29">
+    </iframe>
+    </div>
+    
+
+
+  </div>
+      </div>
+    </div>
+  </body>
+
+  <script src='/public/js/jquery-1.10.1.min.js'></script>
+  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
+  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
+  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/js/nav-bar.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+      $.localScroll();
+    });
+  </script>
+    <script src='/cs61a/review/public/js/toggle.js'></script>
+  
+</html>

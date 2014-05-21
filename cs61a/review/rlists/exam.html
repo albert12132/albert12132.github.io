@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>Recursive Lists: exam | Albert Wu</title>
+    <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <script src='/public/js/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
+  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'albertwu.org');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
+    <div id='container'>
+      <div id='logo'>
+        <h1 id='nav-bar-hide'>Recursive Lists: exam</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/review'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final'>Final</a></li>
+  </ul>
+</div>
+
+        </div>
+        <div id='nav-bar-fixed'>
+          
+
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
+        </div>
+      </div>
+
+      <div id='content'>
+          <div id='reference'>
+    <h2>References</h2>
+
+    <p>You can review Recursive Lists in the following places</p>
+    
+
+<ul>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/11-Sequences_1pps.pdf">Lecture: Sequences</a>
+  
+  </div>
+
+  
+We will be using the following implementation of immutable recursive
+lists. Keep in mind that your code should not depend on the assumption
+that rlists are implemented as tuples -- preserve data abstraction!
+
+<pre><code>empty_rlist = None
+
+def rlist(first, rest=empty_rlist):
+    return (first, rest)
+
+def first(s):
+    return s[0]
+
+def rest(s):
+    return s[1]</code></pre>
+
+
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  
+<h2>What would Python print?</h2>
+<h3 class="question" id="q1">Question 1: </h3>
+
+
+    <pre><code>&gt;&gt;&gt; r = rlist(1, rlist(rlist(2, empty_rlist), rlist(4, empty_rlist)))
+&gt;&gt;&gt; first(r)
+<span class="blank2">______</span><span class="hidden solution 2">1</span>
+&gt;&gt;&gt; first(rest(rest(r)))
+<span class="blank2">______</span><span class="hidden solution 2">4</span>
+&gt;&gt;&gt; first(first(rest(r)))
+<span class="blank2">______</span><span class="hidden solution 2">2</span></code></pre>
+
+    <button id='2' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<h3 class="question" id="q2">Question 2: </h3>
+
+
+    <pre><code>&gt;&gt;&gt; r = rlist(1, rlist(rlist(2, empty_rlist), rlist(4, empty_rlist)))
+&gt;&gt;&gt; first(r)
+<span class="blank3">______</span><span class="hidden solution 3">1</span>
+&gt;&gt;&gt; first(rest(rest(r)))
+<span class="blank3">______</span><span class="hidden solution 3">4</span>
+&gt;&gt;&gt; first(first(rest(r)))
+<span class="blank3">______</span><span class="hidden solution 3">2</span></code></pre>
+
+    <button id='3' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<h3 class="question" id="q3">Question 3: </h3>
+
+
+    <pre><code>&gt;&gt;&gt; r = rlist(rlist(1, rlist(2, empty_rlist)), rlist(3, rlist(4, empty_rlist)))
+&gt;&gt;&gt; first(rest(r))
+<span class="blank4">______</span><span class="hidden solution 4">3</span>
+&gt;&gt;&gt; first(rest(first(r)))
+<span class="blank4">______</span><span class="hidden solution 4">2</span>
+&gt;&gt;&gt; first(first(rest(r)))
+<span class="blank4">______</span><span class="hidden solution 4">IndexError</span></code></pre>
+
+    <button id='4' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<h2>Code-Writing questions</h2>
+<h3 class="question" id="q4">Question 4: </h3>
+
+<p>Implement a function <code>alternate</code> which takes an rlist and returns a new
+rlist that contains <em>every other</em> element in the original rlist.</p>
+
+<pre><code>def alternate(lst):
+    &quot;&quot;&quot;Returns a new rlist that contains every other element of the
+    original.
+
+    &gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, empty_rlist)))
+    &gt;&gt;&gt; rlist_to_tup(alternate(r))
+    (1, 3)
+    &gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, rlist(4, empty_rlist))))
+    &gt;&gt;&gt; rlist_to_tup(alternate(r))
+    (1, 3)
+    &quot;&quot;&quot;
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+
+    <button id='0' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 0">
+<pre><code>def alternate(r):
+    if r == empty_rlist:
+        return empty_rlist
+    elif rest(r) == empty_rlist:
+        return r
+    else:
+        return rlist(first(r), alternate(rest(rest(r)))</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q5">Question 5: </h3>
+
+<p>Implement a function <code>filter_rlist</code> which takes an rlist and returns a
+new rlist that contains only elements that satisfy the given predicate.</p>
+
+<pre><code>def filter(pred, lst):
+    &quot;&quot;&quot;Returns a new rlist that contains elements of lst that
+    satisfy the predicate.
+
+    &gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, empty_rlist)))
+    &gt;&gt;&gt; rlist_to_tup(filter_rlist(lambda x: x % 2 == 1, r))
+    (1, 3)
+    &gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, rlist(4, empty_rlist))))
+    &gt;&gt;&gt; rlist_to_tup(filter_rlist(lambda x: x % 3 == 1, r))
+    (1, 4)
+    &quot;&quot;&quot;
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+
+    <button id='1' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 1">
+<pre><code>def filter(pred, lst):
+    if r == empty_rlist:
+        return empty_rlist
+    elif pred(first(lst)):
+        return rlist(first(lst), filter(pred, rest(lst)))
+    else:
+        return filter(pred, rest(lst))</code></pre>
+
+</div>
+    
+
+  </div>
+      </div>
+    </div>
+  </body>
+
+  <script src='/public/js/jquery-1.10.1.min.js'></script>
+  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
+  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
+  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/js/nav-bar.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+      $.localScroll();
+    });
+  </script>
+    <script src='/cs61a/review/public/js/toggle.js'></script>
+  
+</html>

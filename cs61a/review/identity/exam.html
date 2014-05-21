@@ -3,7 +3,7 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>Midterm 2 Review | Albert Wu</title>
+    <title>Identity vs. Equality: exam | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
@@ -38,7 +38,7 @@
 
     <div id='container'>
       <div id='logo'>
-        <h1 id='nav-bar-hide'>Midterm 2 Review</h1>
+        <h1 id='nav-bar-hide'>Identity vs. Equality: exam</h1>
       </div>
 
       <div id='nav-bar'>
@@ -72,96 +72,76 @@
       </div>
 
       <div id='content'>
-          <p>Here, you will find practice problems related to
-  Midterm 2. The following practice problems
-  are arranged into two categories:</p>
+          <div id='reference'>
+    <h2>References</h2>
 
-  <ul>
-    <li><b>Basic</b>: test fundamental understanding of topic</li>
-    <li><b>Exam</b>: level of difficulty comparable to an exam
-  </ul>
-
-  <p></p>
-
-  <table id="topics" class="highlight">
-    
-    <tr>
-      <td>Rlists</td>
-      <td><a href="rlists/basic/">Questions</td>
-      <td><a href="rlists/exam/">Questions</td>
-    </tr>
+    <p>You can review Identity vs. Equality in the following places</p>
     
 
-    <tr>
-      <td>Lists</td>
-      <td><a href="lists/basic/">Questions</td>
-      <td><a href="lists/exam/">Questions</td>
-    </tr>
+<ul>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/15-Objects_1pps.pdf">Lecture: Objects</a>
+  
+  </div>
+
+  
+
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  
+
+<h2>What would Python print?</h2>
+<h3 class="question" id="q1">Question 1: </h3>
+
+
+    <pre><code>&gt;&gt;&gt; def outer():
+...     def inner():
+...         return 42
+...     return inner
+&gt;&gt;&gt; outer is outer
+<span class="blank0">______</span><span class="hidden solution 0">True   # referring to the function outer</span>
+&gt;&gt;&gt; outer() is outer()
+<span class="blank0">______</span><span class="hidden solution 0">False  # referring to the return value of outer; draw an environment diagram to see why it is False</span>
+&gt;&gt;&gt; outer() == outer()
+<span class="blank0">______</span><span class="hidden solution 0">False  # == for functions behaves like is</span>
+&gt;&gt;&gt; [1, 2, (3, 4)] == [1, 2, (3, 4)]
+<span class="blank0">______</span><span class="hidden solution 0">True</span>
+&gt;&gt;&gt; [1, 2, outer()] == [1, 2, outer()]
+<span class="blank0">______</span><span class="hidden solution 0">False  # == for list checks if each pair of elements satisfies ==</span></code></pre>
+
+    <button id='0' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
     
 
-    <tr>
-      <td>Dictionaries</td>
-      <td><a href="dictionaries/basic/">Questions</td>
-      <td><a href="dictionaries/exam/">Questions</td>
-    </tr>
+<h3 class="question" id="q2">Question 2: </h3>
+
+
+    <pre><code>&gt;&gt;&gt; a = [1, 2, 3, 4]
+&gt;&gt;&gt; a[0] = a
+&gt;&gt;&gt; a is a[0]
+<span class="blank1">______</span><span class="hidden solution 1">True</span>
+&gt;&gt;&gt; a = {&#x27;hi&#x27;: 3}
+&gt;&gt;&gt; b = {&#x27;hi&#x27;: 3}
+&gt;&gt;&gt; a is b
+<span class="blank1">______</span><span class="hidden solution 1">False</span>
+&gt;&gt;&gt; a == b
+<span class="blank1">______</span><span class="hidden solution 1">True</span>
+&gt;&gt;&gt; a[&#x27;hi&#x27;] = 10
+&gt;&gt;&gt; a == b
+<span class="blank1">______</span><span class="hidden solution 1">False  # keys AND values must be equivalent</span></code></pre>
+
+    <button id='1' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
     
 
-    <tr>
-      <td>Map, filter, and friends</td>
-      <td><a href="functions/basic/">Questions</td>
-      <td><a href="functions/exam/">Questions</td>
-    </tr>
-    
 
-    <tr>
-      <td>Identity vs. Equality</td>
-      <td><a href="identity/basic/">Questions</td>
-      <td><a href="identity/exam/">Questions</td>
-    </tr>
-    
-
-    <tr>
-      <td>Nonlocal</td>
-      <td><a href="nonlocal/basic/">Questions</td>
-      <td><a href="nonlocal/exam/">Questions</td>
-    </tr>
-    
-
-    <tr>
-      <td>OOP</td>
-      <td><a href="oop/basic/">Questions</td>
-      <td><a href="oop/exam/">Questions</td>
-    </tr>
-    
-
-    <tr>
-      <td>Special Methods</td>
-      <td><a href="special/basic/">Questions</td>
-      <td><a href="special/exam/">Questions</td>
-    </tr>
-    
-
-    <tr>
-      <td>Rlists as Classes</td>
-      <td><a href="mut-rlists/basic/">Questions</td>
-      <td><a href="mut-rlists/exam/">Questions</td>
-    </tr>
-    
-
-    <tr>
-      <td>Trees</td>
-      <td><a href="trees/basic/">Questions</td>
-      <td><a href="trees/exam/">Questions</td>
-    </tr>
-    
-
-    <tr>
-      <td>Orders of Growth</td>
-      <td><a href="oog/basic/">Questions</td>
-      <td><a href="oog/exam/">Questions</td>
-    </tr>
-    
-  </table>
+  </div>
       </div>
     </div>
   </body>

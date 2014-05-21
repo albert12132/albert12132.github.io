@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>Recursive Lists: basic | Albert Wu</title>
+    <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <script src='/public/js/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
+  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'albertwu.org');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
+    <div id='container'>
+      <div id='logo'>
+        <h1 id='nav-bar-hide'>Recursive Lists: basic</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/review'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final'>Final</a></li>
+  </ul>
+</div>
+
+        </div>
+        <div id='nav-bar-fixed'>
+          
+
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
+        </div>
+      </div>
+
+      <div id='content'>
+          <div id='reference'>
+    <h2>References</h2>
+
+    <p>You can review Recursive Lists in the following places</p>
+    
+
+<ul>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/11-Sequences_1pps.pdf">Lecture: Sequences</a>
+  
+  </div>
+
+  
+We will be using the following implementation of immutable recursive
+lists. Keep in mind that your code should not depend on the assumption
+that rlists are implemented as tuples -- preserve data abstraction!
+
+<pre><code>empty_rlist = None
+
+def rlist(first, rest=empty_rlist):
+    return (first, rest)
+
+def first(s):
+    return s[0]
+
+def rest(s):
+    return s[1]</code></pre>
+
+
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  
+
+<h2>Concept Questions</h2>
+<h3 class="question" id="q1">Question 1: </h3>
+
+<p>What type of object can <code>first</code> be (e.g.  int, string, function, etc.)?
+What type of object can <code>rest</code> be?</p>
+
+
+    <button id='0' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 0">
+
+<p><code>first</code> can be any type of object, even an rlist. <code>rest</code> can only be an
+rlist.</p>
+
+</div>
+    
+
+<h3 class="question" id="q2">Question 2: </h3>
+
+<p>Which of the following are valid Rlist constructors?
+
+<ol>
+  <li><code>rlist(1, 3)</code></li>
+  <li><code>rlist(1, None)</code></li>
+  <li><code>rlist(1, rlist(4, empty_rlist))</code></li>
+  <li><code>rlist(1, empty_rlist)</code></li>
+  <li><code>rlist()</code></li>
+</ol></p>
+
+
+    <button id='1' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 1">
+
+<p>The correct answers are in bold:
+
+<ol>
+  <li><code>rlist(1, 3)</code></li>
+  <li><code>rlist(1, None)</code></li>
+  <li><strong><code>rlist(1, rlist(4, empty_rlist))</code></strong></li>
+  <li><strong><code>rlist(1, empty_rlist)</code></strong></li>
+  <li><code>rlist()</code></li>
+</ol></p>
+
+</div>
+    
+
+<h3 class="question" id="q3">Question 3: </h3>
+
+<p>Construct an rlist that contains the following elements:</p>
+
+<pre><code>1, 3, lambda x: x, &#x27;hi&#x27;</code></pre>
+
+
+    <button id='2' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 2">
+
+<pre><code>rlist(1, rlist(3, rlist(lambda x: x, rlist(&#x27;hi&#x27;, empty_rlist))))</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q4">Question 4: </h3>
+
+<p>What is the third element of the following rlist?</p>
+
+<pre><code>rlist(&#x27;this&#x27;, rlist(rlist(&#x27;is&#x27;, rlist(&#x27;a&#x27;, empty_rlist)), rlist(&#x27;question&#x27;, empty_rlist)))</code></pre>
+
+
+    <button id='3' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 3">
+
+<p><code>&#x27;question&#x27;</code></p>
+
+</div>
+    
+
+<h3 class="question" id="q5">Question 5: </h3>
+
+<p>What is the length of the rlist in the previous question (i.e. how many
+elements are in the rlist, not including the elements of nested rlists?</p>
+
+
+    <button id='4' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 4">
+
+<p>3</p>
+
+</div>
+    
+
+<h2>What would Python print?</h2>
+<h3 class="question" id="q6">Question 6: </h3>
+
+
+    <pre><code>&gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, empty_rlist)))
+&gt;&gt;&gt; first(r)
+<span class="blank7">______</span><span class="hidden solution 7">1</span>
+&gt;&gt;&gt; rest(r)
+<span class="blank7">______</span><span class="hidden solution 7">(2, (3, None))</span>
+&gt;&gt;&gt; rest(rest(r))
+<span class="blank7">______</span><span class="hidden solution 7">(3, None)</span>
+&gt;&gt;&gt; first(rest(r))
+<span class="blank7">______</span><span class="hidden solution 7">2</span>
+&gt;&gt;&gt; first(rest(rest(r)))
+<span class="blank7">______</span><span class="hidden solution 7">3</span></code></pre>
+
+    <button id='7' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    
+
+<h2>Code-Writing Questions</h2>
+<h3 class="question" id="q7">Question 7: </h3>
+
+<p>Implement a function <code>rlist_to_tup</code> that takes an rlist as an argument, and
+returns a tuple that contains the same elements as the rlist.</p>
+
+<pre><code>def rlist_to_tup(lst):
+    &quot;&quot;&quot;Returns a tuple that contains the same elements as the
+    rlist.
+
+    &gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, empty_rlist)))
+    &gt;&gt;&gt; rlist_to_tup(r)
+    (1, 2, 3)
+    &quot;&quot;&quot;
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+
+    <button id='5' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 5">
+
+<p>A recursive version:</p>
+
+<pre><code>def rlist_to_tup(lst):
+    if lst == empty_rlist:
+        return ()
+    return (first(lst),) + rlist_to_tup(rest(lst))</code></pre>
+
+<p>An iterative version:</p>
+
+<pre><code>def rlist_to_tup(lst):
+    new = ()
+    while lst != empty_rlist:
+        new += (first(lst),)
+        lst = rest(lst)
+    return new</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q8">Question 8: </h3>
+
+<p>Implement a function <code>map_rlist</code> that maps a function <code>f</code> onto each element of
+an rlist.</p>
+
+<pre><code>def map_rlist(lst, f):
+    &quot;&quot;&quot;Maps f onto each element in the rlist.
+
+    &gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, empty_rlist)))
+    &gt;&gt;&gt; rlist_to_tup(map_rlist(r, lambda x: x**2))
+    (1, 4, 9)
+    &quot;&quot;&quot;
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+
+    <button id='6' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 6">
+
+<p>A recursive version:</p>
+
+<pre><code>def map_rlist(lst, f):
+    if lst == empty_rlist:
+        return empty_rlist
+    return rlist(f(first(lst)), map_rlist(rest(lst), f))</code></pre>
+
+<p>An iterative version:</p>
+
+<pre><code>def map_rlist(lst, f):
+    new = empty_rlist
+    while lst != empty_rlist:
+        new = rlist(f(first(lst)), new)
+        lst = rest(lst)
+    while new != empty_rlist:
+        lst = rlist(first(new), lst)
+        new = rest(new)
+    return lst</code></pre>
+
+</div>
+    
+
+  </div>
+      </div>
+    </div>
+  </body>
+
+  <script src='/public/js/jquery-1.10.1.min.js'></script>
+  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
+  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
+  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/js/nav-bar.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+      $.localScroll();
+    });
+  </script>
+    <script src='/cs61a/review/public/js/toggle.js'></script>
+  
+</html>

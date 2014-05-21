@@ -3,7 +3,7 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>Midterm 2 Review | Albert Wu</title>
+    <title>Orders of Growth: exam | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
@@ -38,7 +38,7 @@
 
     <div id='container'>
       <div id='logo'>
-        <h1 id='nav-bar-hide'>Midterm 2 Review</h1>
+        <h1 id='nav-bar-hide'>Orders of Growth: exam</h1>
       </div>
 
       <div id='nav-bar'>
@@ -72,96 +72,113 @@
       </div>
 
       <div id='content'>
-          <p>Here, you will find practice problems related to
-  Midterm 2. The following practice problems
-  are arranged into two categories:</p>
+          <div id='reference'>
+    <h2>References</h2>
 
-  <ul>
-    <li><b>Basic</b>: test fundamental understanding of topic</li>
-    <li><b>Exam</b>: level of difficulty comparable to an exam
-  </ul>
-
-  <p></p>
-
-  <table id="topics" class="highlight">
-    
-    <tr>
-      <td>Rlists</td>
-      <td><a href="rlists/basic/">Questions</td>
-      <td><a href="rlists/exam/">Questions</td>
-    </tr>
+    <p>You can review Orders of Growth in the following places</p>
     
 
-    <tr>
-      <td>Lists</td>
-      <td><a href="lists/basic/">Questions</td>
-      <td><a href="lists/exam/">Questions</td>
-    </tr>
+<ul>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/18-Growth_1pps.pdf">Lecture: Orders of Growth</a></li>
+  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion07.pdf">Discussion 7</a>
+  
+  </div>
+
+  
+This <a href="http://www-inst.eecs.berkeley.edu/~cs61a/su12/lab/lab04/lab04.php">link</a>
+(from the Summer 2012 version of 61A) has some practice problems
+for orders of growth. Take a look!
+
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  
+
+<h2>Conceptual Questions</h2>
+<h3 class="question" id="q1">Question 1: </h3>
+
+<p>Find the time complexity of <code>main</code> in big-Theta (&theta;) notation.</p>
+
+<pre><code>def helper(x):
+    for i in range(x):
+        print(i)
+    return x
+
+def main(n):
+    if n == 2:
+        return 0
+    else:
+        return helper(n - 1) + helper(n - 2)</code></pre>
+
+
+    <button id='0' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 0">
+
+<p>&theta;(n)</p>
+
+</div>
     
 
-    <tr>
-      <td>Dictionaries</td>
-      <td><a href="dictionaries/basic/">Questions</td>
-      <td><a href="dictionaries/exam/">Questions</td>
-    </tr>
+<h3 class="question" id="q2">Question 2: </h3>
+
+<p>Find the time complexity of <code>bar</code> in big-Theta (&theta;) notation.</p>
+
+<pre><code>def foo(x):
+    for i in range(x):
+        for j in range(x):
+            print(x)
+
+def bar(n):
+    while n &gt; 0:
+        foo(100000)
+        n -= 1</code></pre>
+
+
+    <button id='1' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 1">
+
+<p>&theta;(n)</p>
+
+</div>
     
 
-    <tr>
-      <td>Map, filter, and friends</td>
-      <td><a href="functions/basic/">Questions</td>
-      <td><a href="functions/exam/">Questions</td>
-    </tr>
+<h3 class="question" id="q3">Question 3: </h3>
+
+<p>Find the time complexity of <code>funny</code> in big-Theta (&theta;) notation.</p>
+
+<pre><code>def joke(n):
+    for i in range(n**2):
+        print(i)
+
+def funny(n):
+    for i in range(n**2):
+        print(joke(100))
+    return &#x27;haha&#x27;</code></pre>
+
+
+    <button id='2' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 2">
+
+<p>&theta;(n<sup>2</sup>)</p>
+
+</div>
     
 
-    <tr>
-      <td>Identity vs. Equality</td>
-      <td><a href="identity/basic/">Questions</td>
-      <td><a href="identity/exam/">Questions</td>
-    </tr>
-    
 
-    <tr>
-      <td>Nonlocal</td>
-      <td><a href="nonlocal/basic/">Questions</td>
-      <td><a href="nonlocal/exam/">Questions</td>
-    </tr>
-    
-
-    <tr>
-      <td>OOP</td>
-      <td><a href="oop/basic/">Questions</td>
-      <td><a href="oop/exam/">Questions</td>
-    </tr>
-    
-
-    <tr>
-      <td>Special Methods</td>
-      <td><a href="special/basic/">Questions</td>
-      <td><a href="special/exam/">Questions</td>
-    </tr>
-    
-
-    <tr>
-      <td>Rlists as Classes</td>
-      <td><a href="mut-rlists/basic/">Questions</td>
-      <td><a href="mut-rlists/exam/">Questions</td>
-    </tr>
-    
-
-    <tr>
-      <td>Trees</td>
-      <td><a href="trees/basic/">Questions</td>
-      <td><a href="trees/exam/">Questions</td>
-    </tr>
-    
-
-    <tr>
-      <td>Orders of Growth</td>
-      <td><a href="oog/basic/">Questions</td>
-      <td><a href="oog/exam/">Questions</td>
-    </tr>
-    
-  </table>
+  </div>
       </div>
     </div>
   </body>

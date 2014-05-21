@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content='CS 61A TA website for Albert Wu'>
+    <title>OOP Below-the-line: basic | Albert Wu</title>
+    <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <script src='/public/js/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:['python', 'lisp']});
+      hljs.initHighlightingOnLoad();
+    </script>
+    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
+  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'albertwu.org');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
+    <div id='container'>
+      <div id='logo'>
+        <h1 id='nav-bar-hide'>OOP Below-the-line: basic</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
+        <div id='accordion'>
+          <h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/review'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final'>Final</a></li>
+  </ul>
+</div>
+
+        </div>
+        <div id='nav-bar-fixed'>
+          
+
+<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
+  course page</a></p>
+        </div>
+      </div>
+
+      <div id='content'>
+          <div id='reference'>
+    <h2>References</h2>
+
+    <p>You can review OOP Below-the-line in the following places</p>
+    
+
+  </div>
+
+  
+The code for the below-the-line OOP is <a href="oop.py">here</a> for reference.
+
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  
+
+<h2>Concept Questions</h2>Answer the following questions about <code>make_class(attributes, base_class=None)</code>:
+
+<ol>
+  <li>What type of built-in Python object does <code>make_class</code> return? What
+  are its entries?</li>
+  <li>What is <code>attributes</code>? What kind of entries does this object contain?</li>
+  <li>What is <code>base_class</code> used for? What does it mean if <code>base_class</code> is
+  <code>none</code>?</li>
+</ol>
+
+
+    <button id='0' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 0">
+
+<ol>
+  <li><p><code>make_class</code> returns a dictionary. This dispatch dictionary contains
+  3 entries:</p>
+  
+<pre><code>{&#x27;get&#x27; : &lt;function get_value ...&gt;,  # gets an attribute
+ &#x27;set&#x27; : &lt;function set_value ...&gt;,  # sets an attribute
+ &#x27;new&#x27; : &lt;function new ...&gt;       } # creates an instance</code></pre>
+  
+  </li>
+  <li><p><code>attributes</code> is a dictionary of methods and class attributes. For
+  example:</p>
+  
+<pre><code>{&#x27;__init__&#x27;   : &lt;function __init__ ...&gt;,
+ &#x27;population&#x27; : 1,
+ &#x27;greet&#x27;      : &lt;function gret ...&gt;     }</code></pre>
+  
+  </li>
+  <li><code>base_class</code> is the class from which this class inherits. If
+  <code>base_class</code> is <code>None</code>, it means this class does not inherit.</li>
+</ol>
+
+</div>
+    
+
+<h3 class="question" id="q1">Question 1: </h3>
+
+<p>Answer the following questions about <code>make_instance(cls)</code>:
+
+<ol>
+  <li>What type of built-in Python object does <code>make_instance</code> return?
+  What are its entries?</li>
+  <li>What is <code>cls</code>? Which function can generate such an object?</li>
+  <li>Where is <code>make_instance</code> called?</li>
+</ol></p>
+
+
+    <button id='1' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 1">
+
+<ol>
+  <li><p><code>make_instance</code> returns a dictionary. This dispatch dictionary
+  contains 2 entries:</p>
+  
+<pre><code>{&#x27;get&#x27; : &lt;function get_value ...&gt;,  # gets an attribute
+ &#x27;set&#x27; : &lt;function set_value ...&gt;}  # sets an attribute</code></pre>
+  
+  </li>
+  <li><code>cls</code> is a dispatch dictionary returned by <code>make_class</code></li>
+  <li><code>make_instance</code> is called inside the <code>init_instance</code> function.</li>
+</ol>
+
+</div>
+    
+
+<h3 class="question" id="q2">Question 2: </h3>
+
+<p>Answer the following questions about <code>init_instance(cls, *args)</code>:
+
+<ol>
+  <li>How is <code>init_instance</code> different from <code>make_instance</code>?</li>
+  <li>Where is <code>init_instance</code> called? What does it do (conceptually)?</li>
+</ol></p>
+
+
+    <button id='2' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 2">
+
+<ol>
+  <li><code>make_instance</code> just creates an empty 'shell' (an instance dispatch
+  dictionary with no instance attributes). The <code>init_instance</code>
+  function calls <code>make_instance</code> to create an instance, then fills up
+  the instance with attributes by calling the class's <code>__init__</code>
+  method.</li>
+  <li><code>init_instance</code> is called in the <code>new</code> function of <code>make_class</code>.
+  <code>init_instance</code>, conceptually, acts the same way as a constructor.</li>
+</ol>
+
+</div>
+    
+
+<h3 class="question" id="q3">Question 3: </h3>
+
+<p>Answer the following questions about <code>bind_method(value, instance)</code>:
+
+<ol>
+  <li>Is <code>value</code> guaranteed to be a function?</li>
+  <li>What is <code>instance</code>?</li>
+  <li>What is <code>method</code> (defined inside of <code>bind_method</code>?</li>
+</ol></p>
+
+
+    <button id='3' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 3">
+
+<ol>
+  <li><code>value</code> is NOT guaranteed to be a function. In fact, the
+  <code>bind_method</code> function has an <code>if/else</code> to check for this. If
+  <code>value</code> is NOT a function, <code>bind_method</code> just returns it.</li>
+  <li><code>instance</code> is a dispatch dictionary returned by <code>init_instance</code>. It
+  acts the same way as <code>self</code>.</li>
+  <li><code>method</code> is a function that does the exact same thing as <code>value</code> (if
+  it is a function), except that it is <em>bound</em> to <code>instance</code>. In
+  other words, it does the same thing <code>value</code> would do if <code>instance</code>
+  was always <code>value</code>'s first argument.</li>
+</ol>
+
+</div>
+    
+
+<h2>Code-writing Questions</h2>
+<h3 class="question" id="q4">Question 4: </h3>
+
+<p>Translate the following code, which uses Python's built-in class
+system, into code that uses our below-the-line OOP implementation.</p>
+
+<pre><code>class Computer:
+    def __init__(self, op_sys):
+        self.op_sys = op_sys
+        self.software = []
+
+    def boot(self):
+        print(&#x27;Booting &#x27; + self.op_sys)
+
+    def install(self, software):
+        self.software.append(software)
+        print(software + &#x27; installed!&#x27;)</code></pre>
+
+
+    <button id='4' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 4">
+
+<pre><code>def make_computer_class():
+    def __init__(self, op_sys):
+        self[&#x27;set&#x27;](&#x27;op_sys&#x27;, op_sys)
+        self[&#x27;set&#x27;](&#x27;software&#x27;, [])
+
+    def boot(self):
+        print(&#x27;Booting &#x27; + self.op_sys)
+
+    def install(self, software):
+        self[&#x27;get&#x27;](&#x27;software&#x27;).append(software)
+        print(software + &#x27; installed!&#x27;)
+
+    Computer = make_class({&#x27;__init__&#x27;: __init__,
+                         &#x27;boot&#x27;     : boot,
+                         &#x27;install&#x27;  : install  })
+    return Computer</code></pre>
+
+</div>
+    
+
+
+  </div>
+      </div>
+    </div>
+  </body>
+
+  <script src='/public/js/jquery-1.10.1.min.js'></script>
+  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
+  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
+  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/js/nav-bar.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+      $.localScroll();
+    });
+  </script>
+    <script src='/cs61a/review/public/js/toggle.js'></script>
+  
+</html>
