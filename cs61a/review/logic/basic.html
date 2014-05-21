@@ -223,28 +223,28 @@ this:</p>
 
 
     <pre><code>logic&gt; (query (parent lucille michael))
-<span class="blank7">______</span><span class="hidden solution 7">Success!</span>
-logic&gt; (query (parent george-sr buster))
-<span class="blank7">______</span><span class="hidden solution 7">Failed.</span>
-logic&gt; (query (parent ?who gob))
-<span class="blank7">______</span><span class="hidden solution 7">Success!</span>
-<span class="blank7">______</span><span class="hidden solution 7">who: lucille</span>
-<span class="blank7">______</span><span class="hidden solution 7">who: george-sr</span>
-logic&gt; (query (parent lucille ?who))
-<span class="blank7">______</span><span class="hidden solution 7">Success!</span>
-<span class="blank7">______</span><span class="hidden solution 7">who: gob</span>
-<span class="blank7">______</span><span class="hidden solution 7">who: michael</span>
-<span class="blank7">______</span><span class="hidden solution 7">who: buster</span>
-<span class="blank7">______</span><span class="hidden solution 7">who: lindsay</span>
-<span class="blank7">______</span><span class="hidden solution 7">who: annyong</span>
-logic&gt; (query (uncle-or-aunt buster ?who))
-<span class="blank7">______</span><span class="hidden solution 7">Success!</span>
-<span class="blank7">______</span><span class="hidden solution 7">who: george-michael</span>
-<span class="blank7">______</span><span class="hidden solution 7">who: maeby</span>
-<span class="blank7">______</span><span class="hidden solution 7">who: steve</span>
-<span class="blank7">______</span><span class="hidden solution 7">(query (?rel lindsay tobias))</span>
-<span class="blank7">______</span><span class="hidden solution 7">Success!</span>
-<span class="blank7">______</span><span class="hidden solution 7">rel: married</span></code></pre>
+<span class="blank7">______</span><span class="hidden solution 7">Success!
+</span>logic&gt; (query (parent george-sr buster))
+<span class="blank7">______</span><span class="hidden solution 7">Failed.
+</span>logic&gt; (query (parent ?who gob))
+<span class="blank7">______</span><span class="hidden solution 7">Success!
+who: lucille
+who: george-sr
+</span>logic&gt; (query (parent lucille ?who))
+<span class="blank7">______</span><span class="hidden solution 7">Success!
+who: gob
+who: michael
+who: buster
+who: lindsay
+who: annyong
+</span>logic&gt; (query (uncle-or-aunt buster ?who))
+<span class="blank7">______</span><span class="hidden solution 7">Success!
+who: george-michael
+who: maeby
+who: steve
+(query (?rel lindsay tobias))
+Success!
+rel: married</span></code></pre>
 
     <button id='7' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
