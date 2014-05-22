@@ -62,40 +62,44 @@
       </div>
 
       <div id='content'>
-        <h2>Introduction</h2>
-In 61A, each project has a composition score, worth 3 points, that is
-graded on the <em>style</em> of your code. This document provides some
-guidelines.
+        <h2 id="introduction">Introduction</h2>
 
-<p>After your code works, you should strive to do the following things:
+<p>In 61A, each project has a composition score, worth 3 points, that is
+graded on the <em>style</em> of your code. This document provides some
+guidelines.</p>
+
+<p>After your code works, you should strive to do the following things:</p>
+
 
 <ol>
   <li>Make your code <strong>easier to read</strong></li>
   <li>Make your code <strong>concise</strong></li>
   <li>Make your code <strong>efficient</strong> (optional for this class)</li>
-</ol></p>
+</ol>
 
 <p>Sometimes these goals conflict with each other, and <strong>sometimes there
 are exceptions to the rules</strong>. Whatever you do, you should always try
 to make your code easy to read -- use your judgement.</p>
 
-<p>Some of these guidelines have one or more of the following marks:
+<p>Some of these guidelines have one or more of the following marks:</p>
+
 
 <ul>
   <li><span class="non-ess">N</span>: a "non-essential" guideline; these guidelines are not necessary
   for this class, but are generally good practice</li>
   <li><span class="python">P</span>: a Python-specific guideline; these are "Pythonic" style
   conventions that don't necessarily apply to other languages</li>
-</ul></p>
+</ul>
 
 <p>Finally, here is a link to to
 <a href="http://www.python.org/dev/peps/pep-0008/">PEP-8</a>, the official Python
 style guide.</p>
 
-<h2>Names and variables</h2>
-<h3>Meaningful names</h3>
+<h2 id="names-and-variables">Names and variables</h2>
 
-<p>Variable and function names should be <em>self-descriptive</em>:</p>
+<h3 id="meaningful-names">Meaningful names</h3>
+Variable and function names should be <em>self-descriptive</em>:
+
 
 <pre><code># bad -- don&#x27;t do this!
 a, b, m = 100, 0, 0
@@ -107,11 +111,11 @@ goal, score, opp_score = 100, 0, 0
 greeting = &#x27;hello world&#x27;
 is_even = lambda x: x % 2</code></pre>
 
-<h3>Indices and mathematical symbols</h3>
-
-<p>Using one-letter names and abbreviations is okay for indices,
+<h3 id="indices-and-mathematical-symbols">Indices and mathematical symbols</h3>
+Using one-letter names and abbreviations is okay for indices,
 mathematical symbols, or if it is obvious what the variables are
-referring to.</p>
+referring to.
+
 
 <pre><code>i = 0         # a counter for a loop
 x, y = 0, 0   # x and y coordinates
@@ -119,17 +123,17 @@ p, q = 5, 17  # mathematical names in the context of the question</code></pre>
 
 <p>In general, <code>i</code>, <code>j</code>, and <code>k</code> are the most common indices used.</p>
 
-<h3>'o' and 'l'</h3>
+<h3 id="o-and-l">'o' and 'l'</h3>
+Do not use the letters 'o' and 'l' by themselves as names:
 
-<p>Do not use the letters 'o' and 'l' by themselves as names:</p>
 
 <pre><code># bad!
 o = O + 4     # letter &#x27;O&#x27; or number 0?
 l = l + 5     # letter &#x27;l&#x27; or number 1?</code></pre>
 
-<h3>Unnecessary variables</h3>
+<h3 id="unnecessary-variables">Unnecessary variables</h3>
+Don't create unnecessary variables. For example,
 
-<p>Don't create unnecessary variables. For example,</p>
 
 <pre><code># bad!
 result = answer(argument)
@@ -141,6 +145,7 @@ return answer(argument)</code></pre>
 <p>However, if it is unclear what your code is referring to, or if the
 expression is too long, you <em>should</em> create a variable:</p>
 
+
 <pre><code># bad!
 do_something(lambda x: x % 49 == 0, (total + 1) // 7)
 
@@ -149,16 +154,16 @@ divisible_49 = lambda x: x % 49 == 0
 score = (total + 1) // 7
 do_somethig(divisible_49, score)</code></pre>
 
-<h3>Profanity</h3>
+<h3 id="profanity">Profanity</h3>
+Don't leave profanity in your code. Even if you're really frustrated.
 
-<p>Don't leave profanity in your code. Even if you're really frustrated.</p>
 
 <pre><code># bad!
 eff_this_class = 666</code></pre>
 
-<h3>Naming convention:</h3>
-
+<h3 id="naming-convention">Naming convention:</h3>
 <span class="non-ess">N</span><span class="python">P</span>: Use <code>lower_case_and_underscores</code> for variables and functions:
+
 
 <pre><code># bad!
 TotalScore = 0
@@ -176,6 +181,7 @@ def mean_strategy(score, opp):
 
 <p>On the other hand, use <code>CamelCase</code> for classes:</p>
 
+
 <pre><code># bad!
 class example_class:
     ...
@@ -184,41 +190,38 @@ class example_class:
 class ExampleClass:
     ...</code></pre>
 
-<h2>Spacing and Indentation</h2>
-Whitespace style might seem superfluous, but using whitespace in
+<h2 id="spacing-and-indentation">Spacing and Indentation</h2>
+
+<p>Whitespace style might seem superfluous, but using whitespace in
 certain places (and omitting it in others) will often make it easier
 to read code.  In addition, since Python code depends on whitespace
 (e.g.  indentation), it requires some extra attention. For that
 reason, this section has quite a few guidelines that you should
-consider.
+consider.</p>
 
-<h3>Spaces vs. tabs</h3>
-
-<p>Use spaces, not tabs for indentation. Our starter code always uses 4
+<h3 id="spaces-vs-tabs">Spaces vs. tabs</h3>
+Use spaces, not tabs for indentation. Our starter code always uses 4
 spaces instead of tabs. If you use both spaces and tabs, Python will
-raise an <code>IndentationError</code>.</p>
+raise an <code>IndentationError</code>.
 
-<h3>Indent size</h3>
-
+<h3 id="indent-size">Indent size</h3>
 <span class="python">P</span>: Use 4 spaces to denote an indent. Technically, Python allows you
 to use any number of spaces as long as you are consistent across an
 indentation level.  The conventional style is to use 4 spaces.
 
-<h3>Line Length</h3>
+<h3 id="line-length">Line Length</h3>
+Keep lines under 80 characters long. Other conventions use 70 or 72
+characters, but 80 is usually the upper limit.
 
-<p>Keep lines under 80 characters long. Other conventions use 70 or 72
-characters, but 80 is usually the upper limit.</p>
+<h3 id="double-spacing">Double-spacing</h3>
+Don't double-space code. That is, do <em>not</em> insert a blank line in
+between lines of code. Personally, I find that harder to read.
 
-<h3>Double-spacing</h3>
-
-<p>Don't double-space code. That is, do <em>not</em> insert a blank line in
-between lines of code. Personally, I find that harder to read.</p>
-
-<h3>Spaces with operators</h3>
-
+<h3 id="spaces-with-operators">Spaces with operators</h3>
 <span class="non-ess">N</span>: Always use spaces between <code>+</code> and <code>-</code>. Depending on how illegible
 expressions get, you can use your own judgement for <code>*</code>, <code>/</code>, and <code>**</code>
 (as long as it's easy to read at a glance, it's fine).
+
 
 <pre><code># bad!
 x=a+b*c*(a**2)/c-4
@@ -226,10 +229,10 @@ x=a+b*c*(a**2)/c-4
 # good!
 x = a + b*c*(a**2) / c - 4</code></pre>
 
-<h3>Spacing lists</h3>
-
+<h3 id="spacing-lists">Spacing lists</h3>
 <span class="non-ess">N</span>: When using tuples, lists, or function operands, leave one space
 after each comma <code>,</code>:
+
 
 <pre><code># bad!
 tup = (x,x/2,x/3,x/4)
@@ -237,11 +240,11 @@ tup = (x,x/2,x/3,x/4)
 # good!
 tup = (x, x/2, x/3, x/4)</code></pre>
 
-<h3>Line wrapping</h3>
-
+<h3 id="line-wrapping">Line wrapping</h3>
 <span class="non-ess">N</span><span class="python">P</span>: If a line gets too long, you have two options. If you are
 using parentheses or braces with multiple elements, you can continue
 them onto the next line:
+
 
 <pre><code>def func(a, b, c, d, e, f,
          g, h, i):
@@ -257,6 +260,7 @@ names = (&#x27;alice&#x27;,
 sequence. If the above rule does not apply, you can use Python's <code>\</code>
 operator:</p>
 
+
 <pre><code>total = this_is(a, very, lengthy) + line + of_code \
             + so_it - should(be, separated) \
             + onto(multiple, lines)</code></pre>
@@ -265,33 +269,34 @@ operator:</p>
 <code>hi \ + bye</code>  versus <code>hi + \ bye</code>) will vary from person to person
 -- for our class, it doesn't matter.</p>
 
-<h3>Blank lines</h3>
-
+<h3 id="blank-lines">Blank lines</h3>
 <span class="non-ess">N</span><span class="python">P</span>: Leave a blank line between the end of a function or class and
 the next line:
+
 
 <pre><code>def example():
     return &#x27;stuff&#x27;
 
 x = example() # notice the space above</code></pre>
 
-<h3>Trailing whitespace</h3>
-
+<h3 id="trailing-whitespace">Trailing whitespace</h3>
 <span class="non-ess">N</span>: Don't leave whitespace at the end of a line.
 
-<h2>Repetition</h2>
-In general, <strong>don't repeat yourself</strong> (DRY). It wastes space and can
-be computationally inefficient.
+<h2 id="repetition">Repetition</h2>
 
-<h3>Complex expressions</h3>
+<p>In general, <strong>don't repeat yourself</strong> (DRY). It wastes space and can
+be computationally inefficient.</p>
 
-<p>Do not repeat complex expressions:</p>
+<h3 id="complex-expressions">Complex expressions</h3>
+Do not repeat complex expressions:
+
 
 <pre><code>if a + b - 3 * h / 2 % 47 == 4:
     total += a + b - 3 * h / 2 % 47
     return total</code></pre>
 
 <p>Instead, store the expression in a variable:</p>
+
 
 <pre><code>turn_score = a + b - 3 * h / 2 % 47
 if turn_score == 4:
@@ -300,9 +305,9 @@ if turn_score == 4:
 
 <p>This will also make your code more readable.</p>
 
-<h3>Computation-heavy function calls</h3>
+<h3 id="computation-heavy-function-calls">Computation-heavy function calls</h3>
+Don't repeat computationally-heavy function calls:
 
-<p>Don't repeat computationally-heavy function calls:</p>
 
 <pre><code>if takes_one_minute_to_run(x) != ():
     first = takes_one_minute_to_run(x)[0]
@@ -311,16 +316,17 @@ if turn_score == 4:
 
 <p>Instead, store the expression in a variable:</p>
 
+
 <pre><code>result = takes_one_minute_to_run(x)
 if result != ():
     first = result[0]
     second = result[1]
     third = result[2]</code></pre>
 
-<h3>if/else conditions</h3>
+<h3 id="ifelse-conditions">if/else conditions</h3>
+DON'T have the same code in both the <code>if</code> and the <code>else</code> clause of a
+conditional:
 
-<p>DON'T have the same code in both the <code>if</code> and the <code>else</code> clause of a
-conditional:</p>
 
 <pre><code>if pred:            # bad!
     print(&#x27;stuff&#x27;)
@@ -332,21 +338,23 @@ else:
 
 <p>Instead, pull the line(s) out of the conditional:</p>
 
+
 <pre><code>if pred:            # good!
     print(&#x27;stuff&#x27;)
 x += 1
 return x</code></pre>
 
-<h2>Comments</h2>
-Recall that Python comments begin with the <code>#</code> sign. Keep in mind that
+<h2 id="comments">Comments</h2>
+
+<p>Recall that Python comments begin with the <code>#</code> sign. Keep in mind that
 the triple-quotes are technically strings, not comments. Comments can
 be helpful for explaining ambiguous code, but there are some
-guidelines for when to use them.
+guidelines for when to use them.</p>
 
-<h3>Docstrings</h3>
-
+<h3 id="docstrings">Docstrings</h3>
 <span class="python">P</span>: Put docstrings only at the top of functions. Docstrings are
 denoted by triple-quotes at the beginning of a function or class:
+
 
 <pre><code>def average(fn, samples):
     &quot;&quot;&quot;Calls a 0-argument function SAMPLES times, and takes
@@ -355,16 +363,15 @@ denoted by triple-quotes at the beginning of a function or class:
 <p>You should not put docstrings in the middle of the function -- only
 put them at the beginning.</p>
 
-<h3>Remove commented-out code</h3>
-
-<p>Remove commented-out code from final version. You can comment lines
+<h3 id="remove-commented-out-code">Remove commented-out code</h3>
+Remove commented-out code from final version. You can comment lines
 out when you are debugging. When you are turning in your project, take
 all commented lines out (including <code>TODO</code>s) -- this makes it easier
-for readers to read your code.</p>
+for readers to read your code.
 
-<h3>Unnecessary comments</h3>
+<h3 id="unnecessary-comments">Unnecessary comments</h3>
+Don't write unnecessary comments. For example, the following is bad:
 
-<p>Don't write unnecessary comments. For example, the following is bad:</p>
 
 <pre><code>def example(y):
     x += 1            # increments x by 1
@@ -375,10 +382,11 @@ obvious as possible what you are doing without resorting to
 comments. Only use comments if something is not obvious or needs to
 be explicitly emphasized</p>
 
-<h2>Control Structures</h2>
-<h3>Boolean comparisons</h3>
+<h2 id="control-structures">Control Structures</h2>
 
-<p>Don't compare a boolean variable to <code>True</code> or <code>False</code>:</p>
+<h3 id="boolean-comparisons">Boolean comparisons</h3>
+Don't compare a boolean variable to <code>True</code> or <code>False</code>:
+
 
 <pre><code>if pred == True:   # bad!
     ...
@@ -387,14 +395,15 @@ if pred == False:  # bad!
 
 <p>Instead, do this:</p>
 
+
 <pre><code>if pred:           # good!
     ...
 if not pred:       # good!
     ...</code></pre>
 
-<h3>Redundant if/else</h3>
+<h3 id="redundant-ifelse">Redundant if/else</h3>
+Don't do this:
 
-<p>Don't do this:</p>
 
 <pre><code>if pred:            # bad!
     return True
@@ -403,11 +412,12 @@ else:
 
 <p>Instead, do this:</p>
 
+
 <pre><code>return pred         # good!</code></pre>
 
-<h3>Similar if/else suites</h3>
+<h3 id="similar-ifelse-suites">Similar if/else suites</h3>
+(related to the previous:) Don't do this:
 
-<p>(related to the previous:) Don't do this:</p>
 
 <pre><code>if num != 49:
     total += example(4, 5, True)
@@ -417,11 +427,12 @@ else:
 <p>In the example above, the only thing that changes between the
 conditionals is the boolean at the end. Instead, do this:</p>
 
+
 <pre><code>total += example(4, 5, num != 49)</code></pre>
 
-<h3>while vs. if</h3>
+<h3 id="while-vs-if">while vs. if</h3>
+Don't use a <code>while</code> loop when you should use an <code>if</code>:
 
-<p>Don't use a <code>while</code> loop when you should use an <code>if</code>:</p>
 
 <pre><code>while pred:
     x += 1
@@ -429,13 +440,14 @@ conditionals is the boolean at the end. Instead, do this:</p>
 
 <p>Instead, use an <code>if</code></p>
 
+
 <pre><code>if pred:
     x += 1
     return x</code></pre>
 
-<h3>Parentheses</h3>
-
+<h3 id="parentheses">Parentheses</h3>
 <span class="python">P</span>: Don't use parentheses with conditional statements:
+
 
 <pre><code>if (x == 4):
     ...
@@ -447,31 +459,30 @@ while (x &lt; 10):
 <p>Parentheses are not necessary in Python conditionals (they are in
 other languages though).</p>
 
-<h2>Miscellaneous</h2>
-<h3>Semicolons</h3>
+<h2 id="miscellaneous">Miscellaneous</h2>
 
+<h3 id="semicolons">Semicolons</h3>
 <span class="python">P</span>: Do not use semicolons. This is not C/C++/Java/etc.
 
-<h3>Checking <code>None</code></h3>
-
+<h3 id="checking-none">Checking <code>None</code></h3>
 <span class="python">P</span>: Use <code>is</code> and <code>is not</code> for <code>None</code>, not <code>==</code> and <code>!=</code>.
 
-<h3>Implicit <code>False</code></h3>
-
+<h3 id="implicit-false">Implicit <code>False</code></h3>
 <span class="python">P</span>: Use the "implicit" <code>False</code> value when possible. Examples include
 empty containers like <code>[]</code>, <code>()</code>, <code>{}</code>, <code>set()</code>.
+
 
 <pre><code>if lst:       # if lst is not empty
     ...
 if not tup:   # if tup is empty
     ...</code></pre>
 
-<h3>Generator expressions</h3>
-
+<h3 id="generator-expressions">Generator expressions</h3>
 <span class="python">P</span>: Generator expressions are okay for simple expressions. This
 includes list comprehensions, dictionary comprehensions, set
 comprehensions, etc.  Generator expressions are neat ways to concisely
 create lists. Simple ones are fine and even encouraged:
+
 
 <pre><code>ex = [x*x for x in range(10)]
 L = [pair[0] + pair[1] for pair in pairs if len(pair) == 2]</code></pre>
@@ -479,6 +490,7 @@ L = [pair[0] + pair[1] for pair in pairs if len(pair) == 2]</code></pre>
 <p>However, complex generator expressions are very hard to read, even
 illegible. As such, do not use generator expressions for complex
 expressions.</p>
+
 
 <pre><code>L = [x + y + z for x in nums if x &gt; 10 for y in nums2 for z in nums3 if y &gt; z]</code></pre>
 
