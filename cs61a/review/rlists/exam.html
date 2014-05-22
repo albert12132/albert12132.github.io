@@ -61,7 +61,23 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#what-would-python-print">What would Python print?</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+<li><a href="#q2">Question 2: </a></li>
+<li><a href="#q3">Question 3: </a></li>
+</ul>
+<li><a href="#code-writing-questions">Code-Writing questions</a></li>
+<ul>
+<li><a href="#q4">Question 4: </a></li>
+<li><a href="#q5">Question 5: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -88,6 +104,7 @@ We will be using the following implementation of immutable recursive
 lists. Keep in mind that your code should not depend on the assumption
 that rlists are implemented as tuples -- preserve data abstraction!
 
+
 <pre><code>empty_rlist = None
 
 def rlist(first, rest=empty_rlist):
@@ -108,7 +125,8 @@ def rest(s):
     solutions.</noscript>
 
   
-<h2>What would Python print?</h2>
+<h2 id="what-would-python-print">What would Python print?</h2>
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 
@@ -157,11 +175,13 @@ def rest(s):
     </button>
     
 
-<h2>Code-Writing questions</h2>
+<h2 id="code-writing-questions">Code-Writing questions</h2>
+
 <h3 class="question" id="q4">Question 4: </h3>
 
 <p>Implement a function <code>alternate</code> which takes an rlist and returns a new
 rlist that contains <em>every other</em> element in the original rlist.</p>
+
 
 <pre><code>def alternate(lst):
     &quot;&quot;&quot;Returns a new rlist that contains every other element of the
@@ -182,6 +202,7 @@ rlist that contains <em>every other</em> element in the original rlist.</p>
     </button>
 
     <div class="solution 0">
+
 <pre><code>def alternate(r):
     if r == empty_rlist:
         return empty_rlist
@@ -197,6 +218,7 @@ rlist that contains <em>every other</em> element in the original rlist.</p>
 
 <p>Implement a function <code>filter_rlist</code> which takes an rlist and returns a
 new rlist that contains only elements that satisfy the given predicate.</p>
+
 
 <pre><code>def filter(pred, lst):
     &quot;&quot;&quot;Returns a new rlist that contains elements of lst that
@@ -217,6 +239,7 @@ new rlist that contains only elements that satisfy the given predicate.</p>
     </button>
 
     <div class="solution 1">
+
 <pre><code>def filter(pred, lst):
     if r == empty_rlist:
         return empty_rlist
