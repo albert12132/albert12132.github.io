@@ -120,12 +120,12 @@
 
 
     <pre><code>STk&gt; (+ 4 3)
-<span class="blank3">______</span><span class="hidden solution 3">7
-</span>STk&gt; (4 + 3)
-<span class="blank3">______</span><span class="hidden solution 3">Error
-</span>STk&gt; (+ 1 2 3 4)
-<span class="blank3">______</span><span class="hidden solution 3">10
-</span>STk&gt; (- 1 2 3 4)
+<span class="blank3">______</span><span class="hidden solution 3">7</span>
+STk&gt; (4 + 3)
+<span class="blank3">______</span><span class="hidden solution 3">Error</span>
+STk&gt; (+ 1 2 3 4)
+<span class="blank3">______</span><span class="hidden solution 3">10</span>
+STk&gt; (- 1 2 3 4)
 <span class="blank3">______</span><span class="hidden solution 3">-8</span></code></pre>
 
     <button id='3' class='toggleButton'>
@@ -137,20 +137,20 @@
 
 
     <pre><code>STk&gt; (if #t (+ 2 3))
-<span class="blank4">______</span><span class="hidden solution 4">5
-</span>STk&gt; (if #f (+ 2 3))
-<span class="blank4">______</span><span class="hidden solution 4">okay   ; i.e. returns nothing
-</span>STk&gt; (if #f (/ 1 0) 4)
-<span class="blank4">______</span><span class="hidden solution 4">4
-</span>STk&gt; (and #t #f #t)
-<span class="blank4">______</span><span class="hidden solution 4">#f
-</span>STk&gt; (and #t 0 #t)
-<span class="blank4">______</span><span class="hidden solution 4">#t
-</span>STk&gt; (and 3 5 2)
-<span class="blank4">______</span><span class="hidden solution 4">2
-</span>STk&gt; (or #t #f #t)
-<span class="blank4">______</span><span class="hidden solution 4">#t
-</span>STk&gt; (or #f 4 #t)
+<span class="blank4">______</span><span class="hidden solution 4">5</span>
+STk&gt; (if #f (+ 2 3))
+<span class="blank4">______</span><span class="hidden solution 4">okay   ; i.e. returns nothing</span>
+STk&gt; (if #f (/ 1 0) 4)
+<span class="blank4">______</span><span class="hidden solution 4">4</span>
+STk&gt; (and #t #f #t)
+<span class="blank4">______</span><span class="hidden solution 4">#f</span>
+STk&gt; (and #t 0 #t)
+<span class="blank4">______</span><span class="hidden solution 4">#t</span>
+STk&gt; (and 3 5 2)
+<span class="blank4">______</span><span class="hidden solution 4">2</span>
+STk&gt; (or #t #f #t)
+<span class="blank4">______</span><span class="hidden solution 4">#t</span>
+STk&gt; (or #f 4 #t)
 <span class="blank4">______</span><span class="hidden solution 4">4</span></code></pre>
 
     <button id='4' class='toggleButton'>
@@ -162,16 +162,16 @@
 
 
     <pre><code>STk&gt; (define x 2)
-<span class="blank5">______</span><span class="hidden solution 5">x
-</span>STk&gt; x
-<span class="blank5">______</span><span class="hidden solution 5">2
-</span>STk&gt; (define (f x) (* x x))
-<span class="blank5">______</span><span class="hidden solution 5">f
-</span>STk&gt; (f 4)
-<span class="blank5">______</span><span class="hidden solution 5">16
-</span>STk&gt; (define (g x) (lambda (y) (* x y)))
-<span class="blank5">______</span><span class="hidden solution 5">g
-</span>STk&gt; ((g 4) 5)
+<span class="blank5">______</span><span class="hidden solution 5">x</span>
+STk&gt; x
+<span class="blank5">______</span><span class="hidden solution 5">2</span>
+STk&gt; (define (f x) (* x x))
+<span class="blank5">______</span><span class="hidden solution 5">f</span>
+STk&gt; (f 4)
+<span class="blank5">______</span><span class="hidden solution 5">16</span>
+STk&gt; (define (g x) (lambda (y) (* x y)))
+<span class="blank5">______</span><span class="hidden solution 5">g</span>
+STk&gt; ((g 4) 5)
 <span class="blank5">______</span><span class="hidden solution 5">20</span></code></pre>
 
     <button id='5' class='toggleButton'>
@@ -183,22 +183,22 @@
 
 
     <pre><code>STk&gt; (cons 1 (cons 2 nil))
-<span class="blank6">______</span><span class="hidden solution 6">(1 2)
-</span>STk&gt; (cons 1 2)
-<span class="blank6">______</span><span class="hidden solution 6">(1 . 2)
-</span>STk&gt; (car (cons 1 (cons 2 nil)))
-<span class="blank6">______</span><span class="hidden solution 6">1
-</span>STk&gt; (cdr (cons 1 (cons 2 nil)))
-<span class="blank6">______</span><span class="hidden solution 6">(2)
-</span>STk&gt; (cdr (cons 1 2))
-<span class="blank6">______</span><span class="hidden solution 6">2
-</span>STk&gt; (null? (cons 1 nil))
-<span class="blank6">______</span><span class="hidden solution 6">#f
-</span>STk&gt; (null? (cdr (cons 1 nil)))
-<span class="blank6">______</span><span class="hidden solution 6">#t
-</span>STk&gt; (list 1 2 3 4)
-<span class="blank6">______</span><span class="hidden solution 6">(1 2 3 4)
-</span>STk&gt; (cdr (list 1 2 3 4))
+<span class="blank6">______</span><span class="hidden solution 6">(1 2)</span>
+STk&gt; (cons 1 2)
+<span class="blank6">______</span><span class="hidden solution 6">(1 . 2)</span>
+STk&gt; (car (cons 1 (cons 2 nil)))
+<span class="blank6">______</span><span class="hidden solution 6">1</span>
+STk&gt; (cdr (cons 1 (cons 2 nil)))
+<span class="blank6">______</span><span class="hidden solution 6">(2)</span>
+STk&gt; (cdr (cons 1 2))
+<span class="blank6">______</span><span class="hidden solution 6">2</span>
+STk&gt; (null? (cons 1 nil))
+<span class="blank6">______</span><span class="hidden solution 6">#f</span>
+STk&gt; (null? (cdr (cons 1 nil)))
+<span class="blank6">______</span><span class="hidden solution 6">#t</span>
+STk&gt; (list 1 2 3 4)
+<span class="blank6">______</span><span class="hidden solution 6">(1 2 3 4)</span>
+STk&gt; (cdr (list 1 2 3 4))
 <span class="blank6">______</span><span class="hidden solution 6">(2 3 4)</span></code></pre>
 
     <button id='6' class='toggleButton'>

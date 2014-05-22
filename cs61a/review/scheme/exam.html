@@ -123,15 +123,15 @@ the expression causes an error, write "ERROR".</p>
 
 
     <pre><code>STk&gt; (cons 1 (cons 2 (cons 3 (cons 4 nil))))
-<span class="blank3">______</span><span class="hidden solution 3">(1 2 3 4)
-</span>STk&gt; (cons (cons (cons 3 2) 1) (cons 4 nil))
-<span class="blank3">______</span><span class="hidden solution 3">(((3 . 2) . 1) 4)
-</span>STk&gt; (cdr (cons (cdr (list 1 2)) (cons 3 (cons 4 nil))))
-<span class="blank3">______</span><span class="hidden solution 3">(3 4)
-</span>STk&gt; (define lst (cons (lambda (x) (cons x x)) nil))
+<span class="blank3">______</span><span class="hidden solution 3">(1 2 3 4)</span>
+STk&gt; (cons (cons (cons 3 2) 1) (cons 4 nil))
+<span class="blank3">______</span><span class="hidden solution 3">(((3 . 2) . 1) 4)</span>
+STk&gt; (cdr (cons (cdr (list 1 2)) (cons 3 (cons 4 nil))))
+<span class="blank3">______</span><span class="hidden solution 3">(3 4)</span>
+STk&gt; (define lst (cons (lambda (x) (cons x x)) nil))
 STk&gt; ((car lst) lst)
-<span class="blank3">______</span><span class="hidden solution 3">((FUNCTION) FUNCTION)
-</span>STk&gt; (define (x) (lambda (x) (list x x)))
+<span class="blank3">______</span><span class="hidden solution 3">((FUNCTION) FUNCTION)</span>
+STk&gt; (define (x) (lambda (x) (list x x)))
 STk&gt; (((car ((x) x))) 4)
 <span class="blank3">______</span><span class="hidden solution 3">(4 4)</span></code></pre>
 

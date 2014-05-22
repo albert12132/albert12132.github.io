@@ -451,9 +451,9 @@ be accessed like a variable. For example, the following method</p>
 
     <pre><code>&gt;&gt;&gt; acc_aa = Account(&quot;aa&quot;)
 &gt;&gt;&gt; acc_aa.register
-<span class="blank7">______</span><span class="hidden solution 7">&lt;bound method Account.register </span>...&gt;
+<span class="blank7">______</span><span class="hidden solution 7">&lt;bound method Account.register ...&gt;</span>
 &gt;&gt;&gt; Account.register
-<span class="blank7">______</span><span class="hidden solution 7">&lt;function register at </span>...&gt; # (not a bound method!)
+<span class="blank7">______</span><span class="hidden solution 7">&lt;function register at ...&gt; # (not a bound method!)</span>
 &gt;&gt;&gt; acc_aa.register(self, &quot;Peter Perfect&quot;)
 <span class="blank7">______</span><span class="hidden solution 7">NameError</span>
 &gt;&gt;&gt; acc_aa.register(&quot;Peter Perfect&quot;)

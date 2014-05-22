@@ -253,21 +253,21 @@ this:</p>
 
 
     <pre><code>logic&gt; (query (parent lucille michael))
-<span class="blank7">______</span><span class="hidden solution 7">Success!
-</span>logic&gt; (query (parent george-sr buster))
-<span class="blank7">______</span><span class="hidden solution 7">Failed.
-</span>logic&gt; (query (parent ?who gob))
+<span class="blank7">______</span><span class="hidden solution 7">Success!</span>
+logic&gt; (query (parent george-sr buster))
+<span class="blank7">______</span><span class="hidden solution 7">Failed.</span>
+logic&gt; (query (parent ?who gob))
 <span class="blank7">______</span><span class="hidden solution 7">Success!
 who: lucille
-who: george-sr
-</span>logic&gt; (query (parent lucille ?who))
+who: george-sr</span>
+logic&gt; (query (parent lucille ?who))
 <span class="blank7">______</span><span class="hidden solution 7">Success!
 who: gob
 who: michael
 who: buster
 who: lindsay
-who: annyong
-</span>logic&gt; (query (uncle-or-aunt buster ?who))
+who: annyong</span>
+logic&gt; (query (uncle-or-aunt buster ?who))
 <span class="blank7">______</span><span class="hidden solution 7">Success!
 who: george-michael
 who: maeby
