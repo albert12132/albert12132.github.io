@@ -61,7 +61,17 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#conceptual-questions">Conceptual Questions</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+<li><a href="#q2">Question 2: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -86,6 +96,7 @@
   
 We will be using the implementation of Newton's method and
 iterative improvement from lecture:
+
 
 <pre><code># iterative improvement framework
 
@@ -125,7 +136,8 @@ def find_zero(f, df):
 
   
 
-<h2>Conceptual Questions</h2>
+<h2 id="conceptual-questions">Conceptual Questions</h2>
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 <p>Describe what iterative improvement is and how it works.</p>
@@ -150,6 +162,7 @@ when you can stop).</p>
 
 <p>Conceptually, what is the <code>update</code> function for Newton's method? What
 is the <code>close</code> function for Newton's method?</p>
+
 
 <pre><code>def newton_update(f, df):
     def update(x):

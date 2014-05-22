@@ -61,7 +61,24 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#what-would-python-print">What would Python print?</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+<li><a href="#q2">Question 2: </a></li>
+<li><a href="#q3">Question 3: </a></li>
+<li><a href="#q4">Question 4: </a></li>
+</ul>
+<li><a href="#code-writing-questions">Code-Writing questions</a></li>
+<ul>
+<li><a href="#q5">Question 5: </a></li>
+<li><a href="#q6">Question 6: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -97,8 +114,10 @@
 
   
 
-<h2>What would Python print?</h2>
-For the following questions, use the following class definition:
+<h2 id="what-would-python-print">What would Python print?</h2>
+
+<p>For the following questions, use the following class definition:</p>
+
 
 <pre><code>class Account:
     &quot;&quot;&quot;A class computer account. Each account has a two-letter ID
@@ -197,7 +216,8 @@ original definition of the <code>Account</code> class.</p>
     </button>
     
 
-<h2>Code-Writing questions</h2>
+<h2 id="code-writing-questions">Code-Writing questions</h2>
+
 <h3 class="question" id="q5">Question 5: </h3>
 
 <p>In computer science, a <a href="http://en.wikipedia.org/wiki/Circular_buffer">circular buffer</a>
@@ -205,7 +225,8 @@ a type of data structure that is used to store temporary, sequential
 data in a constant amount of space (this is commonly used to buffer
 data streams) in a first-in-first-out manner (the first element to be
 added is the first element to be removed). A circular buffer has the
-following properties:
+following properties:</p>
+
 
 <ul>
   <li>Each buffer has a fixed size of <code>n</code> elements (e.g. strings). This
@@ -224,7 +245,7 @@ following properties:
   <li>The buffer has a <code>remove</code> method, which removes the earliest element
   that is still in the buffer. If there are no elements in the buffer,
   print "Buffer is empty".</li>
-</ul></p>
+</ul>
 
 <p>In order to implement the <code>append</code> and <code>remove</code> methods, you should
 have list of length <code>n</code> that stores the elements currently in the
@@ -232,6 +253,7 @@ buffer. When you append the <em>i</em>th element, you should insert it into
 index (<em>i</em> mod <em>n</em>) of the list. Similarly, when you are removing the
 <em>j</em>th element, you should extract the element at index (<em>j</em> mod <em>n</em>) of
 the list. For more descriptions of the behavior, see the doctest.</p>
+
 
 <pre><code>class CircularBuffer:
     &quot;&quot;&quot;Doctests:
@@ -277,6 +299,7 @@ the list. For more descriptions of the behavior, see the doctest.</p>
 
     <div class="solution 0">
 
+
 <pre><code>class CircularBuffer:
     def __init__(self, n):
         self.array = [None]*n   # list of length n
@@ -304,7 +327,8 @@ the list. For more descriptions of the behavior, see the doctest.</p>
 
 <h3 class="question" id="q6">Question 6: </h3>
 
-<p>Write a <code>Chef</code> class with the following qualities:
+<p>Write a <code>Chef</code> class with the following qualities:</p>
+
 
 <ul>
   <li>Each <code>Chef</code> is initialized with a list of required ingredients. Each
@@ -315,9 +339,10 @@ the list. For more descriptions of the behavior, see the doctest.</p>
   all the <code>Chef</code>s. Each <code>Chef</code> only needs 1 of each ingredient.</li>
   <li>Each <code>Chef</code> can <code>serve</code>, where they put their finished food in a
   shared list of <code>finished</code> foods.</li>
-</ul></p>
+</ul>
 
 <p>For finer details of implementation, see the doctest.</p>
+
 
 <pre><code>class Chef:
     &quot;&quot;&quot;Doctests:
@@ -353,6 +378,7 @@ the list. For more descriptions of the behavior, see the doctest.</p>
     </button>
 
     <div class="solution 1">
+
 
 <pre><code>class Chef:
     storage = {}

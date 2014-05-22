@@ -61,7 +61,25 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#conceptual-questions">Conceptual Questions</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+<li><a href="#q2">Question 2: </a></li>
+<li><a href="#q3">Question 3: </a></li>
+<li><a href="#q4">Question 4: </a></li>
+</ul>
+<li><a href="#code-writing-questions">Code-Writing questions</a></li>
+<ul>
+<li><a href="#q5">Question 5: </a></li>
+<li><a href="#q6">Question 6: </a></li>
+<li><a href="#q7">Question 7: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -97,7 +115,8 @@
 
   
 
-<h2>Conceptual Questions</h2>
+<h2 id="conceptual-questions">Conceptual Questions</h2>
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 <p>What is a recursive function?</p>
@@ -162,6 +181,7 @@ because linearly recursive functions make exactly one recursive call.</p>
 <p>Describe what is wrong with the following function and find a way to
 fix it:</p>
 
+
 <pre><code>def factorial(n):
     return n * factorial(n)</code></pre>
 
@@ -172,7 +192,8 @@ fix it:</p>
 
     <div class="solution 3">
 
-<p>There are two problems with <code>factorial</code>.
+<p>There are two problems with <code>factorial</code>.</p>
+
 
 <ol>
   <li>First, the recursive call is made on the exact same input <code>n</code>. Since
@@ -180,10 +201,11 @@ fix it:</p>
   it, change the argument to the recursive call from <code>n</code> to <code>n-1</code>.</li>
   <li>There is no base case. There's no stopping point, so it will run
   forever. To fix it, add a base case for <code>n == 0</code></li>
-</ol></p>
+</ol>
 
 <p>Notice that you need to fix both of these problems for it to work,
 otherwise the function will still loop forever!</p>
+
 
 <pre><code>def factorial(n):
     if n == 0:
@@ -194,7 +216,8 @@ otherwise the function will still loop forever!</p>
 </div>
     
 
-<h2>Code-Writing questions</h2>
+<h2 id="code-writing-questions">Code-Writing questions</h2>
+
 <h3 class="question" id="q5">Question 5: </h3>
 
 <p>A geometric series is a series whose first
@@ -211,6 +234,7 @@ For example, the series</p>
 defined above) and <code>n</code>, and calculates the sum of the first <code>n</code>
 elements of the geometric series defined by <code>a</code> and <code>r</code>. <strong>Use
 recursion!</strong></p>
+
 
 <pre><code>def geo_sum(a, r, n):
     &quot;&quot;&quot;Returns the first n elements of a geometric series.
@@ -229,6 +253,7 @@ recursion!</strong></p>
 
     <div class="solution 4">
 
+
 <pre><code>def geo_sum(a, r, n):
     if n == 1:
         return a
@@ -245,6 +270,7 @@ the number of prime numbers less than <em>or equal to</em> <code>n</code>. You c
 there is already a function <code>is_prime</code> that takes in a number <em>i</em> and
 returns <code>True</code> if <em>i</em> is prime, and <code>False</code> otherwise. <strong>Use
 recursion!</strong></p>
+
 
 <pre><code>def num_primes(n):
     \&quot;\&quot;\&quot;Returns the number of primes less than or equal to n.
@@ -271,6 +297,7 @@ def is_prime(i):
 
     <div class="solution 5">
 
+
 <pre><code>def num_primes(n):
     if n &lt; 2:
         return 0
@@ -289,6 +316,7 @@ predicate function <code>pred</code>, and returns <code>True</code> if any numbe
 <code>b</code> inclusive satisfies <code>pred</code> (i.e. return <code>True</code> if there exists some
 number <em>i</em> such that <code>a &lt; i &lt; b</code> and <code>pred(i)</code> returns
 <code>True</code>). You may assume <code>a &lt; b</code>. <strong>Use recursion!</strong></p>
+
 
 <pre><code>def any(a, b, pred):
     &quot;&quot;&quot;Returns True if any numbers from a to b inclusive satisfy
@@ -311,6 +339,7 @@ number <em>i</em> such that <code>a &lt; i &lt; b</code> and <code>pred(i)</code
     </button>
 
     <div class="solution 6">
+
 
 <pre><code>def any(a, b, pred):
     if a == b:

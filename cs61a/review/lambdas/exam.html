@@ -61,7 +61,23 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#code-writing-questions">Code-Writing questions</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+<li><a href="#q2">Question 2: </a></li>
+</ul>
+<li><a href="#environment-diagrams">Environment Diagrams</a></li>
+<ul>
+<li><a href="#q3">Question 3: </a></li>
+<li><a href="#q4">Question 4: </a></li>
+<li><a href="#q5">Question 5: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -95,11 +111,13 @@
 
   
 
-<h2>Code-Writing questions</h2>
+<h2 id="code-writing-questions">Code-Writing questions</h2>
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 <p>Fill in the blanks for the following expression so that <code>result</code> is the
 number 42.</p>
+
 
 <pre><code>x = lambda x, y: lambda: x - y
 result = (lambda ____, question: one(__________)(x, 4)</code></pre>
@@ -111,6 +129,7 @@ result = (lambda ____, question: one(__________)(x, 4)</code></pre>
 
     <div class="solution 0">
 
+
 <pre><code>result = (lambda one, question: one(46, question)())(x, 4)</code></pre>
 
 </div>
@@ -120,6 +139,7 @@ result = (lambda ____, question: one(__________)(x, 4)</code></pre>
 
 <p>Fill in the blanks for the following expression so that <code>result</code> is the
 boolean True.</p>
+
 
 <pre><code>x = lambda x: lambda y: x(y)
 result = (lambda ______: x(fair)(dice))(lambda fair: fair == 3, 3)</code></pre>
@@ -131,6 +151,7 @@ result = (lambda ______: x(fair)(dice))(lambda fair: fair == 3, 3)</code></pre>
 
     <div class="solution 1">
 
+
 <pre><code>result = (lambda fair, dice: x(fair)(dice))(lambda fair: fair == 3, 3)</code></pre>
 
 </div>
@@ -140,6 +161,7 @@ result = (lambda ______: x(fair)(dice))(lambda fair: fair == 3, 3)</code></pre>
 
 <p>Fill in the blanks for the following expression so that each call to
 <code>mapper</code> prints the output displayed below:</p>
+
 
 <pre><code>&gt;&gt;&gt; def mapper(fn, num):
 ...     i = 0
@@ -171,6 +193,7 @@ result = (lambda ______: x(fair)(dice))(lambda fair: fair == 3, 3)</code></pre>
 
     <div class="solution 2">
 
+
 <pre><code>mapper(lambda x: 2 * x + 1, 4)
 mapper(lambda x: x - 2, 5)
 mapper(lambda x: (-1 ** x) * (x + 1) // 2, 5)</code></pre>
@@ -178,7 +201,8 @@ mapper(lambda x: (-1 ** x) * (x + 1) // 2, 5)</code></pre>
 </div>
     
 
-<h2>Environment Diagrams</h2>
+<h2 id="environment-diagrams">Environment Diagrams</h2>
+
 <h3 class="question" id="q3">Question 3: </h3>
 
 <pre><code>f = lambda x: lambda y: lambda z: g(x + y + z)

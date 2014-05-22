@@ -61,7 +61,24 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#what-would-python-print">What would Python print?</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+<li><a href="#q2">Question 2: </a></li>
+<li><a href="#q3">Question 3: </a></li>
+</ul>
+<li><a href="#code-writing-questions">Code-Writing questions</a></li>
+<ul>
+<li><a href="#q4">Question 4: </a></li>
+<li><a href="#q5">Question 5: </a></li>
+<li><a href="#q6">Question 6: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -95,7 +112,8 @@
 
   
 
-<h2>What would Python print?</h2>
+<h2 id="what-would-python-print">What would Python print?</h2>
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 
@@ -147,11 +165,13 @@
     </button>
     
 
-<h2>Code-Writing questions</h2>
+<h2 id="code-writing-questions">Code-Writing questions</h2>
+
 <h3 class="question" id="q4">Question 4: </h3>
 
 <p>Implement a function <code>map</code> that acts just like the built-in <code>map</code>,
 except that it returns a tuple instead of a map object.</p>
+
 
 <pre><code>def map(f, seq):
     &quot;&quot;&quot;Acts just like the built-in map function, but returns a
@@ -170,6 +190,7 @@ except that it returns a tuple instead of a map object.</p>
 
     <div class="solution 0">
 
+
 <pre><code>def map(f, seq):
     tup = ()
     for elem in seq:
@@ -183,6 +204,7 @@ except that it returns a tuple instead of a map object.</p>
 
 <p>Implement a function <code>filter</code> that acts just like the built-in
 <code>filter</code>, except that it returns a tuple instead of a filter object.</p>
+
 
 <pre><code>def filter(pred, seq):
     &quot;&quot;&quot;Acts just like the built-in filter function, but returns a
@@ -201,6 +223,7 @@ except that it returns a tuple instead of a map object.</p>
 
     <div class="solution 1">
 
+
 <pre><code>def filter(pred, seq):
     tup = ()
     for elem in seq:
@@ -216,6 +239,7 @@ except that it returns a tuple instead of a map object.</p>
 <p>Implement a function <code>reduce</code> that acts just like the built-in
 <code>reduce</code>.</p>
 
+
 <pre><code>def reduce(combiner, seq):
     &quot;&quot;&quot;Acts just like the built-in reduce function.
 
@@ -228,6 +252,7 @@ except that it returns a tuple instead of a map object.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 <solution>
+
 
 <pre><code>def reduce(combiner, seq):
     total = seq[0]

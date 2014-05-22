@@ -61,7 +61,21 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#conceptual-questions">Conceptual Questions</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+<li><a href="#q2">Question 2: </a></li>
+<li><a href="#q3">Question 3: </a></li>
+<li><a href="#q4">Question 4: </a></li>
+<li><a href="#q5">Question 5: </a></li>
+<li><a href="#q6">Question 6: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -95,11 +109,13 @@
 
   
 
-<h2>Conceptual Questions</h2>
+<h2 id="conceptual-questions">Conceptual Questions</h2>
+
 <h3 class="question" id="q1">Question 1: </h3>
 
-<p>What is the time complexity of this function in big-Theta (&theta;)
+<p>What is the time complexity of this function in big-Theta (&amp;theta;)
 notation?</p>
+
 
 <pre><code>def one(n):
     for a in range(n):
@@ -114,15 +130,16 @@ notation?</p>
 
     <div class="solution 0">
 
-<p>&theta;(n<sup>3</sup>)</p>
+<p>&amp;theta;(n<sup>3</sup>)</p>
 
 </div>
     
 
 <h3 class="question" id="q2">Question 2: </h3>
 
-<p>What is the time complexity of this function in big-Theta (&theta;)
+<p>What is the time complexity of this function in big-Theta (&amp;theta;)
 notation?</p>
+
 
 <pre><code>def two(n):
     for a in range(n):
@@ -137,15 +154,16 @@ notation?</p>
 
     <div class="solution 1">
 
-<p>&theta;(n<sup>2</sup>)</p>
+<p>&amp;theta;(n<sup>2</sup>)</p>
 
 </div>
     
 
 <h3 class="question" id="q3">Question 3: </h3>
 
-<p>What is the time complexity of this function in big-Theta (&theta;)
+<p>What is the time complexity of this function in big-Theta (&amp;theta;)
 notation?</p>
+
 
 <pre><code>def three(n):
     while n &gt; 1:
@@ -161,15 +179,16 @@ notation?</p>
 
     <div class="solution 2">
 
-<p>&theta;(log<em>n</em>)</p>
+<p>&amp;theta;(log<em>n</em>)</p>
 
 </div>
     
 
 <h3 class="question" id="q4">Question 4: </h3>
 
-<p>What is the time complexity of this function in big-Theta (&theta;)
+<p>What is the time complexity of this function in big-Theta (&amp;theta;)
 notation?</p>
+
 
 <pre><code>def four(lst):
     if len(lst) &lt; 12345:
@@ -183,15 +202,16 @@ notation?</p>
 
     <div class="solution 3">
 
-<p>&theta;(n), where <em>n</em> is the length of the list.</p>
+<p>&amp;theta;(n), where <em>n</em> is the length of the list.</p>
 
 </div>
     
 
 <h3 class="question" id="q5">Question 5: </h3>
 
-<p>What is the time complexity of this function in big-Theta (&theta;)
+<p>What is the time complexity of this function in big-Theta (&amp;theta;)
 notation?</p>
+
 
 <pre><code>def five(n):
     def helper(x):
@@ -205,15 +225,16 @@ notation?</p>
 
     <div class="solution 4">
 
-<p>&theta;(1)</p>
+<p>&amp;theta;(1)</p>
 
 </div>
     
 
 <h3 class="question" id="q6">Question 6: </h3>
 
-<p>What is the time complexity of this function in big-Theta (&theta;)
+<p>What is the time complexity of this function in big-Theta (&amp;theta;)
 notation?</p>
+
 
 <pre><code>def reverse(lst):
     if not lst:
@@ -229,7 +250,7 @@ notation?</p>
 
     <div class="solution 5">
 
-<p>&theta;(n), where <em>n</em> is the size of the list.</p>
+<p>&amp;theta;(n), where <em>n</em> is the size of the list.</p>
 
 </div>
     

@@ -61,7 +61,22 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#concept-questions">Concept Questions</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+<li><a href="#q2">Question 2: </a></li>
+<li><a href="#q3">Question 3: </a></li>
+</ul>
+<li><a href="#code-writing-questions">Code-writing Questions</a></li>
+<ul>
+<li><a href="#q4">Question 4: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -92,7 +107,9 @@ The code for the below-the-line OOP is <a href="oop.py">here</a> for reference.
 
   
 
-<h2>Concept Questions</h2>Answer the following questions about <code>make_class(attributes, base_class=None)</code>:
+<h2 id="concept-questions">Concept Questions</h2>
+Answer the following questions about <code>make_class(attributes, base_class=None)</code>:
+
 
 <ol>
   <li>What type of built-in Python object does <code>make_class</code> return? What
@@ -109,9 +126,11 @@ The code for the below-the-line OOP is <a href="oop.py">here</a> for reference.
 
     <div class="solution 0">
 
+
 <ol>
   <li><p><code>make_class</code> returns a dictionary. This dispatch dictionary contains
   3 entries:</p>
+  
   
 <pre><code>{&#x27;get&#x27; : &lt;function get_value ...&gt;,  # gets an attribute
  &#x27;set&#x27; : &lt;function set_value ...&gt;,  # sets an attribute
@@ -120,6 +139,7 @@ The code for the below-the-line OOP is <a href="oop.py">here</a> for reference.
   </li>
   <li><p><code>attributes</code> is a dictionary of methods and class attributes. For
   example:</p>
+  
   
 <pre><code>{&#x27;__init__&#x27;   : &lt;function __init__ ...&gt;,
  &#x27;population&#x27; : 1,
@@ -135,14 +155,15 @@ The code for the below-the-line OOP is <a href="oop.py">here</a> for reference.
 
 <h3 class="question" id="q1">Question 1: </h3>
 
-<p>Answer the following questions about <code>make_instance(cls)</code>:
+<p>Answer the following questions about <code>make_instance(cls)</code>:</p>
+
 
 <ol>
   <li>What type of built-in Python object does <code>make_instance</code> return?
   What are its entries?</li>
   <li>What is <code>cls</code>? Which function can generate such an object?</li>
   <li>Where is <code>make_instance</code> called?</li>
-</ol></p>
+</ol>
 
 
     <button id='1' class='toggleButton'>
@@ -151,9 +172,11 @@ The code for the below-the-line OOP is <a href="oop.py">here</a> for reference.
 
     <div class="solution 1">
 
+
 <ol>
   <li><p><code>make_instance</code> returns a dictionary. This dispatch dictionary
   contains 2 entries:</p>
+  
   
 <pre><code>{&#x27;get&#x27; : &lt;function get_value ...&gt;,  # gets an attribute
  &#x27;set&#x27; : &lt;function set_value ...&gt;}  # sets an attribute</code></pre>
@@ -168,12 +191,13 @@ The code for the below-the-line OOP is <a href="oop.py">here</a> for reference.
 
 <h3 class="question" id="q2">Question 2: </h3>
 
-<p>Answer the following questions about <code>init_instance(cls, *args)</code>:
+<p>Answer the following questions about <code>init_instance(cls, *args)</code>:</p>
+
 
 <ol>
   <li>How is <code>init_instance</code> different from <code>make_instance</code>?</li>
   <li>Where is <code>init_instance</code> called? What does it do (conceptually)?</li>
-</ol></p>
+</ol>
 
 
     <button id='2' class='toggleButton'>
@@ -181,6 +205,7 @@ The code for the below-the-line OOP is <a href="oop.py">here</a> for reference.
     </button>
 
     <div class="solution 2">
+
 
 <ol>
   <li><code>make_instance</code> just creates an empty 'shell' (an instance dispatch
@@ -197,13 +222,14 @@ The code for the below-the-line OOP is <a href="oop.py">here</a> for reference.
 
 <h3 class="question" id="q3">Question 3: </h3>
 
-<p>Answer the following questions about <code>bind_method(value, instance)</code>:
+<p>Answer the following questions about <code>bind_method(value, instance)</code>:</p>
+
 
 <ol>
   <li>Is <code>value</code> guaranteed to be a function?</li>
   <li>What is <code>instance</code>?</li>
   <li>What is <code>method</code> (defined inside of <code>bind_method</code>?</li>
-</ol></p>
+</ol>
 
 
     <button id='3' class='toggleButton'>
@@ -211,6 +237,7 @@ The code for the below-the-line OOP is <a href="oop.py">here</a> for reference.
     </button>
 
     <div class="solution 3">
+
 
 <ol>
   <li><code>value</code> is NOT guaranteed to be a function. In fact, the
@@ -227,11 +254,13 @@ The code for the below-the-line OOP is <a href="oop.py">here</a> for reference.
 </div>
     
 
-<h2>Code-writing Questions</h2>
+<h2 id="code-writing-questions">Code-writing Questions</h2>
+
 <h3 class="question" id="q4">Question 4: </h3>
 
 <p>Translate the following code, which uses Python's built-in class
 system, into code that uses our below-the-line OOP implementation.</p>
+
 
 <pre><code>class Computer:
     def __init__(self, op_sys):
@@ -251,6 +280,7 @@ system, into code that uses our below-the-line OOP implementation.</p>
     </button>
 
     <div class="solution 4">
+
 
 <pre><code>def make_computer_class():
     def __init__(self, op_sys):

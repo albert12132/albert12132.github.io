@@ -61,7 +61,19 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#code-writing-questions">Code-Writing Questions</a></li>
+<li><a href="#environment-diagrams">Environment Diagrams</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+<li><a href="#q2">Question 2: </a></li>
+<li><a href="#q3">Question 3: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -97,14 +109,16 @@
 
   
 
-<h2>Code-Writing Questions</h2>
-In game theory, a <em>subtraction game</em> is a simple game with two players,
+<h2 id="code-writing-questions">Code-Writing Questions</h2>
+
+<p>In game theory, a <em>subtraction game</em> is a simple game with two players,
 player 0 and player 1.  At the beginning, there is a pile of <em>n</em>
 cookies.  The players alternate turns; each turn, a player can take
 anywhere from 1 to 3 cookies. The player who takes the last cookie
 wins. Fill in the function <code>can_win</code>, which returns <code>True</code> if it is
 possible to win starting at the given number of cookies. It uses the
-following ideas:
+following ideas:</p>
+
 
 <ul>
   <li>if the number of cookies is negative, it is impossible to win.</li>
@@ -115,7 +129,8 @@ following ideas:
   <li><p>if none of the actions can force a win, then we can't guarantee a
   win.</p>
   
-  <p>def can_win(number):
+  <p>def can_win(number):</p>
+  
 <pre><code>&quot;&quot;&quot;Returns True if the current player is guaranteed a win
 starting from the given state. It is impossible to win a game
 from an invalid game state.
@@ -127,7 +142,7 @@ True
 &gt;&gt;&gt; can_win (4)
 False
 &quot;&quot;&quot;
-&quot;*** YOUR CODE HERE ***&quot;</code></pre></p>
+&quot;*** YOUR CODE HERE ***&quot;</code></pre>
   
   </li>
 </ul>
@@ -138,6 +153,7 @@ False
     </button>
 
     <div class="solution 0">
+
 
 <pre><code>def can_win(number):
     if number &lt;= 0:
@@ -153,7 +169,8 @@ False
 </div>
     
 
-<h2>Environment Diagrams</h2>
+<h2 id="environment-diagrams">Environment Diagrams</h2>
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 <pre><code>def factorial(n):

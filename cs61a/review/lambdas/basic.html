@@ -61,7 +61,31 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#conceptual-questions">Conceptual Questions</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+<li><a href="#q2">Question 2: </a></li>
+</ul>
+<li><a href="#what-would-python-print">What would Python print?</a></li>
+<ul>
+<li><a href="#q3">Question 3: </a></li>
+</ul>
+<li><a href="#code-writing-questions">Code-Writing questions</a></li>
+<ul>
+<li><a href="#q4">Question 4: </a></li>
+<li><a href="#q5">Question 5: </a></li>
+</ul>
+<li><a href="#environment-diagrams">Environment Diagrams</a></li>
+<ul>
+<li><a href="#q6">Question 6: </a></li>
+<li><a href="#q7">Question 7: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -95,7 +119,8 @@
 
   
 
-<h2>Conceptual Questions</h2>
+<h2 id="conceptual-questions">Conceptual Questions</h2>
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 <p>What are some differences between <code>def</code> statements and <code>lambda</code>
@@ -108,14 +133,15 @@ expressions?</p>
 
     <div class="solution 0">
 
-<p>Some differences between lambdas and def statements include:
+<p>Some differences between lambdas and def statements include:</p>
+
 
 <ul>
   <li>lambdas are expressions (they are a value), while defs are
   statements.</li>
   <li>lambdas can only be one liners</li>
   <li>lambdas are anonymous -- they have no intrinsic names</li>
-</ul></p>
+</ul>
 
 </div>
     
@@ -123,6 +149,7 @@ expressions?</p>
 <h3 class="question" id="q2">Question 2: </h3>
 
 <p>What are the intrinsic names of the following functions?</p>
+
 
 <pre><code>def cube(x):
     return x * x * x
@@ -144,7 +171,8 @@ diagram frames!</p>
 </div>
     
 
-<h2>What would Python print?</h2>
+<h2 id="what-would-python-print">What would Python print?</h2>
+
 <h3 class="question" id="q3">Question 3: </h3>
 
 
@@ -161,10 +189,12 @@ diagram frames!</p>
     </button>
     
 
-<h2>Code-Writing questions</h2>
+<h2 id="code-writing-questions">Code-Writing questions</h2>
+
 <h3 class="question" id="q4">Question 4: </h3>
 
 <p>Translate the following def statements into lambda expressions.</p>
+
 
 <pre><code># 1
 def square(x):
@@ -183,6 +213,7 @@ def compose(f, g):
 
     <div class="solution 2">
 
+
 <pre><code># 1
 square = lambda x: x * x
 
@@ -196,6 +227,7 @@ compose = lambda f, g: lambda x: f(g(x))</code></pre>
 
 <p>Translate the following lambda expressions into def statements.</p>
 
+
 <pre><code># 1
 pow = lambda x, y: x**y
 
@@ -208,6 +240,7 @@ foo = lambda x: lambda y: lambda z: x + y * z</code></pre>
     </button>
 
     <div class="solution 3">
+
 
 <pre><code># 1
 def pow(x, y):
@@ -224,7 +257,8 @@ def foo(x):
 </div>
     
 
-<h2>Environment Diagrams</h2>
+<h2 id="environment-diagrams">Environment Diagrams</h2>
+
 <h3 class="question" id="q6">Question 6: </h3>
 
 <pre><code>square = lambda x: x * x

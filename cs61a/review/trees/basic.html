@@ -61,7 +61,18 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#conceptual-questions">Conceptual Questions</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+<li><a href="#q2">Question 2: </a></li>
+<li><a href="#q3">Question 3: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -99,10 +110,12 @@ found
 
   
 
-<h2>Conceptual Questions</h2>
+<h2 id="conceptual-questions">Conceptual Questions</h2>
+
 <h3 class="question" id="q1">Question 1: </h3>
 
-<p>Define each of the following terms:
+<p>Define each of the following terms:</p>
+
 
 <ul>
   <li>entry/datum,</li>
@@ -112,7 +125,7 @@ found
   <li>leaf,</li>
   <li>forest,</li>
   <li>binary search tree</li>
-</ul></p>
+</ul>
 
 
     <button id='0' class='toggleButton'>
@@ -120,6 +133,7 @@ found
     </button>
 
     <div class="solution 0">
+
 
 <ul>
   <li>entry/datum: an item contained inside of a node</li>
@@ -133,14 +147,16 @@ found
   <li>leaf: a node that has no children (has no other nodes branching off
   underneath it).</li>
   <li>forest: one or more trees</li>
-  <li>binary search tree: a type of tree that satisfies the following
-  conditions:
+  <li><p>binary search tree: a type of tree that satisfies the following
+  conditions:</p>
   
   <ol>
     <li>each node can have at most 2 children, called a left and a right</li>
     <li>every element in the subtree to the left of the node must be
     smaller than the element in the node.</li>
-  </ol></li>
+  </ol>
+  
+  </li>
 </ul>
 
 </div>
@@ -148,7 +164,8 @@ found
 
 <h3 class="question" id="q2">Question 2: </h3>
 
-<p>Which of the following are valid <code>Tree</code> constructors?
+<p>Which of the following are valid <code>Tree</code> constructors?</p>
+
 
 <ol>
   <li>Tree()</li>
@@ -156,7 +173,7 @@ found
   <li>Tree(5, Tree(1), Tree(5))</li>
   <li>Tree(4, Tree(2))</li>
   <li>Tree(2, Tree(2, 4, 5))</li>
-</ol></p>
+</ol>
 
 
     <button id='1' class='toggleButton'>
@@ -164,6 +181,7 @@ found
     </button>
 
     <div class="solution 1">
+
 
 <ol>
   <li>Invalid: trees must contain at least one element</li>
@@ -181,22 +199,24 @@ found
 <h3 class="question" id="q3">Question 3: </h3>
 
 <p>Draw a graphical representation of the following tree and answer these
-three questions:
+three questions:</p>
+
 
 <ol>
   <li>What number is contained in the root of this tree?</li>
   <li>Which numbers are contained in leaves?</li>
   <li><p>How many children does the node containing 14 have?</p>
   
-  <p>Tree(25,
+  <p>Tree(25,</p>
+  
 <pre><code> Tree(14,
       Tree(9),
       Tree(20)),
  Tree(30,
-      Tree(27)))</code></pre></p>
+      Tree(27)))</code></pre>
   
   </li>
-</ol></p>
+</ol>
 
 
     <button id='2' class='toggleButton'>
@@ -205,13 +225,14 @@ three questions:
 
     <div class="solution 2">
 
-<p><img src="tree.png" alt="tree">
+<p><img src="tree.png" alt="tree"></p>
+
 
 <ol>
   <li>25</li>
   <li>9, 20, 27</li>
   <li>2 children</li>
-</ol></p>
+</ol>
 
 </div>
     

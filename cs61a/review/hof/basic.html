@@ -61,7 +61,35 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#conceptual-questions">Conceptual Questions</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+<li><a href="#q2">Question 2: </a></li>
+</ul>
+<li><a href="#what-would-python-print">What would Python print?</a></li>
+<ul>
+<li><a href="#q3">Question 3: </a></li>
+<li><a href="#q4">Question 4: </a></li>
+<li><a href="#q5">Question 5: </a></li>
+</ul>
+<li><a href="#environment-diagrams">Environment Diagrams</a></li>
+<ul>
+<li><a href="#q6">Question 6: </a></li>
+<li><a href="#q7">Question 7: </a></li>
+<li><a href="#q8">Question 8: </a></li>
+<li><a href="#q9">Question 9: </a></li>
+<li><a href="#q10">Question 10: </a></li>
+</ul>
+<li><a href="#code-writing-questions">Code-Writing questions</a></li>
+<ul>
+<li><a href="#q11">Question 11: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -96,7 +124,8 @@
 
   
 
-<h2>Conceptual Questions</h2>
+<h2 id="conceptual-questions">Conceptual Questions</h2>
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 <p>What is the definition of a higher-order function?</p>
@@ -109,12 +138,13 @@
     <div class="solution 0">
 
 <p>A function is a higher-order function if it satisfies at least one of
-the following:
+the following:</p>
+
 
 <ul>
   <li>It takes at least one function as an argument</li>
   <li>It returns a function</li>
-</ul></p>
+</ul>
 
 </div>
     
@@ -124,6 +154,7 @@ the following:
 <p>In the following code, what type of object (number, boolean, string,
 function) does <code>foo</code> return?  What type of object should <code>x</code>
 be for this function to work?</p>
+
 
 <pre><code>def foo(x):
     def inner(y):
@@ -144,7 +175,8 @@ will result in an error (because it will try <code>x(y)</code>).</p>
 </div>
     
 
-<h2>What would Python print?</h2>
+<h2 id="what-would-python-print">What would Python print?</h2>
+
 <h3 class="question" id="q3">Question 3: </h3>
 
 
@@ -206,7 +238,8 @@ False</span></code></pre>
     </button>
     
 
-<h2>Environment Diagrams</h2>
+<h2 id="environment-diagrams">Environment Diagrams</h2>
+
 <h3 class="question" id="q6">Question 6: </h3>
 
 <pre><code>def my_strat(score):
@@ -344,12 +377,14 @@ result = middle(cube)
     </div>
     
 
-<h2>Code-Writing questions</h2>
+<h2 id="code-writing-questions">Code-Writing questions</h2>
+
 <h3 class="question" id="q11">Question 11: </h3>
 
 <p>Write a function <code>make_mod</code> that takes a number, <code>n</code>, as an argument,
 and returns a new function. The new function should take a single
 argument, <code>x</code>, and return the result of <code>x</code> modulo <code>n</code>.</p>
+
 
 <pre><code>def make_mod(n):
     &quot;&quot;&quot;Returns a function that takes an argument x.
@@ -369,6 +404,7 @@ argument, <code>x</code>, and return the result of <code>x</code> modulo <code>n
     </button>
 
     <div class="solution 2">
+
 
 <pre><code>def make_mod(n):
     def mod_n(x):

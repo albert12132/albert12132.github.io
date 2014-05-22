@@ -61,7 +61,23 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#conceptual-questions">Conceptual Questions</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+<li><a href="#q2">Question 2: </a></li>
+</ul>
+<li><a href="#code-writing-questions">Code-Writing questions</a></li>
+<ul>
+<li><a href="#q3">Question 3: </a></li>
+</ul>
+<li><a href="#more-practice-problems">More practice problems</a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -97,11 +113,13 @@ You can find the source code that contains the Stream class
 
   
 
-<h2>Conceptual Questions</h2>
+<h2 id="conceptual-questions">Conceptual Questions</h2>
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 <p>Given the following function, list the first 5 elements of the Stream
 that is returned by <code>stream1()</code>.</p>
+
 
 <pre><code>def stream1():
     def compute_rest():
@@ -125,6 +143,7 @@ that is returned by <code>stream1()</code>.</p>
 <p>Given the following function, list the first 5 elements of the Stream
 that is returned by <code>stream2()</code>.</p>
 
+
 <pre><code>def stream2():
     def compute_rest():
         return add_streams(stream2(), stream2())
@@ -142,11 +161,13 @@ that is returned by <code>stream2()</code>.</p>
 </div>
     
 
-<h2>Code-Writing questions</h2>
+<h2 id="code-writing-questions">Code-Writing questions</h2>
+
 <h3 class="question" id="q3">Question 3: </h3>
 
 <p>Create a function <code>make_fact_stream</code>, which returns a Stream whose
 <em>n</em>th element is <em>n</em>!  (factorial of <em>n</em>).</p>
+
 
 <pre><code>def make_fact_stream():
     &quot;&quot;&quot;Returns a Stream of factorials.
@@ -175,6 +196,7 @@ function.</p>
 
     <div class="solution 2">
 
+
 <pre><code>def make_fact_stream():
     return fact_help(0, 1)
 
@@ -193,13 +215,14 @@ def infinite_fact():
 </div>
     
 
-<h2>More practice problems</h2>
-This
+<h2 id="more-practice-problems">More practice problems</h2>
+
+<p>This
 <a href="http://www-inst.eecs.berkeley.edu/~cs61a/su12/lab/lab13/lab13.php">link</a>
 contains Stream problems (as well as iterator and generator problems)
 from the summer 2012 version of 61A. They are pretty tough (probably
 tougher than final material), so don't get discouraged if you get
-stuck!
+stuck!</p>
 
 <p>Solutions are also included in the lab (in the form of toggle buttons).
 Don't worry about the Py section -- we didn't cover that this

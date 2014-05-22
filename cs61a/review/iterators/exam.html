@@ -61,7 +61,28 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#iterators-cross-out-the-errors">Iterators: Cross out the errors</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+</ul>
+<li><a href="#iterators-fill-in-the-blanks">Iterators: Fill in the blanks</a></li>
+<ul>
+<li><a href="#q2">Question 2: </a></li>
+</ul>
+<li><a href="#generators-code-writing-questions">Generators: Code-writing questions</a></li>
+<ul>
+<li><a href="#q3">Question 3: </a></li>
+</ul>
+<li><a href="#generators-fill-in-the-blank">Generators: Fill in the blank</a></li>
+<ul>
+<li><a href="#q4">Question 4: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -95,12 +116,14 @@
 
   
 
-<h2>Iterators: Cross out the errors</h2>
+<h2 id="iterators-cross-out-the-errors">Iterators: Cross out the errors</h2>
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 <p>Cross out any incorrect or unnecessary lines. You should not need to
 write any new lines to make the code work. Do not cross out any
 doctests.</p>
+
 
 <pre><code>class Naturals:
     &quot;&quot;&quot;Doctests.
@@ -151,6 +174,7 @@ class NatIter:
 
     <div class="solution 0">
 
+
 <pre><code>class Naturals:
     &quot;&quot;&quot;Doctests.
 
@@ -184,10 +208,12 @@ class NatIter:
 </div>
     
 
-<h2>Iterators: Fill in the blanks</h2>
+<h2 id="iterators-fill-in-the-blanks">Iterators: Fill in the blanks</h2>
+
 <h3 class="question" id="q2">Question 2: </h3>
 
 <p>Fill in the implementation of the iterator for the Rlist class.</p>
+
 
 <pre><code>class Rlist:
     &quot;&quot;&quot;Doctests
@@ -228,6 +254,7 @@ class NatIter:
 
     <div class="solution 1">
 
+
 <pre><code>class Rlist:
     class EmptyList:
         pass
@@ -261,12 +288,14 @@ the <code>Rlist</code> class is technically an iterator. As such, its
 </div>
     
 
-<h2>Generators: Code-writing questions</h2>
+<h2 id="generators-code-writing-questions">Generators: Code-writing questions</h2>
+
 <h3 class="question" id="q3">Question 3: </h3>
 
 <p>Write a generator function <code>zip</code> that takes two iterators and yields
 elements of thsoe iterators in pairs (see the doctests for
 clarification).  <code>zip</code> will stop once one of the input iterators stops.</p>
+
 
 <pre><code>def zip(iter1, iter2):
     &quot;&quot;&quot;Doctests
@@ -289,6 +318,7 @@ clarification).  <code>zip</code> will stop once one of the input iterators stop
 
     <div class="solution 2">
 
+
 <pre><code>def zip(iter1, iter2):
     while True:
         try:
@@ -299,7 +329,8 @@ clarification).  <code>zip</code> will stop once one of the input iterators stop
 </div>
     
 
-<h2>Generators: Fill in the blank</h2>
+<h2 id="generators-fill-in-the-blank">Generators: Fill in the blank</h2>
+
 <h3 class="question" id="q4">Question 4: </h3>
 
 <p>Fill in the implementation of <code>pascals</code>, a generator function that
@@ -308,6 +339,7 @@ called.  Each line should be represented as a Python list.</p>
 
 <p><strong>Hint</strong>: a description of Pascal's triangle can be found
 <a href="http://en.wikipedia.org/wiki/Pascal's_triangle">here</a></p>
+
 
 <pre><code>def pascals():
     &quot;&quot;&quot;Doctests
@@ -340,6 +372,7 @@ called.  Each line should be represented as a Python list.</p>
     </button>
 
     <div class="solution 3">
+
 
 <pre><code>def pascals():
     curr = [1]

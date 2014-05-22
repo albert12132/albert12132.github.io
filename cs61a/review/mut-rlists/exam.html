@@ -61,7 +61,19 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#code-writing-questions">Code-Writing questions</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+<li><a href="#q2">Question 2: </a></li>
+<li><a href="#q3">Question 3: </a></li>
+<li><a href="#q4">Question 4: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -87,6 +99,7 @@
   
 For this section, we will be using the <code>Rlist</code> class implementation
 from lecture:
+
 
 <pre><code>class Rlist(object):
     class EmptyList(object):
@@ -122,11 +135,13 @@ from lecture:
 
   
 
-<h2>Code-Writing questions</h2>
+<h2 id="code-writing-questions">Code-Writing questions</h2>
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 <p>Implement a function <code>validate</code>, which takes an Rlist and returns True
 if the Rlist is valid.</p>
+
 
 <pre><code>def validate(r):
     &quot;&quot;&quot;Returns True if R is a valid Rlist.
@@ -150,6 +165,7 @@ if the Rlist is valid.</p>
 
     <div class="solution 0">
 
+
 <pre><code>def validate(r):
     if r is Rlist.empty:
         return True
@@ -165,6 +181,7 @@ if the Rlist is valid.</p>
 
 <p>Implement a function <code>count</code>, which takes an Rlist and another value,
 and counts the number of times that <code>value</code> is found in the Rlist.</p>
+
 
 <pre><code>def count(r, value):
     &quot;&quot;&quot;Counts the number of times VALUE shows up in R.
@@ -184,6 +201,7 @@ and counts the number of times that <code>value</code> is found in the Rlist.</p
 
     <div class="solution 1">
 
+
 <pre><code>def count(r, value):
     if r is Rlist.empty:
         return 0
@@ -202,6 +220,7 @@ and counts the number of times that <code>value</code> is found in the Rlist.</p
 its tail. Do this mutatively -- don't return anything! Also, make sure
 <code>s2</code> itself does not get attached to <code>s1</code>. You may assume <code>s1</code> always
 has at least one element.</p>
+
 
 <pre><code>def extend_rlist(s1, s2):
     &quot;&quot;&quot;Extends s1 to include the elements of s2.
@@ -227,6 +246,7 @@ part of <code>s1</code>.""",</p>
 
     <div class="solution 2">
 
+
 <pre><code>def extend_rlist(s1, s2):
     if s2 is Rlist.empty:
         return
@@ -245,6 +265,7 @@ part of <code>s1</code>.""",</p>
 and a function <code>fn</code>, and applies <code>fn</code> to every element in the Rlist. If
 an element is itself an Rlist, recursively apply <code>fn</code> to each of the
 element's elements.</p>
+
 
 <pre><code>def deep_map(fn, r):
     &quot;&quot;&quot;Applies FN to every element in R.
@@ -266,6 +287,7 @@ element's elements.</p>
     </button>
 
     <div class="solution 3">
+
 
 <pre><code>def deep_map(fn, r):
     if r is Rlist.empty:

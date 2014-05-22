@@ -61,7 +61,22 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#what-would-python-print">What would Python print?</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+</ul>
+<li><a href="#code-writing-questions">Code-Writing questions</a></li>
+<ul>
+<li><a href="#q2">Question 2: </a></li>
+<li><a href="#q3">Question 3: </a></li>
+<li><a href="#q4">Question 4: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -96,7 +111,8 @@
 
   
 
-<h2>What would Python print?</h2>
+<h2 id="what-would-python-print">What would Python print?</h2>
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 
@@ -123,11 +139,13 @@
     </button>
     
 
-<h2>Code-Writing questions</h2>
+<h2 id="code-writing-questions">Code-Writing questions</h2>
+
 <h3 class="question" id="q2">Question 2: </h3>
 
 <p>Implement a function <code>is_palindrome</code> if the given tuple is a
 palindrome. A palindrome is a sequence that is the same backwards.</p>
+
 
 <pre><code>def is_palindrome(tup):
     &quot;&quot;&quot;Returns True if tup is a palindrome.
@@ -149,6 +167,7 @@ palindrome. A palindrome is a sequence that is the same backwards.</p>
     </button>
 
     <div class="solution 0">
+
 
 <pre><code># simple version
 def is_palindrome(tup):
@@ -176,6 +195,7 @@ def is_palindrome(tup):
 returns a new tuple that has no nested tuples. See the doctests for
 behavior specifics.</p>
 
+
 <pre><code>def flatten(tup):
     &quot;&quot;&quot;Flattens a possibly deep tuples.
 
@@ -194,6 +214,7 @@ behavior specifics.</p>
     </button>
 
     <div class="solution 1">
+
 
 <pre><code># recursive
 def flatten(tup):
@@ -224,6 +245,7 @@ and reverses it. If the tuple has elements that are themselves tuples,
 those elements will be reversed too. See the doctests for behavior
 specifics.</p>
 
+
 <pre><code>def deep_reverse(tup):
     &quot;&quot;&quot;Reverses a possibly deep tuples.
 
@@ -242,6 +264,7 @@ specifics.</p>
     </button>
 
     <div class="solution 2">
+
 
 <pre><code># recursive
 def deep_reverse(tup):

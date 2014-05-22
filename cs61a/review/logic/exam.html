@@ -61,7 +61,29 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#code-writing-questions">Code-Writing questions</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+<li><a href="#q2">Question 2: </a></li>
+<li><a href="#q3">Question 3: </a></li>
+<li><a href="#q4">Question 4: </a></li>
+</ul>
+<li><a href="#logical-trees-courtesy-of-sarah-kim">Logical Trees (courtesy of Sarah Kim)</a></li>
+<ul>
+<li><a href="#q5">Question 5: </a></li>
+<li><a href="#q6">Question 6: </a></li>
+<li><a href="#q7">Question 7: </a></li>
+<li><a href="#q8">Question 8: </a></li>
+<li><a href="#q9">Question 9: </a></li>
+<li><a href="#q10">Question 10: </a></li>
+<li><a href="#q11">Question 11: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -93,9 +115,11 @@ also need your Scheme project in the same directory. You can run the
 Logic
 interpreter from your terminal with:
 
+
 <pre><code>python3 logic.py</code></pre>
 
 <p>You can load a <code>.logic</code> file with</p>
+
 
 <pre><code>python3 logic.py -load file.logic</code></pre>
 
@@ -111,12 +135,14 @@ interpreter</a>
 
   
 
-<h2>Code-Writing questions</h2>
+<h2 id="code-writing-questions">Code-Writing questions</h2>
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 <p>Write a fact or set of facts for the <code>interleave</code> relation, which
 checks if two given lists will interleave into a third given list. You
 cannot assume that the lists are of equal length.</p>
+
 
 <pre><code>(fact (interleave ; YOUR CODE HERE
 
@@ -136,6 +162,7 @@ what: (1 3 2 4 5)</code></pre>
 
     <div class="solution 0">
 
+
 <pre><code>(fact (interleave ?lst () ?lst))
 (fact (interleave () ?lst ?lst))
 (fact (interleave (?a . ?x) (?b . ?y) (?a ?b . ?z))
@@ -150,6 +177,7 @@ what: (1 3 2 4 5)</code></pre>
 two given lists will zip into a third given list (see the tests to get
 an idea of what "zip" means). You can assume that the lists are of
 equal length.</p>
+
 
 <pre><code>(fact (zip ; YOUR CODE HERE
 
@@ -166,6 +194,7 @@ Failed.</code></pre>
 
     <div class="solution 1">
 
+
 <pre><code>(fact (zip () () ()))
 (fact (zip (?a . ?x) (?b . ?y) ((?a ?b) . ?z))
       (zip ?x ?y ?z))</code></pre>
@@ -178,6 +207,7 @@ Failed.</code></pre>
 <p>Write a fact or set of facts for the <code>reverse</code> relation, which takes
 two lists and checks if the second list is the reverse of the first.
 You can assume the <code>append</code> relation is already defined.</p>
+
 
 <pre><code>(fact (reverse ; YOUR CODE HERE
 
@@ -197,6 +227,7 @@ what: (5 2 4)</code></pre>
 
     <div class="solution 2">
 
+
 <pre><code>(fact (reverse () ()))
 (fact (reverse (?f . ?rest) ?lst)
       (reverse ?rest ?reverse-rest)
@@ -212,6 +243,7 @@ takes two lists, and checks if the first list is a non-contiguous
 subsequence of the second list. <em>Non-contiguous</em> means the elements of
 the first list do not have to appear consecutively in the second list,
 but they do have to appear in order.</p>
+
 
 <pre><code>(fact (subsequence ; YOUR CODE HERE
 
@@ -232,6 +264,7 @@ Success!</code></pre>
 
     <div class="solution 3">
 
+
 <pre><code>(fact (subsequence () ?lst))
 (fact (subsequence (?f . ?r) (?f . ?s))
       (subsequence ?r ?s))
@@ -241,15 +274,18 @@ Success!</code></pre>
 </div>
     
 
-<h2>Logical Trees (courtesy of Sarah Kim)</h2>
-<em>The following questions were written by Sarah Kim for Summer 2013.</em>
+<h2 id="logical-trees-courtesy-of-sarah-kim">Logical Trees (courtesy of Sarah Kim)</h2>
+
+<p><em>The following questions were written by Sarah Kim for Summer 2013.</em></p>
 
 <p>Let's create a series of facts on a tree diagram. The facts are of the
 following form:</p>
 
+
 <pre><code>(fact (tree number entry left right))</code></pre>
 
 <p>Some examples:</p>
+
 
 <pre><code>(fact (tree tree-1 6 tree-2 tree-3))
 (fact (tree tree-2 4 tree-4 tree-5))
@@ -269,6 +305,7 @@ following form:</p>
 
 <p>Write a <code>find-entry</code> fact that associates tree number to tree entry.</p>
 
+
 <pre><code>logic&gt; (query (find-entry tree-12 10))
 Success!
 logic&gt; (query (find-entry tree-2 ?x))
@@ -285,6 +322,7 @@ tree: tree-7</code></pre>
 
     <div class="solution 4">
 
+
 <pre><code>(fact (find-entry ?number ?entry)
       (tree ?number ?entry ?left ?right))</code></pre>
 
@@ -295,6 +333,7 @@ tree: tree-7</code></pre>
 
 <p>Write a <code>check-leaf</code> fact that checks if a tree is a leaf (no trees in
 left or right).</p>
+
 
 <pre><code>logic&gt; (query (check-leaf tree-12))
 Sucess!
@@ -307,6 +346,7 @@ Failed.</code></pre>
     </button>
 
     <div class="solution 5">
+
 
 <pre><code>(fact (check-leaf ?number)
       (tree ?number ?leaf none none))</code></pre>
@@ -335,6 +375,7 @@ x: tree-12</span></code></pre>
 <h3 class="question" id="q8">Question 8: </h3>
 Write a <code>smallest-entry</code> fact that finds the smallest entry of a tree.
 
+
 <pre><code>logic&gt; (query (smallest-entry tree-2 ?leaf))
 Success!
 leaf: 1
@@ -351,6 +392,7 @@ leaf: 9</code></pre>
 
     <div class="solution 6">
 
+
 <pre><code>(fact (smallest-entry ?number ?entry)
       (tree ?number ?entry none ?right))
 (fact (smallest-entry ?number ?entry)
@@ -364,6 +406,7 @@ leaf: 9</code></pre>
 
 <p>Write a <code>find-parent</code> fact, which finds the parent of a number.</p>
 
+
 <pre><code>logic&gt; (query (find-parent tree-11 ?parent))
 Success!
 parent: tree-8</code></pre>
@@ -374,6 +417,7 @@ parent: tree-8</code></pre>
     </button>
 
     <div class="solution 7">
+
 
 <pre><code>(fact (find-parent ?number ?parent)
       (tree ?parent ?entry ?number ?right))
@@ -387,6 +431,7 @@ parent: tree-8</code></pre>
 
 <p>Write a <code>generation</code> fact, which lists all the members of a tree's
 family tree.</p>
+
 
 <pre><code>logic&gt; (query (generation tree-11 ?members))
 Success!
@@ -403,6 +448,7 @@ members: tree-11</code></pre>
 
     <div class="solution 8">
 
+
 <pre><code>(fact (generation ?number ?grandfather)
       (find-parent ?number ?father)
       (generation ?father ?grandfather))
@@ -416,6 +462,7 @@ members: tree-11</code></pre>
 <p>What would happen if for the <code>generation</code> fact, we put the second fact
 before the first fact?</p>
 
+
 <pre><code>logic&gt; (query (generation tree-11 ?members))</code></pre>
 
 
@@ -424,6 +471,7 @@ before the first fact?</p>
     </button>
 
     <div class="solution 9">
+
 
 <pre><code>Success!
 members: tree-11

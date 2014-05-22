@@ -61,7 +61,16 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#code-writing-questions">Code-Writing questions</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -95,11 +104,13 @@
 
   
 
-<h2>Code-Writing questions</h2>
-Implement a function <code>make_sassy_function</code> which takes a function <code>f</code>
+<h2 id="code-writing-questions">Code-Writing questions</h2>
+
+<p>Implement a function <code>make_sassy_function</code> which takes a function <code>f</code>
 and returns a modified version of <code>f</code>: the new function should only
 work every other function call. The other half of the time, it should
-return a rude message.
+return a rude message.</p>
+
 
 <pre><code>def make_sassy_function(f, msg):
     &quot;&quot;&quot;Returns a version of f that only works every other function
@@ -128,6 +139,7 @@ return a rude message.
 
     <div class="solution 0">
 
+
 <pre><code>def make_sassy_function(f, msg):
     sassy = True
     def sassy_f(*args):
@@ -149,6 +161,7 @@ it saves all the words that it has seen so far. If takes in a word that
 ends in a period ("."), that denotes the end of a sentence, and the
 function returns all the words in the sentence. It will also clear its
 memory, so that it no longer remembers any words.</p>
+
 
 <pre><code>def sentence_buffer():
     &quot;&quot;&quot;Returns a function that will return entire sentences when it
@@ -172,6 +185,7 @@ memory, so that it no longer remembers any words.</p>
     </button>
 
     <div class="solution 1">
+
 
 <pre><code>def sentence_buffer():
     sentence = &#x27;&#x27;

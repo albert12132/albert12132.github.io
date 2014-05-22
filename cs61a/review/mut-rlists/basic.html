@@ -61,7 +61,22 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#conceptual-questions">Conceptual Questions</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+<li><a href="#q2">Question 2: </a></li>
+</ul>
+<li><a href="#code-writing-questions">Code-Writing questions</a></li>
+<ul>
+<li><a href="#q3">Question 3: </a></li>
+<li><a href="#q4">Question 4: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -87,6 +102,7 @@
   
 For this section, we will be using the <code>Rlist</code> class implementation
 from lecture:
+
 
 <pre><code>class Rlist(object):
     class EmptyList(object):
@@ -122,7 +138,8 @@ from lecture:
 
   
 
-<h2>Conceptual Questions</h2>
+<h2 id="conceptual-questions">Conceptual Questions</h2>
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 <p>What type of object can <code>self.first</code> be? What type of object can
@@ -160,11 +177,13 @@ not be mutated after it is created.</p>
 </div>
     
 
-<h2>Code-Writing questions</h2>
+<h2 id="code-writing-questions">Code-Writing questions</h2>
+
 <h3 class="question" id="q3">Question 3: </h3>
 
 <p>Implement a function <code>seq_to_rlist</code>, which takes any type of sequence
 (e.g. tuple, list) and converts it to an <code>Rlist</code>.</p>
+
 
 <pre><code>def seq_to_rlist(seq):
     &quot;&quot;&quot;Converts SEQ into an Rlist.
@@ -183,6 +202,7 @@ not be mutated after it is created.</p>
     </button>
 
     <div class="solution 2">
+
 
 <pre><code># recursive
 def seq_to_rlist(seq):
@@ -206,6 +226,7 @@ def seq_to_rlist(seq):
 <code>fn</code>, and applies <code>fn</code> to every element in the Rlist. <code>map_rlist</code>
 should <strong>mutate</strong> the Rlist -- do not return a new one!</p>
 
+
 <pre><code>def map_rlist(fn, r):
     &quot;&quot;&quot;Maps FN onto every element of the Rlist R.
 
@@ -222,6 +243,7 @@ should <strong>mutate</strong> the Rlist -- do not return a new one!</p>
     </button>
 
     <div class="solution 3">
+
 
 <pre><code># recursive
 def map_rlist(fn, r):

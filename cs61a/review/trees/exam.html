@@ -61,7 +61,22 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#code-writing-questions">Code-Writing questions</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+<li><a href="#q2">Question 2: </a></li>
+<li><a href="#q3">Question 3: </a></li>
+<li><a href="#q4">Question 4: </a></li>
+<li><a href="#q5">Question 5: </a></li>
+<li><a href="#q6">Question 6: </a></li>
+<li><a href="#q7">Question 7: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -99,11 +114,13 @@ found
 
   
 
-<h2>Code-Writing questions</h2>
+<h2 id="code-writing-questions">Code-Writing questions</h2>
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 <p>Implement a function <code>equal</code> which takes two trees and returns <code>True</code>
-if they satisfy all the following conditions:
+if they satisfy all the following conditions:</p>
+
 
 <ul>
   <li>The data of both Trees are equal</li>
@@ -112,7 +129,8 @@ if they satisfy all the following conditions:
   children of both trees are <code>equal</code>, and the right children of both
   trees are <code>equal</code>.)</p>
   
-  <p>def equal(t1, t2):
+  <p>def equal(t1, t2):</p>
+  
 <pre><code>&quot;&quot;&quot;Returns Tree if t1 and t2 are equal trees.
 
 &gt;&gt;&gt; t1 = Tree(1,
@@ -129,10 +147,10 @@ True
 &gt;&gt;&gt; equal(t1, t3)
 False
 &quot;&quot;&quot;
-&quot;*** YOUR CODE HERE ***&quot;</code></pre></p>
+&quot;*** YOUR CODE HERE ***&quot;</code></pre>
   
   </li>
-</ul></p>
+</ul>
 
 
     <button id='0' class='toggleButton'>
@@ -140,6 +158,7 @@ False
     </button>
 
     <div class="solution 0">
+
 
 <pre><code>def equal(t1, t2):
     if t1 is None and t2 is None:
@@ -159,6 +178,7 @@ False
 <p>Implement a function <code>size</code> that returns the number of elements in a
 given Tree.</p>
 
+
 <pre><code>def size(t):
     &quot;&quot;&quot;Returns the number of elements in a tree.
 
@@ -177,6 +197,7 @@ given Tree.</p>
 
     <div class="solution 1">
 
+
 <pre><code>def size(t):
     if t is None:
         return 0
@@ -194,6 +215,7 @@ given Tree.</p>
 
 <p>By definition, a leaf has a height of 0, since there are 0 branches
 from the root to the root.</p>
+
 
 <pre><code>def height(t):
     &quot;&quot;&quot;Returns the height of the tree.
@@ -216,6 +238,7 @@ from the root to the root.</p>
 
     <div class="solution 2">
 
+
 <pre><code>def height(t):
     if t is None or not t.left and not t.right:
         return 0
@@ -232,15 +255,17 @@ determines if it is a valid <strong>binary search tree</strong>. If the Tree is 
 valid BST, then return True; if it is invalid, return False.</p>
 
 <p><strong>Hint</strong>: Recall that a binary search tree is a binary Tree, with these
-added constraints:
+added constraints:</p>
+
 
 <ul>
   <li>Every item in the left branch must be less than the entry</li>
   <li>Every item in the right branch must be greater than the entry</li>
-</ul></p>
+</ul>
 
 <p>You may assume two functions, <code>max_tree</code> and <code>min_tree</code> are already
 defined.</p>
+
 
 <pre><code>def valid_bst(b):
     &quot;&quot;&quot;If B is a valid BST, return True; else return False.
@@ -265,6 +290,7 @@ defined.</p>
 
     <div class="solution 3">
 
+
 <pre><code>def valid_bst(b):
     &quot;&quot;&quot;The solution could be a lot more concise, but is written out
     to be clearer.&quot;&quot;&quot;
@@ -288,6 +314,7 @@ defined.</p>
 an item, and returns True if the binary search tree contains the item,
 and False if it doesn't.</p>
 
+
 <pre><code>def contains(b, item):
     &quot;&quot;&quot;Returns True if B contains ITEM.
 
@@ -308,6 +335,7 @@ and False if it doesn't.</p>
 
     <div class="solution 4">
 
+
 <pre><code>def contains(b, item):
     if b is None:
         return False
@@ -326,6 +354,7 @@ and False if it doesn't.</p>
 <p>Implement the function <code>in_order</code>, which takes a binary search tree,
 and returns a list containing its items from smallest to largest. In
 computer science, this is known as an <strong>in-order traversal</strong>.</p>
+
 
 <pre><code>def in_order(b):
     &quot;&quot;&quot;Returns the items in B, a binary search tree, in sorted
@@ -349,6 +378,7 @@ computer science, this is known as an <strong>in-order traversal</strong>.</p>
 
     <div class="solution 5">
 
+
 <pre><code>def in_order(b):
     if b is None:
         return []
@@ -371,6 +401,7 @@ items in the tree, return None.</p>
 <p><strong>Hint</strong>: You can assume there is a <code>size</code> function that returns the
 number of elements in a given tree.</p>
 
+
 <pre><code>def nth_largest(b, n):
     &quot;&quot;&quot;Returns the Nth largest item in T.
 
@@ -392,6 +423,7 @@ number of elements in a given tree.</p>
     </button>
 
     <div class="solution 6">
+
 
 <pre><code>def nth_largest(b, n):
     if b is None:

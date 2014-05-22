@@ -61,7 +61,30 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#iterators-conceptual-questions">Iterators: Conceptual questions</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+</ul>
+<li><a href="#iterators-code-writing-questions">Iterators: Code-Writing Questions</a></li>
+<ul>
+<li><a href="#q2">Question 2: </a></li>
+</ul>
+<li><a href="#generators-conceptual-questions">Generators: Conceptual questions</a></li>
+<ul>
+<li><a href="#q3">Question 3: </a></li>
+<li><a href="#q4">Question 4: </a></li>
+</ul>
+<li><a href="#generators-code-writing-questions">Generators: Code-Writing questions</a></li>
+<ul>
+<li><a href="#q5">Question 5: </a></li>
+<li><a href="#q6">Question 6: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -95,7 +118,8 @@
 
   
 
-<h2>Iterators: Conceptual questions</h2>
+<h2 id="iterators-conceptual-questions">Iterators: Conceptual questions</h2>
+
 <quesiton>
 
 <p>Given any object <code>obj</code>, what special method will <code>iter(obj)</code> call? What
@@ -119,6 +143,7 @@ object</strong>, which is any object that has a <code>__next__</code> method.</p
 
 <p>What is wrong with the following code?</p>
 
+
 <pre><code>&gt;&gt;&gt; obj = SomeObj()
 &gt;&gt;&gt; i = iter(obj)
 &gt;&gt;&gt; next(obj)</code></pre>
@@ -140,11 +165,13 @@ abstraction barriers.</p>
 </div>
     
 
-<h2>Iterators: Code-Writing Questions</h2>
+<h2 id="iterators-code-writing-questions">Iterators: Code-Writing Questions</h2>
+
 <h3 class="question" id="q2">Question 2: </h3>
 
 <p>Write an iterator for a Fibonacci class. The iterator should return the
 next Fibonacci number every time <code>next</code> is called on it.</p>
+
 
 <pre><code>class Fibonacci:
     &quot;&quot;&quot;Doctests
@@ -169,6 +196,7 @@ next Fibonacci number every time <code>next</code> is called on it.</p>
 
     <div class="solution 2">
 
+
 <pre><code>class Fibonacci:
     def __init__(self):
         self.cur, self.next = 0, 1
@@ -184,11 +212,13 @@ next Fibonacci number every time <code>next</code> is called on it.</p>
 </div>
     
 
-<h2>Generators: Conceptual questions</h2>
+<h2 id="generators-conceptual-questions">Generators: Conceptual questions</h2>
+
 <h3 class="question" id="q3">Question 3: </h3>
 
 <p>Given the following generator function, what will the call to <code>gen()</code>
 return?</p>
+
 
 <pre><code>def gen():
     start = 0
@@ -225,13 +255,15 @@ code inside the generator function will be executed.</p>
 </div>
     
 
-<h2>Generators: Code-Writing questions</h2>
+<h2 id="generators-code-writing-questions">Generators: Code-Writing questions</h2>
+
 <h3 class="question" id="q5">Question 5: </h3>
 
 <p>Write a generator function <code>map_gen</code> that takes a one-argument function
 and an iterator as arguments. The return result should be a generator
 whose elements are the elements of the iterator, but with the function
 mapped onto them.</p>
+
 
 <pre><code>def map_gen(fn, iter1):
     &quot;&quot;&quot;Doctests
@@ -261,6 +293,7 @@ mapped onto them.</p>
 
     <div class="solution 5">
 
+
 <pre><code>def map_gen(fn, iter1):
     for elem in iter1:
         yield fn(elem)</code></pre>
@@ -275,6 +308,7 @@ mapped onto them.</p>
 <p>Write another iterator for a Fibonacci class. Like before, the iterator
 should return the nxt Fibonacci number every time <code>next</code> is called on
 it. This time, write the iterator using a generator function.</p>
+
 
 <pre><code>class Fibonacci:
     &quot;&quot;&quot;Doctests
@@ -298,6 +332,7 @@ it. This time, write the iterator using a generator function.</p>
     </button>
 
     <div class="solution 6">
+
 
 <pre><code>class Fibonacci:
     def __iter__(self):

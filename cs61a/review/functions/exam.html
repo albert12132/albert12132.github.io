@@ -61,7 +61,22 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#what-would-python-print">What would Python print?</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+<li><a href="#q2">Question 2: </a></li>
+</ul>
+<li><a href="#code-writing-questions">Code-Writing questions</a></li>
+<ul>
+<li><a href="#q3">Question 3: </a></li>
+<li><a href="#q4">Question 4: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -99,7 +114,8 @@ questions!
 
   
 
-<h2>What would Python print?</h2>
+<h2 id="what-would-python-print">What would Python print?</h2>
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 
@@ -143,13 +159,15 @@ questions!
     </button>
     
 
-<h2>Code-Writing questions</h2>
+<h2 id="code-writing-questions">Code-Writing questions</h2>
+
 <h3 class="question" id="q3">Question 3: </h3>
 
 <p>Implement a function <code>capitalize</code> that takes a string and capitalizes
 words if they are at the start of a sequence. <strong>Hint:</strong> the
 <code>capitalize</code> string method, which capitalizes the first character of a
 string, may help you here.</p>
+
 
 <pre><code>def capitalize(s):
     &quot;&quot;&quot;Capitalizes words in the string if they are at the start of
@@ -168,6 +186,7 @@ string, may help you here.</p>
 
     <div class="solution 0">
 
+
 <pre><code>def capitalize(s):
     return reduce(lambda x, y: x + &#x27; &#x27; + y,
               map(lambda x, y: x.capitalize() if y.endswith(&#x27;.&#x27;) \
@@ -185,6 +204,7 @@ interleaves the elements of both halves. The return value should be the
 result of that interleave, and should be a list. <strong>Note</strong>: you may
 assume the list is of even length.</p>
 
+
 <pre><code>def shuffle(seq):
     &quot;&quot;&quot;Splits seq in half and interleaves elements of both halves.
 
@@ -200,6 +220,7 @@ assume the list is of even length.</p>
     </button>
 
     <div class="solution 1">
+
 
 <pre><code>def shuffle(seq):
     return list(reduce(lambda x, y: x + y,

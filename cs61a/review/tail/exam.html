@@ -61,7 +61,21 @@
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
 </div>
+<h3>Contents</h3>
+<div>
+<ul>
+<li><a href="#conceptual-questions">Conceptual Questions</a></li>
+<li><a href="#code-writing-questions">Code-Writing questions</a></li>
+<ul>
+<li><a href="#q1">Question 1: </a></li>
+<li><a href="#q2">Question 2: </a></li>
+<li><a href="#q3">Question 3: </a></li>
+<li><a href="#q4">Question 4: </a></li>
+<li><a href="#q5">Question 5: </a></li>
+</ul>
+</ul>
 
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -92,8 +106,10 @@
 
   
 
-<h2>Conceptual Questions</h2>
-Which of the following Scheme functions are tail recursive?
+<h2 id="conceptual-questions">Conceptual Questions</h2>
+
+<p>Which of the following Scheme functions are tail recursive?</p>
+
 
 <pre><code>(define (one x y)
     (if (or (= x 0) (= y 0) (= x y))
@@ -125,6 +141,7 @@ Which of the following Scheme functions are tail recursive?
 
     <div class="solution 0">
 
+
 <ol>
   <li><code>one</code>: tail recursive</li>
   <li><code>two</code>: not tail recursive</li>
@@ -136,12 +153,14 @@ Which of the following Scheme functions are tail recursive?
 </div>
     
 
-<h2>Code-Writing questions</h2>
+<h2 id="code-writing-questions">Code-Writing questions</h2>
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 <p>Write a function <code>map</code> that is tail recursive. It should take in a list
 <code>lst</code> and a function <code>fn</code>, and apply the function onto every element in
 the list.</p>
+
 
 <pre><code>(define (map fn lst)
     ; YOUR CODE HERE
@@ -160,6 +179,7 @@ which concatenates two lists together, should prove useful.</p>
 
     <div class="solution 1">
 
+
 <pre><code>(define (map fn lst)
     (define (map-help lst so-far)
         (if (null? lst)
@@ -176,6 +196,7 @@ which concatenates two lists together, should prove useful.</p>
 <p>Write a function <code>filter</code> that is tail recursive. It should take in a
 list <code>lst</code> and a function <code>pred</code>, and keep only the elements in the
 list that satisfy the predicate.</p>
+
 
 <pre><code>(define (filter pred lst)
     ; YOUR CODE HERE
@@ -194,6 +215,7 @@ function, which concatenates two lists together, should prove useful.</p>
 
     <div class="solution 2">
 
+
 <pre><code>(define (filter pred lst)
     (define (filter-help lst so-far)
         (cond ((null? lst) so-far)
@@ -211,6 +233,7 @@ function, which concatenates two lists together, should prove useful.</p>
 <p>Write a function <code>insert</code> that is tail recursive. It should take in a
 list <code>lst</code>, an <code>item</code>, and an <code>index</code>, and insert the <code>item</code> into the
 list at the given <code>index</code>.</p>
+
 
 <pre><code>(define (insert lst item index)
     ; YOUR CODE HERE
@@ -231,6 +254,7 @@ concatenates two lists together, should prove useful.</p>
 
     <div class="solution 3">
 
+
 <pre><code>(define (insert lst item index)
     (define (insert-help lst index so-far)
         (if (or (null? lst) (= index 0))
@@ -249,6 +273,7 @@ concatenates two lists together, should prove useful.</p>
 <p>Write a function <code>remove</code> that is tail recursive. It should take in a
 list <code>lst</code> and an <code>item</code>, and remove the first occurence of <code>item</code> in
 the list.  If <code>item</code> item doesn't occur, just return the original list.</p>
+
 
 <pre><code>(define (remove lst item)
     ; YOUR CODE HERE
@@ -271,6 +296,7 @@ function, which concatenates two lists together, should prove useful.</p>
 
     <div class="solution 4">
 
+
 <pre><code>(define (remove lst item)
     (define (remove-help lst so-far)
         (cond ((null? lst) so-far)
@@ -287,6 +313,7 @@ function, which concatenates two lists together, should prove useful.</p>
 <p>Write a function <code>pop</code> that is tail recursive. It should take in a list
 <code>lst</code> and an <code>index</code>, and remove the item in the list at the given
 <code>index</code>. If the index is out of bounds, just return the original list.</p>
+
 
 <pre><code>(define (pop lst index)
     ; YOUR CODE HERE
@@ -308,6 +335,7 @@ function, which concatenates two lists together, should prove useful.</p>
     </button>
 
     <div class="solution 5">
+
 
 <pre><code>(define (pop lst index)
     (define (pop-help lst index so-far)
