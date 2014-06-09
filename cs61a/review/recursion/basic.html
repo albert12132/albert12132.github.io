@@ -95,17 +95,14 @@
 
     <p>You can review Recursion in the following places</p>
     
-
 <ul>
   <li><a href="http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/07_1pp.pdf">Lecture: Recursion</a></li>
   <li><a href="http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/08_1pp.pdf">Lecture: Tree Recursion</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/sp14/lab/lab03/lab03.php">Lab 3</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/sp14/disc/discussion03.pdf">Discussion 3</a>
-  
   </div>
 
   
-
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -116,6 +113,7 @@
   
 
 <h2 id="conceptual-questions">Conceptual Questions</h2>
+
 
 <h3 class="question" id="q1">Question 1: </h3>
 
@@ -181,7 +179,6 @@ because linearly recursive functions make exactly one recursive call.</p>
 <p>Describe what is wrong with the following function and find a way to
 fix it:</p>
 
-
 <pre><code>def factorial(n):
     return n * factorial(n)</code></pre>
 
@@ -194,7 +191,6 @@ fix it:</p>
 
 <p>There are two problems with <code>factorial</code>.</p>
 
-
 <ol>
   <li>First, the recursive call is made on the exact same input <code>n</code>. Since
   the input never gets smaller, the function will loop forever. To fix
@@ -206,7 +202,6 @@ fix it:</p>
 <p>Notice that you need to fix both of these problems for it to work,
 otherwise the function will still loop forever!</p>
 
-
 <pre><code>def factorial(n):
     if n == 0:
         return 1
@@ -216,7 +211,9 @@ otherwise the function will still loop forever!</p>
 </div>
     
 
+
 <h2 id="code-writing-questions">Code-Writing questions</h2>
+
 
 <h3 class="question" id="q5">Question 5: </h3>
 
@@ -235,7 +232,6 @@ defined above) and <code>n</code>, and calculates the sum of the first <code>n</
 elements of the geometric series defined by <code>a</code> and <code>r</code>. <strong>Use
 recursion!</strong></p>
 
-
 <pre><code>def geo_sum(a, r, n):
     &quot;&quot;&quot;Returns the first n elements of a geometric series.
 
@@ -253,7 +249,6 @@ recursion!</strong></p>
 
     <div class="solution 4">
 
-
 <pre><code>def geo_sum(a, r, n):
     if n == 1:
         return a
@@ -270,7 +265,6 @@ the number of prime numbers less than <em>or equal to</em> <code>n</code>. You c
 there is already a function <code>is_prime</code> that takes in a number <em>i</em> and
 returns <code>True</code> if <em>i</em> is prime, and <code>False</code> otherwise. <strong>Use
 recursion!</strong></p>
-
 
 <pre><code>def num_primes(n):
     \&quot;\&quot;\&quot;Returns the number of primes less than or equal to n.
@@ -297,7 +291,6 @@ def is_prime(i):
 
     <div class="solution 5">
 
-
 <pre><code>def num_primes(n):
     if n &lt; 2:
         return 0
@@ -316,7 +309,6 @@ predicate function <code>pred</code>, and returns <code>True</code> if any numbe
 <code>b</code> inclusive satisfies <code>pred</code> (i.e. return <code>True</code> if there exists some
 number <em>i</em> such that <code>a &lt; i &lt; b</code> and <code>pred(i)</code> returns
 <code>True</code>). You may assume <code>a &lt; b</code>. <strong>Use recursion!</strong></p>
-
 
 <pre><code>def any(a, b, pred):
     &quot;&quot;&quot;Returns True if any numbers from a to b inclusive satisfy
@@ -340,7 +332,6 @@ number <em>i</em> such that <code>a &lt; i &lt; b</code> and <code>pred(i)</code
 
     <div class="solution 6">
 
-
 <pre><code>def any(a, b, pred):
     if a == b:
         return pred(a)
@@ -349,7 +340,6 @@ number <em>i</em> such that <code>a &lt; i &lt; b</code> and <code>pred(i)</code
 
 </div>
     
-
 
   </div>
       </div>

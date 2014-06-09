@@ -88,16 +88,13 @@
 
     <p>You can review Dictionaries in the following places</p>
     
-
 <ul>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/12-Lists_1pps.pdf">Lecture: Lists and Dictionaries</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab04/lab04.php">Lab 4</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion05.pdf">Discussion 5</a>
-  
   </div>
 
   
-
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -108,6 +105,7 @@
   
 
 <h2 id="code-writing-questions">Code-Writing questions</h2>
+
 
 <h3 class="question" id="q1">Question 1: </h3>
 
@@ -120,11 +118,9 @@ are valid leaves, but 100 and 101 are not). <code>stem_and_leaf</code> should
 return a dictionary, where the keys are stems and values are lists of
 leaves. For example:</p>
 
-
 <pre><code>stem_and_leaf([7, 31, 365, 365, 3650], 100)</code></pre>
 
 <p>would create the following dictionary:</p>
-
 
 <pre><code>{
     0: [7, 31],
@@ -133,7 +129,6 @@ leaves. For example:</p>
 }</code></pre>
 
 <p>Fill in the following implementation:</p>
-
 
 <pre><code>def stem_and_leaf(lst, leaf_max):
     &quot;&quot;&quot;Returns a dictionary representing a stem-and-leaf plot.&quot;&quot;&quot;
@@ -145,7 +140,6 @@ leaves. For example:</p>
     </button>
 
     <div class="solution 0">
-
 
 <pre><code>def stem_and_leaf(lst, leaf_unit):
     plot = {}
@@ -164,7 +158,6 @@ leaves. For example:</p>
 <p>Implement a function <code>one_to_one</code>, which takes a dictionary <code>d</code> and
 returns True if every value in <code>d</code> only has one corresponding key. See
 the doctests for more details.</p>
-
 
 <pre><code>def one_to_one(d):
     &quot;&quot;&quot;Returns True if D represents a one-to-one mapping of keys
@@ -186,7 +179,6 @@ the doctests for more details.</p>
 
     <div class="solution 1">
 
-
 <pre><code>def one_to_one(d):
     seen = set()
     for value in d.values():
@@ -203,7 +195,6 @@ the doctests for more details.</p>
 <p>The TAs have started a social networking site called Bookface. Bookface
 users are recorded in a Python dictionary, where the keys are usernames
 and values are lists of friends. Here is an example:</p>
-
 
 <pre><code>users = {
     &#x27;Robert&#x27;: [&#x27;Brian&#x27;, &#x27;Mark&#x27;],
@@ -224,7 +215,6 @@ everyone else, since he has no friends.</p>
 <p>Help the TAs implement the function <code>degrees</code>, which calculates the
 degree of separation between two users. See the docstring for more
 details.</p>
-
 
 <pre><code>def degrees(users, start, end, visited):
     &quot;&quot;&quot;Finds the degree of separation between START and END. If
@@ -253,7 +243,6 @@ details.</p>
 
     <div class="solution 2">
 
-
 <pre><code>def degrees(users, start, end, visited):
     if start == end:
         return 0
@@ -267,7 +256,6 @@ details.</p>
 
 </div>
     
-
 
   </div>
       </div>

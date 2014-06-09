@@ -94,17 +94,14 @@
 
     <p>You can review OOP in the following places</p>
     
-
 <ul>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/15-Objects_1pps.pdf">Lecture: Objects</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/16-Inheritance_1pps.pdf">Lecture: Inheritance</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion06.pdf">Discussion 6</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php">Lab 6</a>
-  
   </div>
 
   
-
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -116,8 +113,8 @@
 
 <h2 id="what-would-python-print">What would Python print?</h2>
 
-<p>For the following questions, use the following class definition:</p>
 
+<p>For the following questions, use the following class definition:</p>
 
 <pre><code>class Account:
     &quot;&quot;&quot;A class computer account. Each account has a two-letter ID
@@ -216,7 +213,9 @@ original definition of the <code>Account</code> class.</p>
     </button>
     
 
+
 <h2 id="code-writing-questions">Code-Writing questions</h2>
+
 
 <h3 class="question" id="q5">Question 5: </h3>
 
@@ -226,7 +225,6 @@ data in a constant amount of space (this is commonly used to buffer
 data streams) in a first-in-first-out manner (the first element to be
 added is the first element to be removed). A circular buffer has the
 following properties:</p>
-
 
 <ul>
   <li>Each buffer has a fixed size of <code>n</code> elements (e.g. strings). This
@@ -253,7 +251,6 @@ buffer. When you append the <em>i</em>th element, you should insert it into
 index (<em>i</em> mod <em>n</em>) of the list. Similarly, when you are removing the
 <em>j</em>th element, you should extract the element at index (<em>j</em> mod <em>n</em>) of
 the list. For more descriptions of the behavior, see the doctest.</p>
-
 
 <pre><code>class CircularBuffer:
     &quot;&quot;&quot;Doctests:
@@ -299,7 +296,6 @@ the list. For more descriptions of the behavior, see the doctest.</p>
 
     <div class="solution 0">
 
-
 <pre><code>class CircularBuffer:
     def __init__(self, n):
         self.array = [None]*n   # list of length n
@@ -329,7 +325,6 @@ the list. For more descriptions of the behavior, see the doctest.</p>
 
 <p>Write a <code>Chef</code> class with the following qualities:</p>
 
-
 <ul>
   <li>Each <code>Chef</code> is initialized with a list of required ingredients. Each
   item in the list is added to a storage that is shared by all the
@@ -342,7 +337,6 @@ the list. For more descriptions of the behavior, see the doctest.</p>
 </ul>
 
 <p>For finer details of implementation, see the doctest.</p>
-
 
 <pre><code>class Chef:
     &quot;&quot;&quot;Doctests:
@@ -379,7 +373,6 @@ the list. For more descriptions of the behavior, see the doctest.</p>
 
     <div class="solution 1">
 
-
 <pre><code>class Chef:
     storage = {}
     finished = []
@@ -412,7 +405,6 @@ the list. For more descriptions of the behavior, see the doctest.</p>
 
 </div>
     
-
 
   </div>
       </div>

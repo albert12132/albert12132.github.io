@@ -106,6 +106,7 @@
       <div id='content'>
         <h2 id="introduction">Introduction</h2>
 
+
 <p><strong>Object Oriented Programming</strong> is a programming paradigm (i.e. a way
 of organizing code) that is supported in many different programming
 languages, such as Python.</p>
@@ -118,10 +119,11 @@ also essential for OOP.</p>
 language, see the section about <a href="#java-a-comparison">comparisons between Java and
 Python</a>.</p>
 
+
 <h2 id="terminology">Terminology</h2>
 
-<p>In this section, we will use the following Python class as an example:</p>
 
+<p>In this section, we will use the following Python class as an example:</p>
 
 <pre><code>class Computer(object):
     population = 0
@@ -140,7 +142,6 @@ Python</a>.</p>
 
 <p>Here's a list of terminology we will be covering:</p>
 
-
 <ul>
   <li><a href="#term-class">class</a></li>
   <li><a href="#term-object">object / instance</a></li>
@@ -151,7 +152,9 @@ Python</a>.</p>
   <li><a href="#term-class-variable">class variable</a></li>
 </ul>
 
+
 <h3 id="basics">Basics</h3>
+
 
 <p>A <span id='term-class'><strong>class</strong></span> is like a blueprint that
 is used to create an object. In this case, we have a class that is
@@ -162,7 +165,6 @@ class. For example, the code above tells Python <em>how</em> to build a
 <code>Computer</code>, but it won't actually create a new <code>Computer</code>. To create
 objects, you use the following syntax:</p>
 
-
 <pre><code>my_computer = Computer(&#x27;Albert&#x27;, &#x27;Linux&#x27;)</code></pre>
 
 <p>The left side is just a variable assignment -- nothing new. On the
@@ -171,14 +173,14 @@ function. This is known as the <span
 id='term-constructor'><strong>constructor</strong></span> of an object. In general,
 the syntax for creating objects is</p>
 
-
 <pre><code>ClassName(args)</code></pre>
+
 
 <h3 id="methods">Methods</h3>
 
+
 <p>One question you might have is, where is the constructor defined?
 Take a look at <code>__init__</code> definition in the <code>Computer</code> class:</p>
-
 
 <pre><code>def __init__(self, owner, operating_system):
     ...</code></pre>
@@ -189,7 +191,6 @@ id='term-method'><strong>method</strong></span> is very much like a function -- 
 can call it with arguments, and it performs some computations. The
 only difference is that a method is tied to the class. To see what
 this means, consider the following code:</p>
-
 
 <pre><code>my_computer = Computer(&#x27;Albert&#x27;, &#x27;Linux&#x27;)
 my_computer.boot()</code></pre>
@@ -203,7 +204,6 @@ methods with parentheses.</p>
 <p>You might be wondering why we passed in zero arguments to <code>boot</code>, when
 it looks like it should take in one:</p>
 
-
 <pre><code>def boot(self):
     ...</code></pre>
 
@@ -216,17 +216,17 @@ argument when we call <code>boot</code>. We'll talk more about this later.</p>
 used as the constructor for an object. For example, when we create a
 <code>Computer</code> object like this</p>
 
-
 <pre><code>my_computer = Computer(&#x27;Albert&#x27;, &#x27;Linux&#x27;)</code></pre>
 
 <p>we are really calling the <code>__init__</code> method. <code>&#x27;Albert&#x27;</code> gets bound to
 the <code>owner</code> parameter, and <code>&#x27;Linux&#x27;</code> gets bound to the
 <code>operating_system</code> parameter.</p>
 
+
 <h3 id="variables">Variables</h3>
 
-<p>There are three types of variables:</p>
 
+<p>There are three types of variables:</p>
 
 <ul>
   <li>Local variables</li>
@@ -237,7 +237,9 @@ the <code>owner</code> parameter, and <code>&#x27;Linux&#x27;</code> gets bound 
 <p>Which type a variable belongs to depends on the syntax with which it
 is created.</p>
 
+
 <h4 id="local-variables">Local Variables</h4>
+
 
 <p>A <span id='term-local-variable'><strong>local variable</strong></span> exists only
 in the local frame of a method. For example, the variable <code>time</code> in
@@ -249,33 +251,29 @@ frame for <code>boot</code>.</p>
 
 <p>Here's a list of instance variables in the <code>Computer</code> class:</p>
 
-
 <ul>
   <li><p>Inside <code>__init__</code>:</p>
-  
+
   <ul>
     <li><code>self</code></li>
     <li><code>owner</code> (not to be confused with <code>self.owner</code>)</li>
     <li><code>operating_system</code> (not to be confused with
     <code>self.operating_system</code>)</li>
-  </ul>
-  
-  </li>
+  </ul></li>
   <li><p>Inside <code>boot</code>:</p>
-  
+
   <ul>
     <li><code>self</code></li>
     <li><code>time</code></li>
-  </ul>
-  
-  </li>
+  </ul></li>
 </ul>
+
 
 <h4 id="instance-variables">Instance Variables</h4>
 
+
 <p>An <span id='term-instance-variable'><strong>instance variable</strong></span> has
 a couple of properties:</p>
-
 
 <ul>
   <li><strong>persists across method calls</strong>: unlike a local variable, an
@@ -300,7 +298,6 @@ names.</p>
 
 <p>The second property is demonstrated with the following:</p>
 
-
 <pre><code>computer1 = Computer(&#x27;Albert&#x27;, &#x27;Linux&#x27;)
 computer2 = Computer(&#x27;Robert&#x27;, &#x27;Mac&#x27;)</code></pre>
 
@@ -310,18 +307,18 @@ it is assigned to <code>&#x27;Robert&#x27;</code>.</p>
 
 <p>Here's a list of instance variables in the <code>Computer</code> class:</p>
 
-
 <ul>
   <li><code>self.owner</code></li>
   <li><code>self.operating_system</code></li>
 </ul>
 
+
 <h4 id="class-variables">Class Variables</h4>
+
 
 <p>The final type of variable is called a <span
 id='term-class-variable'><strong>class variable</strong></span>, also known as a
 <strong>static variable</strong>. A class variable has the following properties:</p>
-
 
 <ul>
   <li><strong>persists across method calls</strong>: just like an instance variable</li>
@@ -335,22 +332,24 @@ instances of the class. In the <code>Compter</code> class, the <code>population<
 variable is a class variable, and has an initial value of <code>0</code>. To
 illustrate this, consider the following:</p>
 
-
 <pre><code>computer1 = Computer(&#x27;Albert&#x27;, &#x27;Linux&#x27;)   # population is now 1
 computer2 = Computer(&#x27;Robert&#x27;, &#x27;Mac&#x27;)     # population is now 2</code></pre>
 
 <p>Notice that, every time we create a new <code>Computer</code>, the <code>population</code>
 class variable is incremented by <code>1</code>.</p>
 
+
 <h2 id="syntax">Syntax</h2>
 
+
+
 <h3 id="defining-classes">Defining classes</h3>
+
 
 <p>Now that we know the terminology associated with OOP, we have to know
 how to use it.</p>
 
 <p>To define a <strong>class</strong>, we do the following:</p>
-
 
 <pre><code>class ClassName(object):
     ...</code></pre>
@@ -361,7 +360,6 @@ as opposed to <code>class_name</code>). Don't worry about the <code>object</code
 -- we'll explain that when we talk about <a href="#inheritance">inheritance</a>.</p>
 
 <p>To create <strong>methods</strong>, use a <code>def</code> statement inside the class:</p>
-
 
 <pre><code>class ClassName(object):
 
@@ -377,7 +375,6 @@ method is just like writing a normal function.</p>
 <p>The <strong><code>__init__</code></strong> method, as mentioned above, is used to construct
 objects of that class:</p>
 
-
 <pre><code>class ClassName(object):
 
     def __init__(self, args):
@@ -387,7 +384,6 @@ objects of that class:</p>
 otherwise Python will not be able to find <code>__init__</code>.</p>
 
 <p>To call a method inside of another method, use dot notation:</p>
-
 
 <pre><code>class ClassName(object):
 
@@ -401,7 +397,6 @@ otherwise Python will not be able to find <code>__init__</code>.</p>
 
 <p>To create a <strong>class variable</strong>, we usually put the variable
 declaration at the top of the class:</p>
-
 
 <pre><code>class ClassName(object):
     class_variable = 9001
@@ -421,7 +416,6 @@ because we need a <code>self</code> variable, and <code>self</code> is a local v
 defined inside of methods. Here is some sample syntax using instance
 variables:</p>
 
-
 <pre><code>class ClassName(object):
 
     def method(self, arg):
@@ -429,16 +423,16 @@ variables:</p>
         local_variable = self.instance_variable + 4
         return self.instance_variable / local_variable</code></pre>
 
+
 <h3 id="using-a-class">Using a class</h3>
 
-<p>To create an instance of a class, we use this syntax:</p>
 
+<p>To create an instance of a class, we use this syntax:</p>
 
 <pre><code>ClassName(args)</code></pre>
 
 <p>Keep in mind that the <strong>constructor</strong> calls the <code>__init__</code> method. The
 <code>object</code> in</p>
-
 
 <pre><code>class ClassName(object):
     ...</code></pre>
@@ -447,12 +441,10 @@ variables:</p>
 
 <p>To call an instance's <strong>method</strong>, use dot notation:</p>
 
-
 <pre><code>instance = ClassName(arg1, arg2)
 instance.method1(foo)</code></pre>
 
 <p>You can also access <strong>instance variables</strong> with similar syntax:</p>
-
 
 <pre><code>x = instance.instance_variable
 instance.instance_variable = 5</code></pre>
@@ -464,46 +456,39 @@ variables).</p>
 
 <p>To access <strong>class variables</strong>, use the following syntax:</p>
 
-
 <pre><code>ClassName.class_variable = 4
 x = ClassName.class_variable</code></pre>
 
+
 <h2 id="inheritance">Inheritance</h2>
+
 
 <p>A powerful feature of OOP is <strong>inheritance</strong>. The idea is that a class
 can "inherit" methods and variables from another class. We can use
 this to create a <em>hierarchy</em> of classes. For example:</p>
 
-
 <ul>
   <li><p>Animal</p>
-  
+
   <ul>
     <li><p>Mammal</p>
-    
+
     <ul>
       <li>Dog</li>
       <li>Cat</li>
-    </ul>
-    
-    </li>
+    </ul></li>
     <li><p>Fish</p>
-    
+
     <ul>
       <li>Shark</li>
-    </ul>
-    
-    </li>
-  </ul>
-  
-  </li>
+    </ul></li>
+  </ul></li>
 </ul>
 
 <p>Notice that each sublist is a more specific version of its
 predecessor (e.g. Dogs are a more specific type of Mammal).</p>
 
 <p>We can implement this inheritance in code like this:</p>
-
 
 <pre><code>class Animal(object):
     ...
@@ -526,7 +511,6 @@ class).</p>
 <p>When a subclass inherits from a superclass, the subclass has access to
 all the methods of the superclass. Consider the following example:</p>
 
-
 <pre><code>class A(object):
     def method1(self, arg):
         print(&#x27;hi&#x27;)
@@ -535,7 +519,6 @@ class B(A):
     ...</code></pre>
 
 <p>When we create a <code>B</code> object, we will be able to do the following:</p>
-
 
 <pre><code>b = B()
 b.method1(4)</code></pre>
@@ -549,11 +532,12 @@ the superclass (<code>A</code>) for <code>method1</code>.</p>
 <p>This is useful for writing concise code -- we don't need to repeat
 something we've already written.</p>
 
+
 <h3 id="overriding-methods">Overriding methods</h3>
+
 
 <p>If we want a subclass to have a method that shares the same name as a
 superclass method, we can <strong>override</strong> that method:</p>
-
 
 <pre><code>class A(object):
     def method1(self, arg):
@@ -566,7 +550,6 @@ class B(A):
 <p>Both <code>A</code> and <code>B</code> have a method called <code>method1</code>. Consider the
 following example:</p>
 
-
 <pre><code>b = B()
 b.method1()</code></pre>
 
@@ -576,7 +559,6 @@ uses that version of <code>method1</code>. That's why the second line takes 0
 arguments and always prints <code>hello</code>.</p>
 
 <p>You can also call a superclass method, even if you override it:</p>
-
 
 <pre><code>class A(object):
     def method1(self, arg):
@@ -599,11 +581,12 @@ this implementation calls the superclass method.</p>
 interested, see
 <a href="http://docs.python.org/3.1/library/functions.html#super">this</a>.</p>
 
+
 <h3 id="object"><code>object</code></h3>
+
 
 <p>You'll undoubtedly have noticed the <code>object</code> in most of our class
 definitions:</p>
-
 
 <pre><code>class ClassName(object):
     ...</code></pre>
@@ -616,12 +599,13 @@ inheritance. In fact, that's exactly what is happening: when we put
 inherit from <code>object</code>. The <code>object</code> class has some general methods
 defined, such as <code>__init__</code>.</p>
 
+
 <h2 id="design-principles">Design Principles</h2>
+
 
 <p>In addition to understanding the terminology and syntax of OOP, we
 also need to understand some design principles for OOP. The power of
 OOP comes from several qualities:</p>
-
 
 <ul>
   <li><strong>data abstraction</strong>: classes can be used to represent literally any
@@ -641,7 +625,9 @@ OOP comes from several qualities:</p>
 These principles apply to any object-oriented language, not just
 Python.</p>
 
+
 <h3 id="use-inheritance-whenever-possible">Use inheritance whenever possible</h3>
+
 
 <p>If you find that two or more classes share a lot of the same code, you
 can make one class the superclass. This way, the other classes can
@@ -656,7 +642,6 @@ method -- this makes it easier to make mistakes! For this reason,
 inheritance makes code maintenance a lot easier.</p>
 
 <p>Consider the following example:</p>
-
 
 <pre><code>class Animal(object):
     def __init__(self, name, age):
@@ -673,11 +658,12 @@ same arguments, and also creates the exact same instance variables.
 Using inheritance, we could omit the <code>__init__</code> definition in the
 <code>Mammal</code> class completely!</p>
 
+
 <h3 id="call-superclass-methods-when-possible">Call superclass methods when possible</h3>
+
 
 <p>This is similar to the first principle. Instead of duplicating code
 inside of a method, just call the superclass method instead:</p>
-
 
 <pre><code>class Animal(object):
     def __init__(self, name, age):
@@ -695,7 +681,6 @@ it takes in one more argument than <code>Animal</code>, and also creates another
 instance variable. However, we can call the superclass method to make
 this more concise:</p>
 
-
 <pre><code>class Animal(object):
     def __init__(self, name, age):
         self.name = name
@@ -708,12 +693,13 @@ class Pet(Animal):
 
 <p>Don't forget to pass in <code>self</code> when calling a superclass method.</p>
 
+
 <h3 id="instance-vs-class-variables">Instance vs. Class variables</h3>
+
 
 <p>Deciding whether a variable should be an instance variable or a class
 variable is an important consideration. Part of it depends on the
 programmer and the application, but there are some general guidelines:</p>
-
 
 <ul>
   <li>If a variable is different for every instance of a class, it should
@@ -722,12 +708,13 @@ programmer and the application, but there are some general guidelines:</p>
   class variable</li>
 </ul>
 
+
 <h3 id="methods-vs-variables">Methods vs. Variables</h3>
+
 
 <p>In general, methods can be thought of as "actions", while variables
 can be thought of as "data." For example, consider the following
 class:</p>
-
 
 <pre><code>class Dog(object):
     def __init__(self, age):
@@ -741,15 +728,18 @@ thing (<code>&#x27;woof!&#x27;</code>), because <code>bark</code>ing is an actio
 is an instance variable because it is piece of information about the
 <code>Dog</code>.</p>
 
+
 <h2 id="other-features">Other Features</h2>
+
 
 <p>Python includes a variety of features for OOP, some of which are
 shared by other languages, some of which are not.</p>
 
+
 <h3 id="variable-lookup">Variable lookup</h3>
 
-<p>When we ask Python to lookup a variable like this:</p>
 
+<p>When we ask Python to lookup a variable like this:</p>
 
 <pre><code>my_instance.variable</code></pre>
 
@@ -764,11 +754,12 @@ continues this process until it hits <code>object</code>, at which point it
 raises an <code>AttributeError</code> to signal that it couldn't find that
 variable.</p>
 
+
 <h3 id="property-methods">Property methods</h3>
+
 
 <p>Python supports a feature called <strong>property methods</strong>. Consider the
 following code:</p>
-
 
 <pre><code>class A(object):
 
@@ -780,7 +771,6 @@ following code:</p>
 method. Now when we want to use <code>age</code>, we access it <em>as if it were a
 variable</em>, not a method:</p>
 
-
 <pre><code>a = A()
 x = a.age
 y = a.age()   # Error!</code></pre>
@@ -788,7 +778,6 @@ y = a.age()   # Error!</code></pre>
 <p>Notice that you cannot call a property method.</p>
 
 <p>Property methods are useful for a number of reasons:</p>
-
 
 <ul>
   <li><strong>Data protection</strong>: you cannot reassign a property method. This
@@ -802,12 +791,13 @@ y = a.age()   # Error!</code></pre>
   instance variable.</li>
 </ul>
 
+
 <h3 id="static-methods">Static methods</h3>
+
 
 <p>We don't talk about static methods in 61A, but they do exist in
 Python. In Python, there is a distinction between <strong>static methods</strong>
 and <strong>class methods</strong>. Each one is created with a decorator:</p>
-
 
 <pre><code>class A(object):
 
@@ -827,7 +817,6 @@ does not take in a <code>self</code>, and thus has no way to reference the
 instance. You can call static methods by using dot notation, with the
 class name preceding the dot:</p>
 
-
 <pre><code>A.static_method(4)
 a = A()
 a.static_method(4)  # Error!</code></pre>
@@ -837,17 +826,17 @@ to the instance. However, they do take in a <code>cls</code>, which is a
 reference to the class. To call a class method, you can use dot
 notation with either an instance or the class:</p>
 
-
 <pre><code>A.class_method(4)
 a = A()
 a.class_method(4)</code></pre>
 
+
 <h3 id="multiple-inheritance">Multiple Inheritance</h3>
+
 
 <p>We don't talk about multiple inheritance in 61A, but Python does
 support it. When defining a class, you can make it inherit from
 multiple superclasses:</p>
-
 
 <pre><code>class Sub(Sup1, Sup2, Sup3):
     ...</code></pre>
@@ -860,11 +849,12 @@ name conflicts by always looking at superclasses from left to right.
 For example, if <code>Sup1</code> and <code>Sup3</code> both have a method called <code>method</code>,
 Python will use <code>Sup1</code>'s version of <code>method</code>.</p>
 
+
 <h2 id="java-a-comparison">Java: a comparison</h2>
+
 
 <p>If you have programmed in Java, you will be familiar with many of the
 OOP concepts present in Python. There are some differences however:</p>
-
 
 <ul>
   <li><strong>There is no <code>this</code> in Python.</strong> <code>self</code> is a close equivalent, but
@@ -897,8 +887,6 @@ OOP concepts present in Python. There are some differences however:</p>
   by convention, should use <code>lower_case_and_underscores</code>.</li>
   <li><strong>Python supports multiple inheritance.</strong></li>
 </ul>
-
-
       </div>
     </div>
   </body>

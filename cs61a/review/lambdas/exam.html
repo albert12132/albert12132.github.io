@@ -93,15 +93,12 @@
 
     <p>You can review Lambda Expressions in the following places</p>
     
-
 <ul>
   <li><a href="http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/02_1pp.pdf">Lecture: Functions and Expressions</a></li>
   <li><a href="http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/05_1pp.pdf">Lecture: Environments</a>
-  
   </div>
 
   
-
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -113,11 +110,11 @@
 
 <h2 id="code-writing-questions">Code-Writing questions</h2>
 
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 <p>Fill in the blanks for the following expression so that <code>result</code> is the
 number 42.</p>
-
 
 <pre><code>x = lambda x, y: lambda: x - y
 result = (lambda ____, question: one(__________)(x, 4)</code></pre>
@@ -129,7 +126,6 @@ result = (lambda ____, question: one(__________)(x, 4)</code></pre>
 
     <div class="solution 0">
 
-
 <pre><code>result = (lambda one, question: one(46, question)())(x, 4)</code></pre>
 
 </div>
@@ -139,7 +135,6 @@ result = (lambda ____, question: one(__________)(x, 4)</code></pre>
 
 <p>Fill in the blanks for the following expression so that <code>result</code> is the
 boolean True.</p>
-
 
 <pre><code>x = lambda x: lambda y: x(y)
 result = (lambda ______: x(fair)(dice))(lambda fair: fair == 3, 3)</code></pre>
@@ -151,7 +146,6 @@ result = (lambda ______: x(fair)(dice))(lambda fair: fair == 3, 3)</code></pre>
 
     <div class="solution 1">
 
-
 <pre><code>result = (lambda fair, dice: x(fair)(dice))(lambda fair: fair == 3, 3)</code></pre>
 
 </div>
@@ -161,7 +155,6 @@ result = (lambda ______: x(fair)(dice))(lambda fair: fair == 3, 3)</code></pre>
 
 <p>Fill in the blanks for the following expression so that each call to
 <code>mapper</code> prints the output displayed below:</p>
-
 
 <pre><code>&gt;&gt;&gt; def mapper(fn, num):
 ...     i = 0
@@ -193,7 +186,6 @@ result = (lambda ______: x(fair)(dice))(lambda fair: fair == 3, 3)</code></pre>
 
     <div class="solution 2">
 
-
 <pre><code>mapper(lambda x: 2 * x + 1, 4)
 mapper(lambda x: x - 2, 5)
 mapper(lambda x: (-1 ** x) * (x + 1) // 2, 5)</code></pre>
@@ -201,7 +193,9 @@ mapper(lambda x: (-1 ** x) * (x + 1) // 2, 5)</code></pre>
 </div>
     
 
+
 <h2 id="environment-diagrams">Environment Diagrams</h2>
+
 
 <h3 class="question" id="q3">Question 3: </h3>
 
@@ -252,7 +246,6 @@ result = example(fn())()</code></pre>
     </iframe>
     </div>
     
-
 
   </div>
       </div>

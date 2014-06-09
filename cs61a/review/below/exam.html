@@ -93,12 +93,9 @@
 
     <p>You can review OOP Below-the-line in the following places</p>
     
-
   </div>
 
-  
-The code for the below-the-line OOP is <a href="oop.py">here</a> for reference.
-
+  The code for the below-the-line OOP is <a href="oop.py">here</a> for reference.
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -109,6 +106,7 @@ The code for the below-the-line OOP is <a href="oop.py">here</a> for reference.
   
 
 <h2 id="concept-questions">Concept Questions</h2>
+
 
 <h3 class="question" id="q1">Question 1: </h3>
 
@@ -125,7 +123,6 @@ classes? If so, how would we do it?</p>
 
 <p>Yes, we can still create instances of classes. You would have to explicitly call <code>init_instance</code>:</p>
 
-
 <pre><code>init_instance(ExampleClass, arg1, arg2)</code></pre>
 
 </div>
@@ -136,7 +133,6 @@ classes? If so, how would we do it?</p>
 <p>What would happen if we changed the <code>get_value</code> function in
 <code>make_instance</code> to the following? How would this change the way we call
 "methods"?</p>
-
 
 <pre><code>def get_value(name):
     if name in attributes:
@@ -155,7 +151,6 @@ classes? If so, how would we do it?</p>
 <p>Methods would never get bound to instances. We would still be able to
 call methods, but we would have to pass in the instance explicitly
 whenever we called them:</p>
-
 
 <pre><code># original
 inst[&#x27;get&#x27;](&#x27;method1&#x27;)(arg1, arg2)
@@ -182,7 +177,6 @@ other than <code>None</code>.</p>
 
 <p>There are two cases:</p>
 
-
 <ol>
   <li><code>base_class</code> is <code>None</code>: this class doesn't inherit from anything, so
   there would be no <code>__init__</code> method available to it. As such, it
@@ -200,7 +194,6 @@ other than <code>None</code>.</p>
 
 <p>What would happen if we changed the <code>get_value</code> function in
 <code>make_instance</code> to the following:</p>
-
 
 <pre><code>def get_value(name):
     if name in attributes:
@@ -222,13 +215,14 @@ or methods.</p>
 </div>
     
 
+
 <h2 id="code-writing-questions">Code-Writing Questions</h2>
+
 
 <h3 class="question" id="q5">Question 5: </h3>
 
 <p>Translate the following code, which uses Python's built-in class
 system, into code that uses our below-the-line OOP implementation.</p>
-
 
 <pre><code>class Shop:
     def __init__(self, inventory):
@@ -259,7 +253,6 @@ class AppleStore(Shop):
     </button>
 
     <div class="solution 4">
-
 
 <pre><code>def make_shop_class():
     def __init__(self, inventory):
@@ -294,7 +287,6 @@ def make_applestore_class(base_class=make_shop_class()):
 
 </div>
     
-
 
   </div>
       </div>

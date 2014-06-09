@@ -99,33 +99,27 @@
 
     <p>You can review Logic in the following places</p>
     
-
 <ul>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/31-Logic_1pps.pdf">Lecture: Declarative Programming</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/32-Unification_1pps.pdf">Lecture: Unification</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab11/lab11.php">Lab 11</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion12.pdf">Discussion 12</a>
-  
   </div>
 
-  
-We will be using the Logic interpreter, which you can get
+  We will be using the Logic interpreter, which you can get
 <a href="http://composingprograms.com/examples/logic/logic.py">here</a>. You will
 also need your Scheme project in the same directory. You can run the
 Logic
 interpreter from your terminal with:
 
-
 <pre><code>python3 logic.py</code></pre>
 
 <p>You can load a <code>.logic</code> file with</p>
-
 
 <pre><code>python3 logic.py -load file.logic</code></pre>
 
 <p>Alternatively, you can use the <a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/logic/logic.html">online Logic
 interpreter</a>
-
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -136,6 +130,7 @@ interpreter</a>
   
 
 <h2 id="conceptual-questions">Conceptual Questions</h2>
+
 
 <h3 class="question" id="q1">Question 1: </h3>
 
@@ -176,7 +171,6 @@ declared, the specified relation is, <em>by definition</em>, true). A <em>query<
 is a question that asks if a specified relation is true.  Here is a
 simple example of facts and queries:</p>
 
-
 <pre><code>logic&gt; (fact (&gt; 3 2))
 logic&gt; (query (&gt; 3 2))
 Success!
@@ -201,7 +195,6 @@ in the Logic language.</p>
 
 <p>A <em>simple fact</em> has only one clause. The syntax looks like this:</p>
 
-
 <pre><code>(fact (________))</code></pre>
 
 <p>A <em>compound fact</em> is still a fact (it declares a relation to be true),
@@ -209,7 +202,6 @@ but it is composed of a <em>conclusion</em> and <em>hypotheses</em>. The conlusi
 comes first, followed by the hypotheses. Think of it as a fact whose
 truth depends on the truth of smaller facts. The syntax looks like
 this:</p>
-
 
 <pre><code>(fact (___conclusion___)
       (___hypothesis1__)
@@ -219,12 +211,13 @@ this:</p>
 </div>
     
 
+
 <h2 id="what-would-logic-print">What would Logic print?</h2>
+
 
 <h3 class="question" id="q4">Question 4: </h3>
 
 <p>Assume the following facts have been loaded into the Logic interpreter:</p>
-
 
 <pre><code>(fact (married lucille george-sr))
 (fact (married lindsay tobias))
@@ -281,13 +274,14 @@ rel: married</span></code></pre>
     </button>
     
 
+
 <h2 id="code-writing-question">Code-Writing question</h2>
+
 
 <h3 class="question" id="q5">Question 5: </h3>
 
 <p>Write a fact or set of facts for the <code>first</code> relation, which checks
 if a given item is the first element in a given list.</p>
-
 
 <pre><code>(fact (first ; YOUR CODE HERE
 
@@ -310,7 +304,6 @@ item? Is the process recursive?</p>
 
     <div class="solution 3">
 
-
 <pre><code>(fact (first ?f (?f . ?r)))</code></pre>
 
 </div>
@@ -320,7 +313,6 @@ item? Is the process recursive?</p>
 
 <p>Write a fact or set of facts for the <code>rest-with</code> relation, which checks
 if a given item is the rest (in the Rlist sense) of a list.</p>
-
 
 <pre><code>(fact (rest ; YOUR CODE HERE
 
@@ -340,7 +332,6 @@ what: (3 2)</code></pre>
 
     <div class="solution 4">
 
-
 <pre><code>(fact (rest ?r (?f . ?r)))</code></pre>
 
 </div>
@@ -351,7 +342,6 @@ what: (3 2)</code></pre>
 <p>Write a fact or set of facts for the <code>cons</code> relation, which checks if a
 given first and rest can <code>cons</code> together (in the Scheme sense) to form
 a given list.</p>
-
 
 <pre><code>(fact (cons ; YOUR CODE HERE
 
@@ -374,7 +364,6 @@ what: 3</code></pre>
 
     <div class="solution 5">
 
-
 <pre><code>(fact (cons ?f ?r (?f . ?r)))</code></pre>
 
 </div>
@@ -384,7 +373,6 @@ what: 3</code></pre>
 
 <p>Write a fact or set of facts for the <code>contains</code> relation, which checks
 if a given list contains a given item.</p>
-
 
 <pre><code>(fact (contains ; YOUR CODE HERE
 
@@ -416,7 +404,6 @@ Is this process recursive?</p>
 
 </div>
     
-
 
   </div>
       </div>

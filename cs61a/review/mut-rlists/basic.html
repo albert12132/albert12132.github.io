@@ -92,17 +92,13 @@
 
     <p>You can review Rlists as Classes in the following places</p>
     
-
 <ul>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/17-Structure_1pps.pdf">Recursive Objects</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php">Lab 6</a>
-  
   </div>
 
-  
-For this section, we will be using the <code>Rlist</code> class implementation
+  For this section, we will be using the <code>Rlist</code> class implementation
 from lecture:
-
 
 <pre><code>class Rlist(object):
     class EmptyList(object):
@@ -129,7 +125,6 @@ from lecture:
                                       repr(self.rest))</code></pre>
 
 
-
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
 
@@ -139,6 +134,7 @@ from lecture:
   
 
 <h2 id="conceptual-questions">Conceptual Questions</h2>
+
 
 <h3 class="question" id="q1">Question 1: </h3>
 
@@ -177,13 +173,14 @@ not be mutated after it is created.</p>
 </div>
     
 
+
 <h2 id="code-writing-questions">Code-Writing questions</h2>
+
 
 <h3 class="question" id="q3">Question 3: </h3>
 
 <p>Implement a function <code>seq_to_rlist</code>, which takes any type of sequence
 (e.g. tuple, list) and converts it to an <code>Rlist</code>.</p>
-
 
 <pre><code>def seq_to_rlist(seq):
     &quot;&quot;&quot;Converts SEQ into an Rlist.
@@ -202,7 +199,6 @@ not be mutated after it is created.</p>
     </button>
 
     <div class="solution 2">
-
 
 <pre><code># recursive
 def seq_to_rlist(seq):
@@ -226,7 +222,6 @@ def seq_to_rlist(seq):
 <code>fn</code>, and applies <code>fn</code> to every element in the Rlist. <code>map_rlist</code>
 should <strong>mutate</strong> the Rlist -- do not return a new one!</p>
 
-
 <pre><code>def map_rlist(fn, r):
     &quot;&quot;&quot;Maps FN onto every element of the Rlist R.
 
@@ -244,7 +239,6 @@ should <strong>mutate</strong> the Rlist -- do not return a new one!</p>
 
     <div class="solution 3">
 
-
 <pre><code># recursive
 def map_rlist(fn, r):
     if r is not Rlist.empty:
@@ -259,7 +253,6 @@ def map_rlist(fn, r):
 
 </div>
     
-
 
   </div>
       </div>

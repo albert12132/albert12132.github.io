@@ -93,16 +93,13 @@
 
     <p>You can review Scheme in the following places</p>
     
-
 <ul>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/23-Scheme_1pps.pdf">Lecture: Functional Programming</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab08/lab8-scheme.html">Lab 8</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion09_sol.pdf">Discussion 9</a>
-  
   </div>
 
   
-
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -113,6 +110,7 @@
   
 
 <h2 id="what-would-scheme-print">What would Scheme print</h2>
+
 
 <h3 class="question" id="q1">Question 1: </h3>
 
@@ -140,7 +138,9 @@ STk&gt; (((car ((x) x))) 4)
     </button>
     
 
+
 <h2 id="code-writing-questions">Code-Writing questions</h2>
+
 
 <h3 class="question" id="q2">Question 2: </h3>
 
@@ -150,7 +150,6 @@ number of ways you can reach the top of a staircase with <code>n</code> stairs.<
 
 <p>This is different than the usual <code>count-stairways</code> -- notice that this
 time, we can only take 2 or 3 steps, rather than 1 or 2.</p>
-
 
 <pre><code>(define (count-stairways n)
     ; YOUR CODE HERE
@@ -173,7 +172,6 @@ STk&gt; (count-stairways 8)
 
     <div class="solution 0">
 
-
 <pre><code>(define (count-stairways n)
     (cond ((= n 1) 0)
           ((or (= n 2) (= n 3)) 1)
@@ -193,7 +191,6 @@ for examples.</p>
 <p><img src="serpinski.svg" alt="Serpinski's triangle"></p>
 
 <p>How can you use recursive calls on <em>n-1</em> to build your answer for <em>n</em>?</p>
-
 
 <pre><code>(define (count-serpinski depth)
     ; YOUR CODE HERE
@@ -216,14 +213,12 @@ STk&gt; (count-stairways 4)
 
     <div class="solution 1">
 
-
 <pre><code>(define (count-serpinski n)
     (if (= n 1)
         1
         (+ 2 (* 3 (count-serpinski (- n 1))))))</code></pre>
 
 <p>The recursive call can be derived as follows:</p>
-
 
 <ol>
   <li>There are three smaller <em>n-1</em> serpinski triangles at each of the
@@ -235,13 +230,14 @@ STk&gt; (count-stairways 4)
 </div>
     
 
+
 <h2 id="fill-in-the-blank-questions">Fill-in the blank questions</h2>
+
 
 <p>Fill in the blanks for the <code>construct</code> function. It takes a value and a
 list of lists as arguments. It returns a new list of lists, where each
 element is a list from the old list, but with the value added to the
 front.</p>
-
 
 <pre><code>(define (construct value lists)
     (if ______
@@ -265,7 +261,6 @@ STk&gt; (construct 6 &#x27;())
 
     <div class="solution 2">
 
-
 <pre><code>(define (construct value lists)
     (if (null? lists)
         nil
@@ -274,7 +269,6 @@ STk&gt; (construct 6 &#x27;())
 
 </div>
     
-
 
   </div>
       </div>

@@ -87,16 +87,12 @@
 
     <p>You can review Newton's method in the following places</p>
     
-
 <ul>
   <li><a href="http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/06_1pp.pdf">Lecture: Newton's method</a>
-  
   </div>
 
-  
-We will be using the implementation of Newton's method and
+  We will be using the implementation of Newton's method and
 iterative improvement from lecture:
-
 
 <pre><code># iterative improvement framework
 
@@ -127,7 +123,6 @@ def find_zero(f, df):
     return improve(newton_update(f, df), near_zero)&quot;&quot;&quot;)</code></pre>
 
 
-
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
 
@@ -137,6 +132,7 @@ def find_zero(f, df):
   
 
 <h2 id="conceptual-questions">Conceptual Questions</h2>
+
 
 <h3 class="question" id="q1">Question 1: </h3>
 
@@ -163,7 +159,6 @@ when you can stop).</p>
 <p>Conceptually, what is the <code>update</code> function for Newton's method? What
 is the <code>close</code> function for Newton's method?</p>
 
-
 <pre><code>def newton_update(f, df):
     def update(x):
         return x - f(x) / df(x)
@@ -188,7 +183,6 @@ approximately equal to 0 -- this is the goal of Newton's method.</p>
 
 </div>
     
-
 
   </div>
       </div>

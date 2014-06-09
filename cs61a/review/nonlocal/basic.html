@@ -94,15 +94,12 @@
 
     <p>You can review Nonlocal in the following places</p>
     
-
 <ul>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/14-Mutation_1pps.pdf">Lecture: Mutable Data</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab05/lab05.php">Lab 5</a>
-  
   </div>
 
   
-
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -114,10 +111,10 @@
 
 <h2 id="conceptual-questions">Conceptual Questions</h2>
 
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 <p>Would this code work? If not, how would you fix it?</p>
-
 
 <pre><code>def make_counter():
     count = 0
@@ -135,7 +132,6 @@
 
 <p>No, this code would not work. Here's how we can find out:</p>
 
-
 <ul>
   <li>The line <code>count += 1</code> is equivalent to <code>count = count + 1</code>, so we
   rewrite it as such.</li>
@@ -148,7 +144,6 @@
 </ul>
 
 <p>To fix it, add a nonlocal statement:</p>
-
 
 <pre><code>def make_counter():
     count = 0
@@ -165,7 +160,6 @@
 
 <p>Consider the following code:</p>
 
-
 <pre><code>def fn1(bob):
     def fn2(alice):
         def fn3(alice):
@@ -177,7 +171,6 @@
     return fn2</code></pre>
 
 <p>Answer the following questions:</p>
-
 
 <ol>
   <li>In which function's frame does Python start looking for <code>alice</code>?</li>
@@ -193,7 +186,6 @@
 
     <div class="solution 1">
 
-
 <ol>
   <li><code>fn3</code></li>
   <li><code>fn3</code></li>
@@ -207,7 +199,6 @@
 <h3 class="question" id="q3">Question 3: </h3>
 
 <p>Identify all the errors regarding nonlocal in the following code:</p>
-
 
 <pre><code>bob = 2
 def fn1(bob):
@@ -238,7 +229,9 @@ the value of 3.</p>
 </div>
     
 
+
 <h2 id="environment-diagrams">Environment Diagrams</h2>
+
 
 <h3 class="question" id="q4">Question 4: </h3>
 
@@ -307,7 +300,6 @@ bar(4)</code></pre>
     </iframe>
     </div>
     
-
 
   </div>
       </div>

@@ -95,16 +95,13 @@
 
     <p>You can review Scheme in the following places</p>
     
-
 <ul>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/23-Scheme_1pps.pdf">Lecture: Functional Programming</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab08/lab8-scheme.html">Lab 8</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion09_sol.pdf">Discussion 9</a>
-  
   </div>
 
   
-
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -115,6 +112,7 @@
   
 
 <h2 id="what-would-scheme-print">What would Scheme print</h2>
+
 
 <h3 class="question" id="q1">Question 1: </h3>
 
@@ -206,14 +204,15 @@ STk&gt; (cdr (list 1 2 3 4))
     </button>
     
 
+
 <h2 id="code-writing-questions">Code-Writing Questions</h2>
+
 
 <h3 class="question" id="q5">Question 5: </h3>
 
 <p>Implement the function <code>filter</code>, which takes a predicate and a Scheme
 list as arguments.  <code>filter</code> will return a new list that only contains
 elements of the original list that satisfy the predicate.</p>
-
 
 <pre><code>(define (filter pred lst)
     ; YOUR CODE HERE
@@ -232,7 +231,6 @@ STk&gt; (filter less-3 (list 1 2 3 4))
 
     <div class="solution 0">
 
-
 <pre><code>(define (filter pred lst)
     (cond ((null? lst) nil)
           ((pred (car lst)) (cons (car lst)
@@ -248,7 +246,6 @@ STk&gt; (filter less-3 (list 1 2 3 4))
 arguments.  <code>interleave</code> will return a new list that interleaves the
 elements of the two lists, with <code>list1</code> starting first. Refer to the
 tests for sample input/output.</p>
-
 
 <pre><code>(define (interleave list1 list2)
     ; YOUR CODE HERE
@@ -269,7 +266,6 @@ STk&gt; (interleave (list 1 3 5) (list 2 4))
 
     <div class="solution 1">
 
-
 <pre><code>(define (interleave list1 ist2)
     (if (or (null? list1) (null? list2))
         (append list1 list2)
@@ -285,7 +281,6 @@ STk&gt; (interleave (list 1 3 5) (list 2 4))
 <p>Implement the function <code>count-stairways</code>, which takes a number (of
 steps).  Assuming we can take 1 or 2 steps, return the number of ways
 we can climb up the stairs.</p>
-
 
 <pre><code>(define (count-stairways n)
     ; YOUR CODE HERE
@@ -304,7 +299,6 @@ STk&gt; (count-stairways 5)
 
     <div class="solution 2">
 
-
 <pre><code>(define (count-stairways n)
     (cond ((= n 1) 1)
           ((= n 2) 2)
@@ -313,7 +307,6 @@ STk&gt; (count-stairways 5)
 
 </div>
     
-
 
   </div>
       </div>

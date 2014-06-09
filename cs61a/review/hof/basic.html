@@ -105,16 +105,13 @@
 
     <p>You can review Higher-Order Functions in the following places</p>
     
-
 <ul>
   <li><a href="http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/05_1pp.pdf">Lecture: Environments</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/sp14/lab/lab02/lab02.php">Lab 2</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/sp14/disc/discussion02.pdf">Discussion 2</a>
-  
   </div>
 
   
-
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -125,6 +122,7 @@
   
 
 <h2 id="conceptual-questions">Conceptual Questions</h2>
+
 
 <h3 class="question" id="q1">Question 1: </h3>
 
@@ -140,7 +138,6 @@
 <p>A function is a higher-order function if it satisfies at least one of
 the following:</p>
 
-
 <ul>
   <li>It takes at least one function as an argument</li>
   <li>It returns a function</li>
@@ -154,7 +151,6 @@ the following:</p>
 <p>In the following code, what type of object (number, boolean, string,
 function) does <code>foo</code> return?  What type of object should <code>x</code>
 be for this function to work?</p>
-
 
 <pre><code>def foo(x):
     def inner(y):
@@ -175,7 +171,9 @@ will result in an error (because it will try <code>x(y)</code>).</p>
 </div>
     
 
+
 <h2 id="what-would-python-print">What would Python print?</h2>
+
 
 <h3 class="question" id="q3">Question 3: </h3>
 
@@ -238,7 +236,9 @@ False</span></code></pre>
     </button>
     
 
+
 <h2 id="environment-diagrams">Environment Diagrams</h2>
+
 
 <h3 class="question" id="q6">Question 6: </h3>
 
@@ -377,14 +377,15 @@ result = middle(cube)
     </div>
     
 
+
 <h2 id="code-writing-questions">Code-Writing questions</h2>
+
 
 <h3 class="question" id="q11">Question 11: </h3>
 
 <p>Write a function <code>make_mod</code> that takes a number, <code>n</code>, as an argument,
 and returns a new function. The new function should take a single
 argument, <code>x</code>, and return the result of <code>x</code> modulo <code>n</code>.</p>
-
 
 <pre><code>def make_mod(n):
     &quot;&quot;&quot;Returns a function that takes an argument x.
@@ -405,7 +406,6 @@ argument, <code>x</code>, and return the result of <code>x</code> modulo <code>n
 
     <div class="solution 2">
 
-
 <pre><code>def make_mod(n):
     def mod_n(x):
         return x % n
@@ -413,7 +413,6 @@ argument, <code>x</code>, and return the result of <code>x</code> modulo <code>n
 
 </div>
     
-
 
   </div>
       </div>

@@ -93,16 +93,13 @@
 
     <p>You can review Lists in the following places</p>
     
-
 <ul>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/12-Lists_1pps.pdf">Lecture: Lists and Dictionaries</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab04/lab04.php">Lab 4</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion05.pdf">Discussion 5</a>
-  
   </div>
 
   
-
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -113,6 +110,7 @@
   
 
 <h2 id="what-would-python-print">What would Python print?</h2>
+
 
 <h3 class="question" id="q1">Question 1: </h3>
 
@@ -184,14 +182,15 @@
     </button>
     
 
+
 <h2 id="code-writing-questions">Code-Writing questions</h2>
+
 
 <h3 class="question" id="q4">Question 4: </h3>
 
 <p>Implement a function <code>reverse</code> that takes a list as an argument and
 reverses the list. You should mutate the original list, without
 creating any new lists. Do NOT return anything.</p>
-
 
 <pre><code>def reverse(L):
     &quot;&quot;&quot;Reverses L in place (i.e. doesn&#x27;t create new lists).
@@ -210,7 +209,6 @@ creating any new lists. Do NOT return anything.</p>
 
     <div class="solution 0">
 
-
 <pre><code>def reverse(L):
     for i in range(len(L)//2):
         L[i], L[-i-1] = L[-i-1], L[i]</code></pre>
@@ -224,7 +222,6 @@ creating any new lists. Do NOT return anything.</p>
 maps a function <code>f</code> onto each element of the list. You should mutate
 the original lists, without creating any new lists. Do NOT return
 anything.</p>
-
 
 <pre><code>def map_mut(f, L):
     &quot;&quot;&quot;Mutatively maps f onto each element in L.
@@ -243,14 +240,12 @@ anything.</p>
 
     <div class="solution 1">
 
-
 <pre><code>def map_mut(f, L):
     for i in range(len(L)):
         L[i] = f(L[i])</code></pre>
 
 </div>
     
-
 
   </div>
       </div>

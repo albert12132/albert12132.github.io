@@ -86,15 +86,12 @@
 
     <p>You can review Nonlocal in the following places</p>
     
-
 <ul>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/14-Mutation_1pps.pdf">Lecture: Mutable Data</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab05/lab05.php">Lab 5</a>
-  
   </div>
 
   
-
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -106,11 +103,11 @@
 
 <h2 id="code-writing-questions">Code-Writing questions</h2>
 
+
 <p>Implement a function <code>make_sassy_function</code> which takes a function <code>f</code>
 and returns a modified version of <code>f</code>: the new function should only
 work every other function call. The other half of the time, it should
 return a rude message.</p>
-
 
 <pre><code>def make_sassy_function(f, msg):
     &quot;&quot;&quot;Returns a version of f that only works every other function
@@ -139,7 +136,6 @@ return a rude message.</p>
 
     <div class="solution 0">
 
-
 <pre><code>def make_sassy_function(f, msg):
     sassy = True
     def sassy_f(*args):
@@ -161,7 +157,6 @@ it saves all the words that it has seen so far. If takes in a word that
 ends in a period ("."), that denotes the end of a sentence, and the
 function returns all the words in the sentence. It will also clear its
 memory, so that it no longer remembers any words.</p>
-
 
 <pre><code>def sentence_buffer():
     &quot;&quot;&quot;Returns a function that will return entire sentences when it
@@ -186,7 +181,6 @@ memory, so that it no longer remembers any words.</p>
 
     <div class="solution 1">
 
-
 <pre><code>def sentence_buffer():
     sentence = &#x27;&#x27;
     def buffer(word):
@@ -199,7 +193,6 @@ memory, so that it no longer remembers any words.</p>
 
 </div>
     
-
 
   </div>
       </div>

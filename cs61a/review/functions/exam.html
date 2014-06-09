@@ -92,19 +92,15 @@
 
     <p>You can review Map, filter, and friends in the following places</p>
     
-
 <ul>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/13-Strings_1pps.pdf">Lecture: Strings and Sequence Processing</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab05/lab05.php">Lab 5</a>
-  
   </div>
 
-  
-<strong>NOTE</strong>: The questions in this seciton are <strong>NOT</strong> reflective of the
+  <strong>NOTE</strong>: The questions in this seciton are <strong>NOT</strong> reflective of the
 level of midterm -- they are much more difficult.  You should treat
 these questions as extra for experts -- don't focus too much on these
 questions!
-
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -115,6 +111,7 @@ questions!
   
 
 <h2 id="what-would-python-print">What would Python print?</h2>
+
 
 <h3 class="question" id="q1">Question 1: </h3>
 
@@ -159,7 +156,9 @@ questions!
     </button>
     
 
+
 <h2 id="code-writing-questions">Code-Writing questions</h2>
+
 
 <h3 class="question" id="q3">Question 3: </h3>
 
@@ -167,7 +166,6 @@ questions!
 words if they are at the start of a sequence. <strong>Hint:</strong> the
 <code>capitalize</code> string method, which capitalizes the first character of a
 string, may help you here.</p>
-
 
 <pre><code>def capitalize(s):
     &quot;&quot;&quot;Capitalizes words in the string if they are at the start of
@@ -186,7 +184,6 @@ string, may help you here.</p>
 
     <div class="solution 0">
 
-
 <pre><code>def capitalize(s):
     return reduce(lambda x, y: x + &#x27; &#x27; + y,
               map(lambda x, y: x.capitalize() if y.endswith(&#x27;.&#x27;) \
@@ -204,7 +201,6 @@ interleaves the elements of both halves. The return value should be the
 result of that interleave, and should be a list. <strong>Note</strong>: you may
 assume the list is of even length.</p>
 
-
 <pre><code>def shuffle(seq):
     &quot;&quot;&quot;Splits seq in half and interleaves elements of both halves.
 
@@ -221,7 +217,6 @@ assume the list is of even length.</p>
 
     <div class="solution 1">
 
-
 <pre><code>def shuffle(seq):
     return list(reduce(lambda x, y: x + y,
                        map(lambda x, y: [x, y],
@@ -230,7 +225,6 @@ assume the list is of even length.</p>
 
 </div>
     
-
 
   </div>
       </div>

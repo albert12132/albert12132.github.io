@@ -91,10 +91,8 @@
     
   </div>
 
-  
-We will be using the implementation of Newton's method and
+  We will be using the implementation of Newton's method and
 iterative improvement from lecture:
-
 
 <pre><code># iterative improvement framework
 
@@ -125,7 +123,6 @@ def find_zero(f, df):
     return improve(newton_update(f, df), near_zero)&quot;&quot;&quot;)</code></pre>
 
 
-
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
 
@@ -136,12 +133,12 @@ def find_zero(f, df):
 
 <h2 id="code-writing-questions">Code-Writing questions</h2>
 
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 <p>Using Newton's method, write a function <code>fourth_root</code> that calculates
 the fourth root of a number <code>x</code>. <em>Note</em>: this is not quite the same as
 finding the zero of the fourth root (since that's just <code>x = 0</code>).</p>
-
 
 <pre><code>def fourth_root(x):
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
@@ -152,7 +149,6 @@ finding the zero of the fourth root (since that's just <code>x = 0</code>).</p>
     </button>
 
     <div class="solution 0">
-
 
 <pre><code>def fourth_root(x):
     f = lambda y: y**4 - x
@@ -172,7 +168,6 @@ critical point of <em>f(x) = (x - 1)<sup>2</sup></em> is <em>x = 1</em>.</p>
 <p>Write a function <code>critical_point</code> that takes a function <code>f</code> and returns
 a critical point for that function.</p>
 
-
 <pre><code>def critical_point(f):
     &quot;&quot;&quot;Returns a single critical point for the function F.&quot;&quot;&quot;
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
@@ -183,7 +178,6 @@ a critical point for that function.</p>
     </button>
 
     <div class="solution 1">
-
 
 <pre><code>def critical_point(f):
     df = make_derivative(f)
@@ -202,7 +196,6 @@ derivative of the function = 0). Rewrite <code>newton_update</code> to add a sma
 <code>offset</code> to the derivative if it is equal to zero to avoid this
 problem.</p>
 
-
 <pre><code>def newton_update(f, df, offset=1e-5):
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
@@ -212,7 +205,6 @@ problem.</p>
     </button>
 
     <div class="solution 2">
-
 
 <pre><code>def newton_update(f, df, offset=1e-5):
     def update(x):
@@ -245,7 +237,6 @@ function (both functions that take in a price as an argument and output
 a quantity), and returns an approximation of the equilibrium price. See
 the docstring for more details.</p>
 
-
 <pre><code>def equilibrium(supply, demand, tolerance=1e-2):
     &quot;&quot;&quot;Calculates the equilibrium price for the given SUPPLY and
     DEMAND functions.
@@ -277,7 +268,6 @@ the docstring for more details.</p>
 
     <div class="solution 3">
 
-
 <pre><code>def equilibrium(supply, demand, tolerance=1e-2):
     initial_guess = 1
 
@@ -291,7 +281,6 @@ the docstring for more details.</p>
 
 </div>
     
-
 
   </div>
       </div>

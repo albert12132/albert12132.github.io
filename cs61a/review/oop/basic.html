@@ -102,17 +102,14 @@
 
     <p>You can review OOP in the following places</p>
     
-
 <ul>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/15-Objects_1pps.pdf">Lecture: Objects</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/16-Inheritance_1pps.pdf">Lecture: Inheritance</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion06.pdf">Discussion 6</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php">Lab 6</a>
-  
   </div>
 
   
-
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -124,10 +121,10 @@
 
 <h2 id="variables-conceptual-questions">Variables: Conceptual Questions</h2>
 
+
 <h3 class="question" id="q1">Question 1: </h3>
 
 <p>Define each of the following terms:</p>
-
 
 <ol>
   <li>Local variable</li>
@@ -142,7 +139,6 @@
 
     <div class="solution 0">
 
-
 <ol>
   <li><strong>Local variable</strong>: a variable that is only visible within the scope
   of a method. Once the method finishes executing, the local variable
@@ -150,20 +146,18 @@
   <li><p>Instance variable: a variable that persists -- even after methods
   are done executing, these variables will still exist and retain
   their value.</p>
-  
+
   <ul>
     <li><strong>Tip</strong>: you can tell a variable is an instance variable if it
     has <code>self.</code> in front of it (e.g.  <code>self.name</code>).</li>
     <li>Instance variables can only be used within methods.</li>
     <li>Instance variables are unique to each instance of
     the class. They are not shared by instances.</li>
-  </ul>
-  
-  </li>
+  </ul></li>
   <li><p>Class variable: like instance variables, class variables also
   persist. However, class variables ARE shared by all instances of the
   class.</p>
-  
+
   <ul>
     <li>When initialized outside of methods (which is usually the case),
     the class variable has no "dot" modifier (e.g. just
@@ -171,9 +165,7 @@
     <li>When referenced in methods, the class variable must
     be referenced with the following syntax: <code>class_name.variable</code>
     (e.g.  <code>Account.num_of_accounts)</code></li>
-  </ul>
-  
-  </li>
+  </ul></li>
 </ol>
 
 </div>
@@ -182,7 +174,6 @@
 <h3 class="question" id="q2">Question 2: </h3>
 
 <p>Consider the following code:</p>
-
 
 <pre><code>class Account:
     interest = 0.02
@@ -196,7 +187,6 @@
 
 <p>Determine whether each of these variables are local, instance, or class
 variables:</p>
-
 
 <ol>
   <li><code>name</code></li>
@@ -215,7 +205,6 @@ variables:</p>
 
     <div class="solution 1">
 
-
 <ol>
   <li><code>name</code>: local</li>
   <li><code>self.name</code>: instance</li>
@@ -233,14 +222,12 @@ variables:</p>
 
 <p>Consider the following code:</p>
 
-
 <pre><code>class Person:
     def __init__(self, name):
         self.name = name</code></pre>
 
 <p>Let's say we want to have a variable that keeps track of all the Person
 objects ever created.</p>
-
 
 <ul>
   <li>What type of variable should this be? (local, instance, or class)</li>
@@ -257,7 +244,6 @@ objects ever created.</p>
 
 <p>This would be a <strong>class variable</strong>. The new code would look like this:</p>
 
-
 <pre><code>class Person:
     population = 0
     def __init__(self, name):
@@ -267,10 +253,11 @@ objects ever created.</p>
 </div>
     
 
+
 <h2 id="variables-what-would-python-print">Variables: What would Python print?</h2>
 
-<p>For the following questions, use the following class definition:</p>
 
+<p>For the following questions, use the following class definition:</p>
 
 <pre><code>class Account:
     &quot;&quot;&quot;A class computer account. Each account has a two-letter ID
@@ -334,12 +321,13 @@ objects ever created.</p>
     </button>
     
 
+
 <h2 id="methods-conceptual-questions">Methods: Conceptual Questions</h2>
+
 
 <h3 class="question" id="q5">Question 5: </h3>
 
 <p>Here is the same <code>Account</code> class from the previous section:</p>
-
 
 <pre><code>class Account:
     &quot;&quot;&quot;A class computer account. Each account has a two-letter ID
@@ -371,7 +359,6 @@ raised, even though I didn't pass in an argument for <code>self</code>?</p>
 <p>The dot notation will implicitly pass <code>acc_aa</code> into <code>type</code> as <code>self</code>.
 This is known as a <strong>bound method</strong>. Another way to think about it is
 that <code>acc_aa.register</code> acts like a curried function</p>
-
 
 <pre><code>&gt;&gt;&gt; acc_aa.register = curry2(Account.register)(acc_aa)
 &gt;&gt;&gt; acc_aa.register(&#x27;me&#x27;)
@@ -411,7 +398,6 @@ variable and method names can collide if you aren't careful.</p>
 <p>The <code>@property</code> decorator allows you to use the affected method to
 be accessed like a variable. For example, the following method</p>
 
-
 <pre><code>&gt;&gt;&gt; class Example:
 ...     @property
 ...     def foo(self):
@@ -424,10 +410,11 @@ be accessed like a variable. For example, the following method</p>
 </div>
     
 
+
 <h2 id="methods-what-would-python-print">Methods: What would Python print?</h2>
 
-<p>For the following questions, use the <code>Account</code> class defined below:</p>
 
+<p>For the following questions, use the <code>Account</code> class defined below:</p>
 
 <pre><code>class Account:
     &quot;&quot;&quot;A class computer account. Each account has a two-letter ID
@@ -469,7 +456,6 @@ be accessed like a variable. For example, the following method</p>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
     
-
 
   </div>
       </div>
