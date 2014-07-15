@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content=''>
+    <title></title>
+    <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <script src='/public/js/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:[]});
+      hljs.initHighlightingOnLoad();
+    </script>
+    <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'albertwu.org');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
+    <div id='container'>
+      <div id='logo'>
+        <h1 id='nav-bar-hide'>Other Features</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
+        <div id='accordion'>
+          <h3>Contents</h3>
+<div>
+
+</div>
+        </div>
+        <div id='nav-bar-fixed'>
+          
+        </div>
+      </div>
+
+      <div id='content'>
+        <h1 class='article-title'>Other Features</h1>
+
+<p>Last updated: <i></i></p>
+
+<h3 id="linking">Linking</h3>
+
+
+<p>Templar's primary publishing method is to use templates via the
+<code>compile</code> subcommand. However, if you do not need to use a template,
+and simply want to link a source content file (through use of <code>include</code>
+tags), you can use the <code>link</code> subcommand:</p>
+
+<pre><code>python3 templar link example.md &#x2d;m &#x2d;d result.html</code></pre>
+
+<ul>
+  <li><code>example.md</code> is the source file to link. This is a required argument</li>
+  <li><code>&#x2d;m</code> tells Templar to parse the content as Markdown. You can omit
+  this flag to skip Markdown parsing</li>
+  <li><code>&#x2d;d result.html</code> tells Templar to write the result to a file called
+  <code>result.html</code>. If this argument is omitted, Templar will print the
+  result to standard out.</li>
+</ul>
+
+
+<h3 id="table-of-contents">Table of Contents</h3>
+
+
+<p>Templar has the capability to scrape headers to create a table of
+contents. You can specify exactly <em>what</em> is defined to be a header in
+<code>config.py</code>:</p>
+
+<pre><code>header_regex = r&quot;...&quot;
+
+def header_translate(match):
+    return ...
+
+def table_of_contents(lst):
+    ...</code></pre>
+
+<ul>
+  <li><code>header_regex</code> can either be a string or a <code>RegexObject</code>, and tell
+  Templar how to recognize a "header".</li>
+  <li><code>header_translate</code> takes a regular expression match and extracts
+  information (e.g. the <code>id</code> attribute and title of an HTML <code>&lt;h1&gt;</code> tag)</li>
+  <li><code>table_of_contents</code> takes a list of expressions returned by
+  <code>header_translate</code> and compiles the final table of contents.</li>
+</ul>
+
+<p>The table of contents that is returned by <code>table_of_contents</code> is
+available to templates with the expression</p>
+
+<pre><code>``</code></pre>
+      </div>
+    </div>
+  </body>
+
+  <script src='/public/js/jquery-1.10.1.min.js'></script>
+  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
+  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
+  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/js/nav-bar.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+      $.localScroll();
+    });
+  </script>
+  
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content=''>
+    <title></title>
+    <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <script src='/public/js/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:[]});
+      hljs.initHighlightingOnLoad();
+    </script>
+    <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'albertwu.org');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
+    <div id='container'>
+      <div id='logo'>
+        <h1 id='nav-bar-hide'>Getting Started</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
+        <div id='accordion'>
+          <h3>Contents</h3>
+<div>
+
+</div>
+        </div>
+        <div id='nav-bar-fixed'>
+          
+        </div>
+      </div>
+
+      <div id='content'>
+        <h1 class='article-title'>Getting Started</h1>
+
+<p>Last updated: <i></i></p>
+
+<h2 id="installing-templar">Installing Templar</h2>
+
+
+<p>The latest version of Templar can be installed through <code>pip</code>:</p>
+
+<pre><code>pip install templar</code></pre>
+
+<p><strong>Note</strong>: Templar is currently supported only for Python3.3 and above.</p>
+
+<p>You should now have access to two command-line utilities:</p>
+
+<ul>
+  <li><code>templar</code>: the primary command for Templar. We'll go over the various
+  options throughout this document.</li>
+  <li><code>markdown</code>: a convenience command that is equivalent to <code>templar
+  markdown</code>.</li>
+</ul>
+
+
+<h2 id="config-py">config.py</h2>
+
+
+<p>Choose a directory in which you will be publishing work using Templar
+(this can be any directory in your project structure). For example,
+suppose we want to publish in a directory called <code>&lt;project&gt;/blog/</code>.</p>
+
+<p>Create a <code>config.py</code> file with the following command:</p>
+
+<pre><code>cd &lt;project&gt;/blog
+templar config</code></pre>
+
+<blockquote><p>Alternatively, you can create <code>config.py</code> without changing
+directories with</p>
+
+<pre><code>templar config &lt;project&gt;/blog</code></pre></blockquote>
+
+<p>This will create a file called <code>config.py</code> in <code>&lt;project&gt;/blog/</code>
+with the following (paraphrased) contents:</p>
+
+<pre><code>FILEPATH = ...  # filepath of config.py
+
+configurations = {
+    &#x27;TEMPLATE_DIRS&#x27;: [
+        FILEPATH,
+        # list of directories that contain a templates directory
+    ]
+
+    &#x27;VARIABLES&#x27;: {
+        # variables used by templates
+    }
+
+    &#x27;SUBSTITUTIONS&#x27;: [
+        # (regex, sub) pairs
+    ]
+}</code></pre>
+
+<p>This basic setup is enough to start using Templar, but you can
+customize each of the variables found in <code>config.py</code>. <code>TEMPLATE_DIRS</code>
+is explained next; other customizations are described later.</p>
+
+
+<h3 id="template_dirs"><code>TEMPLATE_DIRS</code></h3>
+
+
+<p>Suppose we change <code>TEMPLATE_DIRS</code> to the following:</p>
+
+<pre><code>&#x27;TEMPLATE_DIRS&#x27;: [
+    FILEPATH,
+    os.path.join(FILEPATH, &#x27;food&#x27;),
+]</code></pre>
+
+<p>Continuing from our previous example, <code>FILEPATH</code> is
+<code>&lt;project&gt;/blog</code> (since that is where <code>config.py</code> is located).
+Templar will now look in two directories to find templates:</p>
+
+<ol>
+  <li><code>&lt;project&gt;/blog/templates/</code></li>
+  <li><code>&lt;project&gt;/blog/food/templates/</code></li>
+</ol>
+
+<p>Templates will be searched in that order.</p>
+
+<p>Notice that each filepath in <code>TEMPLATE_DIRS</code> is assumed to have a
+<code>templates</code> directory &mdash; this is where template files should be placed.</p>
+
+<p><strong>Note</strong>: The <code>FILEPATH</code> variable is not required, though it is
+helpful as a reference point for other directories that contain
+templates.</p>
+
+
+<h2 id="basic-templating">Basic Templating</h2>
+
+
+<p>Continuing from our example above, suppose we are publishing content
+from the filepath <code>&lt;project&gt;/blog/</code>.</p>
+
+<p>First, create a content file anywhere &mdash; for example, we'll create a
+Markdown file called <code>pumpkin&#x2d;pie.md</code>:</p>
+
+<pre><code>~ title: Pumpkin Pie
+
+This is a recipe for making **pumpkin pie**.</code></pre>
+
+<p>This file contains standard Markdown, except for the first line <code>~
+title: ...</code>. This is a <em>variable</em> declaration, which has the
+following syntax:</p>
+
+<pre><code>~ variable name: variable value</code></pre>
+
+<p>Variables can be referenced from within templates (explained later) and
+are useful for storing metadata about the content. Some things to note:</p>
+
+<ul>
+  <li><code>variable name</code> can contain any character that is not a newline and
+  not a colon (<code>:</code>). This means variables can include spaces, hyphens,
+  and underscores.</li>
+  <li><code>variable value</code> can contain any character that is not a newline.
+  This means values can include spaces, hyphens, underscores, and
+  colons (the first colon in the line is used as the separator)</li>
+  <li><code>variable value</code> will be taken <em>as is</em> (meaning it will not be parsed
+  for Markdown)</li>
+  <li>The variable declaration must be on exactly one line</li>
+</ul>
+
+<p>Once we are done with the content file, let's create a directory called
+<code>templates</code>:</p>
+
+<pre><code>mkdir templates</code></pre>
+
+<p>Add a sample template file called <code>recipe.html</code> to the <code>templates</code>
+directory:</p>
+
+<pre><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;\{\{ title }}&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;\{\{ title }}&lt;/title&gt;
+    &lt;p&gt;Published: &lt;i&gt;\{\{ datetime.now() }}&lt;/i&gt;&lt;/p&gt;
+
+    \{\{ :all }}
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<p>This template demonstrates three fundamental features:</p>
+
+<ul>
+  <li><strong>Variables</strong> (<code>\{\{ title }}</code>): variables can be defined in either
+  the content file (as seen above in <code>example.md</code>) or in <code>config.py</code>
+  (explained later). Variables can be reused (e.g. multiple references
+  to <code>title</code>).</li>
+  <li><strong>Python expressions</strong> (<code>\{\{ datetime.now() }}</code>): any valid Python
+  <em>expression</em> can be used &mdash; the <code>str</code> of the final value will be used
+  in place of the <code>\{\{ ... }}</code>. For example, <code>datetime.now()</code> will
+  evaluate to the current time (<code>datetime</code> is imported automatically by
+  Templar)</li>
+  <li><p><strong>Blocks</strong> (<code>\{\{ :all }}</code>): a <strong>block</strong> is a section of the content
+  file (see the section on Blocks below). All block expressions in
+  templates start with a colon (<code>:</code>).</p>
+
+  <p>Templar reserves the special block name <code>:all</code> to mean the entire
+  content file. In this case, we are replacing <code>\{\{ :all }}</code> with all
+  of the contents of our file.</p></li>
+</ul>
+
+<p>To publish the content, use the following command:</p>
+
+<pre><code>templar compile recipe.html &#x2d;s pumpkin&#x2d;pie.md &#x2d;m &#x2d;d result.html</code></pre>
+
+<ul>
+  <li><code>compile</code> tells Templar to compile a template</li>
+  <li><code>template.html</code> is the template that we are using</li>
+  <li><code>&#x2d;s pumpkin&#x2d;pie.md</code> specifies the source content. This flag is
+  optional (Templar allows templating without use of a source file;
+  this is useful if you still want to take advantage of Templar's
+  template inheritance)</li>
+  <li><code>&#x2d;m</code> tells Templar to convert the contents of <code>pumpkin&#x2d;pie.md</code> from
+  Markdown into HTML before templating occurs</li>
+  <li><code>&#x2d;d result.html</code> tells Templar to write the result to a file called
+  <code>result.html</code>. This option is optional &mdash; if omitted, Templar will
+  print the result of templating to standard out.</li>
+</ul>
+
+<p>That's it! There should now be a file in <code>&lt;project&gt;/blog/</code> called
+<code>result.html</code> that contains the following:</p>
+
+<pre><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Pumpkin Pie&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Pumpkin Pie&lt;/title&gt;
+    &lt;p&gt;Published: &lt;i&gt;2014&#x2d;06&#x2d;08&lt;/i&gt;&lt;/p&gt;
+
+    &lt;p&gt;This is a recipe for making &lt;strong&gt;pumpkin pie&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+<p>Notice that all <code>\{\{ ... }}</code> expressions have been replaced
+accordingly (the <code>\{\{ datetime.now() }}</code> expression will be different
+depending on when you publish.</p>
+
+<p>Our final directory structure looks like this:</p>
+
+<pre><code>&lt;project&gt;/
+    blog/
+        templates/
+            recipe.html
+        config.py
+        pumpkin&#x2d;pie.md
+        result.html</code></pre>
+      </div>
+    </div>
+  </body>
+
+  <script src='/public/js/jquery-1.10.1.min.js'></script>
+  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
+  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
+  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/js/nav-bar.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+      $.localScroll();
+    });
+  </script>
+  
+</html>

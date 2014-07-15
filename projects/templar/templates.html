@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='author' content='Albert Wu'>
+    <meta name='description' content=''>
+    <title></title>
+    <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <script src='/public/js/highlight.pack.js'></script>
+    <script>
+      hljs.configure({languages:[]});
+      hljs.initHighlightingOnLoad();
+    </script>
+    <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+    
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39937584-1', 'albertwu.org');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
+    <div id='container'>
+      <div id='logo'>
+        <h1 id='nav-bar-hide'>Templates</h1>
+      </div>
+
+      <div id='nav-bar'>
+        <div id='nav-bar-headers'>
+          <ul>
+            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
+            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
+              </li>
+          </ul>
+        </div>
+        <div id='accordion'>
+          <h3>Contents</h3>
+<div>
+
+</div>
+        </div>
+        <div id='nav-bar-fixed'>
+          
+        </div>
+      </div>
+
+      <div id='content'>
+        <h1 class='article-title'>Templates</h1>
+
+<p>Last updated: <i></i></p>
+
+<h2 id="introduction">Introduction</h2>
+
+
+<p>Templates are stored in a directory called <code>templates</code>, which can be
+located anywhere as long as the parent directory is listed in the
+<code>TEMPLATE_DIRS</code> variable in <code>config.py</code>. The most basic "template" is
+simply a regular HTML file.</p>
+
+<p>In addition, you can add <em>expressions</em> in the templates that the
+compiler will resolve. For example, the following template can be used
+to fill in contact information:</p>
+
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;Name: &lt;/li&gt;
+  &lt;li&gt;Age: &lt;/li&gt;
+  &lt;li&gt;Occupation: &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+<p>Expressions are denoted by two sets of curly braces, such as <code></code> or <code></code>. The expression within the curly braces can be one
+of the following:</p>
+
+<ul>
+  <li>A <strong>variable</strong> defined either within a Markdown source file or
+  <code>config.py</code>. These "variable" names are more flexible than Python
+  variable names, as they can include spaces and hyphens (the only
+  restriction is they cannot contain newlines or colons).</li>
+  <li><p>A <strong>Python expression</strong>. Any valid Python <em>expression</em> (not
+  statements) can be used &mdash; the <code>str</code> of the final value will be used
+  in place of the <code>Ellipsis</code>:</p>
+
+<pre><code>&lt;p&gt;Date published: &lt;/p&gt;</code></pre>
+
+  <p><strong>Note</strong>: <code>Ellipsis</code> expressions will always be treated as variables
+  first; if no such variable exists, before Templar will evaluate the
+  expression as a Python expression instead.</p></li>
+  <li><p>A block defined within a Markdown source file. For example, suppose a
+  source file has the following block:</p>
+
+<pre><code>&lt;block example&gt;
+Some Markdown here.
+&lt;/block example&gt;</code></pre>
+
+  <p>The block <code>example</code> can then be used in an expression like so:</p>
+
+<pre><code>&lt;body&gt;
+  &lt;p&gt;Some HTML here&lt;/p&gt;
+
+  </code></pre>
+
+  <p>Notice the colon that precedes the block name.</p></li>
+</ul>
+
+
+<h3 id="template-inheritance">Template Inheritance</h3>
+
+
+<p>Templar also supports template inheritance. A "child" template can
+specify which "parent" template to inherit by including the following
+on the <em>very first line of the child template</em>:</p>
+
+<pre><code>&lt;% extends parent.html %&gt;</code></pre>
+
+<p>In the "parent" template, you can define labels that "child" templates
+can fill. Suppose the following content is found in <code>parent.html</code>:</p>
+
+<pre><code>&lt;div id=&#x27;nav&#x2d;bar&#x27;&gt;
+  &lt;h3&gt;Title&lt;/h3&gt;
+
+  {% block nav&#x2d;bar %}
+&lt;/div&gt;</code></pre>
+
+<p>The <code>{% block nav&#x2d;bar %}</code> tag allows child templates to "override"
+parent labels. Suppose the following content is found in <code>child.html</code>:</p>
+
+<pre><code>&lt;% extends parent.html %&gt;
+
+&lt;% block nav&#x2d;bar %&gt;
+&lt;h3&gt;Some other stuff&lt;/h3&gt;
+&lt;h3&gt;Some more stuff&lt;/h3&gt;
+&lt;% block nav&#x2d;bar %&gt;</code></pre>
+
+<p>The result of compiling <code>child.html</code> will look like this:</p>
+
+<pre><code>&lt;div id=&#x27;nav&#x2d;bar&#x27;&gt;
+  &lt;h3&gt;Title&lt;/h3&gt;
+
+  &lt;h3&gt;Some other stuff&lt;/h3&gt;
+  &lt;h3&gt;Some more stuff&lt;/h3&gt;
+&lt;/div&gt;</code></pre>
+
+<p>If a child template chooses not to inherit a tag, that tag will simply
+be removed from the final document.</p>
+      </div>
+    </div>
+  </body>
+
+  <script src='/public/js/jquery-1.10.1.min.js'></script>
+  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
+  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
+  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="/public/js/nav-bar.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#accordion').accordion({
+        heightStyle: 'content'
+      });
+      $.localScroll();
+    });
+  </script>
+  
+</html>
