@@ -10,10 +10,11 @@
     <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
     <script src='/public/js/highlight.pack.js'></script>
     <script>
-      hljs.configure({languages:[]});
+      hljs.configure({languages:['html', 'markdown', 'python']});
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+  
     
 
     <!-- Google Analytics -->
@@ -83,7 +84,7 @@
       <div id='content'>
         <h1 class='article-title'>Getting Started</h1>
 
-<p>Last updated: <i></i></p>
+<p>Last updated: <i>Jul 24, 2014</i></p>
 
 <h2 id="installing-templar">Installing Templar</h2>
 
@@ -217,37 +218,39 @@ are useful for storing metadata about the content. Some things to note:</p>
 <p>Add a sample template file called <code>recipe.html</code> to the <code>templates</code>
 directory:</p>
 
-<pre><code>&lt;html&gt;
+<pre>
+&lt;html&gt;
   &lt;head&gt;
-    &lt;title&gt;\{\{ title }}&lt;/title&gt;
+    &lt;title&gt;{&#123; title }}&lt;/title&gt;
   &lt;/head&gt;
   &lt;body&gt;
-    &lt;h1&gt;\{\{ title }}&lt;/title&gt;
-    &lt;p&gt;Published: &lt;i&gt;\{\{ datetime.now() }}&lt;/i&gt;&lt;/p&gt;
+    &lt;h1&gt;{&#123; title }}&lt;/title&gt;
+    &lt;p&gt;Published: &lt;i&gt;{&#123; datetime.now() }}&lt;/i&gt;&lt;/p&gt;
 
-    \{\{ :all }}
+    {&#123; :all }}
   &lt;/body&gt;
-&lt;/html&gt;</code></pre>
+&lt;/html&gt;
+</pre>
 
 <p>This template demonstrates three fundamental features:</p>
 
 <ul>
-  <li><strong>Variables</strong> (<code>\{\{ title }}</code>): variables can be defined in either
-  the content file (as seen above in <code>example.md</code>) or in <code>config.py</code>
-  (explained later). Variables can be reused (e.g. multiple references
-  to <code>title</code>).</li>
-  <li><strong>Python expressions</strong> (<code>\{\{ datetime.now() }}</code>): any valid Python
-  <em>expression</em> can be used &mdash; the <code>str</code> of the final value will be used
-  in place of the <code>\{\{ ... }}</code>. For example, <code>datetime.now()</code> will
-  evaluate to the current time (<code>datetime</code> is imported automatically by
-  Templar)</li>
-  <li><p><strong>Blocks</strong> (<code>\{\{ :all }}</code>): a <strong>block</strong> is a section of the content
-  file (see the section on Blocks below). All block expressions in
-  templates start with a colon (<code>:</code>).</p>
+  <li><strong>Variables</strong> (<code>{&#123; title }}</code>): variables can be
+  defined in either the content file (as seen above in <code>example.md</code>) or
+  in <code>config.py</code> (explained later). Variables can be reused (e.g.
+  multiple references to <code>title</code>).</li>
+  <li><strong>Python expressions</strong> (<code>{&#123; datetime.now() }}</code>): any
+  valid Python <em>expression</em> can be used &mdash; the <code>str</code> of the final value
+  will be used in place of the <code>{&#123; ... }}</code>. For
+  example, <code>datetime.now()</code> will evaluate to the current time
+  (<code>datetime</code> is imported automatically by Templar)</li>
+  <li><p><strong>Blocks</strong> (<code>{&#123; :all }}</code>): a <strong>block</strong> is a section
+  of the content file (see the section on Blocks below). All block
+  expressions in templates start with a colon (<code>:</code>).</p>
 
   <p>Templar reserves the special block name <code>:all</code> to mean the entire
-  content file. In this case, we are replacing <code>\{\{ :all }}</code> with all
-  of the contents of our file.</p></li>
+  content file. In this case, we are replacing <code>{&#123; :all
+  }}</code> with all of the contents of our file.</p></li>
 </ul>
 
 <p>To publish the content, use the following command:</p>

@@ -10,10 +10,11 @@
     <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
     <script src='/public/js/highlight.pack.js'></script>
     <script>
-      hljs.configure({languages:[]});
+      hljs.configure({languages:['html', 'markdown', 'python']});
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+  
     
 
     <!-- Google Analytics -->
@@ -81,7 +82,7 @@
       <div id='content'>
         <h1 class='article-title'>Templates</h1>
 
-<p>Last updated: <i></i></p>
+<p>Last updated: <i>Jul 24, 2014</i></p>
 
 <h2 id="introduction">Introduction</h2>
 
@@ -95,45 +96,50 @@ simply a regular HTML file.</p>
 compiler will resolve. For example, the following template can be used
 to fill in contact information:</p>
 
-<pre><code>&lt;ul&gt;
-  &lt;li&gt;Name: &lt;/li&gt;
-  &lt;li&gt;Age: &lt;/li&gt;
-  &lt;li&gt;Occupation: &lt;/li&gt;
-&lt;/ul&gt;</code></pre>
+<pre>
+&lt;ul&gt;
+  &lt;li&gt;Name: {&#123; name }}&lt;/li&gt;
+  &lt;li&gt;Age: {&#123; age }}&lt;/li&gt;
+  &lt;li&gt;Occupation: {&#123; job }}&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
 
-<p>Expressions are denoted by two sets of curly braces, such as <code></code> or <code></code>. The expression within the curly braces can be one
-of the following:</p>
+<p>Expressions are denoted by two sets of curly braces, such as
+<code>{&#123; name }}</code> or <code>{&#123; age }}</code>. The
+expression within the curly braces can be one of the following:</p>
 
 <ul>
   <li>A <strong>variable</strong> defined either within a Markdown source file or
   <code>config.py</code>. These "variable" names are more flexible than Python
   variable names, as they can include spaces and hyphens (the only
   restriction is they cannot contain newlines or colons).</li>
-  <li><p>A <strong>Python expression</strong>. Any valid Python <em>expression</em> (not
+  <li>A <strong>Python expression</strong>. Any valid Python <em>expression</em> (not
   statements) can be used &mdash; the <code>str</code> of the final value will be used
-  in place of the <code>Ellipsis</code>:</p>
+  in place of the <code>{&#123; ... }}</code>. For example,
+  <code>{&#123; ', '.join(authors) }}</code> would create a string from
+  a list of authors.  <strong>Note</strong>: <code>{&#123; ... }}</code> expressions
+  will always be treated as variables first; if no such variable
+  exists, before Templar will evaluate the expression as a Python
+  expression instead.</li>
+  <li>A block defined within a Markdown source file.</li>
+</ul>
 
-<pre><code>&lt;p&gt;Date published: &lt;/p&gt;</code></pre>
-
-  <p><strong>Note</strong>: <code>Ellipsis</code> expressions will always be treated as variables
-  first; if no such variable exists, before Templar will evaluate the
-  expression as a Python expression instead.</p></li>
-  <li><p>A block defined within a Markdown source file. For example, suppose a
-  source file has the following block:</p>
+<p>For source-file blocks, suppose a source file has the following block:</p>
 
 <pre><code>&lt;block example&gt;
 Some Markdown here.
 &lt;/block example&gt;</code></pre>
 
-  <p>The block <code>example</code> can then be used in an expression like so:</p>
+<p>The block <code>example</code> can then be used in an expression like so:</p>
 
-<pre><code>&lt;body&gt;
+<pre>
+&lt;body&gt;
   &lt;p&gt;Some HTML here&lt;/p&gt;
 
-  </code></pre>
+  {&#123; :example }}
+</pre>
 
-  <p>Notice the colon that precedes the block name.</p></li>
-</ul>
+<p>Notice the colon that precedes the block name.</p>
 
 
 <h3 id="template-inheritance">Template Inheritance</h3>

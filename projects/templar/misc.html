@@ -10,10 +10,11 @@
     <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
     <script src='/public/js/highlight.pack.js'></script>
     <script>
-      hljs.configure({languages:[]});
+      hljs.configure({languages:['html', 'markdown', 'python']});
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+  
     
 
     <!-- Google Analytics -->
@@ -78,7 +79,7 @@
       <div id='content'>
         <h1 class='article-title'>Other Features</h1>
 
-<p>Last updated: <i></i></p>
+<p>Last updated: <i>Jul 24, 2014</i></p>
 
 <h3 id="linking">Linking</h3>
 
@@ -127,7 +128,9 @@ def table_of_contents(lst):
 <p>The table of contents that is returned by <code>table_of_contents</code> is
 available to templates with the expression</p>
 
-<pre><code>``</code></pre>
+<pre>
+{&#123; table-of-contents }}
+</pre>
       </div>
     </div>
   </body>
