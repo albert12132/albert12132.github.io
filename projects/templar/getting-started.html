@@ -218,19 +218,23 @@ are useful for storing metadata about the content. Some things to note:</p>
 <p>Add a sample template file called <code>recipe.html</code> to the <code>templates</code>
 directory:</p>
 
-<pre>
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;{&#123; title }}&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;{&#123; title }}&lt;/title&gt;
-    &lt;p&gt;Published: &lt;i&gt;{&#123; datetime.now() }}&lt;/i&gt;&lt;/p&gt;
+<pre></code>
+&amp;lt;html&amp;gt;
+  &amp;lt;head&amp;gt;
 
-    {&#123; :all }}
-  &lt;/body&gt;
-&lt;/html&gt;
-</pre>
+<pre><code>&amp;lt;title&amp;gt;{&amp;#123; title }}&amp;lt;/title&amp;gt;</code></pre>
+
+<p>&amp;lt;/head&amp;gt;
+  &amp;lt;body&amp;gt;</p>
+
+<pre><code>&amp;lt;h1&amp;gt;{&amp;#123; title }}&amp;lt;/title&amp;gt;
+&amp;lt;p&amp;gt;Published: &amp;lt;i&amp;gt;{&amp;#123; datetime.now() }}&amp;lt;/i&amp;gt;&amp;lt;/p&amp;gt;
+
+{&amp;#123; :all }}</code></pre>
+
+<p>&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+</code></pre></p>
 
 <p>This template demonstrates three fundamental features:</p>
 
