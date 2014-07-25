@@ -10,7 +10,7 @@
     <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
     <script src='/public/js/highlight.pack.js'></script>
     <script>
-      hljs.configure({languages:[]});
+      hljs.configure({languages:['html', 'markdown', 'python']});
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
@@ -652,8 +652,7 @@ Use ``more `s if you need`` a backtick in the tag</code></pre>
 <div class="render">
 <pre><code>&lt;p&gt;This is &lt;code&gt;in code&lt;/code&gt; tag
 Use &lt;code&gt;more `s if you need&lt;/code&gt; a backtick in the tag&lt;/p&gt;</code></pre>
-
-</redner>
+</div>
 
 <p>At this time, fenced code blocks are not supported.</p>
 
@@ -667,15 +666,12 @@ Use &lt;code&gt;more `s if you need&lt;/code&gt; a backtick in the tag&lt;/p&gt;
 
 <p>Hyperlinks are denoted as follows:</p>
 
-<markdown>
-
+<div class="markdown">
 <pre><code>This is a [hyperlink](http://www.example.com).
 This [link](www.test.com &quot;title attr&quot;) has a title attribute</code></pre>
+</div>
 
-</markdown>
-
-<render>
-
+<div class="render">
 <pre><code>&lt;p&gt;This is a &lt;a href=&quot;http://www.example.com&quot;&gt;hyperlink&lt;/a&gt;.
 This &lt;a href=&quot;www.test.com&quot; title=&quot;title attr&quot;&gt;link&lt;/a&gt; has a title attribute&lt;/p&gt;</code></pre>
 </div>
