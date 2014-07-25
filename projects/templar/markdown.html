@@ -14,6 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
+  <link rel='stylesheet' type='text/css' href='/projects/public/markdown.css'>
     
 
     <!-- Google Analytics -->
@@ -52,7 +53,54 @@
           <h3>Contents</h3>
 <div>
 <ul>
-  <li><a href="#header-slugs">Header slugs</a></li>
+  <li><a href="#metadata">Metadata</a></li>
+  <li><a href="#headers">Headers</a></li>
+  <ul>
+  <li><a href="#atx-headers">atx headers</a></li>
+  <li><a href="#setext-headers">Setext headers</a></li>
+  <li><a href="#special-attributes">Special Attributes</a></li>
+</ul>
+
+  <li><a href="#html-elements">HTML elements</a></li>
+  <li><a href="#block-level-elements">Block-level elements</a></li>
+  <ul>
+  <li><a href="#paragraphs">Paragraphs</a></li>
+  <li><a href="#code-blocks">Code blocks</a></li>
+  <li><a href="#blockquotes">Blockquotes</a></li>
+  <li><a href="#lists">Lists</a></li>
+  <ul>
+  <li><a href="#unordered-lists">Unordered lists</a></li>
+  <li><a href="#ordered-lists">Ordered Lists</a></li>
+  <li><a href="#nested-paragraphs-inside-lists">Nested paragraphs inside lists</a></li>
+  <li><a href="#nested-lists-inside-lists">Nested lists inside lists</a></li>
+  <li><a href="#nested-code-blocks-in-lists">Nested code blocks in lists</a></li>
+  <li><a href="#nested-blockquotes-in-lists">Nested blockquotes in lists</a></li>
+</ul>
+
+  <li><a href="#tables">Tables</a></li>
+</ul>
+
+  <li><a href="#span-elements">Span elements</a></li>
+  <ul>
+  <li><a href="#bold-and-italics">Bold and italics</a></li>
+  <li><a href="#code">Code</a></li>
+  <li><a href="#links">Links</a></li>
+  <ul>
+  <li><a href="#hyperlinks">Hyperlinks</a></li>
+  <li><a href="#images">Images</a></li>
+  <li><a href="#references">References</a></li>
+</ul>
+
+  <li><a href="#footnotes">Footnotes</a></li>
+</ul>
+
+  <li><a href="#miscellaneous">Miscellaneous</a></li>
+  <ul>
+  <li><a href="#tabs-and-whitespace">Tabs and Whitespace</a></li>
+  <li><a href="#emdashes">Emdashes</a></li>
+  <li><a href="#comments">Comments</a></li>
+</ul>
+
 </ul>
 
 </div>
@@ -79,14 +127,680 @@
 
 <p>Last updated: <i></i></p>
 
-<p>This article describes all the Markdown rules that Templar provides.</p>
+<p>Templar uses a specially-built parser to process Markdown. In addition
+to the <a href="http://daringfireball.net/projects/markdown/syntax">original Markdown
+specification</a>,
+Templar also includes a subset of <a href="https://michelf.ca/projects/php-markdown/extra/">Markdown Extra</a> features. This
+article documents all of hte Markdown rules used by Templar.</p>
 
 
-<h3 id="header-slugs">Header slugs</h3>
+<h2 id="metadata">Metadata</h2>
 
 
-<p>Templar's Markdown parser adds slugs to headers (<code>&lt;h[1&#x2d;6]&gt;</code>). These
-slugs are added as <code>id</code> attributes of the headers.</p>
+<p>One unconventional feature of Templar's Markdown parser is the
+<em>metadata</em> syntax, also referred to as <em>variable</em> syntax:</p>
+
+<div class="markdown">
+<pre><code>~ title: Example
+
+Some content</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;p&gt;Some content&lt;/p&gt;</code></pre>
+</div>
+
+<p>The line that says <code>~ title: Example</code> is the metadata declaration. This
+line declares a variable called <code>title</code> whose value is <code>Example</code>.
+Metadata is not accessible from within a Markdown document, but it is
+available to Templar's template compiler.</p>
+
+<p>Metadata can be defined anywhere within the Markdown document. All
+metadata is stripped from the final document.</p>
+
+
+<h2 id="headers">Headers</h2>
+
+
+<p>Markdown supports two styles of headers: atx headers and Setext
+headers.</p>
+
+
+<h3 id="atx-headers">atx headers</h3>
+
+
+<p>Markdown's atx headers use one to six <code>#</code>s:</p>
+
+<div class="markdown">
+<pre><code>## Level 2 header
+### Trailing #s ignored ###</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;h2 id=&quot;level&#x2d;2&#x2d;header&quot;&gt;Level 2 header&lt;/h2&gt;
+&lt;h3 id=&quot;trailing&#x2d;s&#x2d;ignored&quot;&gt;Trailing #s ignored&lt;/h3&gt;</code></pre>
+</div>
+
+<p>Notice that <code>id</code> attributes are added to the headers. These <code>id</code>s are
+derived from the contents of the header by lower-casing all letters,
+hyphenating spaces, and removing punctuation.</p>
+
+
+<h3 id="setext-headers">Setext headers</h3>
+
+
+<p>Setext headers rely on underscores and can be used to generate level 1
+or level 2 headers:</p>
+
+<div class="markdown">
+<pre><code>Level 1 header
+==============
+
+Level 2 header
+&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;h1 id=&quot;level&#x2d;1&#x2d;header&quot;&gt;Level 1 header&lt;/h1&gt;
+
+&lt;h2 id=&quot;level&#x2d;2&#x2d;header&quot;&gt;Level 2 header&lt;/h2&gt;</code></pre>
+</div>
+
+<p>As with atx headers, Templar derives "slug" <code>id</code> attributes for the
+headers.</p>
+
+
+<h3 id="special-attributes">Special Attributes</h3>
+
+
+<p><a href="https://michelf.ca/projects/php-markdown/extra/">Markdown Extra</a> defines syntax for supplying certain elements with
+"special attributes." Templar has implemented this feature only for
+headers:</p>
+
+<div class="markdown">
+<pre><code>Header 1      {#header1.title.stuff}
+========
+
+## Header 2   { #header2 }</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;h1 id=&quot;header1&quot; class=&quot;title stuff&quot;&gt;Header 1&lt;/h1&gt;
+
+&lt;h2 id=&quot;header2&quot;&gt;Header 2&lt;/h2&gt;</code></pre>
+</div>
+
+<p>The attributes used inside of the <code>{ ... }</code> follow CSS class and id
+syntax.</p>
+
+
+<h2 id="html-elements">HTML elements</h2>
+
+
+<p>Any HTML elements are preserved:</p>
+
+<div class="markdown">
+<pre><code>This is due &lt;span class=&quot;date&quot;&gt;12/21&lt;/span&gt;</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;p&gt;This is due &lt;span class=&quot;date&quot;&gt;12/21&lt;/span&gt;&lt;/p&gt;</code></pre>
+</div>
+
+<p>Block level HTML tags will be preserved only if they occur at the start
+of a line (that is, no preceding characters on the line) and if the
+blocks are separated from surrounding content by blank lines:</p>
+
+<div class="markdown">
+<pre><code>Some stuff
+
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;entry 1&lt;/td&gt;
+    &lt;td&gt;entry 2&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;p&gt;Some stuff&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;entry 1&lt;/td&gt;
+    &lt;td&gt;entry 2&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+</div>
+
+
+<h2 id="block-level-elements">Block-level elements</h2>
+
+
+
+<h3 id="paragraphs">Paragraphs</h3>
+
+
+<p>A paragraph is just a block of text. Multiple paragraphs are separated
+by at least one blank line:</p>
+
+<div class="markdown">
+<pre><code>This is paragraph 1. It contains content
+that pertains to the first paragraph.
+
+This is paragraph 2. Notice the blank line
+above the start of this paragraph.</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;p&gt;This is paragraph 1. It contains content
+that pertains to the first paragraph.&lt;/p&gt;
+
+&lt;p&gt;This is paragraph 2. Notice the blank line
+above the start of this paragraph.&lt;/p&gt;</code></pre>
+</div>
+
+<p>To force line breaks (<code>&lt;br/&gt;</code>) instead of a new paragraph, add two
+spaces at the end of the last line.  <strong>In the example below, the <code>~~</code>
+represents two spaces</strong>:</p>
+
+<div class="markdown">
+<pre><code>This paragraph will
+contain a line break~~
+
+This is still part of the
+same paragraph</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;p&gt;This paragraph will
+contain a line break&lt;br/&gt;
+
+This is still part of the
+the same paragraph&lt;/p&gt;</code></pre>
+</div>
+
+
+<h3 id="code-blocks">Code blocks</h3>
+
+
+<p>Code blocks are denoted by adding at least four spaces to the front of
+each line in the code block:</p>
+
+<div class="markdown">
+<pre><code>This text is just in a normal paragraph
+
+    def hello(world):
+        return world &gt; 2
+
+    print(hello(3))
+
+Back to normal paragraphs</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;p&gt;This text is just in a normal paragraph&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;def hello(world):
+    return world &amp;gt; 2
+
+print(hello(3))&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Back to normal paragraphs&lt;/p&gt;</code></pre>
+</div>
+
+<p>Notice that whitespace that occurs after the four leading spaces is
+preserved. In addition, the characters <code>&gt;</code>, <code>&lt;</code>, and <code>&amp;</code> are escaped to
+HTML entities; this makes it more conveninet to write code blocks.</p>
+
+
+<h3 id="blockquotes">Blockquotes</h3>
+
+
+<p>Blockquotes are preceded with <code>&gt;</code>. Blockquotes may contain lists,
+headers, paragraphs, code blocks, and nested blockquotes:</p>
+
+<div class="markdown">
+<pre><code>&gt; ### Beginning of a blockquote
+&gt; This is an example of a block quote
+&gt; 
+&gt;     Here is a codeblock</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;blockquote&gt;&lt;h3 id=&quot;beginning&#x2d;of&#x2d;a&#x2d;blockquote&quot;&gt;Beginning of a blockquote&lt;/h3&gt;
+
+&lt;p&gt;This is an example of a block quote&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Here is a codeblock&lt;/code&gt;&lt;/pre&gt;&lt;/blockquote&gt;</code></pre>
+</div>
+
+
+<h3 id="lists">Lists</h3>
+
+
+
+<h4 id="unordered-lists">Unordered lists</h4>
+
+
+<p>Un-ordered lists look like the following:</p>
+
+<div class="markdown">
+<pre><code>* List item 1
+* List item 2
+* List item 3</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;List item 1&lt;/li&gt;
+  &lt;li&gt;List item 2&lt;/li&gt;
+  &lt;li&gt;List item 3&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+</div>
+
+<p>The "bullets" can be any of the following characters: <code>*</code>, <code>+</code>, <code>&#x2d;</code>.
+These characters can be used interchangeably in a single list.</p>
+
+
+<h4 id="ordered-lists">Ordered Lists</h4>
+
+
+<p>Ordered lists look like the following:</p>
+
+<div class="markdown">
+<pre><code>1. List item 1
+2. List item 2
+3. List item 3</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;ol&gt;
+  &lt;li&gt;List item 1&lt;/li&gt;
+  &lt;li&gt;List item 2&lt;/li&gt;
+  &lt;li&gt;List item 3&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+</div>
+
+<p>The numbering of the lists does not matter. As long as list items are
+of the format <code>\d+\.</code>, they will be considered as the next list item.</p>
+
+
+<h4 id="nested-paragraphs-inside-lists">Nested paragraphs inside lists</h4>
+
+
+<p>If a list item contains multiple paragraphs, each paragraph after the
+first one must be indented at least <strong>two</strong> spaces.  This differs from
+original Markdown syntax, which requires 4 spaces.</p>
+
+<div class="markdown">
+<pre><code>* This is a list item.
+  The list item will have two
+  paragraphs.
+
+  This is the second paragraph
+  in the list item.
+* This is the second list item.</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;ol&gt;
+  &lt;li&gt;&lt;p&gt;This is a list item.
+  The list item will have two
+  paragraphs.&lt;/p&gt;
+
+  &lt;p&gt;This is the second paragraph
+  in the list item.&lt;/p&gt;&lt;/li&gt;
+  &lt;li&gt;This is the second list item.&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+</div>
+
+
+<h4 id="nested-lists-inside-lists">Nested lists inside lists</h4>
+
+
+<p>Lists can be nested inside of other lists by adding four leading spaces
+<em>for every level of nesting</em>. The type of list (unordered or ordered)
+does not have to be the same as the outer list:</p>
+
+<div class="markdown">
+<pre><code>1. Ordered list item 1
+    * Unordered list item 1
+    * Unordered list item 2
+        * Inner unordered list item 1
+    * Unordered list item 3
+2. Ordered list item 2</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;ol&gt;
+  &lt;li&gt;&lt;p&gt;Ordered list item 1&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;Unordered list item 1&lt;/li&gt;
+    &lt;li&gt;&lt;p&gt;Unordered list item 2&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Inner unordered list item 1&lt;li&gt;
+    &lt;/ul&gt;&lt;/li&gt;
+    &lt;li&gt;Unordered list item 3&lt;/li&gt;
+  &lt;/ul&gt;&lt;/li&gt;
+  &lt;li&gt;Ordered list item 2&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+</div>
+
+
+<h4 id="nested-code-blocks-in-lists">Nested code blocks in lists</h4>
+
+
+<p>To include a code block inside of a list, the code block requires
+<strong>four leading spaces for every list level</strong>.  For example:</p>
+
+<div class="markdown">
+<pre><code>* List item
+
+        Code block with 8 trailing spaces:
+        4 spaces for 1 list level
+        + 4 spaces for code block
+
+  End list item
+    * Nested list item
+
+            Code block with 12 trailing spaces:
+            8 spaces for 2 list levels
+            + 4 spaces for code block</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;ol&gt;
+  &lt;li&gt;&lt;p&gt;List item&lt;/p&gt;
+
+  &lt;pre&gt;&lt;code&gt;Code block with 8 trailing spaces:
+  4 spaces for 1 list level
+  + 4 spaces for code block&lt;/code&gt;&lt;/pre&gt;
+
+  &lt;p&gt;End list item&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;p&gt;Nested list item&lt;/p&gt;
+
+    &lt;pre&gt;&lt;code&gt;Code block with 12 trailing spaces:
+    8 spaces for 2 list levels
+    + 4 spaces for code block&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+  &lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+</div>
+
+
+<h4 id="nested-blockquotes-in-lists">Nested blockquotes in lists</h4>
+
+
+<p>As with code blocks, blockquotes nested in lists also require <strong>four
+leading spaces per list level</strong>:</p>
+
+<div class="markdown">
+<pre><code>* List item
+
+    &gt; Block quote
+    &gt; with 4 leading spaces
+
+  End list item
+    * Nested list item
+
+        &gt; Block quote
+        &gt; with 8 leading spaces</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;ol&gt;
+  &lt;li&gt;&lt;p&gt;List item&lt;/p&gt;
+
+  &lt;blockquote&gt;Block quote
+  with 4 leading spaces&lt;/blockquote&gt;
+
+  &lt;p&gt;End list item&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;&lt;p&gt;Nested list item&lt;/p&gt;
+
+    &lt;blockquote&gt;Block quote
+    with 8 leading spaces&lt;/blockquote&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/ol&gt;</code></pre>
+</div>
+
+
+<h3 id="tables">Tables</h3>
+
+
+<p>Templar implements <a href="https://michelf.ca/projects/php-markdown/extra/">Markdown Extra</a>'s syntax for pipe-styled tables:</p>
+
+<div class="markdown">
+<pre><code>Header 1 | Header 2 | Header 3
+:&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;:|&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;:|:&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;
+center   | right    | left</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Header 1&lt;/th&gt;
+    &lt;th&gt;Header 2&lt;/th&gt;
+    &lt;th&gt;Header 3&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td align=&quot;center&quot;&gt;center&lt;/td&gt;
+    &lt;td align=&quot;right&quot;&gt;right&lt;/td&gt;
+    &lt;td align=&quot;left&quot;&gt;left&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+</div>
+
+<p>The colons control which alignment to use for each column:</p>
+
+<ul>
+  <li>Two colons, one on each side, converts to center alignment</li>
+  <li>One colon on the right converts to right alignment</li>
+  <li>One colon on the left converts to left alignment</li>
+</ul>
+
+
+<h2 id="span-elements">Span elements</h2>
+
+
+
+<h3 id="bold-and-italics">Bold and italics</h3>
+
+
+<p>Templar uses the same syntax as original Markdown for emphasis:</p>
+
+<div class="markdown">
+<pre><code>*one star* and _one underscore_
+**two stars** and __two underscores__
+***three stars*** and ___three underscores___</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;p&gt;&lt;em&gt;one star&lt;/em&gt; and &lt;em&gt;one underscore&lt;/em&gt;
+&lt;strong&gt;two stars&lt;/strong&gt; and &lt;strong&gt;two underscores&lt;/strong&gt;
+&lt;strong&gt;&lt;em&gt;three stars&lt;/em&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;em&gt;three underscores&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</code></pre>
+</div>
+
+<p><a href="https://michelf.ca/projects/php-markdown/extra/">Markdown Extra</a>'s flavor of underscores is not used &mdash; that is,
+underscores in the middle of words are still treated as emphasis, not
+literal underscores:</p>
+
+<div class="markdown">
+<pre><code>not_good_example</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;p&gt;not&lt;em&gt;good&lt;/em&gt;example</code></pre>
+</div>
+
+
+<h3 id="code">Code</h3>
+
+
+<p>Code spans are denoted by backticks:</p>
+
+<div class="markdown">
+<pre><code>This is `in code` tag.
+Use ``more `s if you need`` a backtick in the tag</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;p&gt;This is &lt;code&gt;in code&lt;/code&gt; tag
+Use &lt;code&gt;more `s if you need&lt;/code&gt; a backtick in the tag&lt;/p&gt;</code></pre>
+
+</redner>
+
+<p>At this time, fenced code blocks are not supported.</p>
+
+
+<h3 id="links">Links</h3>
+
+
+
+<h4 id="hyperlinks">Hyperlinks</h4>
+
+
+<p>Hyperlinks are denoted as follows:</p>
+
+<markdown>
+
+<pre><code>This is a [hyperlink](http://www.example.com).
+This [link](www.test.com &quot;title attr&quot;) has a title attribute</code></pre>
+
+</markdown>
+
+<render>
+
+<pre><code>&lt;p&gt;This is a &lt;a href=&quot;http://www.example.com&quot;&gt;hyperlink&lt;/a&gt;.
+This &lt;a href=&quot;www.test.com&quot; title=&quot;title attr&quot;&gt;link&lt;/a&gt; has a title attribute&lt;/p&gt;</code></pre>
+</div>
+
+
+<h4 id="images">Images</h4>
+
+
+<p>Images have similar syntax to hyperlinks but are preceded with an
+exclamation mark:</p>
+
+<div class="markdown">
+<pre><code>![image 1](example.png)
+![image 2](example.jpg &quot;title attr&quot;)</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;img src=&quot;example.png&quot; alt=&quot;image 1&quot;/&gt;
+&lt;img src=&quot;example.jpg&quot; alt=&quot;image 2&quot; title=&quot;title attr&quot;/&gt;</code></pre>
+</div>
+
+
+<h4 id="references">References</h4>
+
+
+<p>References can be defined anywhere in the Markdown document and be used
+for links and images:</p>
+
+<div class="markdown">
+<pre><code>This is a [hyperlink][an id].
+
+   [an id]: www.example.com</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;p&gt;This is a &lt;a href=&quot;www.example.com&quot;&gt;hyperlink&lt;/a&gt;.&lt;/p&gt;</code></pre>
+</div>
+
+<p>Reference definitions may be indented up to three spaces.</p>
+
+<p>Implicit references can also be made: if the second set of <code>[]</code> is left
+blank, the content in the first set of <code>[]</code> is used as the reference
+ID:</p>
+
+<div class="markdown">
+<pre><code>This goes to [Google][].
+
+   [google]: www.google.com</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;p&gt;This goes to&lt;a href=&quot;www.google.com&quot;&gt;Google&lt;/a&gt;.&lt;/p&gt;</code></pre>
+</div>
+
+<p>Notice that reference IDs are case insensitive.</p>
+
+
+<h3 id="footnotes">Footnotes</h3>
+
+
+<p><a href="https://michelf.ca/projects/php-markdown/extra/">Markdown Extra</a> defines syntax for footnotes:</p>
+
+<div class="markdown">
+<pre><code>This is a footnote.[^id] And this is
+another footnote.[^2]
+
+   [^2]: Footnotes!
+   [^id]: This is the footnote.</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;p&gt;This is a footnote.&lt;sup&gt;&lt;a href=&quot;#fnref&#x2d;1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; And this is
+another footnote.&lt;sup&gt;&lt;a href=&quot;#fnref&#x2d;1&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;hr/&gt;
+
+&lt;div id=&quot;footnoes&quot;&gt;
+&lt;/div&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fnref&#x2d;1&quot;&gt;This is the footnote.&lt;/li&gt;
+    &lt;li id=&quot;fnref&#x2d;2&quot;&gt;Footnotes!&lt;/li&gt;
+  &lt;/ol&gt;</code></pre>
+</div>
+
+
+<h2 id="miscellaneous">Miscellaneous</h2>
+
+
+
+<h3 id="tabs-and-whitespace">Tabs and Whitespace</h3>
+
+
+<p>All tabs are converted into at most 4 spaces. All trailing whitespace
+(<code>\s+$</code>) is removed.</p>
+
+
+<h3 id="emdashes">Emdashes</h3>
+
+
+<p>Occurences of <code>&#x2d;&#x2d;</code> that are converted into em-dashes, as long as they
+are</p>
+
+<ul>
+  <li>not part of Setext headers</li>
+  <li>not part of a horizontal rule</li>
+  <li>not in a code block or a code span</li>
+  <li>not in an HTML comment</li>
+</ul>
+
+<div class="markdown">
+<pre><code>The code&#x2d;&#x2d;submitted long ago&#x2d;&#x2d;ran incorrectly.</code></pre>
+</div>
+
+<div class="render">
+<pre><code>&lt;p&gt;The code&amp;mdash;submitted long ago&amp;mdash;ran incorrectly.&lt;/p&gt;</code></pre>
+</div>
+
+
+<h3 id="comments">Comments</h3>
+
+
+<p>Templar supports Pandoc-style comments:</p>
+
+<p>Pandoc comments are completely removed before any other Markdown
+processing occurs.</p>
       </div>
     </div>
   </body>
