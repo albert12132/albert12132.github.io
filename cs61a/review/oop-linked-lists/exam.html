@@ -3,7 +3,7 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>Rlists as Classes: exam | Albert Wu</title>
+    <title>Links as Classes: exam | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -38,7 +38,7 @@
 
     <div id='container'>
       <div id='logo'>
-        <h1 id='nav-bar-hide'>Rlists as Classes: exam</h1>
+        <h1 id='nav-bar-hide'>Links as Classes: exam</h1>
       </div>
 
       <div id='nav-bar'>
@@ -64,13 +64,14 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#code-writing-questions">Code-Writing questions</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
-<li><a href="#q2">Question 2: </a></li>
-<li><a href="#q3">Question 3: </a></li>
-<li><a href="#q4">Question 4: </a></li>
+  <li><a href="#code-writing-questions">Code-Writing questions</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
+  <li><a href="#q3">Question 3: </a></li>
+  <li><a href="#q4">Question 4: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -84,24 +85,21 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
-    <p>You can review Rlists as Classes in the following places</p>
+    <p>You can review Links as Classes in the following places</p>
     
 <ul>
-  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/17-Structure_1pps.pdf">Recursive Objects</a></li>
+  <li><a href="http://cs61a.org/assets/slides/20-Composition_1pps.pdf">Recursive Objects</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php">Lab 6</a>
   </div>
 
-  For this section, we will be using the <code>Rlist</code> class implementation
+  For this section, we will be using the <code>Link</code> class implementation
 from lecture:
 
-<pre><code>class Rlist(object):
-    class EmptyList(object):
-        def __len__(self):
-            return 0
-    empty = EmptyList()
+<pre><code>class Link(object):
+    empty = ()
 
     def __init__(self, first, rest=empty):
         self.first = first
@@ -113,12 +111,12 @@ from lecture:
     def __getitem__(self, i):
         if i == 0:
             return self.first
-        return self.rest[i - 1]
+        return self.rest[i &#x2d; 1]
 
     def __repr__(self):
         if self.rest is empty:
-            return &#x27;Rlist({})&#x27;.format(repr(self.first))
-        return &#x27;Rlist({}, {})&#x27;.format(repr(self.first),
+            return &#x27;Link({})&#x27;.format(repr(self.first))
+        return &#x27;Link({}, {})&#x27;.format(repr(self.first),
                                       repr(self.rest))</code></pre>
 
 
@@ -135,20 +133,20 @@ from lecture:
 
 <h3 class="question" id="q1">Question 1: </h3>
 
-<p>Implement a function <code>validate</code>, which takes an Rlist and returns True
-if the Rlist is valid.</p>
+<p>Implement a function <code>validate</code>, which takes a Link and returns True
+if the Link is valid.</p>
 
-<pre><code>def validate(r):
-    &quot;&quot;&quot;Returns True if R is a valid Rlist.
+<pre><code>def validate(lst):
+    &quot;&quot;&quot;Returns True if lst is a valid Link.
 
-    &gt;&gt;&gt; r = Rlist(1, Rlist(2, Rlist(3)))
-    &gt;&gt;&gt; validate(r)
+    &gt;&gt;&gt; lst = Link(1, Link(2, Link(3)))
+    &gt;&gt;&gt; validate(lst)
     True
-    &gt;&gt;&gt; okay = Rlist(Rlist(1), Rlist(2))
+    &gt;&gt;&gt; okay = Link(Link(1), Link(2))
     &gt;&gt;&gt; validate(okay)
     True
-    &gt;&gt;&gt; bad = Rlist(1, 2)
-    &gt;&gt;&gt; validate(Rlist.empty)
+    &gt;&gt;&gt; bad = Link(1, 2)
+    &gt;&gt;&gt; validate(Link.empty)
     True
     &quot;&quot;&quot;
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
@@ -160,26 +158,26 @@ if the Rlist is valid.</p>
 
     <div class="solution 0">
 
-<pre><code>def validate(r):
-    if r is Rlist.empty:
+<pre><code>def validate(lst):
+    if lst is Link.empty:
         return True
-    elif r.rest is not Rlist.empty and type(r.rest) != Rlist:
+    elif lst.rest is not Link.empty and type(lst.rest) != Link:
         return False
     else:
-        return valdiate(r.rest)</code></pre>
+        return valdiate(lst.rest)</code></pre>
 
 </div>
     
 
 <h3 class="question" id="q2">Question 2: </h3>
 
-<p>Implement a function <code>count</code>, which takes an Rlist and another value,
-and counts the number of times that <code>value</code> is found in the Rlist.</p>
+<p>Implement a function <code>count</code>, which takes a Link and another value,
+and counts the number of times that <code>value</code> is found in the Link.</p>
 
 <pre><code>def count(r, value):
     &quot;&quot;&quot;Counts the number of times VALUE shows up in R.
 
-    &gt;&gt;&gt; r = Rlist(3, Rlist(3, Rlist(2, Rlist(3))))
+    &gt;&gt;&gt; r = Link(3, Link(3, Link(2, Link(3))))
     &gt;&gt;&gt; count(r, 3)
     3
     &gt;&gt;&gt; count(r, 2)
@@ -195,7 +193,7 @@ and counts the number of times that <code>value</code> is found in the Rlist.</p
     <div class="solution 1">
 
 <pre><code>def count(r, value):
-    if r is Rlist.empty:
+    if r is Link.empty:
         return 0
     elif r.first == value:
         return 1 + count(r.rest, value)
@@ -207,27 +205,27 @@ and counts the number of times that <code>value</code> is found in the Rlist.</p
 
 <h3 class="question" id="q3">Question 3: </h3>
 
-<p>Implement a function <code>extend_rlist</code>, which takes two Rlists, <code>s1</code> and
+<p>Implement a function <code>extend_rlist</code>, which takes two Links, <code>s1</code> and
 <code>s2</code>, and mutates <code>s1</code> such that it contains the elements of <code>s2</code> at
-its tail. Do this mutatively -- don't return anything! Also, make sure
+its tail. Do this mutatively &mdash; don't return anything! Also, make sure
 <code>s2</code> itself does not get attached to <code>s1</code>. You may assume <code>s1</code> always
 has at least one element.</p>
 
 <pre><code>def extend_rlist(s1, s2):
     &quot;&quot;&quot;Extends s1 to include the elements of s2.
 
-    &gt;&gt;&gt; s1 = Rlist(1)
-    &gt;&gt;&gt; s2 = Rlist(2, Rlist(3))
+    &gt;&gt;&gt; s1 = Link(1)
+    &gt;&gt;&gt; s2 = Link(2, Link(3))
     &gt;&gt;&gt; extend_rlist(s1, s2)
     &gt;&gt;&gt; s1
-    Rlist(1, Rlist(2, Rlist(3)))
+    Link(1, Link(2, Link(3)))
     &gt;&gt;&gt; s1.rest is not s2
     True
     &quot;&quot;&quot;
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 <p><strong>Hint</strong>: This question is similar to the <code>extend_rlist</code> from lecture,
-except this version mutates the original Rlist and does not make <code>s2</code>
+except this version mutates the original Link and does not make <code>s2</code>
 part of <code>s1</code>.""",</p>
 
 
@@ -238,10 +236,10 @@ part of <code>s1</code>.""",</p>
     <div class="solution 2">
 
 <pre><code>def extend_rlist(s1, s2):
-    if s2 is Rlist.empty:
+    if s2 is Link.empty:
         return
-    elif s1.rest is Rlist.empty:
-        s1.rest = Rlist(s2.first)
+    elif s1.rest is Link.empty:
+        s1.rest = Link(s2.first)
         extend_rlist(s1.rest, s2.rest)
     else:
         extend_rlist(s1.rest, s2)</code></pre>
@@ -251,22 +249,22 @@ part of <code>s1</code>.""",</p>
 
 <h3 class="question" id="q4">Question 4: </h3>
 
-<p>Implement a function <code>deep_map</code>, which takes an (possibly nested) Rlist
-and a function <code>fn</code>, and applies <code>fn</code> to every element in the Rlist. If
-an element is itself an Rlist, recursively apply <code>fn</code> to each of the
+<p>Implement a function <code>deep_map</code>, which takes an (possibly nested) Link
+and a function <code>fn</code>, and applies <code>fn</code> to every element in the Link. If
+an element is itself a Link, recursively apply <code>fn</code> to each of the
 element's elements.</p>
 
-<pre><code>def deep_map(fn, r):
-    &quot;&quot;&quot;Applies FN to every element in R.
+<pre><code>def deep_map(fn, lst):
+    &quot;&quot;&quot;Applies FN to every element in lst.
 
-    &gt;&gt;&gt; normal = Rlist(1, Rlist(2, Rlist(3)))
+    &gt;&gt;&gt; normal = Link(1, Link(2, Link(3)))
     &gt;&gt;&gt; deep_map(lambda x: x*x, normal)
     &gt;&gt;&gt; normal
-    Rlist(1, Rlist(4, Rlist(9)))
-    &gt;&gt;&gt; nested = Rlist(Rlist(1, Rlist(2)), Rlist(3, Rlist(4)))
+    Link(1, Link(4, Link(9)))
+    &gt;&gt;&gt; nested = Link(Link(1, Link(2)), Link(3, Link(4)))
     &gt;&gt;&gt; deep_map(lambda x: x*x, nested)
     &gt;&gt;&gt; nested
-    Rlist(Rlist(1, Rlist(4)), Rlist(9, Rlist(16)))
+    Link(Link(1, Link(4)), Link(9, Link(16)))
     &quot;&quot;&quot;
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
@@ -277,14 +275,14 @@ element's elements.</p>
 
     <div class="solution 3">
 
-<pre><code>def deep_map(fn, r):
-    if r is Rlist.empty:
+<pre><code>def deep_map(fn, lst):
+    if lst is Link.empty:
         return
-    if type(r.first) == Rlist:
-        deep_map(fn, r.first)
+    if type(lst.first) == Link:
+        deep_map(fn, lst.first)
     else:
-        r.first = fn(r.first)
-    deep_map(fn, r.rest)</code></pre>
+        lst.first = fn(lst.first)
+    deep_map(fn, lst.rest)</code></pre>
 
 </div>
     
@@ -308,6 +306,6 @@ element's elements.</p>
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

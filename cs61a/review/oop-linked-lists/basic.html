@@ -3,7 +3,7 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>Rlists as Classes: basic | Albert Wu</title>
+    <title>Links as Classes: basic | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -38,7 +38,7 @@
 
     <div id='container'>
       <div id='logo'>
-        <h1 id='nav-bar-hide'>Rlists as Classes: basic</h1>
+        <h1 id='nav-bar-hide'>Links as Classes: basic</h1>
       </div>
 
       <div id='nav-bar'>
@@ -64,16 +64,18 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#conceptual-questions">Conceptual Questions</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
-<li><a href="#q2">Question 2: </a></li>
+  <li><a href="#conceptual-questions">Conceptual Questions</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
 </ul>
-<li><a href="#code-writing-questions">Code-Writing questions</a></li>
-<ul>
-<li><a href="#q3">Question 3: </a></li>
-<li><a href="#q4">Question 4: </a></li>
+
+  <li><a href="#code-writing-questions">Code-Writing questions</a></li>
+  <ul>
+  <li><a href="#q3">Question 3: </a></li>
+  <li><a href="#q4">Question 4: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -87,24 +89,21 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
-    <p>You can review Rlists as Classes in the following places</p>
+    <p>You can review Links as Classes in the following places</p>
     
 <ul>
-  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/17-Structure_1pps.pdf">Recursive Objects</a></li>
+  <li><a href="http://cs61a.org/assets/slides/20-Composition_1pps.pdf">Recursive Objects</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php">Lab 6</a>
   </div>
 
-  For this section, we will be using the <code>Rlist</code> class implementation
+  For this section, we will be using the <code>Link</code> class implementation
 from lecture:
 
-<pre><code>class Rlist(object):
-    class EmptyList(object):
-        def __len__(self):
-            return 0
-    empty = EmptyList()
+<pre><code>class Link(object):
+    empty = ()
 
     def __init__(self, first, rest=empty):
         self.first = first
@@ -116,12 +115,12 @@ from lecture:
     def __getitem__(self, i):
         if i == 0:
             return self.first
-        return self.rest[i - 1]
+        return self.rest[i &#x2d; 1]
 
     def __repr__(self):
         if self.rest is empty:
-            return &#x27;Rlist({})&#x27;.format(repr(self.first))
-        return &#x27;Rlist({}, {})&#x27;.format(repr(self.first),
+            return &#x27;Link({})&#x27;.format(repr(self.first))
+        return &#x27;Link({}, {})&#x27;.format(repr(self.first),
                                       repr(self.rest))</code></pre>
 
 
@@ -148,15 +147,15 @@ from lecture:
 
     <div class="solution 0">
 
-<p><code>self.first</code> can be any type of object, including an <code>Rlist</code>.
-<code>self.rest</code> can only be an <code>Rlist</code> or an <code>EmptyList</code>.</p>
+<p><code>self.first</code> can be any type of object, including a <code>Link</code>.
+<code>self.rest</code> can only be a <code>Link</code> or <code>Link.empty</code>.</p>
 
 </div>
     
 
 <h3 class="question" id="q2">Question 2: </h3>
 
-<p>How is the <code>Rlist</code> class different the <code>rlist</code> abstract data type we
+<p>How is the <code>Link</code> class different the <code>link</code> abstract data type we
 saw earlier in the course?</p>
 
 
@@ -166,8 +165,8 @@ saw earlier in the course?</p>
 
     <div class="solution 1">
 
-<p>The <code>Rlist</code> class is mutable, meaning we can modify its contents. On
-the other hand, the <code>rlist</code> abstract data type is immutable, so it can
+<p>The <code>Link</code> class is mutable, meaning we can modify its contents. On
+the other hand, the <code>link</code> abstract data type is immutable, so it can
 not be mutated after it is created.</p>
 
 </div>
@@ -179,17 +178,17 @@ not be mutated after it is created.</p>
 
 <h3 class="question" id="q3">Question 3: </h3>
 
-<p>Implement a function <code>seq_to_rlist</code>, which takes any type of sequence
-(e.g. tuple, list) and converts it to an <code>Rlist</code>.</p>
+<p>Implement a function <code>seq_to_link</code>, which takes any type of sequence
+(e.g. tuple, list) and converts it to a <code>Link</code>.</p>
 
-<pre><code>def seq_to_rlist(seq):
-    &quot;&quot;&quot;Converts SEQ into an Rlist.
+<pre><code>def seq_to_link(seq):
+    &quot;&quot;&quot;Converts SEQ into an Link.
 
     &gt;&gt;&gt; seq = [1, 2, 3, 4]
-    &gt;&gt;&gt; seq_to_rlist(seq)
-    Rlist(1, Rlist(2, Rlist(3, Rlist(4))))
+    &gt;&gt;&gt; seq_to_link(seq)
+    Link(1, Link(2, Link(3, Link(4))))
     &gt;&gt;&gt; null = ()
-    &gt;&gt;&gt; seq_to_rlist(null) is Rlist.empty
+    &gt;&gt;&gt; seq_to_rlist(null) is Link.empty
     True
     &quot;&quot;&quot;</code></pre>
 
@@ -201,16 +200,16 @@ not be mutated after it is created.</p>
     <div class="solution 2">
 
 <pre><code># recursive
-def seq_to_rlist(seq):
+def seq_to_link(seq):
     if not seq:
-        return Rlist.empty
-    return Rlist(seq[0], seq_to_rlist(seq[1:]))
+        return Link.empty
+    return Link(seq[0], seq_to_rlist(seq[1:]))
 
 # iterative
-def seq_to_rlist(seq):
-    new = Rlist.empty
-    for elem in seq[::-1]:
-        new = Rlist(elem, new)
+def seq_to_link(seq):
+    new = Link.empty
+    for elem in seq[::&#x2d;1]:
+        new = Link(elem, new)
     return new</code></pre>
 
 </div>
@@ -218,17 +217,17 @@ def seq_to_rlist(seq):
 
 <h3 class="question" id="q4">Question 4: </h3>
 
-<p>Implement a function <code>map_rlist</code>, which takes an Rlist and a function
-<code>fn</code>, and applies <code>fn</code> to every element in the Rlist. <code>map_rlist</code>
-should <strong>mutate</strong> the Rlist -- do not return a new one!</p>
+<p>Implement a function <code>map_link</code>, which takes a Link and a function
+<code>fn</code>, and applies <code>fn</code> to every element in the Link. <code>map_rlist</code>
+should <strong>mutate</strong> the Link &mdash; do not return a new one!</p>
 
-<pre><code>def map_rlist(fn, r):
-    &quot;&quot;&quot;Maps FN onto every element of the Rlist R.
+<pre><code>def map_link(fn, lst):
+    &quot;&quot;&quot;Maps FN onto every element of the Link lst.
 
-    &gt;&gt;&gt; r = Rlist(1, Rlist(2, Rlist(3)))
-    &gt;&gt;&gt; map_rlist(lambda x: x*x, r)
+    &gt;&gt;&gt; r = Link(1, Link(2, Link(3)))
+    &gt;&gt;&gt; map_link(lambda x: x*x, r)
     &gt;&gt;&gt; r
-    Rlist(1, Rlist(4, Rlist(9)))
+    Link(1, Link(4, Link(9)))
     &quot;&quot;&quot;
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
@@ -240,16 +239,16 @@ should <strong>mutate</strong> the Rlist -- do not return a new one!</p>
     <div class="solution 3">
 
 <pre><code># recursive
-def map_rlist(fn, r):
-    if r is not Rlist.empty:
-        r.first = fn(r.first)
-        map_rlist(fn, r.rest)
+def map_link(fn, lst):
+    if lst is not Link.empty:
+        lst.first = fn(lst.first)
+        map_rlist(fn, lst.rest)
 
 # iterative
-def map_rlist(fn, r):
-    while r is not Rlist.empty:
-        r.first = fn(r.first)
-        r = r.rest</code></pre>
+def map_rlist(fn, lst):
+    while lst is not Link.empty:
+        lst.first = fn(lst.first)
+        lst = lst.rest</code></pre>
 
 </div>
     
@@ -273,6 +272,6 @@ def map_rlist(fn, r):
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

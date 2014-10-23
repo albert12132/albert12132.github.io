@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,17 +64,19 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#what-would-python-print">What would Python print?</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
-<li><a href="#q2">Question 2: </a></li>
-<li><a href="#q3">Question 3: </a></li>
+  <li><a href="#what-would-python-print">What would Python print?</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
+  <li><a href="#q3">Question 3: </a></li>
 </ul>
-<li><a href="#code-writing-questions">Code-Writing questions</a></li>
-<ul>
-<li><a href="#q4">Question 4: </a></li>
-<li><a href="#q5">Question 5: </a></li>
+
+  <li><a href="#code-writing-questions">Code-Writing questions</a></li>
+  <ul>
+  <li><a href="#q4">Question 4: </a></li>
+  <li><a href="#q5">Question 5: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -88,23 +90,23 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review Recursive Lists in the following places</p>
     
 <ul>
-  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/11-Sequences_1pps.pdf">Lecture: Sequences</a>
+  <li><a href="http://cs61a.org/assets/slides/13-Sequences_1pps.pdf">Lecture: Sequences</a>
   </div>
 
-  We will be using the following implementation of immutable recursive
+  We will be using the following implementation of immutable linked
 lists. Keep in mind that your code should not depend on the assumption
-that rlists are implemented as tuples -- preserve data abstraction!
+that links are implemented as lists &mdash; preserve data abstraction!
 
-<pre><code>empty_rlist = None
+<pre><code>empty = None
 
-def rlist(first, rest=empty_rlist):
-    return (first, rest)
+def link(first, rest=empty):
+    return [first, rest]
 
 def first(s):
     return s[0]
@@ -126,7 +128,7 @@ def rest(s):
 <h3 class="question" id="q1">Question 1: </h3>
 
 
-    <pre><code>&gt;&gt;&gt; r = rlist(1, rlist(rlist(2, empty_rlist), rlist(4, empty_rlist)))
+    <pre><code>&gt;&gt;&gt; r = link(1, link(link(2, empty), link(4, empty)))
 &gt;&gt;&gt; first(r)
 <span class="blank2">______</span><span class="hidden solution 2">1</span>
 &gt;&gt;&gt; first(rest(rest(r)))
@@ -142,7 +144,7 @@ def rest(s):
 <h3 class="question" id="q2">Question 2: </h3>
 
 
-    <pre><code>&gt;&gt;&gt; r = rlist(1, rlist(rlist(2, empty_rlist), rlist(4, empty_rlist)))
+    <pre><code>&gt;&gt;&gt; r = link(1, link(link(2, empty), link(4, empty)))
 &gt;&gt;&gt; first(r)
 <span class="blank3">______</span><span class="hidden solution 3">1</span>
 &gt;&gt;&gt; first(rest(rest(r)))
@@ -158,7 +160,7 @@ def rest(s):
 <h3 class="question" id="q3">Question 3: </h3>
 
 
-    <pre><code>&gt;&gt;&gt; r = rlist(rlist(1, rlist(2, empty_rlist)), rlist(3, rlist(4, empty_rlist)))
+    <pre><code>&gt;&gt;&gt; r = link(link(1, link(2, empty)), link(3, link(4, empty)))
 &gt;&gt;&gt; first(rest(r))
 <span class="blank4">______</span><span class="hidden solution 4">3</span>
 &gt;&gt;&gt; first(rest(first(r)))
@@ -177,19 +179,20 @@ def rest(s):
 
 <h3 class="question" id="q4">Question 4: </h3>
 
-<p>Implement a function <code>alternate</code> which takes an rlist and returns a new
-rlist that contains <em>every other</em> element in the original rlist.</p>
+<p>Implement a function <code>alternate</code> which takes a linked list and returns
+a new linked list that contains <em>every other</em> element in the original
+linked list.</p>
 
 <pre><code>def alternate(lst):
-    &quot;&quot;&quot;Returns a new rlist that contains every other element of the
-    original.
+    &quot;&quot;&quot;Returns a new linked list that contains every other element
+    of the original.
 
-    &gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, empty_rlist)))
-    &gt;&gt;&gt; rlist_to_tup(alternate(r))
-    (1, 3)
-    &gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, rlist(4, empty_rlist))))
-    &gt;&gt;&gt; rlist_to_tup(alternate(r))
-    (1, 3)
+    &gt;&gt;&gt; r = link(1, link(2, link(3, empty)))
+    &gt;&gt;&gt; link_to_list(alternate(r))
+    [1, 3]
+    &gt;&gt;&gt; r = link(1, link(2, link(3, link(4, empty))))
+    &gt;&gt;&gt; link_to_list(alternate(r))
+    [1, 3]
     &quot;&quot;&quot;
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
@@ -201,31 +204,32 @@ rlist that contains <em>every other</em> element in the original rlist.</p>
     <div class="solution 0">
 
 <pre><code>def alternate(r):
-    if r == empty_rlist:
-        return empty_rlist
-    elif rest(r) == empty_rlist:
+    if r == empty:
+        return empty
+    elif rest(r) == empty:
         return r
     else:
-        return rlist(first(r), alternate(rest(rest(r)))</code></pre>
+        return link(first(r), alternate(rest(rest(r)))</code></pre>
 
 </div>
     
 
 <h3 class="question" id="q5">Question 5: </h3>
 
-<p>Implement a function <code>filter_rlist</code> which takes an rlist and returns a
-new rlist that contains only elements that satisfy the given predicate.</p>
+<p>Implement a function <code>filter_link</code> which takes a linked list and
+returns a new linked list that contains only elements that satisfy the
+given predicate.</p>
 
 <pre><code>def filter(pred, lst):
-    &quot;&quot;&quot;Returns a new rlist that contains elements of lst that
+    &quot;&quot;&quot;Returns a new link that contains elements of lst that
     satisfy the predicate.
 
-    &gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, empty_rlist)))
-    &gt;&gt;&gt; rlist_to_tup(filter_rlist(lambda x: x % 2 == 1, r))
-    (1, 3)
-    &gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, rlist(4, empty_rlist))))
-    &gt;&gt;&gt; rlist_to_tup(filter_rlist(lambda x: x % 3 == 1, r))
-    (1, 4)
+    &gt;&gt;&gt; r = link(1, link(2, link(3, empty)))
+    &gt;&gt;&gt; link_to_list(filter_link(lambda x: x % 2 == 1, r))
+    [1, 3]
+    &gt;&gt;&gt; r = link(1, link(2, link(3, link(4, empty))))
+    &gt;&gt;&gt; link_to_list(filter_link(lambda x: x % 3 == 1, r))
+    [1, 4]
     &quot;&quot;&quot;
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
@@ -237,10 +241,10 @@ new rlist that contains only elements that satisfy the given predicate.</p>
     <div class="solution 1">
 
 <pre><code>def filter(pred, lst):
-    if r == empty_rlist:
-        return empty_rlist
+    if r == empty:
+        return empty
     elif pred(first(lst)):
-        return rlist(first(lst), filter(pred, rest(lst)))
+        return link(first(lst), filter(pred, rest(lst)))
     else:
         return filter(pred, rest(lst))</code></pre>
 
@@ -265,6 +269,6 @@ new rlist that contains only elements that satisfy the given predicate.</p>
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>
