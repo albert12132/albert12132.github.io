@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,16 +64,18 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#what-would-python-print">What would Python print?</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
+  <li><a href="#what-would-python-print">What would Python print?</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
 </ul>
-<li><a href="#code-writing-questions">Code-Writing questions</a></li>
-<ul>
-<li><a href="#q2">Question 2: </a></li>
-<li><a href="#q3">Question 3: </a></li>
-<li><a href="#q4">Question 4: </a></li>
+
+  <li><a href="#code-writing-questions">Code-Writing questions</a></li>
+  <ul>
+  <li><a href="#q2">Question 2: </a></li>
+  <li><a href="#q3">Question 3: </a></li>
+  <li><a href="#q4">Question 4: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -87,7 +89,7 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review Tuples in the following places</p>
@@ -169,18 +171,18 @@ palindrome. A palindrome is a sequence that is the same backwards.</p>
 
 <pre><code># simple version
 def is_palindrome(tup):
-    return tup == tup[::-1]
+    return tup == tup[::&#x2d;1]
 
 # recursive
 def is_palindrome(tup):
     if len(tup) == 0 or len(tup) == 1:
         return True
-    return tup[0] == tup[-1] and is_palindrome(tup[1:-1])
+    return tup[0] == tup[&#x2d;1] and is_palindrome(tup[1:&#x2d;1])
 
 # iterative
 def is_palindrome(tup):
     for i in range(len(tup)//2):
-        if tup[i] != tup[-i-1]:
+        if tup[i] != tup[&#x2d;i&#x2d;1]:
             return False
     return True</code></pre>
 
@@ -301,6 +303,6 @@ def deep_reverse(tup):
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

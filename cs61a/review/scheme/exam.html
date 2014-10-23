@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,17 +64,18 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#what-would-scheme-print">What would Scheme print</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
+  <li><a href="#what-would-scheme-print">What would Scheme print</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
 </ul>
-<li><a href="#code-writing-questions">Code-Writing questions</a></li>
-<ul>
-<li><a href="#q2">Question 2: </a></li>
-<li><a href="#q3">Question 3: </a></li>
+
+  <li><a href="#code-writing-questions">Code-Writing questions</a></li>
+  <ul>
+  <li><a href="#q2">Question 2: </a></li>
+  <li><a href="#q3">Question 3: </a></li>
 </ul>
-<li><a href="#fill-in-the-blank-questions">Fill-in the blank questions</a></li>
-</ul>
+
+  <li><a href="#fill-in-the-blank-questions">Fill-in the blank questions</a></li>
 </ul>
 
 </div>
@@ -88,7 +89,7 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review Scheme in the following places</p>
@@ -144,25 +145,25 @@ STk&gt; (((car ((x) x))) 4)
 
 <h3 class="question" id="q2">Question 2: </h3>
 
-<p>Implement a function <code>count-stairways</code>, which takes a number <code>n</code> as an
+<p>Implement a function <code>count&#x2d;stairways</code>, which takes a number <code>n</code> as an
 argument. Assuming you can only take 2 or 3 steps at a time, return the
 number of ways you can reach the top of a staircase with <code>n</code> stairs.</p>
 
-<p>This is different than the usual <code>count-stairways</code> -- notice that this
+<p>This is different than the usual <code>count&#x2d;stairways</code> &mdash; notice that this
 time, we can only take 2 or 3 steps, rather than 1 or 2.</p>
 
-<pre><code>(define (count-stairways n)
+<pre><code>(define (count&#x2d;stairways n)
     ; YOUR CODE HERE
     )
 
 ; Tests
-STk&gt; (count-stairways 1)
+STk&gt; (count&#x2d;stairways 1)
 0
-STk&gt; (count-stairways 4)
+STk&gt; (count&#x2d;stairways 4)
 1
-STk&gt; (count-stairways 5)
+STk&gt; (count&#x2d;stairways 5)
 2
-STk&gt; (count-stairways 8)
+STk&gt; (count&#x2d;stairways 8)
 4</code></pre>
 
 
@@ -172,18 +173,18 @@ STk&gt; (count-stairways 8)
 
     <div class="solution 0">
 
-<pre><code>(define (count-stairways n)
+<pre><code>(define (count&#x2d;stairways n)
     (cond ((= n 1) 0)
           ((or (= n 2) (= n 3)) 1)
-          (else (+ (count-stairways (- n 2))
-                   (count-stairways (- n 3))))))</code></pre>
+          (else (+ (count&#x2d;stairways (&#x2d; n 2))
+                   (count&#x2d;stairways (&#x2d; n 3))))))</code></pre>
 
 </div>
     
 
 <h3 class="question" id="q3">Question 3: </h3>
 
-<p>Implement a function <code>count-serpinski</code>, which takes a numbero <code>depth</code>
+<p>Implement a function <code>count&#x2d;serpinski</code>, which takes a numbero <code>depth</code>
 as an argument. The function calculates how many triangles are
 contained in a Serpinski's triangle with the given depth. See the tests
 for examples.</p>
@@ -192,18 +193,18 @@ for examples.</p>
 
 <p>How can you use recursive calls on <em>n-1</em> to build your answer for <em>n</em>?</p>
 
-<pre><code>(define (count-serpinski depth)
+<pre><code>(define (count&#x2d;serpinski depth)
     ; YOUR CODE HERE
     )
 
 ; Tests
-STk&gt; (count-serpinski 1)
+STk&gt; (count&#x2d;serpinski 1)
 1
-STk&gt; (count-serpinski 2)
+STk&gt; (count&#x2d;serpinski 2)
 5
-STk&gt; (count-stairways 3)
+STk&gt; (count&#x2d;stairways 3)
 17
-STk&gt; (count-stairways 4)
+STk&gt; (count&#x2d;stairways 4)
 53</code></pre>
 
 
@@ -213,17 +214,17 @@ STk&gt; (count-stairways 4)
 
     <div class="solution 1">
 
-<pre><code>(define (count-serpinski n)
+<pre><code>(define (count&#x2d;serpinski n)
     (if (= n 1)
         1
-        (+ 2 (* 3 (count-serpinski (- n 1))))))</code></pre>
+        (+ 2 (* 3 (count&#x2d;serpinski (&#x2d; n 1))))))</code></pre>
 
 <p>The recursive call can be derived as follows:</p>
 
 <ol>
   <li>There are three smaller <em>n-1</em> serpinski triangles at each of the
   corners</li>
-  <li>There are two additional triangles drawn -- the triangle in the
+  <li>There are two additional triangles drawn &mdash; the triangle in the
   center, and the overall triangle.</li>
 </ol>
 
@@ -289,6 +290,6 @@ STk&gt; (construct 6 &#x27;())
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

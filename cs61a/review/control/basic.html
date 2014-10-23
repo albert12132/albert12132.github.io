@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,24 +64,27 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#what-would-python-print">What would Python print?</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
-<li><a href="#q2">Question 2: </a></li>
-<li><a href="#q3">Question 3: </a></li>
+  <li><a href="#what-would-python-print">What would Python print?</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
+  <li><a href="#q3">Question 3: </a></li>
 </ul>
-<li><a href="#environment-diagrams">Environment Diagrams</a></li>
-<ul>
-<li><a href="#q4">Question 4: </a></li>
-<li><a href="#q5">Question 5: </a></li>
-<li><a href="#q6">Question 6: </a></li>
+
+  <li><a href="#environment-diagrams">Environment Diagrams</a></li>
+  <ul>
+  <li><a href="#q4">Question 4: </a></li>
+  <li><a href="#q5">Question 5: </a></li>
+  <li><a href="#q6">Question 6: </a></li>
 </ul>
-<li><a href="#code-writing-question">Code-Writing question</a></li>
-<ul>
-<li><a href="#q7">Question 7: </a></li>
-<li><a href="#q8">Question 8: </a></li>
-<li><a href="#q9">Question 9: </a></li>
+
+  <li><a href="#code-writing-question">Code-Writing question</a></li>
+  <ul>
+  <li><a href="#q7">Question 7: </a></li>
+  <li><a href="#q8">Question 8: </a></li>
+  <li><a href="#q9">Question 9: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -95,7 +98,7 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review Control Structures in the following places</p>
@@ -203,9 +206,9 @@ hi!
 # forever</span>
 &gt;&gt;&gt; def foo(n):
 ...     while n &gt; 0:
-...         if n * n == 8 * n - 16:
+...         if n * n == 8 * n &#x2d; 16:
 ...             return True
-...         n -= 1
+...         n &#x2d;= 1
 ...     return False
 &gt;&gt;&gt; foo(3)
 <span class="blank5">______</span><span class="hidden solution 5">False</span>
@@ -225,9 +228,9 @@ hi!
 
 <pre><code>def branch(x):
     if x &gt; 10:
-        x -= 5
+        x &#x2d;= 5
     elif x &gt; 7:
-        x -= 2
+        x &#x2d;= 2
     if x % 2 == 0:
         return &#x27;even&#x27;
     else:
@@ -427,6 +430,6 @@ fibonacci number, and False otherwise.</p>
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

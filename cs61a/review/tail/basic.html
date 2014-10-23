@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,19 +64,21 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#conceptual-questions">Conceptual Questions</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
-<li><a href="#q2">Question 2: </a></li>
-<li><a href="#q3">Question 3: </a></li>
+  <li><a href="#conceptual-questions">Conceptual Questions</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
+  <li><a href="#q3">Question 3: </a></li>
 </ul>
-<li><a href="#code-writing-question">Code-Writing question</a></li>
-<ul>
-<li><a href="#q4">Question 4: </a></li>
-<li><a href="#q5">Question 5: </a></li>
-<li><a href="#q6">Question 6: </a></li>
-<li><a href="#q7">Question 7: </a></li>
+
+  <li><a href="#code-writing-question">Code-Writing question</a></li>
+  <ul>
+  <li><a href="#q4">Question 4: </a></li>
+  <li><a href="#q5">Question 5: </a></li>
+  <li><a href="#q6">Question 6: </a></li>
+  <li><a href="#q7">Question 7: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -90,7 +92,7 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review Tail Recursion in the following places</p>
@@ -166,12 +168,12 @@ should perform tail call optimization. The following are tail contexts:</p>
 <pre><code>(define (one x)
     (if (= x 0)
         1
-        (* x (one (- x 1)))))
+        (* x (one (&#x2d; x 1)))))
 
-(define (two x so-far)
+(define (two x so&#x2d;far)
     (if (= x 0)
-        so-far
-        (two (- x 1) (* so-far x))))
+        so&#x2d;far
+        (two (&#x2d; x 1) (* so&#x2d;far x))))
 
 (define (three fn x)
     (cond ((null? x) #t)
@@ -228,11 +230,11 @@ STk&gt; (reverse nil)
     <div class="solution 3">
 
 <pre><code>(define (reverse lst)
-    (define (reverse-help lst so-far)
+    (define (reverse&#x2d;help lst so&#x2d;far)
         (if (null? lst)
-            so-far
-            (reverse-help (cdr lst) (cons (car lst) so-far))))
-    (reverse-help lst nil))</code></pre>
+            so&#x2d;far
+            (reverse&#x2d;help (cdr lst) (cons (car lst) so&#x2d;far))))
+    (reverse&#x2d;help lst nil))</code></pre>
 
 </div>
     
@@ -249,8 +251,8 @@ elements in the list using the <code>combiner</code>, beginnning at <code>start<
 
 STk&gt; (reduce + &#x27;(1 2 3 4) 0)
 10
-STk&gt; (reduce - &#x27;(1 2 3 4) 0)
--10
+STk&gt; (reduce &#x2d; &#x27;(1 2 3 4) 0)
+&#x2d;10
 STk&gt; (reduce + &#x27;(1 2 3 4) 10)
 20
 STk&gt; (reduce * &#x27;(1 2 3 4) 1)
@@ -326,11 +328,11 @@ STk&gt; (count &#x27;(2 2 4 2 3) 2)
     <div class="solution 6">
 
 <pre><code>(define (count lst item)
-    (define (count-help lst num)
+    (define (count&#x2d;help lst num)
         (cond ((null? lst) num)
-              ((eq? (car lst) item) (count-help (cdr lst) (+ num 1)))
-              (else (count-help (cdr lst) num))))
-    (count-help lst 0))</code></pre>
+              ((eq? (car lst) item) (count&#x2d;help (cdr lst) (+ num 1)))
+              (else (count&#x2d;help (cdr lst) num))))
+    (count&#x2d;help lst 0))</code></pre>
 
 </div>
     
@@ -354,6 +356,6 @@ STk&gt; (count &#x27;(2 2 4 2 3) 2)
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

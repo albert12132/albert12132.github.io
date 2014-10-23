@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,98 +64,104 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#---------">---------</a></li>
-<li><a href="#content">CONTENT</a></li>
-<li><a href="#---------">---------</a></li>
-<ul>
-<li><a href="#s-2-a-b-c-d">s = 2 | a b  c  d</a></li>
-<li><a href="#s-2-a-b-c-d">s = 2 | a b  c  d</a></li>
+  <li><a href="#---------">---------</a></li>
+  <li><a href="#content">CONTENT</a></li>
+  <li><a href="#---------">---------</a></li>
+  <ul>
+  <li><a href="#s-2-a-b-c-d">s = 2 | a b  c  d</a></li>
+  <li><a href="#s-2-a-b-c-d">s = 2 | a b  c  d</a></li>
 </ul>
-<li><a href="#">{</a></li>
-<li><a href="#description-implement-a-class-mergeiter-which">'description': """Implement a class <tt>MergeIter</tt>, which</a></li>
-<li><a href="#takes-in-a-comparison-function-two-iterables-and-iterates">takes in a comparison function, two iterables, and iterates</a></li>
-<li><a href="#through-elements-of-both-iterables-in-sorted-order-sorted-by">through elements of both iterables in sorted order (sorted by</a></li>
-<li><a href="#the-comparison-function-you-may-assume-the-iterables-do">the comparison function). You may assume the iterables do</a></li>
-<li><a href="#not-start-out-as-empty">not start out as empty""",</a></li>
-<li><a href="#code">'code': """</a></li>
-<li><a href="#class-mergeiter">class MergeIter:</a></li>
-<li><a href="#doctests">\"\"\"Doctests:</a></li>
-<li><a href="#for-elem-in-m">>>> for elem in m:</a></li>
-<li><a href="#print-elem">...     print(elem)</a></li>
-<li><a href="#1">1</a></li>
-<li><a href="#2">2</a></li>
-<li><a href="#3">3</a></li>
-<li><a href="#4">4</a></li>
-<li><a href="#5">5</a></li>
-<li><a href="#6">6</a></li>
-<li><a href="#">\"\"\"</a></li>
-<li><a href="#your-code-here">"<strong>* YOUR CODE HERE </strong>*" """,</a></li>
-<li><a href="#solution">'solution': """</a></li>
-<li><a href="#class-mergeiter">class MergeIter:</a></li>
-<li><a href="#def-init-self-comp-iter1-iter2">def <strong>init</strong>(self, comp, iter1, iter2):</a></li>
-<li><a href="#self-comp-comp">self.comp = comp</a></li>
-<li><a href="#self-iter1-iter-iter1">self.iter1 = iter(iter1)</a></li>
-<li><a href="#self-iter2-iter-iter2">self.iter2 = iter(iter2)</a></li>
-<li><a href="#self-elem1-next-self-iter1">self.elem1 = next(self.iter1)</a></li>
-<li><a href="#self-elem2-next-self-iter2">self.elem2 = next(self.iter2)</a></li>
-<li><a href="#def-iter-self">#     def <strong>iter</strong>(self):</a></li>
-<li><a href="#return-self">return self</a></li>
-<li><a href="#def-next-self">#     def <strong>next</strong>(self):</a></li>
-<li><a href="#if-self-comp-self-elem1-self-elem2">if self.comp(self.elem1, self.elem2):</a></li>
-<li><a href="#result-self-elem1">result = self.elem1</a></li>
-<li><a href="#self-elem1-next-self-iter1">self.elem1 = next(self.iter1)</a></li>
-<li><a href="#else">else:</a></li>
-<li><a href="#result-self-elem2">result = self.elem2</a></li>
-<li><a href="#self-elem2-next-self-iter2">self.elem2 = next(self.iter2)</a></li>
-<li><a href="#return-result">return result</a></li>
-<li><a href="#using-a-generator-expression-for-iter"># # Using a generator expression for <strong>iter</strong></a></li>
-<li><a href="#class-mergeiter">class MergeIter:</a></li>
-<li><a href="#def-init-self-comp-iter1-iter2">def <strong>init</strong>(self, comp, iter1, iter2):</a></li>
-<li><a href="#self-comp-comp">self.comp = comp</a></li>
-<li><a href="#self-iter1-iter-iter1">self.iter1 = iter(iter1)</a></li>
-<li><a href="#self-iter2-iter-iter2">self.iter2 = iter(iter2)</a></li>
-<li><a href="#def-iter-self">#     def <strong>iter</strong>(self):</a></li>
-<li><a href="#elem1-elem2-next-self-iter1-next-self-iter2">elem1, elem2 = next(self.iter1), next(self.iter2)</a></li>
-<li><a href="#while-true">while True:</a></li>
-<li><a href="#if-self-comp-elem1-elem2">if self.comp(elem1, elem2):</a></li>
-<li><a href="#yield-elem1">yield elem1</a></li>
-<li><a href="#elem1-next-self-iter1">elem1 = next(self.iter1)</a></li>
-<li><a href="#else">else:</a></li>
-<li><a href="#yield-elem2">yield elem2</a></li>
-<li><a href="#elem2-next-self-iter2">elem2 = next(self.iter2)""",</a></li>
-<li><a href="#explanation-for-the-solution-using-next">'explanation': """For the solution using <tt><strong>next</strong></tt>,</a></li>
-<li><a href="#let-s-first-look-at-the-init-since-iter1">let's first look at the <tt><strong>init</strong></tt>. Since <tt>iter1</tt></a></li>
-<li><a href="#and-iter2-are-defined-to-be-iterables-not">and <tt>iter2</tt> are defined to be <i>iterables</i>, not</a></li>
-<li><a href="#iterators-we-need-to-first-call-iter-on-them"><i>iterators</i>, we need to first call <tt>iter</tt> on them</a></li>
-<li><a href="#to-extract-their-iterators-this-is-so-we-can-call">to extract their iterators (this is so we can call</a></li>
-<li><a href="#next-later-on-we-also-extract-the-first-elements"><tt>next</tt> later on). We also extract the first elements</a></li>
-<li><a href="#in-the-iterators-to-get-self-elem1-and">in the iterators to get <tt>self.elem1</tt> and</a></li>
-<li><a href="#self-elem2-this-will-become-useful-later-on"><tt>self.elem2</tt>. This will become useful later on.</p></a></li>
-<li><a href="#recall-that-the-iter-method-must-always-return"><p>Recall that the <tt>iter</tt> method must always return</a></li>
-<li><a href="#an-iterator-and-an-iterator-by-definition-must-have-a">an iterator, and an iterator, by definition, must have a</a></li>
-<li><a href="#next-method-since-we-are-returning-self"><tt>next</tt> method. Since we are returning <tt>self</tt>,</a></li>
-<li><a href="#this-implies-our-class-must-have-a-next-method">this implies our class must have a <tt>next</tt> method.</p></a></li>
-<li><a href="#in-next-we-compare-the-current-elements-of"><p>In <tt><strong>next</strong></tt>, we compare the current elements of</a></li>
-<li><a href="#both-iterators-if-self-comp-returns-true-this">both iterators. If <tt>self.comp</tt> returns True, this</a></li>
-<li><a href="#signals-that-the-next-element-to-return-will-be-the-element">signals that the next element to return will be the element</a></li>
-<li><a href="#from-the-first-iterator-we-save-self-elem1-inside-a">from the first iterator. We save <tt>self.elem1</tt> inside a</a></li>
-<li><a href="#temporary-variable-and-then-overwrite-self-elem1-with">temporary variable, and then overwrite <tt>self.elem1</tt> with</a></li>
-<li><a href="#the-next-element-in-self-iter1-we-do-something">the next element in <tt>self.iter1</tt>. We do something</a></li>
-<li><a href="#similar-if-self-comp-returns-false-instead">similar if <tt>self.comp</tt> returns False instead.</p></a></li>
-<li><a href="#for-the-version-that-uses-a-generator-expression-observe"><p>For the version that uses a generator expression, observe</a></li>
-<li><a href="#that-by-using-a-yield-statement-we-convert-the">that, by using a <tt>yield</tt> statement, we convert the</a></li>
-<li><a href="#iter-method-into-a-generator-function-by-their"><tt><strong>iter</strong></tt> method into a generator function. By their</a></li>
-<li><a href="#nature-generator-functions-always-return-iterators-so-this">nature, generator functions always return iterators, so this</a></li>
-<li><a href="#fits-the-requirement-that-iter-must-return-an">fits the requirement that <tt><strong>iter</strong></tt> must return an</a></li>
-<li><a href="#iterator-the-logic-in-this-version-is-very-much-the-same-as">iterator. The logic in this version is very much the same as</a></li>
-<li><a href="#before-the-only-difference-is-we-don-t-need-to-save-instance">before. The only difference is we don't need to save instance</a></li>
-<li><a href="#variables-for-elem1-and-elem2-since-the">variables for <tt>elem1</tt> and <tt>elem2</tt>, since the</a></li>
-<li><a href="#generator-function-can-save-state-for-us">generator function can save state for us."""</a></li>
-<li><a href="#">#     },</a></li>
-<li><a href="#-------------------">-------------------</a></li>
-<li><a href="#compiling-strings">COMPILING STRINGS</a></li>
-<li><a href="#-------------------">-------------------</a></li>
-</ul>
+
+  <li><a href="#None">{</a></li>
+  <li><a href="#description-implement-a-class-mergeiter-which">'description': """Implement a class <tt>MergeIter</tt>, which</a></li>
+  <li><a href="#takes-in-a-comparison-function-two-iterables-and-iterates">takes in a comparison function, two iterables, and iterates</a></li>
+  <li><a href="#through-elements-of-both-iterables-in-sorted-order-sorted-by">through elements of both iterables in sorted order (sorted by</a></li>
+  <li><a href="#the-comparison-function-you-may-assume-the-iterables-do">the comparison function). You may assume the iterables do</a></li>
+  <li><a href="#not-start-out-as-empty">not start out as empty""",</a></li>
+  <li><a href="#code">'code': """</a></li>
+  <li><a href="#class-mergeiter">class MergeIter:</a></li>
+  <li><a href="#doctests">\"\"\"Doctests:</a></li>
+  <li><a href="#None"></a></li>
+  <li><a href="#for-elem-in-m">>>> for elem in m:</a></li>
+  <li><a href="#print-elem">...     print(elem)</a></li>
+  <li><a href="#1">1</a></li>
+  <li><a href="#2">2</a></li>
+  <li><a href="#3">3</a></li>
+  <li><a href="#4">4</a></li>
+  <li><a href="#5">5</a></li>
+  <li><a href="#6">6</a></li>
+  <li><a href="#None">\"\"\"</a></li>
+  <li><a href="#your-code-here">"<strong>* YOUR CODE HERE </strong>*" """,</a></li>
+  <li><a href="#solution">'solution': """</a></li>
+  <li><a href="#class-mergeiter">class MergeIter:</a></li>
+  <li><a href="#def-init-self-comp-iter1-iter2">def <strong>init</strong>(self, comp, iter1, iter2):</a></li>
+  <li><a href="#self-comp-comp">self.comp = comp</a></li>
+  <li><a href="#self-iter1-iter-iter1">self.iter1 = iter(iter1)</a></li>
+  <li><a href="#self-iter2-iter-iter2">self.iter2 = iter(iter2)</a></li>
+  <li><a href="#self-elem1-next-self-iter1">self.elem1 = next(self.iter1)</a></li>
+  <li><a href="#self-elem2-next-self-iter2">self.elem2 = next(self.iter2)</a></li>
+  <li><a href="#None"></a></li>
+  <li><a href="#def-iter-self">def <strong>iter</strong>(self):</a></li>
+  <li><a href="#return-self">return self</a></li>
+  <li><a href="#None"></a></li>
+  <li><a href="#def-next-self">def <strong>next</strong>(self):</a></li>
+  <li><a href="#if-self-comp-self-elem1-self-elem2">if self.comp(self.elem1, self.elem2):</a></li>
+  <li><a href="#result-self-elem1">result = self.elem1</a></li>
+  <li><a href="#self-elem1-next-self-iter1">self.elem1 = next(self.iter1)</a></li>
+  <li><a href="#else">else:</a></li>
+  <li><a href="#result-self-elem2">result = self.elem2</a></li>
+  <li><a href="#self-elem2-next-self-iter2">self.elem2 = next(self.iter2)</a></li>
+  <li><a href="#return-result">return result</a></li>
+  <li><a href="#None"></a></li>
+  <li><a href="#using-a-generator-expression-for-iter"># Using a generator expression for <strong>iter</strong></a></li>
+  <li><a href="#class-mergeiter">class MergeIter:</a></li>
+  <li><a href="#def-init-self-comp-iter1-iter2">def <strong>init</strong>(self, comp, iter1, iter2):</a></li>
+  <li><a href="#self-comp-comp">self.comp = comp</a></li>
+  <li><a href="#self-iter1-iter-iter1">self.iter1 = iter(iter1)</a></li>
+  <li><a href="#self-iter2-iter-iter2">self.iter2 = iter(iter2)</a></li>
+  <li><a href="#None"></a></li>
+  <li><a href="#def-iter-self">def <strong>iter</strong>(self):</a></li>
+  <li><a href="#elem1-elem2-next-self-iter1-next-self-iter2">elem1, elem2 = next(self.iter1), next(self.iter2)</a></li>
+  <li><a href="#while-true">while True:</a></li>
+  <li><a href="#if-self-comp-elem1-elem2">if self.comp(elem1, elem2):</a></li>
+  <li><a href="#yield-elem1">yield elem1</a></li>
+  <li><a href="#elem1-next-self-iter1">elem1 = next(self.iter1)</a></li>
+  <li><a href="#else">else:</a></li>
+  <li><a href="#yield-elem2">yield elem2</a></li>
+  <li><a href="#elem2-next-self-iter2">elem2 = next(self.iter2)""",</a></li>
+  <li><a href="#explanation-for-the-solution-using-next">'explanation': """For the solution using <tt><strong>next</strong></tt>,</a></li>
+  <li><a href="#let-s-first-look-at-the-init-since-iter1">let's first look at the <tt><strong>init</strong></tt>. Since <tt>iter1</tt></a></li>
+  <li><a href="#and-iter2-are-defined-to-be-iterables-not">and <tt>iter2</tt> are defined to be <i>iterables</i>, not</a></li>
+  <li><a href="#iterators-we-need-to-first-call-iter-on-them"><i>iterators</i>, we need to first call <tt>iter</tt> on them</a></li>
+  <li><a href="#to-extract-their-iterators-this-is-so-we-can-call">to extract their iterators (this is so we can call</a></li>
+  <li><a href="#next-later-on-we-also-extract-the-first-elements"><tt>next</tt> later on). We also extract the first elements</a></li>
+  <li><a href="#in-the-iterators-to-get-self-elem1-and">in the iterators to get <tt>self.elem1</tt> and</a></li>
+  <li><a href="#self-elem2-this-will-become-useful-later-on"><tt>self.elem2</tt>. This will become useful later on.</p></a></li>
+  <li><a href="#recall-that-the-iter-method-must-always-return"><p>Recall that the <tt>iter</tt> method must always return</a></li>
+  <li><a href="#an-iterator-and-an-iterator-by-definition-must-have-a">an iterator, and an iterator, by definition, must have a</a></li>
+  <li><a href="#next-method-since-we-are-returning-self"><tt>next</tt> method. Since we are returning <tt>self</tt>,</a></li>
+  <li><a href="#this-implies-our-class-must-have-a-next-method">this implies our class must have a <tt>next</tt> method.</p></a></li>
+  <li><a href="#in-next-we-compare-the-current-elements-of"><p>In <tt><strong>next</strong></tt>, we compare the current elements of</a></li>
+  <li><a href="#both-iterators-if-self-comp-returns-true-this">both iterators. If <tt>self.comp</tt> returns True, this</a></li>
+  <li><a href="#signals-that-the-next-element-to-return-will-be-the-element">signals that the next element to return will be the element</a></li>
+  <li><a href="#from-the-first-iterator-we-save-self-elem1-inside-a">from the first iterator. We save <tt>self.elem1</tt> inside a</a></li>
+  <li><a href="#temporary-variable-and-then-overwrite-self-elem1-with">temporary variable, and then overwrite <tt>self.elem1</tt> with</a></li>
+  <li><a href="#the-next-element-in-self-iter1-we-do-something">the next element in <tt>self.iter1</tt>. We do something</a></li>
+  <li><a href="#similar-if-self-comp-returns-false-instead">similar if <tt>self.comp</tt> returns False instead.</p></a></li>
+  <li><a href="#for-the-version-that-uses-a-generator-expression-observe"><p>For the version that uses a generator expression, observe</a></li>
+  <li><a href="#that-by-using-a-yield-statement-we-convert-the">that, by using a <tt>yield</tt> statement, we convert the</a></li>
+  <li><a href="#iter-method-into-a-generator-function-by-their"><tt><strong>iter</strong></tt> method into a generator function. By their</a></li>
+  <li><a href="#nature-generator-functions-always-return-iterators-so-this">nature, generator functions always return iterators, so this</a></li>
+  <li><a href="#fits-the-requirement-that-iter-must-return-an">fits the requirement that <tt><strong>iter</strong></tt> must return an</a></li>
+  <li><a href="#iterator-the-logic-in-this-version-is-very-much-the-same-as">iterator. The logic in this version is very much the same as</a></li>
+  <li><a href="#before-the-only-difference-is-we-don-t-need-to-save-instance">before. The only difference is we don't need to save instance</a></li>
+  <li><a href="#variables-for-elem1-and-elem2-since-the">variables for <tt>elem1</tt> and <tt>elem2</tt>, since the</a></li>
+  <li><a href="#generator-function-can-save-state-for-us">generator function can save state for us."""</a></li>
+  <li><a href="#None"></a></li>
+  <li><a href="#None">},</a></li>
+  <li><a href="#-------------------">-------------------</a></li>
+  <li><a href="#compiling-strings">COMPILING STRINGS</a></li>
+  <li><a href="#-------------------">-------------------</a></li>
 </ul>
 
 </div>
@@ -169,7 +175,7 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review  in the following places</p>
@@ -204,6 +210,6 @@
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

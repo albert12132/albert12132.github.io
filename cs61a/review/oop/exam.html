@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,18 +64,20 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#what-would-python-print">What would Python print?</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
-<li><a href="#q2">Question 2: </a></li>
-<li><a href="#q3">Question 3: </a></li>
-<li><a href="#q4">Question 4: </a></li>
+  <li><a href="#what-would-python-print">What would Python print?</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
+  <li><a href="#q3">Question 3: </a></li>
+  <li><a href="#q4">Question 4: </a></li>
 </ul>
-<li><a href="#code-writing-questions">Code-Writing questions</a></li>
-<ul>
-<li><a href="#q5">Question 5: </a></li>
-<li><a href="#q6">Question 6: </a></li>
+
+  <li><a href="#code-writing-questions">Code-Writing questions</a></li>
+  <ul>
+  <li><a href="#q5">Question 5: </a></li>
+  <li><a href="#q6">Question 6: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -89,7 +91,7 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review OOP in the following places</p>
@@ -117,7 +119,7 @@
 <p>For the following questions, use the following class definition:</p>
 
 <pre><code>class Account:
-    &quot;&quot;&quot;A class computer account. Each account has a two-letter ID
+    &quot;&quot;&quot;A class computer account. Each account has a two&#x2d;letter ID
     and the name of the student who is registered to the account.
     &quot;&quot;&quot;
     num_of_accounts = 0
@@ -304,7 +306,7 @@ the list. For more descriptions of the behavior, see the doctest.</p>
         self.end = 0
 
     def append(self, elem):
-        if self.end - self.start == self.n:
+        if self.end &#x2d; self.start == self.n:
             print(&#x27;Buffer exceeded capacity&#x27;)
         else:
             self.array[self.end] = elem
@@ -387,7 +389,7 @@ the list. For more descriptions of the behavior, see the doctest.</p>
         for elem in self.ingredients:
             if Chef.storage[elem] == 0:
                 return &#x27;No more &#x27; + elem + &#x27;!&#x27;
-            Chef.storage[elem] -= 1
+            Chef.storage[elem] &#x2d;= 1
         self.fetched = True
         return &#x27;Fetched: &#x27; + str(self.ingredients)
 
@@ -425,6 +427,6 @@ the list. For more descriptions of the behavior, see the doctest.</p>
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

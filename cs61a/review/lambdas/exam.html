@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,17 +64,19 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#code-writing-questions">Code-Writing questions</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
-<li><a href="#q2">Question 2: </a></li>
+  <li><a href="#code-writing-questions">Code-Writing questions</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
 </ul>
-<li><a href="#environment-diagrams">Environment Diagrams</a></li>
-<ul>
-<li><a href="#q3">Question 3: </a></li>
-<li><a href="#q4">Question 4: </a></li>
-<li><a href="#q5">Question 5: </a></li>
+
+  <li><a href="#environment-diagrams">Environment Diagrams</a></li>
+  <ul>
+  <li><a href="#q3">Question 3: </a></li>
+  <li><a href="#q4">Question 4: </a></li>
+  <li><a href="#q5">Question 5: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -88,7 +90,7 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review Lambda Expressions in the following places</p>
@@ -116,7 +118,7 @@
 <p>Fill in the blanks for the following expression so that <code>result</code> is the
 number 42.</p>
 
-<pre><code>x = lambda x, y: lambda: x - y
+<pre><code>x = lambda x, y: lambda: x &#x2d; y
 result = (lambda ____, question: one(__________)(x, 4)</code></pre>
 
 
@@ -167,16 +169,16 @@ result = (lambda ______: x(fair)(dice))(lambda fair: fair == 3, 3)</code></pre>
 5
 7
 &gt;&gt;&gt; mapper(lambda x: ______, 5)
--2
--1
+&#x2d;2
+&#x2d;1
 0
 1
 2
 &gt;&gt;&gt; mapper(lambda x: ______, 5)
 0
--1
+&#x2d;1
 1
--2
+&#x2d;2
 2</code></pre>
 
 
@@ -187,8 +189,8 @@ result = (lambda ______: x(fair)(dice))(lambda fair: fair == 3, 3)</code></pre>
     <div class="solution 2">
 
 <pre><code>mapper(lambda x: 2 * x + 1, 4)
-mapper(lambda x: x - 2, 5)
-mapper(lambda x: (-1 ** x) * (x + 1) // 2, 5)</code></pre>
+mapper(lambda x: x &#x2d; 2, 5)
+mapper(lambda x: (&#x2d;1 ** x) * (x + 1) // 2, 5)</code></pre>
 
 </div>
     
@@ -266,6 +268,6 @@ result = example(fn())()</code></pre>
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

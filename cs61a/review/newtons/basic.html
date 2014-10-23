@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,11 +64,12 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#conceptual-questions">Conceptual Questions</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
-<li><a href="#q2">Question 2: </a></li>
+  <li><a href="#conceptual-questions">Conceptual Questions</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -82,7 +83,7 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review Newton's method in the following places</p>
@@ -101,20 +102,20 @@ def improve(update, close, guess=1):
         guess = update(guess)
     return guess
 
-def approx_eq(x, y, tolerance=1e-5):
-    return abs(x - y) &lt; tolerance
+def approx_eq(x, y, tolerance=1e&#x2d;5):
+    return abs(x &#x2d; y) &lt; tolerance
 
 # Newton&#x27;s method
 
-def make_derivative(f, delta=1e-5):
+def make_derivative(f, delta=1e&#x2d;5):
     def derivative(x):
-        df = f(x + delta) - f(x)
+        df = f(x + delta) &#x2d; f(x)
         return df / delta
     return derivative
 
 def newton_update(f, df):
     def update(x):
-        return x - f(x) / df(x)
+        return x &#x2d; f(x) / df(x)
     return update
 
 def find_zero(f, df):
@@ -161,7 +162,7 @@ is the <code>close</code> function for Newton's method?</p>
 
 <pre><code>def newton_update(f, df):
     def update(x):
-        return x - f(x) / df(x)
+        return x &#x2d; f(x) / df(x)
     return update
 
 # the following is defined inside find_zero
@@ -175,11 +176,11 @@ def near_zero(x):
 
     <div class="solution 1">
 
-<p><code>newton_update</code> is not the actual update function -- instead,
+<p><code>newton_update</code> is not the actual update function &mdash; instead,
 depending on what <code>f</code> is given, it will create an <code>update</code> function
 that follows the mathematical equation for Newton's Method.
 <code>near_zero</code> is the <code>close</code> function, and returns True when <code>f(x)</code> is
-approximately equal to 0 -- this is the goal of Newton's method.</p>
+approximately equal to 0 &mdash; this is the goal of Newton's method.</p>
 
 </div>
     
@@ -203,6 +204,6 @@ approximately equal to 0 -- this is the goal of Newton's method.</p>
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

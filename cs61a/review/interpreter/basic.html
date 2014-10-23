@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,14 +64,15 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#conceptual-questions">Conceptual questions</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
-<li><a href="#q2">Question 2: </a></li>
-<li><a href="#q3">Question 3: </a></li>
-<li><a href="#q4">Question 4: </a></li>
-<li><a href="#q5">Question 5: </a></li>
+  <li><a href="#conceptual-questions">Conceptual questions</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
+  <li><a href="#q3">Question 3: </a></li>
+  <li><a href="#q4">Question 4: </a></li>
+  <li><a href="#q5">Question 5: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -85,7 +86,7 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review Interpreters in the following places</p>
@@ -122,7 +123,7 @@
     <div class="solution 0">
 
 <p>REPL stands for Read-Eval-Print-Loop. The first step, Read, inolves the
-tokenizer and the parser -- they take user input (a string) and convert
+tokenizer and the parser &mdash; they take user input (a string) and convert
 it into data structures that are understood by the evaluator. The
 Evaluator converts those data structures into values, which are then
 Printed out to the screen. The loop then restarts the whole process.</p>
@@ -159,7 +160,7 @@ This is an intermediate step in the Parser.</p>
     <div class="solution 2">
 
 <p>The parser converts a string of user input into an expression. The
-parser is not responsible for evaluating the expression -- as such, the
+parser is not responsible for evaluating the expression &mdash; as such, the
 parser checks if expressions are well-formed, but not if they actually
 evaluate to intelligible values (e.g. in SCheme, <code>(3 + 2)</code> is
 well-formed, but doesn't evaluate to a proper value).</p>
@@ -250,6 +251,6 @@ Calculator was simple enough not to requier mutual recursion.</p>
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

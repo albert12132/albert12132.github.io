@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,16 +64,18 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#conceptual-questions">Conceptual Questions</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
-<li><a href="#q2">Question 2: </a></li>
-<li><a href="#q3">Question 3: </a></li>
+  <li><a href="#conceptual-questions">Conceptual Questions</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
+  <li><a href="#q3">Question 3: </a></li>
 </ul>
-<li><a href="#what-would-python-print">What would Python print?</a></li>
-<ul>
-<li><a href="#q4">Question 4: </a></li>
+
+  <li><a href="#what-would-python-print">What would Python print?</a></li>
+  <ul>
+  <li><a href="#q4">Question 4: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -87,7 +89,7 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review Dictionaries in the following places</p>
@@ -123,7 +125,7 @@ objects can be used as values?</p>
 
     <div class="solution 0">
 
-<p>Any <strong>immutable</strong> object can be used as a key -- this includes numbers,
+<p>Any <strong>immutable</strong> object can be used as a key &mdash; this includes numbers,
 strings, and tuples. Mutable objects, such as lists and dictionaries,
 are not allowed to be used as keys.  Anything can be used as a value,
 however.</p>
@@ -174,10 +176,10 @@ necessarily the order in which you added them.</p>
 <h3 class="question" id="q4">Question 4: </h3>
 
 
-    <pre><code>&gt;&gt;&gt; logins = {&#x27;albert&#x27;: &#x27;cs61a-tg&#x27;}&quot;
+    <pre><code>&gt;&gt;&gt; logins = {&#x27;albert&#x27;: &#x27;cs61a&#x2d;tg&#x27;}&quot;
 &gt;&gt;&gt; logins[&#x27;albert&#x27;]
-<span class="blank3">______</span><span class="hidden solution 3">&#x27;cs61a-tg&#x27;</span>
-&gt;&gt;&gt; logins[&#x27;cs61a-tg&#x27;]
+<span class="blank3">______</span><span class="hidden solution 3">&#x27;cs61a&#x2d;tg&#x27;</span>
+&gt;&gt;&gt; logins[&#x27;cs61a&#x2d;tg&#x27;]
 <span class="blank3">______</span><span class="hidden solution 3">KeyError</span>
 &gt;&gt;&gt; logins[&#x27;allen&#x27;] = None
 &gt;&gt;&gt; len(logins)
@@ -189,7 +191,7 @@ albert  # not necessarily in that order</span>
 &gt;&gt;&gt; for key, value in logins.items():
 ...     print(key, value)
 <span class="blank3">______</span><span class="hidden solution 3">allen None
-albert cs61a-tg # not necessarily in that order</span></code></pre>
+albert cs61a&#x2d;tg # not necessarily in that order</span></code></pre>
 
     <button id='3' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
@@ -215,6 +217,6 @@ albert cs61a-tg # not necessarily in that order</span></code></pre>
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

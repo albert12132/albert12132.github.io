@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,23 +64,26 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#conceptual-questions">Conceptual Questions</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
-<li><a href="#q2">Question 2: </a></li>
-<li><a href="#q3">Question 3: </a></li>
+  <li><a href="#conceptual-questions">Conceptual Questions</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
+  <li><a href="#q3">Question 3: </a></li>
 </ul>
-<li><a href="#what-would-logic-print">What would Logic print?</a></li>
-<ul>
-<li><a href="#q4">Question 4: </a></li>
+
+  <li><a href="#what-would-logic-print">What would Logic print?</a></li>
+  <ul>
+  <li><a href="#q4">Question 4: </a></li>
 </ul>
-<li><a href="#code-writing-question">Code-Writing question</a></li>
-<ul>
-<li><a href="#q5">Question 5: </a></li>
-<li><a href="#q6">Question 6: </a></li>
-<li><a href="#q7">Question 7: </a></li>
-<li><a href="#q8">Question 8: </a></li>
+
+  <li><a href="#code-writing-question">Code-Writing question</a></li>
+  <ul>
+  <li><a href="#q5">Question 5: </a></li>
+  <li><a href="#q6">Question 6: </a></li>
+  <li><a href="#q7">Question 7: </a></li>
+  <li><a href="#q8">Question 8: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -94,7 +97,7 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review Logic in the following places</p>
@@ -116,7 +119,7 @@ interpreter from your terminal with:
 
 <p>You can load a <code>.logic</code> file with</p>
 
-<pre><code>python3 logic.py -load file.logic</code></pre>
+<pre><code>python3 logic.py &#x2d;load file.logic</code></pre>
 
 <p>Alternatively, you can use the <a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/logic/logic.html">online Logic
 interpreter</a>
@@ -219,19 +222,19 @@ this:</p>
 
 <p>Assume the following facts have been loaded into the Logic interpreter:</p>
 
-<pre><code>(fact (married lucille george-sr))
+<pre><code>(fact (married lucille george&#x2d;sr))
 (fact (married lindsay tobias))
 
 (fact (parent lucille gob))
-(fact (parent george-sr gob))
+(fact (parent george&#x2d;sr gob))
 (fact (parent lucille michael))
-(fact (parent george-sr michael))
+(fact (parent george&#x2d;sr michael))
 (fact (parent lucille buster))
 (fact (parent oscar buster))
 (fact (parent lucille lindsay))
 (fact (parent lucille annyong))
 
-(fact (parent michael george-michael))
+(fact (parent michael george&#x2d;michael))
 (fact (parent lindsay maeby))
 (fact (parent tobias maeby))
 (fact (parent gob steve))
@@ -240,19 +243,19 @@ this:</p>
       (parent ?p1 ?s1)
       (parent ?p1 ?s2))
 
-(fact (uncle-or-aunt ?u ?c)
+(fact (uncle&#x2d;or&#x2d;aunt ?u ?c)
       (parent ?p ?c)
       (sibling ?u ?p))</code></pre>
 
 
     <pre><code>logic&gt; (query (parent lucille michael))
 <span class="blank7">______</span><span class="hidden solution 7">Success!</span>
-logic&gt; (query (parent george-sr buster))
+logic&gt; (query (parent george&#x2d;sr buster))
 <span class="blank7">______</span><span class="hidden solution 7">Failed.</span>
 logic&gt; (query (parent ?who gob))
 <span class="blank7">______</span><span class="hidden solution 7">Success!
 who: lucille
-who: george-sr</span>
+who: george&#x2d;sr</span>
 logic&gt; (query (parent lucille ?who))
 <span class="blank7">______</span><span class="hidden solution 7">Success!
 who: gob
@@ -260,9 +263,9 @@ who: michael
 who: buster
 who: lindsay
 who: annyong</span>
-logic&gt; (query (uncle-or-aunt buster ?who))
+logic&gt; (query (uncle&#x2d;or&#x2d;aunt buster ?who))
 <span class="blank7">______</span><span class="hidden solution 7">Success!
-who: george-michael
+who: george&#x2d;michael
 who: maeby
 who: steve
 (query (?rel lindsay tobias))
@@ -311,7 +314,7 @@ item? Is the process recursive?</p>
 
 <h3 class="question" id="q6">Question 6: </h3>
 
-<p>Write a fact or set of facts for the <code>rest-with</code> relation, which checks
+<p>Write a fact or set of facts for the <code>rest&#x2d;with</code> relation, which checks
 if a given item is the rest (in the Rlist sense) of a list.</p>
 
 <pre><code>(fact (rest ; YOUR CODE HERE
@@ -424,6 +427,6 @@ Is this process recursive?</p>
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

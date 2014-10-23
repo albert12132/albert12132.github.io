@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,23 +64,25 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#code-writing-questions">Code-Writing questions</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
-<li><a href="#q2">Question 2: </a></li>
-<li><a href="#q3">Question 3: </a></li>
-<li><a href="#q4">Question 4: </a></li>
+  <li><a href="#code-writing-questions">Code-Writing questions</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
+  <li><a href="#q3">Question 3: </a></li>
+  <li><a href="#q4">Question 4: </a></li>
 </ul>
-<li><a href="#logical-trees-courtesy-of-sarah-kim">Logical Trees (courtesy of Sarah Kim)</a></li>
-<ul>
-<li><a href="#q5">Question 5: </a></li>
-<li><a href="#q6">Question 6: </a></li>
-<li><a href="#q7">Question 7: </a></li>
-<li><a href="#q8">Question 8: </a></li>
-<li><a href="#q9">Question 9: </a></li>
-<li><a href="#q10">Question 10: </a></li>
-<li><a href="#q11">Question 11: </a></li>
+
+  <li><a href="#logical-trees-courtesy-of-sarah-kim">Logical Trees (courtesy of Sarah Kim)</a></li>
+  <ul>
+  <li><a href="#q5">Question 5: </a></li>
+  <li><a href="#q6">Question 6: </a></li>
+  <li><a href="#q7">Question 7: </a></li>
+  <li><a href="#q8">Question 8: </a></li>
+  <li><a href="#q9">Question 9: </a></li>
+  <li><a href="#q10">Question 10: </a></li>
+  <li><a href="#q11">Question 11: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -94,7 +96,7 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review Logic in the following places</p>
@@ -116,7 +118,7 @@ interpreter from your terminal with:
 
 <p>You can load a <code>.logic</code> file with</p>
 
-<pre><code>python3 logic.py -load file.logic</code></pre>
+<pre><code>python3 logic.py &#x2d;load file.logic</code></pre>
 
 <p>Alternatively, you can use the <a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/logic/logic.html">online Logic
 interpreter</a>
@@ -219,8 +221,8 @@ what: (5 2 4)</code></pre>
 
 <pre><code>(fact (reverse () ()))
 (fact (reverse (?f . ?rest) ?lst)
-      (reverse ?rest ?reverse-rest)
-      (append ?reverse-rest (?f) ?lst))</code></pre>
+      (reverse ?rest ?reverse&#x2d;rest)
+      (append ?reverse&#x2d;rest (?f) ?lst))</code></pre>
 
 </div>
     
@@ -274,32 +276,32 @@ following form:</p>
 
 <p>Some examples:</p>
 
-<pre><code>(fact (tree tree-1 6 tree-2 tree-3))
-(fact (tree tree-2 4 tree-4 tree-5))
-(fact (tree tree-3 8 tree-6 tree-7))
-(fact (tree tree-4 3 tree-8 none))
-(fact (tree tree-5 5 none none))
-(fact (tree tree-6 7 none none))
+<pre><code>(fact (tree tree&#x2d;1 6 tree&#x2d;2 tree&#x2d;3))
+(fact (tree tree&#x2d;2 4 tree&#x2d;4 tree&#x2d;5))
+(fact (tree tree&#x2d;3 8 tree&#x2d;6 tree&#x2d;7))
+(fact (tree tree&#x2d;4 3 tree&#x2d;8 none))
+(fact (tree tree&#x2d;5 5 none none))
+(fact (tree tree&#x2d;6 7 none none))
 
-(fact (tree tree-7 11 tree-9 tree-10))
-(fact (tree tree-8 2 tree-11 none))
-(fact (tree tree-9 9 none tree-12))
-(fact (tree tree-10 12 none none))
-(fact (tree tree-11 1 none none))
-(fact (tree tree-12 10 none none))</code></pre>
+(fact (tree tree&#x2d;7 11 tree&#x2d;9 tree&#x2d;10))
+(fact (tree tree&#x2d;8 2 tree&#x2d;11 none))
+(fact (tree tree&#x2d;9 9 none tree&#x2d;12))
+(fact (tree tree&#x2d;10 12 none none))
+(fact (tree tree&#x2d;11 1 none none))
+(fact (tree tree&#x2d;12 10 none none))</code></pre>
 
 <h3 class="question" id="q5">Question 5: </h3>
 
-<p>Write a <code>find-entry</code> fact that associates tree number to tree entry.</p>
+<p>Write a <code>find&#x2d;entry</code> fact that associates tree number to tree entry.</p>
 
-<pre><code>logic&gt; (query (find-entry tree-12 10))
+<pre><code>logic&gt; (query (find&#x2d;entry tree&#x2d;12 10))
 Success!
-logic&gt; (query (find-entry tree-2 ?x))
+logic&gt; (query (find&#x2d;entry tree&#x2d;2 ?x))
 Success!
 x: 4
-logic&gt; (query (find-entry ?tree 11))
+logic&gt; (query (find&#x2d;entry ?tree 11))
 Sucess!
-tree: tree-7</code></pre>
+tree: tree&#x2d;7</code></pre>
 
 
     <button id='4' class='toggleButton'>
@@ -308,7 +310,7 @@ tree: tree-7</code></pre>
 
     <div class="solution 4">
 
-<pre><code>(fact (find-entry ?number ?entry)
+<pre><code>(fact (find&#x2d;entry ?number ?entry)
       (tree ?number ?entry ?left ?right))</code></pre>
 
 </div>
@@ -316,12 +318,12 @@ tree: tree-7</code></pre>
 
 <h3 class="question" id="q6">Question 6: </h3>
 
-<p>Write a <code>check-leaf</code> fact that checks if a tree is a leaf (no trees in
+<p>Write a <code>check&#x2d;leaf</code> fact that checks if a tree is a leaf (no trees in
 left or right).</p>
 
-<pre><code>logic&gt; (query (check-leaf tree-12))
+<pre><code>logic&gt; (query (check&#x2d;leaf tree&#x2d;12))
 Sucess!
-logic&gt; (query (check-leaf tree-4))
+logic&gt; (query (check&#x2d;leaf tree&#x2d;4))
 Failed.</code></pre>
 
 
@@ -331,7 +333,7 @@ Failed.</code></pre>
 
     <div class="solution 5">
 
-<pre><code>(fact (check-leaf ?number)
+<pre><code>(fact (check&#x2d;leaf ?number)
       (tree ?number ?leaf none none))</code></pre>
 
 </div>
@@ -342,13 +344,13 @@ Failed.</code></pre>
 <p>What would Logic print?</p>
 
 
-    <pre><code>logic&gt; (query (check-leaf ?x))
+    <pre><code>logic&gt; (query (check&#x2d;leaf ?x))
 <span class="blank10">______</span><span class="hidden solution 10">Success!
-x: tree-5
-x: tree-6
-x: tree-10
-x: tree-11
-x: tree-12</span></code></pre>
+x: tree&#x2d;5
+x: tree&#x2d;6
+x: tree&#x2d;10
+x: tree&#x2d;11
+x: tree&#x2d;12</span></code></pre>
 
     <button id='10' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
@@ -356,15 +358,15 @@ x: tree-12</span></code></pre>
     
 
 <h3 class="question" id="q8">Question 8: </h3>
-Write a <code>smallest-entry</code> fact that finds the smallest entry of a tree.
+Write a <code>smallest&#x2d;entry</code> fact that finds the smallest entry of a tree.
 
-<pre><code>logic&gt; (query (smallest-entry tree-2 ?leaf))
+<pre><code>logic&gt; (query (smallest&#x2d;entry tree&#x2d;2 ?leaf))
 Success!
 leaf: 1
-logic&gt; (query (smallest-entry tree-12 ?leaf))
+logic&gt; (query (smallest&#x2d;entry tree&#x2d;12 ?leaf))
 Success!
 leaf: 10
-logic&gt; (query (smallest-entry tree-7 ?leaf))
+logic&gt; (query (smallest&#x2d;entry tree&#x2d;7 ?leaf))
 leaf: 9</code></pre>
 
 
@@ -374,22 +376,22 @@ leaf: 9</code></pre>
 
     <div class="solution 6">
 
-<pre><code>(fact (smallest-entry ?number ?entry)
+<pre><code>(fact (smallest&#x2d;entry ?number ?entry)
       (tree ?number ?entry none ?right))
-(fact (smallest-entry ?number ?entry)
-      (tree ?number ?other-entry ? left ?right)
-      (smallest-entry ?left ?entry))</code></pre>
+(fact (smallest&#x2d;entry ?number ?entry)
+      (tree ?number ?other&#x2d;entry ? left ?right)
+      (smallest&#x2d;entry ?left ?entry))</code></pre>
 
 </div>
     
 
 <h3 class="question" id="q9">Question 9: </h3>
 
-<p>Write a <code>find-parent</code> fact, which finds the parent of a number.</p>
+<p>Write a <code>find&#x2d;parent</code> fact, which finds the parent of a number.</p>
 
-<pre><code>logic&gt; (query (find-parent tree-11 ?parent))
+<pre><code>logic&gt; (query (find&#x2d;parent tree&#x2d;11 ?parent))
 Success!
-parent: tree-8</code></pre>
+parent: tree&#x2d;8</code></pre>
 
 
     <button id='7' class='toggleButton'>
@@ -398,9 +400,9 @@ parent: tree-8</code></pre>
 
     <div class="solution 7">
 
-<pre><code>(fact (find-parent ?number ?parent)
+<pre><code>(fact (find&#x2d;parent ?number ?parent)
       (tree ?parent ?entry ?number ?right))
-(fact (find-parent ?number ?parent)
+(fact (find&#x2d;parent ?number ?parent)
       (tree ?parent ?entry ?left ?number))</code></pre>
 
 </div>
@@ -411,13 +413,13 @@ parent: tree-8</code></pre>
 <p>Write a <code>generation</code> fact, which lists all the members of a tree's
 family tree.</p>
 
-<pre><code>logic&gt; (query (generation tree-11 ?members))
+<pre><code>logic&gt; (query (generation tree&#x2d;11 ?members))
 Success!
-members: tree-1
-members: tree-2
-members: tree-4
-members: tree-8
-members: tree-11</code></pre>
+members: tree&#x2d;1
+members: tree&#x2d;2
+members: tree&#x2d;4
+members: tree&#x2d;8
+members: tree&#x2d;11</code></pre>
 
 
     <button id='8' class='toggleButton'>
@@ -427,7 +429,7 @@ members: tree-11</code></pre>
     <div class="solution 8">
 
 <pre><code>(fact (generation ?number ?grandfather)
-      (find-parent ?number ?father)
+      (find&#x2d;parent ?number ?father)
       (generation ?father ?grandfather))
 (fact (generation ?number ?number))</code></pre>
 
@@ -439,7 +441,7 @@ members: tree-11</code></pre>
 <p>What would happen if for the <code>generation</code> fact, we put the second fact
 before the first fact?</p>
 
-<pre><code>logic&gt; (query (generation tree-11 ?members))</code></pre>
+<pre><code>logic&gt; (query (generation tree&#x2d;11 ?members))</code></pre>
 
 
     <button id='9' class='toggleButton'>
@@ -449,11 +451,11 @@ before the first fact?</p>
     <div class="solution 9">
 
 <pre><code>Success!
-members: tree-11
-members: tree-8
-members: tree-4
-members: tree-2
-members: tree-1</code></pre>
+members: tree&#x2d;11
+members: tree&#x2d;8
+members: tree&#x2d;4
+members: tree&#x2d;2
+members: tree&#x2d;1</code></pre>
 
 </div>
     
@@ -477,6 +479,6 @@ members: tree-1</code></pre>
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

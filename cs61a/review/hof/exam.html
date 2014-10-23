@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,15 +64,16 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#environment-diagrams">Environment Diagrams</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
-<li><a href="#q2">Question 2: </a></li>
-<li><a href="#q3">Question 3: </a></li>
-<li><a href="#q4">Question 4: </a></li>
-<li><a href="#q5">Question 5: </a></li>
-<li><a href="#q6">Question 6: </a></li>
+  <li><a href="#environment-diagrams">Environment Diagrams</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
+  <li><a href="#q3">Question 3: </a></li>
+  <li><a href="#q4">Question 4: </a></li>
+  <li><a href="#q5">Question 5: </a></li>
+  <li><a href="#q6">Question 6: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -86,7 +87,7 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review Higher-Order Functions in the following places</p>
@@ -138,7 +139,7 @@ result = f(g(f))</code></pre>
 def make_bad_strategy(p):
     def strategy(s0, s1):
         # next line is bad style!
-        return always_roll(1 - p)(s0, s1)
+        return always_roll(1 &#x2d; p)(s0, s1)
     return strategy
 
 num_rolls = make_bad_strategy(1)(50, 50)</code></pre>
@@ -162,7 +163,7 @@ num_rolls = make_bad_strategy(1)(50, 50)</code></pre>
             return fn(x)
     return new_fn
 x = 10
-new = test(lambda score: score - x)
+new = test(lambda score: score &#x2d; x)
 new(42)</code></pre>
 
     <button id='2' class='toggleButton'>
@@ -255,6 +256,6 @@ albert(lambda: albert)()</code></pre>
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

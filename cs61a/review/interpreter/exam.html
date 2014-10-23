@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,15 +64,17 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#conceptual-questions">Conceptual Questions</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
-<li><a href="#q2">Question 2: </a></li>
+  <li><a href="#conceptual-questions">Conceptual Questions</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
 </ul>
-<li><a href="#code-writing-question">Code-Writing question</a></li>
-<ul>
-<li><a href="#q3">Question 3: </a></li>
+
+  <li><a href="#code-writing-question">Code-Writing question</a></li>
+  <ul>
+  <li><a href="#q3">Question 3: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -86,7 +88,7 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review Interpreters in the following places</p>
@@ -262,13 +264,13 @@ examples of valid pyramids:</p>
     tokens.pop(0)
     count, direction = 0, 1
     while tokens and tokens[0] != &#x27;)&#x27;:
-        if direction == -1 and count == 0:
+        if direction == &#x2d;1 and count == 0:
             return False
         elif tokens[0] == &#x27;(&#x27;:
-            if direction == -1 or not is_pyramid(tokens):
+            if direction == &#x2d;1 or not is_pyramid(tokens):
                 return False
             else:
-                direction = -1
+                direction = &#x2d;1
         else:
             tokens.pop(0)
             count += direction
@@ -369,7 +371,7 @@ we should begin decrementing count after this:</p>
     if not is_pyramid(tokens):
         return False
     else:
-        direction = -1</code></pre>
+        direction = &#x2d;1</code></pre>
 
 <p>In addition, if our direction is already -1 (meaning we've already seen
 a nested list), and we see another nested list, this breaks our
@@ -377,10 +379,10 @@ definition of a pyramid, so we should return False (e.g. the case <code>((3)
 (4))</code>):</p>
 
 <pre><code>if tokens[0] == &#x27;(&#x27;:
-    if direction == -1 or not is_pyramid(tokens):
+    if direction == &#x2d;1 or not is_pyramid(tokens):
         return False
     else:
-        direction = -1</code></pre>
+        direction = &#x2d;1</code></pre>
 
 <p>What about the case of regular numbers? In addition to removing the
 token, we also need to update our <code>count</code>. If direction is 1, we should
@@ -398,7 +400,7 @@ reach the 6, <code>count</code> will be 0, and <code>direction</code> will be -1
 red flag we look for to tell us to return False:</p>
 
 <pre><code>while tokens and tokens[0] != &#x27;)&#x27;:
-    if direction == -1 and count == 0:
+    if direction == &#x2d;1 and count == 0:
         return False
     if tokens[0] == &#x27;(&#x27;:
         ...</code></pre>
@@ -421,13 +423,13 @@ def is_pyramid(tokens):
     tokens.pop(0)
     count, direction = 0, 1
     while tokens and tokens[0] != &#x27;)&#x27;:
-        if direction == -1 and count == 0:
+        if direction == &#x2d;1 and count == 0:
             return False
         elif tokens[0] == &#x27;(&#x27;:
-            if direction == -1 or not is_pyramid(tokens):
+            if direction == &#x2d;1 or not is_pyramid(tokens):
                 return False
             else:
-                direction = -1
+                direction = &#x2d;1
         else:
             tokens.pop(0)
             count += direction
@@ -459,6 +461,6 @@ def is_pyramid(tokens):
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,13 +64,14 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#code-writing-questions">Code-Writing questions</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
-<li><a href="#q2">Question 2: </a></li>
-<li><a href="#q3">Question 3: </a></li>
-<li><a href="#q4">Question 4: </a></li>
+  <li><a href="#code-writing-questions">Code-Writing questions</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
+  <li><a href="#q3">Question 3: </a></li>
+  <li><a href="#q4">Question 4: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -84,7 +85,7 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review Newton's method in the following places</p>
@@ -101,20 +102,20 @@ def improve(update, close, guess=1):
         guess = update(guess)
     return guess
 
-def approx_eq(x, y, tolerance=1e-5):
-    return abs(x - y) &lt; tolerance
+def approx_eq(x, y, tolerance=1e&#x2d;5):
+    return abs(x &#x2d; y) &lt; tolerance
 
 # Newton&#x27;s method
 
-def make_derivative(f, delta=1e-5):
+def make_derivative(f, delta=1e&#x2d;5):
     def derivative(x):
-        df = f(x + delta) - f(x)
+        df = f(x + delta) &#x2d; f(x)
         return df / delta
     return derivative
 
 def newton_update(f, df):
     def update(x):
-        return x - f(x) / df(x)
+        return x &#x2d; f(x) / df(x)
     return update
 
 def find_zero(f, df):
@@ -151,7 +152,7 @@ finding the zero of the fourth root (since that's just <code>x = 0</code>).</p>
     <div class="solution 0">
 
 <pre><code>def fourth_root(x):
-    f = lambda y: y**4 - x
+    f = lambda y: y**4 &#x2d; x
     return find_zero(f, make_derivative(f))</code></pre>
 
 </div>
@@ -196,7 +197,7 @@ derivative of the function = 0). Rewrite <code>newton_update</code> to add a sma
 <code>offset</code> to the derivative if it is equal to zero to avoid this
 problem.</p>
 
-<pre><code>def newton_update(f, df, offset=1e-5):
+<pre><code>def newton_update(f, df, offset=1e&#x2d;5):
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
@@ -206,12 +207,12 @@ problem.</p>
 
     <div class="solution 2">
 
-<pre><code>def newton_update(f, df, offset=1e-5):
+<pre><code>def newton_update(f, df, offset=1e&#x2d;5):
     def update(x):
         deriv = df(x)
         if deriv == 0:
             deriv += offset
-        return x - f(x) / deriv
+        return x &#x2d; f(x) / deriv
     return update</code></pre>
 
 </div>
@@ -219,7 +220,7 @@ problem.</p>
 
 <h3 class="question" id="q4">Question 4: </h3>
 
-<p>In economics, <em><a href="http://en.wikipedia.org/wiki/Walrasian_auction">t&acirc;tonnement</a></em>
+<p>In economics, <em><a href="http://en.wikipedia.org/wiki/Walrasian_auction">t&amp;acirc;tonnement</a></em>
 is an iterative process for finding price equilibria in a market. The
 price of a good is adjusted depending on the amount of excess demand
 until demand is equal to supply. The price at which this happens is
@@ -237,7 +238,7 @@ function (both functions that take in a price as an argument and output
 a quantity), and returns an approximation of the equilibrium price. See
 the docstring for more details.</p>
 
-<pre><code>def equilibrium(supply, demand, tolerance=1e-2):
+<pre><code>def equilibrium(supply, demand, tolerance=1e&#x2d;2):
     &quot;&quot;&quot;Calculates the equilibrium price for the given SUPPLY and
     DEMAND functions.
 
@@ -247,9 +248,9 @@ the docstring for more details.</p>
     less than a certain TOLERANCE level.
 
     PARAMETERS:
-    supply    -- a function that takes a price and outputs
-    demand    -- a function that takes a price and outputs
-    tolerance -- how far from 0 the excess demand can vary
+    supply    &#x2d;&#x2d; a function that takes a price and outputs
+    demand    &#x2d;&#x2d; a function that takes a price and outputs
+    tolerance &#x2d;&#x2d; how far from 0 the excess demand can vary
     &quot;&quot;&quot;
     initial_guess = 1
 
@@ -268,14 +269,14 @@ the docstring for more details.</p>
 
     <div class="solution 3">
 
-<pre><code>def equilibrium(supply, demand, tolerance=1e-2):
+<pre><code>def equilibrium(supply, demand, tolerance=1e&#x2d;2):
     initial_guess = 1
 
     def update(p):
-        return p * (1 + demand(p) - supply(p))
+        return p * (1 + demand(p) &#x2d; supply(p))
 
     def isclose(p):
-        return abs(demand(p) - supply(p)) &lt;= tolerance
+        return abs(demand(p) &#x2d; supply(p)) &lt;= tolerance
 
     return improve(update, isclose, initial_guess)&quot;&quot;&quot;</code></pre>
 
@@ -301,6 +302,6 @@ the docstring for more details.</p>
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

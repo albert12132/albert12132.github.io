@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,15 +64,16 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#conceptual-questions">Conceptual Questions</a></li>
-<li><a href="#code-writing-questions">Code-Writing questions</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
-<li><a href="#q2">Question 2: </a></li>
-<li><a href="#q3">Question 3: </a></li>
-<li><a href="#q4">Question 4: </a></li>
-<li><a href="#q5">Question 5: </a></li>
+  <li><a href="#conceptual-questions">Conceptual Questions</a></li>
+  <li><a href="#code-writing-questions">Code-Writing questions</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
+  <li><a href="#q3">Question 3: </a></li>
+  <li><a href="#q4">Question 4: </a></li>
+  <li><a href="#q5">Question 5: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -86,7 +87,7 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review Tail Recursion in the following places</p>
@@ -112,24 +113,24 @@
     (if (or (= x 0) (= y 0) (= x y))
         1
         (if (&lt; x y)
-            (one x (- y x))
+            (one x (&#x2d; y x))
             (if (&gt; x y)
-                (one (- x y) y)))))
+                (one (&#x2d; x y) y)))))
 
 (define (two x)
     (if (or (= x 0) (= x 1))
         x
-        (+ (two (- x 1)) (two (- x 2)))))
+        (+ (two (&#x2d; x 1)) (two (&#x2d; x 2)))))
 
 (define (three n curr next)
     (if (= n 0)
         curr
-        (three (- n 1) next (+ curr next))))
+        (three (&#x2d; n 1) next (+ curr next))))
 
 (define (four n total)
     (cond ((= n 0) 0)
-          ((even? n) (four (- n 1) total))
-          (else (four (- n 2) (+ total n)))))</code></pre>
+          ((even? n) (four (&#x2d; n 1) total))
+          (else (four (&#x2d; n 2) (+ total n)))))</code></pre>
 
 
     <button id='0' class='toggleButton'>
@@ -177,12 +178,12 @@ which concatenates two lists together, should prove useful.</p>
     <div class="solution 1">
 
 <pre><code>(define (map fn lst)
-    (define (map-help lst so-far)
+    (define (map&#x2d;help lst so&#x2d;far)
         (if (null? lst)
-            so-far
-            (map-help (cdr lst)
-                      (append so-far (list (fn (car lst)))))))
-    (map-help lst nil))</code></pre>
+            so&#x2d;far
+            (map&#x2d;help (cdr lst)
+                      (append so&#x2d;far (list (fn (car lst)))))))
+    (map&#x2d;help lst nil))</code></pre>
 
 </div>
     
@@ -211,13 +212,13 @@ function, which concatenates two lists together, should prove useful.</p>
     <div class="solution 2">
 
 <pre><code>(define (filter pred lst)
-    (define (filter-help lst so-far)
-        (cond ((null? lst) so-far)
+    (define (filter&#x2d;help lst so&#x2d;far)
+        (cond ((null? lst) so&#x2d;far)
               ((pred (car lst))
-                    (filter-help (cdr lst)
-                                 (append so-far (list (car lst)))))
-              (else (filter-help (cdr lst) so-far))))
-    (filter-help lst nil))</code></pre>
+                    (filter&#x2d;help (cdr lst)
+                                 (append so&#x2d;far (list (car lst)))))
+              (else (filter&#x2d;help (cdr lst) so&#x2d;far))))
+    (filter&#x2d;help lst nil))</code></pre>
 
 </div>
     
@@ -248,14 +249,14 @@ concatenates two lists together, should prove useful.</p>
     <div class="solution 3">
 
 <pre><code>(define (insert lst item index)
-    (define (insert-help lst index so-far)
+    (define (insert&#x2d;help lst index so&#x2d;far)
         (if (or (null? lst) (= index 0))
-            (append so-far
+            (append so&#x2d;far
                     (cons item lst))
-            (insert-help (cdr lst)
-                         (- index 1)
-                         (append so-far (list (car lst))))))
-    (insert-help lst index nil))</code></pre>
+            (insert&#x2d;help (cdr lst)
+                         (&#x2d; index 1)
+                         (append so&#x2d;far (list (car lst))))))
+    (insert&#x2d;help lst index nil))</code></pre>
 
 </div>
     
@@ -288,12 +289,12 @@ function, which concatenates two lists together, should prove useful.</p>
     <div class="solution 4">
 
 <pre><code>(define (remove lst item)
-    (define (remove-help lst so-far)
-        (cond ((null? lst) so-far)
-              ((eq? (car lst) item) (append so-far (cdr lst)))
-              (else (remove-help (cdr lst)
-                                 (append so-far (list (car lst)))))))
-    (remove-help lst nil))</code></pre>
+    (define (remove&#x2d;help lst so&#x2d;far)
+        (cond ((null? lst) so&#x2d;far)
+              ((eq? (car lst) item) (append so&#x2d;far (cdr lst)))
+              (else (remove&#x2d;help (cdr lst)
+                                 (append so&#x2d;far (list (car lst)))))))
+    (remove&#x2d;help lst nil))</code></pre>
 
 </div>
     
@@ -326,13 +327,13 @@ function, which concatenates two lists together, should prove useful.</p>
     <div class="solution 5">
 
 <pre><code>(define (pop lst index)
-    (define (pop-help lst index so-far)
-        (cond ((null? lst) so-far)
-              ((= index 0) (append so-far (cdr lst)))
-              (else (pop-help (cdr lst)
-                              (- index 1)
-                              (append so-far (list (car lst)))))))
-    (pop-help lst nil))</code></pre>
+    (define (pop&#x2d;help lst index so&#x2d;far)
+        (cond ((null? lst) so&#x2d;far)
+              ((= index 0) (append so&#x2d;far (cdr lst)))
+              (else (pop&#x2d;help (cdr lst)
+                              (&#x2d; index 1)
+                              (append so&#x2d;far (list (car lst)))))))
+    (pop&#x2d;help lst nil))</code></pre>
 
 </div>
     
@@ -356,6 +357,6 @@ function, which concatenates two lists together, should prove useful.</p>
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

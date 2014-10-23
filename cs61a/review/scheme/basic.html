@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,19 +64,21 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#what-would-scheme-print">What would Scheme print</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
-<li><a href="#q2">Question 2: </a></li>
-<li><a href="#q3">Question 3: </a></li>
-<li><a href="#q4">Question 4: </a></li>
+  <li><a href="#what-would-scheme-print">What would Scheme print</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
+  <li><a href="#q3">Question 3: </a></li>
+  <li><a href="#q4">Question 4: </a></li>
 </ul>
-<li><a href="#code-writing-questions">Code-Writing Questions</a></li>
-<ul>
-<li><a href="#q5">Question 5: </a></li>
-<li><a href="#q6">Question 6: </a></li>
-<li><a href="#q7">Question 7: </a></li>
+
+  <li><a href="#code-writing-questions">Code-Writing Questions</a></li>
+  <ul>
+  <li><a href="#q5">Question 5: </a></li>
+  <li><a href="#q6">Question 6: </a></li>
+  <li><a href="#q7">Question 7: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -90,7 +92,7 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review Scheme in the following places</p>
@@ -123,8 +125,8 @@ STk&gt; (4 + 3)
 <span class="blank3">______</span><span class="hidden solution 3">Error</span>
 STk&gt; (+ 1 2 3 4)
 <span class="blank3">______</span><span class="hidden solution 3">10</span>
-STk&gt; (- 1 2 3 4)
-<span class="blank3">______</span><span class="hidden solution 3">-8</span></code></pre>
+STk&gt; (&#x2d; 1 2 3 4)
+<span class="blank3">______</span><span class="hidden solution 3">&#x2d;8</span></code></pre>
 
     <button id='3' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
@@ -219,9 +221,9 @@ elements of the original list that satisfy the predicate.</p>
     )
 
 ; Tests
-STk&gt; (define (less-3 x) (&lt; x 3))
-less-3
-STk&gt; (filter less-3 (list 1 2 3 4))
+STk&gt; (define (less&#x2d;3 x) (&lt; x 3))
+less&#x2d;3
+STk&gt; (filter less&#x2d;3 (list 1 2 3 4))
 (1 2)</code></pre>
 
 
@@ -278,18 +280,18 @@ STk&gt; (interleave (list 1 3 5) (list 2 4))
 
 <h3 class="question" id="q7">Question 7: </h3>
 
-<p>Implement the function <code>count-stairways</code>, which takes a number (of
+<p>Implement the function <code>count&#x2d;stairways</code>, which takes a number (of
 steps).  Assuming we can take 1 or 2 steps, return the number of ways
 we can climb up the stairs.</p>
 
-<pre><code>(define (count-stairways n)
+<pre><code>(define (count&#x2d;stairways n)
     ; YOUR CODE HERE
     )
 
 ; Tests
-STk&gt; (count-stairways 4)
+STk&gt; (count&#x2d;stairways 4)
 5
-STk&gt; (count-stairways 5)
+STk&gt; (count&#x2d;stairways 5)
 8</code></pre>
 
 
@@ -299,11 +301,11 @@ STk&gt; (count-stairways 5)
 
     <div class="solution 2">
 
-<pre><code>(define (count-stairways n)
+<pre><code>(define (count&#x2d;stairways n)
     (cond ((= n 1) 1)
           ((= n 2) 2)
-          (else (+ (count-stairways (- n 1))
-                   (count-stairways (- n 2))))))</code></pre>
+          (else (+ (count&#x2d;stairways (&#x2d; n 1))
+                   (count&#x2d;stairways (&#x2d; n 2))))))</code></pre>
 
 </div>
     
@@ -327,6 +329,6 @@ STk&gt; (count-stairways 5)
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,12 +64,13 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#conceptual-questions">Conceptual Questions</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
-<li><a href="#q2">Question 2: </a></li>
-<li><a href="#q3">Question 3: </a></li>
+  <li><a href="#conceptual-questions">Conceptual Questions</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
+  <li><a href="#q3">Question 3: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -83,20 +84,20 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review Trees in the following places</p>
     
 <ul>
-  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/17-Structure_1pps.pdf">Lecture: Recursive Data</a></li>
+  <li><a href="http://cs61a.org/assets/slides/20-Composition_1pps.pdf">Lecture: Recursive Data</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php">Lab 6</a></li>
   <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion07.pdf">Discussion 7</a>
   </div>
 
-  We will be using the implementation of sets from lecture,
+  We will be using the OOP implementation of <code>Tree</code>s from lecture,
 found
-<a href="http://www-inst.eecs.berkeley.edu/~cs61a/sp13/slides/25.py">here</a>
+<a href="http://cs61a.org/assets/slides/20-Composition_1pps.pdf">here</a>
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -162,9 +163,9 @@ found
 <ol>
   <li>Tree()</li>
   <li>Tree(3)</li>
-  <li>Tree(5, Tree(1), Tree(5))</li>
-  <li>Tree(4, Tree(2))</li>
-  <li>Tree(2, Tree(2, 4, 5))</li>
+  <li>Tree(5, [Tree(1), Tree(5)])</li>
+  <li>Tree(4, [Tree(2)])</li>
+  <li>Tree(2, [Tree(2, [4, 5])])</li>
 </ol>
 
 
@@ -176,12 +177,11 @@ found
 
 <ol>
   <li>Invalid: trees must contain at least one element</li>
-  <li>alid: this constructs a leaf with 3 as its entry</li>
+  <li>Valid: this constructs a leaf with 3 as its entry</li>
   <li>Valid: this constructs a tree whose datum is 5, and has two children
   whose elements are 1 and 5</li>
-  <li>Valid: this is a Tree that does not have a right child</li>
-  <li>Invalid: the 2nd and 3rd argument to a Tree constructor must be
-  other Trees</li>
+  <li>Valid: this is a Tree that has one child</li>
+  <li>Invalid: the children of a tree must also be trees</li>
 </ol>
 
 </div>
@@ -199,11 +199,11 @@ three questions:</p>
 
   <p>Tree(25,</p>
 
-<pre><code> Tree(14,
-      Tree(9),
-      Tree(20)),
+<pre><code> [Tree(14,
+      [Tree(9),
+       Tree(20)]),
  Tree(30,
-      Tree(27)))</code></pre></li>
+      [Tree(27)])])</code></pre></li>
 </ol>
 
 
@@ -243,6 +243,6 @@ three questions:</p>
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>

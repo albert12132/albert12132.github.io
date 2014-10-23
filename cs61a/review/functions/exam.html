@@ -14,7 +14,7 @@
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-  <link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
     
 
     <!-- Google Analytics -->
@@ -64,16 +64,18 @@
 <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#what-would-python-print">What would Python print?</a></li>
-<ul>
-<li><a href="#q1">Question 1: </a></li>
-<li><a href="#q2">Question 2: </a></li>
+  <li><a href="#what-would-python-print">What would Python print?</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
 </ul>
-<li><a href="#code-writing-questions">Code-Writing questions</a></li>
-<ul>
-<li><a href="#q3">Question 3: </a></li>
-<li><a href="#q4">Question 4: </a></li>
+
+  <li><a href="#code-writing-questions">Code-Writing questions</a></li>
+  <ul>
+  <li><a href="#q3">Question 3: </a></li>
+  <li><a href="#q4">Question 4: </a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -87,7 +89,7 @@
       </div>
 
       <div id='content'>
-          <div id='reference'>
+        <div id='reference'>
     <h2>References</h2>
 
     <p>You can review Map, filter, and friends in the following places</p>
@@ -98,8 +100,8 @@
   </div>
 
   <strong>NOTE</strong>: The questions in this seciton are <strong>NOT</strong> reflective of the
-level of midterm -- they are much more difficult.  You should treat
-these questions as extra for experts -- don't focus too much on these
+level of midterm &mdash; they are much more difficult.  You should treat
+these questions as extra for experts &mdash; don't focus too much on these
 questions!
 
   <p>Each question has a "Toggle Solution" button -- click it to
@@ -186,7 +188,7 @@ string, may help you here.</p>
 
 <pre><code>def capitalize(s):
     return reduce(lambda x, y: x + &#x27; &#x27; + y,
-              map(lambda x, y: x.capitalize() if y.endswith(&#x27;.&#x27;) \
+              map(lambda x, y: x.capitalize() if y.endswith(&#x27;.&#x27;) \\
                                                   else x,
                       s.split(),
                       [&#x27;.&#x27;] + s.split()))</code></pre>
@@ -245,6 +247,6 @@ assume the list is of even length.</p>
       $.localScroll();
     });
   </script>
-    <script src='/cs61a/review/public/js/toggle.js'></script>
+  <script src='/cs61a/review/public/js/toggle.js'></script>
   
 </html>
