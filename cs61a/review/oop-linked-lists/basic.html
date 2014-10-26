@@ -188,7 +188,7 @@ not be mutated after it is created.</p>
     &gt;&gt;&gt; seq_to_link(seq)
     Link(1, Link(2, Link(3, Link(4))))
     &gt;&gt;&gt; null = ()
-    &gt;&gt;&gt; seq_to_rlist(null) is Link.empty
+    &gt;&gt;&gt; seq_to_link(null) is Link.empty
     True
     &quot;&quot;&quot;</code></pre>
 
@@ -203,7 +203,7 @@ not be mutated after it is created.</p>
 def seq_to_link(seq):
     if not seq:
         return Link.empty
-    return Link(seq[0], seq_to_rlist(seq[1:]))
+    return Link(seq[0], seq_to_link(seq[1:]))
 
 # iterative
 def seq_to_link(seq):
@@ -218,7 +218,7 @@ def seq_to_link(seq):
 <h3 class="question" id="q4">Question 4: </h3>
 
 <p>Implement a function <code>map_link</code>, which takes a Link and a function
-<code>fn</code>, and applies <code>fn</code> to every element in the Link. <code>map_rlist</code>
+<code>fn</code>, and applies <code>fn</code> to every element in the Link. <code>map_link</code>
 should <strong>mutate</strong> the Link &mdash; do not return a new one!</p>
 
 <pre><code>def map_link(fn, lst):
@@ -242,10 +242,10 @@ should <strong>mutate</strong> the Link &mdash; do not return a new one!</p>
 def map_link(fn, lst):
     if lst is not Link.empty:
         lst.first = fn(lst.first)
-        map_rlist(fn, lst.rest)
+        map_link(fn, lst.rest)
 
 # iterative
-def map_rlist(fn, lst):
+def map_link(fn, lst):
     while lst is not Link.empty:
         lst.first = fn(lst.first)
         lst = lst.rest</code></pre>
