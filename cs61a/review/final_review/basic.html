@@ -3,7 +3,7 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>:  | Albert Wu</title>
+    <title>Final review from section 12/5:  | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
@@ -38,7 +38,7 @@
 
     <div id='container'>
       <div id='logo'>
-        <h1 id='nav-bar-hide'>: </h1>
+        <h1 id='nav-bar-hide'>Final review from section 12/5: </h1>
       </div>
 
       <div id='nav-bar'>
@@ -64,104 +64,26 @@
 <h3>Contents</h3>
 <div>
 <ul>
-  <li><a href="#---------">---------</a></li>
-  <li><a href="#content">CONTENT</a></li>
-  <li><a href="#---------">---------</a></li>
+  <li><a href="#scheme">Scheme</a></li>
   <ul>
-  <li><a href="#s-2-a-b-c-d">s = 2 | a b  c  d</a></li>
-  <li><a href="#s-2-a-b-c-d">s = 2 | a b  c  d</a></li>
+  <li><a href="#q1">Question 1: </a></li>
 </ul>
 
-  <li><a href="#None">{</a></li>
-  <li><a href="#description-implement-a-class-mergeiter-which">'description': """Implement a class <tt>MergeIter</tt>, which</a></li>
-  <li><a href="#takes-in-a-comparison-function-two-iterables-and-iterates">takes in a comparison function, two iterables, and iterates</a></li>
-  <li><a href="#through-elements-of-both-iterables-in-sorted-order-sorted-by">through elements of both iterables in sorted order (sorted by</a></li>
-  <li><a href="#the-comparison-function-you-may-assume-the-iterables-do">the comparison function). You may assume the iterables do</a></li>
-  <li><a href="#not-start-out-as-empty">not start out as empty""",</a></li>
-  <li><a href="#code">'code': """</a></li>
-  <li><a href="#class-mergeiter">class MergeIter:</a></li>
-  <li><a href="#doctests">\"\"\"Doctests:</a></li>
-  <li><a href="#None"></a></li>
-  <li><a href="#for-elem-in-m">>>> for elem in m:</a></li>
-  <li><a href="#print-elem">...     print(elem)</a></li>
-  <li><a href="#1">1</a></li>
-  <li><a href="#2">2</a></li>
-  <li><a href="#3">3</a></li>
-  <li><a href="#4">4</a></li>
-  <li><a href="#5">5</a></li>
-  <li><a href="#6">6</a></li>
-  <li><a href="#None">\"\"\"</a></li>
-  <li><a href="#your-code-here">"<strong>* YOUR CODE HERE </strong>*" """,</a></li>
-  <li><a href="#solution">'solution': """</a></li>
-  <li><a href="#class-mergeiter">class MergeIter:</a></li>
-  <li><a href="#def-init-self-comp-iter1-iter2">def <strong>init</strong>(self, comp, iter1, iter2):</a></li>
-  <li><a href="#self-comp-comp">self.comp = comp</a></li>
-  <li><a href="#self-iter1-iter-iter1">self.iter1 = iter(iter1)</a></li>
-  <li><a href="#self-iter2-iter-iter2">self.iter2 = iter(iter2)</a></li>
-  <li><a href="#self-elem1-next-self-iter1">self.elem1 = next(self.iter1)</a></li>
-  <li><a href="#self-elem2-next-self-iter2">self.elem2 = next(self.iter2)</a></li>
-  <li><a href="#None"></a></li>
-  <li><a href="#def-iter-self">def <strong>iter</strong>(self):</a></li>
-  <li><a href="#return-self">return self</a></li>
-  <li><a href="#None"></a></li>
-  <li><a href="#def-next-self">def <strong>next</strong>(self):</a></li>
-  <li><a href="#if-self-comp-self-elem1-self-elem2">if self.comp(self.elem1, self.elem2):</a></li>
-  <li><a href="#result-self-elem1">result = self.elem1</a></li>
-  <li><a href="#self-elem1-next-self-iter1">self.elem1 = next(self.iter1)</a></li>
-  <li><a href="#else">else:</a></li>
-  <li><a href="#result-self-elem2">result = self.elem2</a></li>
-  <li><a href="#self-elem2-next-self-iter2">self.elem2 = next(self.iter2)</a></li>
-  <li><a href="#return-result">return result</a></li>
-  <li><a href="#None"></a></li>
-  <li><a href="#using-a-generator-expression-for-iter"># Using a generator expression for <strong>iter</strong></a></li>
-  <li><a href="#class-mergeiter">class MergeIter:</a></li>
-  <li><a href="#def-init-self-comp-iter1-iter2">def <strong>init</strong>(self, comp, iter1, iter2):</a></li>
-  <li><a href="#self-comp-comp">self.comp = comp</a></li>
-  <li><a href="#self-iter1-iter-iter1">self.iter1 = iter(iter1)</a></li>
-  <li><a href="#self-iter2-iter-iter2">self.iter2 = iter(iter2)</a></li>
-  <li><a href="#None"></a></li>
-  <li><a href="#def-iter-self">def <strong>iter</strong>(self):</a></li>
-  <li><a href="#elem1-elem2-next-self-iter1-next-self-iter2">elem1, elem2 = next(self.iter1), next(self.iter2)</a></li>
-  <li><a href="#while-true">while True:</a></li>
-  <li><a href="#if-self-comp-elem1-elem2">if self.comp(elem1, elem2):</a></li>
-  <li><a href="#yield-elem1">yield elem1</a></li>
-  <li><a href="#elem1-next-self-iter1">elem1 = next(self.iter1)</a></li>
-  <li><a href="#else">else:</a></li>
-  <li><a href="#yield-elem2">yield elem2</a></li>
-  <li><a href="#elem2-next-self-iter2">elem2 = next(self.iter2)""",</a></li>
-  <li><a href="#explanation-for-the-solution-using-next">'explanation': """For the solution using <tt><strong>next</strong></tt>,</a></li>
-  <li><a href="#let-s-first-look-at-the-init-since-iter1">let's first look at the <tt><strong>init</strong></tt>. Since <tt>iter1</tt></a></li>
-  <li><a href="#and-iter2-are-defined-to-be-iterables-not">and <tt>iter2</tt> are defined to be <i>iterables</i>, not</a></li>
-  <li><a href="#iterators-we-need-to-first-call-iter-on-them"><i>iterators</i>, we need to first call <tt>iter</tt> on them</a></li>
-  <li><a href="#to-extract-their-iterators-this-is-so-we-can-call">to extract their iterators (this is so we can call</a></li>
-  <li><a href="#next-later-on-we-also-extract-the-first-elements"><tt>next</tt> later on). We also extract the first elements</a></li>
-  <li><a href="#in-the-iterators-to-get-self-elem1-and">in the iterators to get <tt>self.elem1</tt> and</a></li>
-  <li><a href="#self-elem2-this-will-become-useful-later-on"><tt>self.elem2</tt>. This will become useful later on.</p></a></li>
-  <li><a href="#recall-that-the-iter-method-must-always-return"><p>Recall that the <tt>iter</tt> method must always return</a></li>
-  <li><a href="#an-iterator-and-an-iterator-by-definition-must-have-a">an iterator, and an iterator, by definition, must have a</a></li>
-  <li><a href="#next-method-since-we-are-returning-self"><tt>next</tt> method. Since we are returning <tt>self</tt>,</a></li>
-  <li><a href="#this-implies-our-class-must-have-a-next-method">this implies our class must have a <tt>next</tt> method.</p></a></li>
-  <li><a href="#in-next-we-compare-the-current-elements-of"><p>In <tt><strong>next</strong></tt>, we compare the current elements of</a></li>
-  <li><a href="#both-iterators-if-self-comp-returns-true-this">both iterators. If <tt>self.comp</tt> returns True, this</a></li>
-  <li><a href="#signals-that-the-next-element-to-return-will-be-the-element">signals that the next element to return will be the element</a></li>
-  <li><a href="#from-the-first-iterator-we-save-self-elem1-inside-a">from the first iterator. We save <tt>self.elem1</tt> inside a</a></li>
-  <li><a href="#temporary-variable-and-then-overwrite-self-elem1-with">temporary variable, and then overwrite <tt>self.elem1</tt> with</a></li>
-  <li><a href="#the-next-element-in-self-iter1-we-do-something">the next element in <tt>self.iter1</tt>. We do something</a></li>
-  <li><a href="#similar-if-self-comp-returns-false-instead">similar if <tt>self.comp</tt> returns False instead.</p></a></li>
-  <li><a href="#for-the-version-that-uses-a-generator-expression-observe"><p>For the version that uses a generator expression, observe</a></li>
-  <li><a href="#that-by-using-a-yield-statement-we-convert-the">that, by using a <tt>yield</tt> statement, we convert the</a></li>
-  <li><a href="#iter-method-into-a-generator-function-by-their"><tt><strong>iter</strong></tt> method into a generator function. By their</a></li>
-  <li><a href="#nature-generator-functions-always-return-iterators-so-this">nature, generator functions always return iterators, so this</a></li>
-  <li><a href="#fits-the-requirement-that-iter-must-return-an">fits the requirement that <tt><strong>iter</strong></tt> must return an</a></li>
-  <li><a href="#iterator-the-logic-in-this-version-is-very-much-the-same-as">iterator. The logic in this version is very much the same as</a></li>
-  <li><a href="#before-the-only-difference-is-we-don-t-need-to-save-instance">before. The only difference is we don't need to save instance</a></li>
-  <li><a href="#variables-for-elem1-and-elem2-since-the">variables for <tt>elem1</tt> and <tt>elem2</tt>, since the</a></li>
-  <li><a href="#generator-function-can-save-state-for-us">generator function can save state for us."""</a></li>
-  <li><a href="#None"></a></li>
-  <li><a href="#None">},</a></li>
-  <li><a href="#-------------------">-------------------</a></li>
-  <li><a href="#compiling-strings">COMPILING STRINGS</a></li>
-  <li><a href="#-------------------">-------------------</a></li>
+  <li><a href="#interpreters">Interpreters</a></li>
+  <ul>
+  <li><a href="#q2">Question 2: </a></li>
+  <li><a href="#q3">Question 3: </a></li>
+  <li><a href="#q4">Question 4: </a></li>
+  <li><a href="#q5">Question 5: </a></li>
+</ul>
+
+  <li><a href="#iterators-and-generators">Iterators and Generators</a></li>
+  <li><a href="#streams">Streams</a></li>
+  <ul>
+  <li><a href="#q6">Question 6: </a></li>
+  <li><a href="#q7">Question 7: </a></li>
+</ul>
+
 </ul>
 
 </div>
@@ -178,11 +100,13 @@
         <div id='reference'>
     <h2>References</h2>
 
-    <p>You can review  in the following places</p>
+    <p>You can review Final review from section 12/5 in the following places</p>
     
   </div>
 
   
+<p>These questions were written for my section on 12/4.</p>
+
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -191,6 +115,476 @@
     solutions.</noscript>
 
   
+
+<h2 id="scheme">Scheme</h2>
+
+
+<h3 class="question" id="q1">Question 1: </h3>
+
+<p>Implement a function <code>flatten</code> which takes a nested Scheme list and
+flattens it. For example,</p>
+
+<pre><code>STk&gt; (flatten &#x27;(1 (2 (3) 4) 5 6))
+(1 2 3 4 5 6)</code></pre>
+
+<p>Here is the skeleton code:</p>
+
+<pre><code>(define (flatten lst)
+  ; Your code here
+  )</code></pre>
+
+
+    <button id='0' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 0">
+
+<pre><code>(define (flatten lst)
+  (cond ((null? lst) nil)
+        ((list? (car lst)) (append (flatten (car lst))
+                                   (flatten (cdr lst))))
+        (else (cons (car lst) (flatten (cdr lst))))
+  )
+)</code></pre>
+
+<p>This question tests various list manipulation techniques. The solution
+is written recursively, with the following cases:</p>
+
+<ul>
+  <li>If the list is empty, then flattening it does nothing. Just return an
+  empty list.</li>
+  <li><p>If the first element of the list is a nested list (<code>(list? (car
+  lst))</code>), then append it to the flattened version of the rest of the
+  list. For example, for the list</p>
+
+<pre><code>((2 (3) 4) 5 6)</code></pre>
+
+  <p>The first element is <code>(2 (3) 4)</code>, so to get the flattened list, we do
+  the following:</p>
+
+  <ol>
+    <li>Flatten the first element: <code>(flatten &#x27;(2 (3) 4)) &#x2d;&#x2d;&gt; (2 3 4)</code></li>
+    <li>Flatten the rest: <code>(flatten &#x27;(5 6)) &#x2d;&#x2d;&gt; (5 6)</code></li>
+    <li>Join the results by using <code>append</code>, e.g.</li>
+  </ol></li>
+  <li>Otherwise, the first element of the list is not a list. Simply leave
+  it as is and flatten the rest of list.</li>
+</ul>
+
+</div>
+    
+
+
+<h2 id="interpreters">Interpreters</h2>
+
+
+<h3 class="question" id="q2">Question 2: </h3>
+
+<p>Find the <code>Pair</code> representation of the following Scheme expression:</p>
+
+<pre><code>(1 2 . (3 . 4))</code></pre>
+
+
+    <button id='1' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 1">
+
+<p>First, notice that this is the same thing as</p>
+
+<pre><code>(1 2 3 . 4)</code></pre>
+
+<p>Then the <code>Pair</code> representation is</p>
+
+<pre><code>Pair(1,
+     Pair(2,
+          Pair(3, 4)))</code></pre>
+
+<p>Notice that this is different than the <code>Pair</code> representation for <code>(1 2
+3 4)</code>, which would be</p>
+
+<pre><code>Pair(1,
+     Pair(2,
+          Pair(3,
+               Pair(4, nil))))</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q3">Question 3: </h3>
+
+<p><em>From Fall 2013</em>: Convert the following Scheme expression into its Pair
+representation (i.e. what <code>scheme_read</code> would return):</p>
+
+<pre><code>(+ 3 &#x27;(4 8) &#x27;hi)</code></pre>
+
+
+    <button id='2' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 2">
+
+<p>Let <code>P</code> denote <code>Pair</code>. The solution is</p>
+
+<pre><code>P(&#x27;+&#x27;,
+  P(3,
+    P( P(&#x27;quote&#x27;, P(P(4, P(8, nil)), nil)),
+      P( P(&#x27;quote&#x27;, P(&#x27;hi&#x27;, nil)),
+        nil)))):</code></pre>
+
+<p>First ignore the nested lists and quotes:</p>
+
+<pre><code>(+ 3 ___  ___)</code></pre>
+
+<p>This would generate the following Pair representation</p>
+
+<pre><code>P(&#x27;+&#x27;, P(3, P(___, P(___, nil))))</code></pre>
+
+<p>Now we just have to fill in the two blanks. The first blank corresponds
+to <code>&#x27;(4 8)</code>. This has a Pair representation like this</p>
+
+<pre><code>P(&#x27;quote&#x27;, P( P(4, P(8, nil)) , nil))</code></pre>
+
+<p>(Review Q1 of Proj4 if you are unsure why the quote was converted in this way). The
+second blank correpsonds to <code>&#x27;hi</code> and it gets converted into</p>
+
+<pre><code>P(&#x27;quote&#x27;, P(&#x27;hi&#x27;, nil))</code></pre>
+
+<p>Put these together to get the final solution.</p>
+
+</div>
+    
+
+<h3 class="question" id="q4">Question 4: </h3>
+
+<p>Count how many times <code>scheme_eval</code> and <code>scheme_apply</code> are called for
+the following expression:</p>
+
+<pre><code>(+ 1 (&#x2d; 2 3))</code></pre>
+
+
+    <button id='3' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 3">
+
+<ul>
+  <li><code>scheme_apply</code> is called 2 times. Observe that there are only two
+  function calls in this expression: <code>+</code> and <code>&#x2d;</code>.</li>
+  <li><p><code>scheme_eval</code> is called 7 times:</p>
+
+  <ol>
+    <li>Once for the entire expression <code>(+ 1 (&#x2d; 2 3))</code></li>
+    <li>Once for <code>+</code></li>
+    <li>Once for <code>1</code></li>
+    <li>Once for <code>(&#x2d; 2 3)</code>. Since this is also a function call, we need
+    to evaluate all of its operators and operands:</li>
+    <li>Once for <code>&#x2d;</code></li>
+    <li>Once for <code>2</code></li>
+    <li>Once for <code>3</code>.</li>
+  </ol></li>
+</ul>
+
+</div>
+    
+
+<h3 class="question" id="q5">Question 5: </h3>
+
+<p>Given the following function</p>
+
+<pre><code>(define (square x) (* x x))</code></pre>
+
+<p>How many times are <code>scheme_eval</code> and <code>scheme_apply</code> called for the
+following expression?</p>
+
+<pre><code>(+ 2 (square 4))</code></pre>
+
+
+    <button id='4' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 4">
+
+<ul>
+  <li><code>scheme_eval</code>: 10 times</li>
+  <li><code>scheme_apply</code>: 3 times</li>
+</ul>
+
+<p>For apply, a good rule of thumb is to count the number of functions
+(primitive and user-defined) that are called. In this case, we call
+<code>+</code>, <code>square</code>, and <code>*</code> (when we evaluate the body of <code>square</code>).  Thus,
+apply is called 3 times.</p>
+
+<p>For eval, each of the following bullets represents one
+call to <code>scheme_eval</code>::</p>
+
+<ul>
+  <li><p><code>(+ 2 (square 4))</code></p>
+
+  <ul>
+    <li><code>+</code></li>
+    <li><code>2</code></li>
+    <li><p><code>(square 4)</code></p>
+
+    <ul>
+      <li><code>square</code></li>
+      <li><code>4</code></li>
+      <li><p><code>(* x x)</code></p>
+
+      <ul>
+        <li><code>*</code></li>
+        <li><code>x</code></li>
+        <li><code>x</code></li>
+      </ul></li>
+    </ul></li>
+  </ul></li>
+</ul>
+
+<p>Thus, we have a total of 10 calls to <code>scheme_eval</code>.</p>
+
+</div>
+    
+
+
+<h2 id="iterators-and-generators">Iterators and Generators</h2>
+
+
+<p>Implement an iterable class <code>IndexOf</code>, which takes a string and a
+substring in its constructor.  When you iterate over an instance of
+<code>IndexOf</code>, it will produce the indices at which the substring occurs in
+the string. Consider the following example:</p>
+
+<pre><code>&gt;&gt;&gt; indices = IndexOf(&#x27;aba&#x27;, &#x27;ababaaba&#x27;)
+&gt;&gt;&gt; for i in indices:
+...     print(i)
+0
+2
+5</code></pre>
+
+<p>The substring <code>&#x27;aba&#x27;</code> occurs at indices 0, 2, and 5 in the string
+<code>&#x27;ababaaba&#x27;</code>.</p>
+
+<p><em>Hint</em>: Strings have a method called <code>startswith</code>, which can be used to
+check if a string startswith another string. For example:</p>
+
+<pre><code>&gt;&gt;&gt; &#x27;ababaaba&#x27;.startswith(&#x27;aba&#x27;)
+True</code></pre>
+
+<p>You may modify the following class definition in any way you like.</p>
+
+<pre><code>class IndexOf:
+    def __init__(self, substr, string):
+        self.string = string
+        self.substr = substr
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+
+    <button id='5' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 5">
+
+<p>There are many ways to solve this question. We will present two ways:
+1) by using an <code>__iter__</code> and <code>__next__</code> method; and 2) by implementing
+<code>__iter__</code> as a generator function.</p>
+
+<p>Here is a solution for using <code>__iter__</code> and <code>__next__</code>:</p>
+
+<pre><code>class IndexOf:
+    def __init__(self, substr, string):
+        self.string = string
+        self.substr = substr
+        self.index = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        while self.index &lt; len(self.string) \
+              and self.string[self.index:].startswith(self.substr):
+            self.index += 1
+        if self.index &gt;= len(self.string):
+            raise StopIteration
+        elif self.string[self.index:].startswith(self.substr):
+            answer = self.index
+            self.index += 1
+            return answer</code></pre>
+
+<p>Again, there are many variants to this, but the solutions should all
+have the following components:</p>
+
+<ul>
+  <li>Have a way to keep track of the current index (<code>self.index</code>)</li>
+  <li>Raise a <code>StopIteration</code> error if the index exceeds the length of the
+  string. This is how Python will know that the iterator stops.</li>
+  <li><p>Move down <code>self.string</code>, one character at a time.</p>
+
+  <ul>
+    <li>If the suffix of <code>self.string</code> starting at the current index does
+    not start with <code>self.substr</code>, move down <code>self.string</code> until this
+    is the case. For example, if we are at index 1 in our string,
+    then the suffix starting at index 1 is <code>self.string[1:] =
+    &#x27;babaaba&#x27;</code>.</li>
+    <li>If the suffix of <code>self.string</code> starting at the current index
+    starts with <code>self.substr</code>, then return that index.</li>
+  </ul></li>
+</ul>
+
+<p>The second way to solve this is to make <code>__iter__</code> a generator
+function:</p>
+
+<pre><code>class IndexOf:
+    def __init__(self, substr, string):
+        self.string = string
+        self.substr = substr
+
+    def __iter__(self):
+        index = 0
+        while index &lt; len(self.string):
+            if self.string[index:].startswith(self.substr):
+                yield index
+            index += 1</code></pre>
+
+<p>Recall that if a function uses a <code>yield</code> statement, it is considered by
+Python to be a generator function. When a generator function is called,
+it will <strong>return a generator object</strong>. That means when <code>__iter__</code> is
+called, it will return a generator object.</p>
+
+<p>The generator itself works as follows:</p>
+
+<ol>
+  <li>Move down <code>self.string</code>, one character at a time, while keeping
+  track of each index.</li>
+  <li>If the suffix starting at the current index starts with
+  <code>self.substr</code>, yield that index.</li>
+</ol>
+
+<p>Once the while loop terminates, the generator will implicitly raise a
+<code>StopIteration</code>, so there is no reason to write <code>raise StopIteration</code>.</p>
+
+</div>
+    
+
+
+<h2 id="streams">Streams</h2>
+
+
+<h3 class="question" id="q6">Question 6: </h3>
+
+<p>Given the following function that returns a stream, what are the first
+5 elements of the stream?</p>
+
+<pre><code>def my_stream():
+    def compute_rest():
+        return add_stream(my_stream(), scale_stream(2, my_stream()))
+    return Stream(2, compute_rest)</code></pre>
+
+
+    <button id='6' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 6">
+
+<pre><code>2, 6, 18, 54, 162</code></pre>
+
+<p>First, we write down our stream, with variables filling in the values
+we don't know:</p>
+
+<pre><code>s = 2 a b c d</code></pre>
+
+<p>Notice that, to compute the rest, we add together two streams: the
+original stream, plus the original stream scaled by 2. This looks like
+this:</p>
+
+<pre><code>s = 2 | a b  c  d
+&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;
+      | 2 a  b  c
+    + | 4 2a 2b 2c
+&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;</code></pre>
+
+<p>We go ahead and add up the first column to get 2 + 4 = 6. Now we know
+that <code>a = 6</code>. We can use this new information to calculate <code>b = a + 2a
+= 6 + 2(6) = 18</code>. We continue this process to get the remaining
+elements:</p>
+
+<pre><code>s = 2 | a b  c  d
+&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;
+      | 2 a  b  c
+    + | 4 2a 2b 2c
+&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;&#x2d;
+      | 6 18 54 162</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q7">Question 7: </h3>
+
+<p>Implement a function <code>num_stream</code> that returns a Stream whose elements
+have the following pattern:</p>
+
+<pre><code>1, 1, 2, 1, 2, 3, 1, 2, 3, 4, ...
+_  ____  _______  __________</code></pre>
+
+<p>A skeleton has been provided:</p>
+
+<pre><code>def num_stream():
+    def helper(i, j):
+        def compute_rest():
+            ___________________
+            ___________________
+            ___________________
+            ___________________
+        return Stream(______, compute_rest)
+    return helper(_____, _____)</code></pre>
+
+
+    <button id='7' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 7">
+
+<p>First, notice the pattern of the sequence:</p>
+
+<pre><code>1, 1, 2, 1, 2, 3, 1, 2, 3, 4, ...
+_  ____  _______  __________
+1  2     3        4</code></pre>
+
+<p>We can use <code>i</code>  to keep track of which block we're in and use <code>j</code> to
+keep track of where we are in that block:</p>
+
+<pre><code>s: 1, 1, 2, 1, 2, 3, 1, 2, 3, 4, ...
+   _  ____  _______  __________
+i: 1  2  2  3  3  3  4  4  4  4
+j: 1  1  2  1  2  3  1  2  3  4</code></pre>
+
+<p>It follows that <code>j</code> should never be greater than <code>i</code>. With this, we can
+complete our solution:</p>
+
+<pre><code>def num_stream():
+    def helper(i, j):
+        def compute_rest():
+            if j &gt;= i:
+                return helper(i + 1, 1)
+            else:
+                return helper(i, j + 1)
+        return Stream(j, compute_rest)
+    return helper(1, 1)</code></pre>
+
+<p>In <code>compute_rest</code>, when <code>j &gt;= i</code>, then <code>i</code> should move onto the next
+block (<code>i + 1</code>), and <code>j</code> should restart to 1 (since it's the start of
+the new block).</p>
+
+</div>
+    
+
   </div>
       </div>
     </div>
