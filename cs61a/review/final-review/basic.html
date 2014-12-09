@@ -407,7 +407,7 @@ True</code></pre>
 
     def __next__(self):
         while self.index &lt; len(self.string) \
-              and self.string[self.index:].startswith(self.substr):
+              and not self.string[self.index:].startswith(self.substr):
             self.index += 1
         if self.index &gt;= len(self.string):
             raise StopIteration
