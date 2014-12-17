@@ -309,9 +309,11 @@ nested list, including its closing parenthesis:</p>
 if tokens[0] == &#x27;(&#x27;:
     if not is_pyramid(tokens):
         return False
-...&quot;&quot;&quot;) + &quot;&quot;&quot;How do we handle a number? Simply
-        remove it from the list of tokens:&quot;&quot;&quot; + prettify(&quot;&quot;&quot;
-...
+...</code></pre>
+
+<p>How do we handle a number? Simply remove it from the list of tokens:</p>
+
+<pre><code>...
 else:
     tokens.pop(0)
 ...</code></pre>
@@ -330,9 +332,11 @@ if not tokens:
     return False
 else:
     tokens.pop(0)
-    return True&quot;&quot;&quot;) + &quot;&quot;&quot;At this point, our code
-    looks like this:&quot;&quot;&quot; + prettify(&quot;&quot;&quot;
-def is_pyramid(tokens):
+    return True</code></pre>
+
+<p>At this point, our code looks like this:</p>
+
+<pre><code>def is_pyramid(tokens):
     if not tokens or tokens[0] != &#x27;(&#x27;:
         return False
     tokens.pop(0)
@@ -414,10 +418,11 @@ count:</p>
 <pre><code>if not tokens:
     return False
 else:
-    return direction == 1 or count == 0&quot;&quot;&quot;) + &quot;&quot;&quot;Overall,
-    our code looks like this:
+    return direction == 1 or count == 0</code></pre>
 
-def is_pyramid(tokens):
+<p>Overall, our code looks like this:</p>
+
+<pre><code>def is_pyramid(tokens):
     if not tokens or tokens[0] != &#x27;(&#x27;:
         return False
     tokens.pop(0)
