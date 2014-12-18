@@ -158,7 +158,7 @@ values.</p>
 
 <pre><code>def sprout_leaves(t, vals):
     if not t.branches:
-        t.branches = list(vals)
+        t.branches = [Tree(v) for v in vals]
     else:
         for branch in t.branches:
             sprout_leaves(branch, vals)</code></pre>
