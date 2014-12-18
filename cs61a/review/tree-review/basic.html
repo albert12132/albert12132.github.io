@@ -184,7 +184,7 @@ the list of values.</p>
 
 <pre><code>def prune_leaves(t, vals):
     if not t.branches:
-        if t.entry in vals:
+        if t.entry not in vals:
             return t
         else:
             return None
