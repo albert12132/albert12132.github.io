@@ -188,7 +188,7 @@ the list of values.</p>
             return t
         else:
             return None
-    new_branches = [prune_leaves(branch) for branch in t.branches]
+    new_branches = [prune_leaves(branch, vals) for branch in t.branches]
     t.branches = [b for b in new_branches if b is not None]
     return t</code></pre>
 
