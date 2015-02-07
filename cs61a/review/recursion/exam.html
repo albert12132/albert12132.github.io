@@ -50,18 +50,7 @@
           </ul>
         </div>
         <div id='accordion'>
-          <h3>Navigation</h3>
-<div>
-  <ul>
-    <li><a href='/cs61a/review'>All Topics</a></li>
-    <li><a href='/cs61a/review/mt1'>Midterm
-      1</a></li>
-    <li><a href='/cs61a/review/mt2'>Midterm
-      2</a></li>
-    <li><a href='/cs61a/review/final'>Final</a></li>
-  </ul>
-</div>
-<h3>Contents</h3>
+          <h3>Contents</h3>
 <div>
 <ul>
   <li><a href="#code-writing-questions">Code-Writing Questions</a></li>
@@ -74,6 +63,17 @@
 
 </ul>
 
+</div>
+<h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/review'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final'>Final</a></li>
+  </ul>
 </div>
         </div>
         <div id='nav-bar-fixed'>
@@ -127,20 +127,19 @@ following ideas:</p>
   <li><p>if none of the actions can force a win, then we can't guarantee a
   win.</p>
 
-  <p>def can_win(number):</p>
+<pre><code>def can_win(number):
+    &quot;&quot;&quot;Returns True if the current player is guaranteed a win
+    starting from the given state. It is impossible to win a game
+    from an invalid game state.
 
-<pre><code>&quot;&quot;&quot;Returns True if the current player is guaranteed a win
-starting from the given state. It is impossible to win a game
-from an invalid game state.
-
-&gt;&gt;&gt; can_win (&#x2d;1) # invalid game state
-False
-&gt;&gt;&gt; can_win (3) # take all three !
-True
-&gt;&gt;&gt; can_win (4)
-False
-&quot;&quot;&quot;
-&quot;*** YOUR CODE HERE ***&quot;</code></pre></li>
+    &gt;&gt;&gt; can_win (&#x2d;1) # invalid game state
+    False
+    &gt;&gt;&gt; can_win (3) # take all three !
+    True
+    &gt;&gt;&gt; can_win (4)
+    False
+    &quot;&quot;&quot;
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre></li>
 </ul>
 
 
