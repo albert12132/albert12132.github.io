@@ -54,30 +54,33 @@
           <h3>Contents</h3>
 <div>
 <ul>
-<li><a href="#preface-a-defense">Preface: a defense</a></li>
-<li><a href="#purpose">Purpose</a></li>
-<li><a href="#terminology">Terminology</a></li>
-<ul>
-<li><a href="#frames">Frames</a></li>
-<li><a href="#variables-versus-values">Variables versus Values</a></li>
-<li><a href="#arrows-pointers">Arrows/Pointers</a></li>
+  <li><a href="#preface-a-defense">Preface: a defense</a></li>
+  <li><a href="#purpose">Purpose</a></li>
+  <li><a href="#terminology">Terminology</a></li>
+  <ul>
+  <li><a href="#frames">Frames</a></li>
+  <li><a href="#variables-versus-values">Variables versus Values</a></li>
+  <li><a href="#arrows-pointers">Arrows/Pointers</a></li>
 </ul>
-<li><a href="#drawing-diagrams">Drawing diagrams</a></li>
-<ul>
-<li><a href="#global-frame">Global Frame</a></li>
-<li><a href="#bindings">Bindings</a></li>
-<li><a href="#function-calls">Function calls</a></li>
-<li><a href="#additional-rules">Additional rules</a></li>
+
+  <li><a href="#drawing-diagrams">Drawing diagrams</a></li>
+  <ul>
+  <li><a href="#global-frame">Global Frame</a></li>
+  <li><a href="#bindings">Bindings</a></li>
+  <li><a href="#function-calls">Function calls</a></li>
+  <li><a href="#additional-rules">Additional rules</a></li>
 </ul>
-<li><a href="#variable-lookup">Variable lookup</a></li>
-<li><a href="#more-complicated-examples">More complicated examples</a></li>
-<ul>
-<li><a href="#function-calls-in-function-bodies">Function calls in function bodies</a></li>
-<li><a href="#function-calls-as-operands">Function calls as operands</a></li>
-<li><a href="#reassigning-functions">Reassigning functions</a></li>
-<li><a href="#nested-functions">Nested functions</a></li>
-<li><a href="#built-in-functions">Built-in functions</a></li>
+
+  <li><a href="#variable-lookup">Variable lookup</a></li>
+  <li><a href="#more-complicated-examples">More complicated examples</a></li>
+  <ul>
+  <li><a href="#function-calls-in-function-bodies">Function calls in function bodies</a></li>
+  <li><a href="#function-calls-as-operands">Function calls as operands</a></li>
+  <li><a href="#reassigning-functions">Reassigning functions</a></li>
+  <li><a href="#nested-functions">Nested functions</a></li>
+  <li><a href="#built-in-functions">Built-in functions</a></li>
 </ul>
+
 </ul>
 
 </div>
@@ -115,7 +118,7 @@ necessarily reflect the views of the rest of the teaching staff.</p>
   <li><p><strong>Environment diagrams are too conceptual/not practical.</strong></p>
 
   <p>61A (and Computer Science in general) is not just about writing code
-  -- it's about understanding <em>why</em> things work the way they do.
+  &mdash; it's about understanding <em>why</em> things work the way they do.
   Environment diagrams are very conceptual, but that fits into the
   goal of this course.</p>
 
@@ -133,7 +136,7 @@ necessarily reflect the views of the rest of the teaching staff.</p>
   <ol>
     <li>You can't remember all the rules. If that's the case, just keep
     practicing and practicing. Also, keep in mind that these rules
-    aren't arbitrary -- they reflect what a computer actually does.
+    aren't arbitrary &mdash; they reflect what a computer actually does.
     Each rule exists for a reason.</li>
     <li>You expect the program to behave differently than the diagram. In
     that case, you should take the time to really understand why each
@@ -185,6 +188,7 @@ systematic way to keep track of otherwise unclear effects.</p>
 
 <h3 id="frames">Frames</h3>
 
+
 <p>A <strong>frame</strong> keeps track of variable-to-value bindings. Every function
 call keeps track of its own set of bindings (e.g. it has its own
 <strong>scope</strong>), so every <em>function call</em> has a corresponding frame.</p>
@@ -193,7 +197,7 @@ call keeps track of its own set of bindings (e.g. it has its own
 Global doesn't correspond to a specific function</p>
 
 <p>Every frame except for Global has a <strong>parent frame</strong>. When function is
-called, its corresponding frame immediately has a parent -- that
+called, its corresponding frame immediately has a parent &mdash; that
 parent is the <em>frame in which that function was defined</em>. When doing
 variable lookup, if you can't find a variable in the current frame,
 you look in its parent.</p>
@@ -204,6 +208,7 @@ doesn't have to have a number.</p>
 
 
 <h3 id="variables-versus-values">Variables versus Values</h3>
+
 
 <p>A <strong>variable</strong> (or a <strong>name</strong>) is distinct from the <strong>value</strong> to which
 it is assigned. For example, consider the following simple assignment:</p>
@@ -227,6 +232,7 @@ are bound.</p>
 
 <h3 id="arrows-pointers">Arrows/Pointers</h3>
 
+
 <p>In some bindings, we draw <strong>arrows</strong> (or <strong>pointers</strong>) from the
 variable to the value. This isn't just an arbitrary aesthetic design.
 A pointer represents a <em>reference</em> to a value. We'll talk more about
@@ -249,11 +255,13 @@ square(y)</code></pre>
 
 <h3 id="global-frame">Global Frame</h3>
 
+
 <p>Always start by drawing the Global frame. This occurs before any of
 the code is executed (e.g. before <code>x = 3</code> is executed).</p>
 
 
 <h3 id="bindings">Bindings</h3>
+
 
 <p>We draw <strong>bindings</strong> when one of the following occurs:</p>
 
@@ -312,7 +320,7 @@ first. Notice in the following diagram that <code>y</code> is bound to <code>6</
 <pre><code>def square(x):
     return x*x</code></pre>
 
-<p>Here, we are just <em>defining</em> a function -- we are <strong>not</strong> <em>calling</em>
+<p>Here, we are just <em>defining</em> a function &mdash; we are <strong>not</strong> <em>calling</em>
 the function. That makes sense; when you type in a <code>def</code> statement to
 an interpreter, you don't execute the body of the function right away
 (e.g. when you define <code>square</code>, you don't immediately calculate
@@ -321,13 +329,14 @@ an interpreter, you don't execute the body of the function right away
 <p><img src="public/img/environments/def-square.png" alt="def square(x):"></p>
 
 <p>The variable is <code>square</code>, and the value is an arrow pointing to a
-function object. Notice the <em>function object</em> also says <code>square</code> --
+function object. Notice the <em>function object</em> also says <code>square</code> &mdash;
 this is called its <strong>intrinsic name</strong>, and is a separate entity from
-the <em>variable</em> -- even though, right now, they both say <code>square</code>, they
+the <em>variable</em> &mdash; even though, right now, they both say <code>square</code>, they
 are distinct.</p>
 
 
 <h3 id="function-calls">Function calls</h3>
+
 
 <p>So far, we've only dealt with bindings, such as variable assignments
 and <code>def</code> statements. Now, we will draw <strong>function calls</strong>. An example
@@ -343,7 +352,7 @@ of a function call is <code>square(y)</code>. There are five simple steps:</p>
     <li>the frame's <strong>parent</strong> (the frame in which the function was
     defined), in the top-right corner. If the parent is Global, you
     don't have to write anything</li>
-    <li>a <strong>frame number</strong> in the top-left corner -- this is only
+    <li>a <strong>frame number</strong> in the top-left corner &mdash; this is only
     needed if there are nested functions.</li>
   </ol></li>
   <li><strong>Bind formal parameters</strong>. In step 1, you already evaluated and
@@ -395,6 +404,7 @@ frame, and our current frame becomes Global once more.</p>
 
 <h3 id="additional-rules">Additional rules</h3>
 
+
 <ul>
   <li>Don't draw frames for built-in functions like <code>add</code>, <code>mul</code>, <code>print</code>,
   etc.</li>
@@ -428,6 +438,7 @@ parent's parent, and so on.</p>
 
 <h3 id="function-calls-in-function-bodies">Function calls in function bodies</h3>
 
+
 <p>Consider this code:</p>
 
 <pre><code>x = 3
@@ -436,11 +447,11 @@ def square(x):
     return x*x
 
 def double(x):
-    return square(x+1) - square(x) - 1
+    return square(x+1) &#x2d; square(x) &#x2d; 1
 
 double(x)</code></pre>
 
-<p>For this problem, focus on the calls to <code>square</code> -- how many frames
+<p>For this problem, focus on the calls to <code>square</code> &mdash; how many frames
 for <code>square</code> do we draw? What are the parents for those frames?</p>
 
 <p>The first three bindings look like this:</p>
@@ -463,7 +474,7 @@ for <code>square</code> do we draw? What are the parents for those frames?</p>
 
   <p><img src="public/img/environments/double-x.png" alt="<code>double(x)</code>"></p></li>
   <li><strong>Execute the body of the function</strong>. <code>double</code> has one line that
-  says <code>return square(x+1) - square(x) - 1</code>. We have to evaluate each
+  says <code>return square(x+1) &#x2d; square(x) &#x2d; 1</code>. We have to evaluate each
   part of this expression:</li>
 </ol>
 
@@ -478,12 +489,12 @@ for <code>square</code> do we draw? What are the parents for those frames?</p>
     <li><p><strong>Bind formal parameters</strong>. <code>square</code> has one parameter <code>x</code>,
     which is bound to <code>4</code></p>
 
-<pre><code>  ![`square(x+1)`](public/img/environments/square-x-plus-1.png)</code></pre></li>
+<pre><code>  ![`square(x+1)`](public/img/environments/square&#x2d;x&#x2d;plus&#x2d;1.png)</code></pre></li>
     <li><strong>Execute the body of the function</strong>. <code>square</code> computes <code>x*x</code>,
     which is <code>16</code>.</li>
     <li><p><strong>Write the return value</strong>, which is <code>16</code>.</p>
 
-<pre><code>  ![`return x*x`](public/img/environments/return-x-times-x3.png)</code></pre></li>
+<pre><code>  ![`return x*x`](public/img/environments/return&#x2d;x&#x2d;times&#x2d;x3.png)</code></pre></li>
   </ol></li>
   <li><p><code>square(x)</code></p>
 
@@ -495,26 +506,27 @@ for <code>square</code> do we draw? What are the parents for those frames?</p>
     <li><p><strong>Bind formal parameters</strong>. <code>square</code> has one parameter <code>x</code>,
     which is bound to <code>3</code></p>
 
-<pre><code>   ![`square(x)`](public/img/environments/square-x.png)</code></pre></li>
+<pre><code>   ![`square(x)`](public/img/environments/square&#x2d;x.png)</code></pre></li>
     <li><strong>Execute the body of the function</strong>. <code>square</code> computes <code>x*x</code>,
     which is <code>9</code>.</li>
     <li><p><strong>Write the return value</strong>, which is <code>9</code>.</p>
 
-<pre><code>   ![`return x*x`](public/img/environments/return-x-times-x4.png)</code></pre></li>
+<pre><code>   ![`return x*x`](public/img/environments/return&#x2d;x&#x2d;times&#x2d;x4.png)</code></pre></li>
   </ol>
 
   <p>Now that we know <code>square(x+1)</code> is <code>16</code> and <code>square(x)</code> is <code>9</code>, we
-  can compute the original expression to get <code>16 - 9 - 1 = 6</code></p>
+  can compute the original expression to get <code>16 &#x2d; 9 &#x2d; 1 = 6</code></p>
 
   <ol>
     <li><strong>Write the return value</strong> of <code>double</code>, which is <code>6</code>.</li>
   </ol>
 
-  <p><img src="public/img/environments/double-return.png" alt="<code>return square(x + 1) - square(x) - 1</code>"></p></li>
+  <p><img src="public/img/environments/double-return.png" alt="<code>return square(x + 1) &#x2d; square(x) &#x2d; 1</code>"></p></li>
 </ul>
 
 
 <h3 id="function-calls-as-operands">Function calls as operands</h3>
+
 
 <p>Consider this code:</p>
 
@@ -587,6 +599,7 @@ or <code>double</code>? The procedure is as follows:</p>
 
 <h3 id="reassigning-functions">Reassigning functions</h3>
 
+
 <p>In Python, it is possible to reassign a function to something else.
 Consider the following code:</p>
 
@@ -615,7 +628,7 @@ drawing the diagram. The <code>def</code> statements are drawn as follows:</p>
   <li><strong>Evaluate the value</strong>. <code>foo</code> points to a function object with
   intrinsic name <code>foo</code>, so that's our value</li>
   <li><strong>Draw the value in a box</strong>. Since we are reassigning <code>bar</code>, we
-  just re-use <code>bar</code>'s existing box -- erase its old value and replace
+  just re-use <code>bar</code>'s existing box &mdash; erase its old value and replace
   it with an arrow pointing to the <code>foo</code> function.</li>
   <li><p><strong>Write the variable</strong>. <code>bar</code> is already written.</p>
 
@@ -647,6 +660,7 @@ have to erase it from your diagram.</p>
 
 
 <h3 id="nested-functions">Nested functions</h3>
+
 
 <p>Up until now, we haven't had to draw the parent and frame numbers for
 frames. That's because we haven't had any nested function definitions
@@ -700,7 +714,7 @@ bindings:</p>
      primitive, we need to draw an arrow to the function object</li>
     <li><p><strong>Write the variable</strong>, which is <code>inner</code>.</p>
 
-<pre><code>![def inner(y)](public/img/environments/def-inner.png)</code></pre></li>
+<pre><code>![def inner(y)](public/img/environments/def&#x2d;inner.png)</code></pre></li>
   </ol></li>
   <li><p><strong>Write the return value</strong>. <code>inner</code> points to a function object,
     so the return value points to what <code>inner</code> points to.</p>
@@ -742,6 +756,7 @@ bindings:</p>
 
 
 <h3 id="built-in-functions">Built-in functions</h3>
+
 
 <p>Recall that when we call built-in functions, we do not draw new
 frames. Here's an example:</p>
@@ -795,7 +810,7 @@ demonstrates the difference between <code>print</code> and <code>return</code>.<
 
 <p>The next line is</p>
 
-<pre><code>a = square1(4)</code></pre>
+<pre><code>b = square2(4)</code></pre>
 
 <p>The procedure is as follows:</p>
 
@@ -826,7 +841,7 @@ demonstrates the difference between <code>print</code> and <code>return</code>.<
   <p><img src="public/img/environments/b-equals.png" alt="b = square2(4)"></p></li>
 </ol>
 
-<p>Notice that <code>b</code> is bound to <code>None</code>, not 16 -- that's the difference
+<p>Notice that <code>b</code> is bound to <code>None</code>, not 16 &mdash; that's the difference
 between <code>return</code> and <code>print</code>!</p>
       </div>
     </div>
