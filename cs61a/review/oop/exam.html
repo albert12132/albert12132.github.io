@@ -50,18 +50,7 @@
           </ul>
         </div>
         <div id='accordion'>
-          <h3>Navigation</h3>
-<div>
-  <ul>
-    <li><a href='/cs61a/review'>All Topics</a></li>
-    <li><a href='/cs61a/review/mt1'>Midterm
-      1</a></li>
-    <li><a href='/cs61a/review/mt2'>Midterm
-      2</a></li>
-    <li><a href='/cs61a/review/final'>Final</a></li>
-  </ul>
-</div>
-<h3>Contents</h3>
+          <h3>Contents</h3>
 <div>
 <ul>
   <li><a href="#what-would-python-print">What would Python print?</a></li>
@@ -81,6 +70,17 @@
 </ul>
 
 </div>
+<h3>Navigation</h3>
+<div>
+  <ul>
+    <li><a href='/cs61a/review'>All Topics</a></li>
+    <li><a href='/cs61a/review/mt1'>Midterm
+      1</a></li>
+    <li><a href='/cs61a/review/mt2'>Midterm
+      2</a></li>
+    <li><a href='/cs61a/review/final'>Final</a></li>
+  </ul>
+</div>
         </div>
         <div id='nav-bar-fixed'>
           
@@ -91,19 +91,7 @@
       </div>
 
       <div id='content'>
-        <div id='reference'>
-    <h2>References</h2>
-
-    <p>You can review OOP in the following places</p>
-    
-<ul>
-  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/15-Objects_1pps.pdf">Lecture: Objects</a></li>
-  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/16-Inheritance_1pps.pdf">Lecture: Inheritance</a></li>
-  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion06.pdf">Discussion 6</a></li>
-  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php">Lab 6</a>
-  </div>
-
-  
+        
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -307,17 +295,17 @@ the list. For more descriptions of the behavior, see the doctest.</p>
 
     def append(self, elem):
         if self.end &#x2d; self.start == self.n:
-            print(&#x27;Buffer exceeded capacity&#x27;)
+            print(&#x27;Buffer capacity exceeded&#x27;)
         else:
-            self.array[self.end] = elem
-            self.end = (self.end + 1) % self.n
+            self.array[self.end % self.n] = elem
+            self.end += 1
 
     def remove(self):
         if self.end == self.start:
             print(&#x27;Buffer is empty&#x27;)
         else:
-            elem = self.array[self.start]
-            self.start = (self.start + 1) % self.n
+            elem = self.array[self.start % self.n]
+            self.start += 1
             return elem</code></pre>
 
 </div>
