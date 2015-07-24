@@ -50,7 +50,31 @@
           </ul>
         </div>
         <div id='accordion'>
-          <h3>Navigation</h3>
+          <h3>Contents</h3>
+<div>
+<ul>
+  <li><a href="#trees">Trees</a></li>
+  <ul>
+  <li><a href="#q1">Question 1: </a></li>
+  <li><a href="#q2">Question 2: </a></li>
+  <li><a href="#q3">Question 3: </a></li>
+  <li><a href="#q4">Question 4: </a></li>
+  <li><a href="#q5">Question 5: </a></li>
+  <li><a href="#q6">Question 6: </a></li>
+</ul>
+
+  <li><a href="#binary-search-trees">Binary Search Trees</a></li>
+  <ul>
+  <li><a href="#q7">Question 7: </a></li>
+  <li><a href="#q8">Question 8: </a></li>
+  <li><a href="#q9">Question 9: </a></li>
+  <li><a href="#q10">Question 10: </a></li>
+</ul>
+
+</ul>
+
+</div>
+<h3>Navigation</h3>
 <div>
   <ul>
     <li><a href='/cs61a/review'>All Topics</a></li>
@@ -60,19 +84,6 @@
       2</a></li>
     <li><a href='/cs61a/review/final'>Final</a></li>
   </ul>
-</div>
-<h3>Contents</h3>
-<div>
-<ul>
-  <li><a href="#code-writing-questions">Code-Writing questions</a></li>
-  <ul>
-  <li><a href="#q1">Question 1: </a></li>
-  <li><a href="#q2">Question 2: </a></li>
-  <li><a href="#q3">Question 3: </a></li>
-</ul>
-
-</ul>
-
 </div>
         </div>
         <div id='nav-bar-fixed'>
@@ -84,18 +95,7 @@
       </div>
 
       <div id='content'>
-        <div id='reference'>
-    <h2>References</h2>
-
-    <p>You can review Trees in the following places</p>
-    
-<ul>
-  <li><a href="http://cs61a.org/assets/slides/20-Composition_1pps.pdf">Lecture: Recursive Data</a></li>
-  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php">Lab 6</a></li>
-  <li><a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion07.pdf">Discussion 7</a>
-  </div>
-
-  We will be using the OOP implementation of <code>Tree</code>s from lecture,
+        We will be using the OOP implementation of <code>Tree</code>s from lecture,
 found
 <a href="http://www-inst.eecs.berkeley.edu/~cs61a/sp13/slides/25.py">here</a>
 
@@ -107,7 +107,7 @@ found
 
   
 
-<h2 id="code-writing-questions">Code-Writing questions</h2>
+<h2 id="trees">Trees</h2>
 
 
 <h3 class="question" id="q1">Question 1: </h3>
@@ -151,11 +151,11 @@ False
 <pre><code>def equal(t1, t2):
     if t1.entry != t2.entry:
         return False
-    elif len(t1.branches) != len(t2.branches):
+    elif len(t1.subtrees) != len(t2.subtrees):
         return False
     else:
         return all(equal(child1, child2) for child1, child2
-                   in zip(t1.branches, t2.branches))</code></pre>
+                   in zip(t1.subtrees, t2.subtrees))</code></pre>
 
 </div>
     
@@ -184,7 +184,7 @@ given Tree.</p>
     <div class="solution 1">
 
 <pre><code>def size(t):
-    return 1 + sum([size(child) for child in t.branches])</code></pre>
+    return 1 + sum([size(child) for child in t.subtrees])</code></pre>
 
 </div>
     
@@ -220,9 +220,264 @@ from the root to the root.</p>
     <div class="solution 2">
 
 <pre><code>def height(t):
-    if len(t.branches) == 0:
+    if len(t.subtrees) == 0:
         return 0
-    return 1 + max([height(child) for child in t.branches])</code></pre>
+    return 1 + max([height(child) for child in t.subtrees])</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q4">Question 4: </h3>
+
+<p>Implement a function <code>same_shape</code>, which takes two <code>Tree</code>s and returns
+True if the trees have the same structure, but not necessarily the same
+entries.</p>
+
+<pre><code>def same_shape(t1, t2):
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+
+    <button id='3' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 3">
+
+<pre><code>def same_shape(t1, t2):
+    if not t1.branches or not t2.branches:
+        return not t1.branches and not t2.branches
+    elif len(t1.branches) != len(t2.branches):
+        return False
+    for i in range(len(t1.branches)):
+        if not same_shape(t1.branches[i], t2.branches[i]):
+            return False
+    return True</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q5">Question 5: </h3>
+
+<p>Implement a function <code>sprout_leaves</code>, which takes a <code>Tree</code> and a list
+of values. For every leaf of the <code>Tree</code>, mutate it so that it has a
+list of branches where the items are the elements in the list of
+values.</p>
+
+<pre><code>def sprout_leaves(t, vals):
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+
+    <button id='4' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 4">
+
+<pre><code>def sprout_leaves(t, vals):
+    if not t.branches:
+        t.branches = [Tree(v) for v in vals]
+    else:
+        for branch in t.branches:
+            sprout_leaves(branch, vals)</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q6">Question 6: </h3>
+
+<p>Implement a function <code>prune_leaves</code>, which takes a <code>Tree</code> and a list
+of values. For every leaf of the <code>Tree</code>, remove it if its entry is in
+the list of values.</p>
+
+<pre><code>def prune_leaves(t, vals):
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+
+    <button id='5' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 5">
+
+<pre><code>def prune_leaves(t, vals):
+    if not t.branches:
+        if t.entry not in vals:
+            return t
+        else:
+            return None
+    new_branches = [prune_leaves(branch, vals) for branch in t.branches]
+    t.branches = [b for b in new_branches if b is not None]
+    return t</code></pre>
+
+</div>
+    
+
+
+<h2 id="binary-search-trees">Binary Search Trees</h2>
+
+
+<h3 class="question" id="q7">Question 7: </h3>
+
+<p>Implement two functions, <code>max_bst</code> and <code>min_bst</code>, which take a binary
+search tree and returns the maximum and minimum values, respectively.</p>
+
+<pre><code>def max_bst(b):
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+
+    <button id='6' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 6">
+
+<pre><code>def max_bst(b):
+    if b.right.is_empty:
+        return b.entry
+    return max_tree(b.right)</code></pre>
+
+</div>
+    
+
+<pre><code>def min_bst(b):
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+
+    <button id='7' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 7">
+
+<pre><code>def min_bst(b):
+    if b.left.is_empty:
+        return b.entry
+    return min_tree(b.left)</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q8">Question 8: </h3>
+
+<p>Implement the function <code>contains</code>, which takes a binary search tree and
+an item, and returns True if the binary search tree contains the item,
+and False if it doesn't.</p>
+
+<pre><code>def contains(b, item):
+    &quot;&quot;&quot;Returns True if B contains ITEM.
+
+    &gt;&gt;&gt; b1 = Tree(2,
+    ...           Tree(1),
+    ...           Tree(4, Tree(3)))
+    &gt;&gt;&gt; contains(b1, 4)
+    True
+    &gt;&gt;&gt; contains(b1, 8)
+    False
+    &quot;&quot;&quot;
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+
+    <button id='8' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 8">
+
+<pre><code>def contains(b, item):
+    if b is None:
+        return False
+    elif b.entry == item:
+        return True
+    elif b.entry &gt; item:
+        return contains(b.left, item)
+    elif b.entry &lt; item:
+        return contains(b.right, item)</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q9">Question 9: </h3>
+
+<p>Implement the function <code>in_order</code>, which takes a binary search tree,
+and returns a list containing its items from smallest to largest. In
+computer science, this is known as an <strong>in-order traversal</strong>.</p>
+
+<pre><code>def in_order(b):
+    &quot;&quot;&quot;Returns the items in B, a binary search tree, in sorted
+    order.
+
+    &gt;&gt;&gt; b1 = Tree(2,
+    ...           Tree(1),
+    ...           Tree(4, Tree(3)))
+    &gt;&gt;&gt; in_order(b1)
+    [1, 2, 3, 4]
+    &gt;&gt;&gt; singleton = Tree(4)
+    &gt;&gt;&gt; in_order(singleton)
+    [4]
+    &quot;&quot;&quot;
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+
+    <button id='9' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 9">
+
+<pre><code>def in_order(b):
+    if b is None:
+        return []
+    else:
+        left = in_order(b.left)
+        right = in_order(b.right)
+        return left + [b.entry] + right</code></pre>
+
+</div>
+    
+
+<h3 class="question" id="q10">Question 10: </h3>
+
+<p>Implement a function <code>nth_largest</code>, which takes a <strong>binary search
+tree</strong> and a number <code>n</code> (greater than or equal to 1), and returns the
+<code>nth</code> largest item in the tree. For example, <code>nth_largest(b, 1)</code> should
+return the largest item in <code>b</code>. If <code>n</code> is greater than the number of
+items in the tree, return None.</p>
+
+<p><strong>Hint</strong>: You can assume there is a <code>size</code> function that returns the
+number of elements in a given tree.</p>
+
+<pre><code>def nth_largest(b, n):
+    &quot;&quot;&quot;Returns the Nth largest item in T.
+
+    &gt;&gt;&gt; b1 = Tree(2,
+    ...           Tree(1),
+    ...           Tree(4, Tree(3)))
+    &gt;&gt;&gt; nth_largest(b1, 1)
+    4
+    &gt;&gt;&gt; nth_largest(b1, 3)
+    2
+    &gt;&gt;&gt; nth_largest(b1, 4)
+    1
+    &quot;&quot;&quot;
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+
+    <button id='10' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+
+    <div class="solution 10">
+
+<pre><code>def nth_largest(b, n):
+    if b is None:
+        return None
+    right = size(b.right)
+    if right == n &#x2d; 1:
+        return b.entry
+    elif right &gt; n &#x2d; 1:
+        return nth_largest(b.right, n)
+    elif right &lt; n &#x2d; 1:
+        return nth_largest(b.left, n &#x2d; 1 &#x2d; right)</code></pre>
 
 </div>
     
