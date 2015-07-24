@@ -244,12 +244,12 @@ entries.</p>
     <div class="solution 3">
 
 <pre><code>def same_shape(t1, t2):
-    if not t1.branches or not t2.branches:
-        return not t1.branches and not t2.branches
-    elif len(t1.branches) != len(t2.branches):
+    if not t1.subtrees or not t2.subtrees:
+        return not t1.subtrees and not t2.subtrees
+    elif len(t1.subtrees) != len(t2.subtrees):
         return False
-    for i in range(len(t1.branches)):
-        if not same_shape(t1.branches[i], t2.branches[i]):
+    for i in range(len(t1.subtrees)):
+        if not same_shape(t1.subtrees[i], t2.subtrees[i]):
             return False
     return True</code></pre>
 
@@ -274,10 +274,10 @@ values.</p>
     <div class="solution 4">
 
 <pre><code>def sprout_leaves(t, vals):
-    if not t.branches:
-        t.branches = [Tree(v) for v in vals]
+    if not t.subtrees:
+        t.subtrees = [Tree(v) for v in vals]
     else:
-        for branch in t.branches:
+        for branch in t.subtrees:
             sprout_leaves(branch, vals)</code></pre>
 
 </div>
@@ -300,13 +300,13 @@ the list of values.</p>
     <div class="solution 5">
 
 <pre><code>def prune_leaves(t, vals):
-    if not t.branches:
+    if not t.subtrees:
         if t.entry not in vals:
             return t
         else:
             return None
-    new_branches = [prune_leaves(branch, vals) for branch in t.branches]
-    t.branches = [b for b in new_branches if b is not None]
+    new_branches = [prune_leaves(branch, vals) for branch in t.subtrees]
+    t.subtrees = [b for b in new_branches if b is not None]
     return t</code></pre>
 
 </div>
