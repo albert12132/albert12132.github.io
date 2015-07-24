@@ -110,17 +110,17 @@ class:</p>
 <p>The tree abstract data type is defined in terms of these four
 functions:</p>
 
-<pre><code>def tree(root, branches=[]):
-    return [root] + list(branches)
+<pre><code>def tree(root, subtrees=[]):
+    return [root] + list(subtrees)
 
 def root(t):
     return t[0]
 
-def branches(t):
+def subtrees(t):
     return t[1:]
 
 def is_leaf(t):
-    return not branches(t)</code></pre>
+    return not subtrees(t)</code></pre>
 
 <p>Since this is an ADT, we don't care so much about the implementation of
 the constructors and selectors: as long as we know what they do, we can
@@ -162,7 +162,7 @@ False otherwise.</p>
     elif is_leaf(t):
         return False
     else:
-        for b in branches(t):
+        for b in subtrees(t):
             if contains(b, e):
                 return True
         return False</code></pre>
@@ -177,7 +177,7 @@ of booleans and returns True if any of those booleans is True:</p>
     elif is_leaf(t):
         return False
     else:
-        return any([contains(b, e) for b in branches(t)])</code></pre>
+        return any([contains(b, e) for b in subtrees(t)])</code></pre>
 
 <p>While this version is more concise, it is also more inefficient (why?).</p>
 
@@ -219,7 +219,7 @@ consider the following tree:</p>
         return [[root(t)]]
     else:
         total = []
-        for b in branches(t):
+        for b in subtrees(t):
             for path in all_paths(b):
                 total.append([root(tree)] + path)
         return total</code></pre>
@@ -231,7 +231,7 @@ comprehension gets a little complicated:</p>
     if is_leaf(t):
         return [[root(t)]]
     else:
-        return [[root(tree)] + path for b in branches(t)
+        return [[root(tree)] + path for b in subtrees(t)
                                     for path in all_paths(b)]</code></pre>
 
 <p>Notice that the <code>for</code> statements in the list comprehension are exactly
@@ -279,9 +279,9 @@ tree:</p>
     if is_leaf(t):
         return tree(root(t))
     else:
-        subtrees = [max_tree(b) for b in branches(t)]
-        new_root = max([root(t)] _ [root(s) for s in subtrees])
-        return tree(new_root, subtrees)</code></pre>
+        new_subtrees = [max_tree(b) for b in subtrees(t)]
+        new_root = max([root(t)] + [root(s) for s in new_subtrees])
+        return tree(new_root, new_subtrees)</code></pre>
 
 </div>
     
