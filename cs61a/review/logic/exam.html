@@ -3,7 +3,7 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>Logic: basic | Albert Wu</title>
+    <title>Logic: exam | Albert Wu</title>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
@@ -38,7 +38,7 @@
 
     <div id='container'>
       <div id='logo'>
-        <h1 id='nav-bar-hide'>Logic: basic</h1>
+        <h1 id='nav-bar-hide'>Logic: exam</h1>
       </div>
 
       <div id='nav-bar'>
@@ -58,18 +58,17 @@
   <li><a href="#q1">Question 1: </a></li>
   <li><a href="#q2">Question 2: </a></li>
   <li><a href="#q3">Question 3: </a></li>
-  <li><a href="#q4">Question 4: </a></li>
 </ul>
 
   <li><a href="#logical-trees-courtesy-of-sarah-kim">Logical Trees (courtesy of Sarah Kim)</a></li>
   <ul>
+  <li><a href="#q4">Question 4: </a></li>
   <li><a href="#q5">Question 5: </a></li>
   <li><a href="#q6">Question 6: </a></li>
   <li><a href="#q7">Question 7: </a></li>
   <li><a href="#q8">Question 8: </a></li>
   <li><a href="#q9">Question 9: </a></li>
   <li><a href="#q10">Question 10: </a></li>
-  <li><a href="#q11">Question 11: </a></li>
 </ul>
 
 </ul>
@@ -97,16 +96,14 @@
 
       <div id='content'>
         We will be using the Logic interpreter, which you can get
-<a href="http://composingprograms.com/examples/logic/logic.py">here</a>. You will
-also need your Scheme project in the same directory. You can run the
-Logic
-interpreter from your terminal with:
+<a href="http://cs61a.org/lab/lab15/logic">here</a>.  You can run the Logic interpreter
+from your terminal with:
 
-<pre><code>python3 logic.py</code></pre>
+<pre><code>python3 logic</code></pre>
 
 <p>You can load a <code>.logic</code> file with</p>
 
-<pre><code>python3 logic.py &#x2d;load file.logic</code></pre>
+<pre><code>python3 logic &#x2d;load file.logic</code></pre>
 
 <p>Alternatively, you can use the <a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/logic/logic.html">online Logic
 interpreter</a>
@@ -215,47 +212,12 @@ what: (5 2 4)</code></pre>
 </div>
     
 
-<h3 class="question" id="q4">Question 4: </h3>
-
-<p>Write a fact or set of facts for the <code>subsequence</code> relation, which
-takes two lists, and checks if the first list is a non-contiguous
-subsequence of the second list. <em>Non-contiguous</em> means the elements of
-the first list do not have to appear consecutively in the second list,
-but they do have to appear in order.</p>
-
-<pre><code>(fact (subsequence ; YOUR CODE HERE
-
-; Tests
-logic&gt; (query (subsequence (1 2 3) (0 1 2 0 0 3)))
-Success!
-logic&gt; (query (subsequence (1 2 3) (1 3 2 3)))
-Success!
-logic&gt; (query (subsequence (1 2 3) (1 3 2)))
-Failed.
-logic&gt; (query (subsequence () (1 3 2)))
-Success!</code></pre>
-
-
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-
-    <div class="solution 3">
-
-<pre><code>(fact (subsequence () ?lst))
-(fact (subsequence (?f . ?r) (?f . ?s))
-      (subsequence ?r ?s))
-(fact (subsequence (?a . ?r) (?b . ?s))
-      (subsequence (?a . ?r) ?s))</code></pre>
-
-</div>
-    
-
 
 <h2 id="logical-trees-courtesy-of-sarah-kim">Logical Trees (courtesy of Sarah Kim)</h2>
 
 
-<p><em>The following questions were written by Sarah Kim for Summer 2013.</em></p>
+<p><em>The following questions were written by <a href="http://www.sarahjikim.com/">Sarah Kim</a>
+for Summer 2013.</em></p>
 
 <p>Let's create a series of facts on a tree diagram. The facts are of the
 following form:</p>
@@ -278,7 +240,7 @@ following form:</p>
 (fact (tree tree&#x2d;11 1 none none))
 (fact (tree tree&#x2d;12 10 none none))</code></pre>
 
-<h3 class="question" id="q5">Question 5: </h3>
+<h3 class="question" id="q4">Question 4: </h3>
 
 <p>Write a <code>find&#x2d;entry</code> fact that associates tree number to tree entry.</p>
 
@@ -292,11 +254,11 @@ Sucess!
 tree: tree&#x2d;7</code></pre>
 
 
-    <button id='4' class='toggleButton'>
+    <button id='3' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
 
-    <div class="solution 4">
+    <div class="solution 3">
 
 <pre><code>(fact (find&#x2d;entry ?number ?entry)
       (tree ?number ?entry ?left ?right))</code></pre>
@@ -304,7 +266,7 @@ tree: tree&#x2d;7</code></pre>
 </div>
     
 
-<h3 class="question" id="q6">Question 6: </h3>
+<h3 class="question" id="q5">Question 5: </h3>
 
 <p>Write a <code>check&#x2d;leaf</code> fact that checks if a tree is a leaf (no trees in
 left or right).</p>
@@ -315,11 +277,11 @@ logic&gt; (query (check&#x2d;leaf tree&#x2d;4))
 Failed.</code></pre>
 
 
-    <button id='5' class='toggleButton'>
+    <button id='4' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
 
-    <div class="solution 5">
+    <div class="solution 4">
 
 <pre><code>(fact (check&#x2d;leaf ?number)
       (tree ?number ?leaf none none))</code></pre>
@@ -327,25 +289,25 @@ Failed.</code></pre>
 </div>
     
 
-<h3 class="question" id="q7">Question 7: </h3>
+<h3 class="question" id="q6">Question 6: </h3>
 
 <p>What would Logic print?</p>
 
 
     <pre><code>logic&gt; (query (check&#x2d;leaf ?x))
-<span class="blank10">______</span><span class="hidden solution 10">Success!
+<span class="blank9">______</span><span class="hidden solution 9">Success!
 x: tree&#x2d;5
 x: tree&#x2d;6
 x: tree&#x2d;10
 x: tree&#x2d;11
 x: tree&#x2d;12</span></code></pre>
 
-    <button id='10' class='toggleButton'>
+    <button id='9' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
     
 
-<h3 class="question" id="q8">Question 8: </h3>
+<h3 class="question" id="q7">Question 7: </h3>
 Write a <code>smallest&#x2d;entry</code> fact that finds the smallest entry of a tree.
 
 <pre><code>logic&gt; (query (smallest&#x2d;entry tree&#x2d;2 ?leaf))
@@ -358,11 +320,11 @@ logic&gt; (query (smallest&#x2d;entry tree&#x2d;7 ?leaf))
 leaf: 9</code></pre>
 
 
-    <button id='6' class='toggleButton'>
+    <button id='5' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
 
-    <div class="solution 6">
+    <div class="solution 5">
 
 <pre><code>(fact (smallest&#x2d;entry ?number ?entry)
       (tree ?number ?entry none ?right))
@@ -373,7 +335,7 @@ leaf: 9</code></pre>
 </div>
     
 
-<h3 class="question" id="q9">Question 9: </h3>
+<h3 class="question" id="q8">Question 8: </h3>
 
 <p>Write a <code>find&#x2d;parent</code> fact, which finds the parent of a number.</p>
 
@@ -382,11 +344,11 @@ Success!
 parent: tree&#x2d;8</code></pre>
 
 
-    <button id='7' class='toggleButton'>
+    <button id='6' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
 
-    <div class="solution 7">
+    <div class="solution 6">
 
 <pre><code>(fact (find&#x2d;parent ?number ?parent)
       (tree ?parent ?entry ?number ?right))
@@ -396,7 +358,7 @@ parent: tree&#x2d;8</code></pre>
 </div>
     
 
-<h3 class="question" id="q10">Question 10: </h3>
+<h3 class="question" id="q9">Question 9: </h3>
 
 <p>Write a <code>generation</code> fact, which lists all the members of a tree's
 family tree.</p>
@@ -410,11 +372,11 @@ members: tree&#x2d;8
 members: tree&#x2d;11</code></pre>
 
 
-    <button id='8' class='toggleButton'>
+    <button id='7' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
 
-    <div class="solution 8">
+    <div class="solution 7">
 
 <pre><code>(fact (generation ?number ?grandfather)
       (find&#x2d;parent ?number ?father)
@@ -424,7 +386,7 @@ members: tree&#x2d;11</code></pre>
 </div>
     
 
-<h3 class="question" id="q11">Question 11: </h3>
+<h3 class="question" id="q10">Question 10: </h3>
 
 <p>What would happen if for the <code>generation</code> fact, we put the second fact
 before the first fact?</p>
@@ -432,11 +394,11 @@ before the first fact?</p>
 <pre><code>logic&gt; (query (generation tree&#x2d;11 ?members))</code></pre>
 
 
-    <button id='9' class='toggleButton'>
+    <button id='8' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
 
-    <div class="solution 9">
+    <div class="solution 8">
 
 <pre><code>Success!
 members: tree&#x2d;11
