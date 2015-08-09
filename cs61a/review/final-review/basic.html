@@ -98,7 +98,7 @@
 
       <div id='content'>
         
-<p>These questions were written for my section on 12/4.</p>
+<p>These questions were written for my section on 12/5/2014.</p>
 
 
   <p>Each question has a "Toggle Solution" button -- click it to
@@ -473,10 +473,9 @@ called, it will return a generator object.</p>
 <p>Given the following function that returns a stream, what are the first
 5 elements of the stream?</p>
 
-<pre><code>def my_stream():
-    def compute_rest():
-        return add_stream(my_stream(), scale_stream(2, my_stream()))
-    return Stream(2, compute_rest)</code></pre>
+<pre><code>(define (my&#x2d;stream)
+    (cons&#x2d;stream 2
+        (add&#x2d;stream (my&#x2d;stream) (scale&#x2d;stream 2 (my&#x2d;stream)))))</code></pre>
 
 
     <button id='6' class='toggleButton'>
@@ -519,7 +518,7 @@ elements:</p>
 
 <h3 class="question" id="q7">Question 7: </h3>
 
-<p>Implement a function <code>num_stream</code> that returns a Stream whose elements
+<p>Implement a function <code>num&#x2d;stream</code> that returns a Stream whose elements
 have the following pattern:</p>
 
 <pre><code>1, 1, 2, 1, 2, 3, 1, 2, 3, 4, ...
@@ -527,15 +526,14 @@ _  ____  _______  __________</code></pre>
 
 <p>A skeleton has been provided:</p>
 
-<pre><code>def num_stream():
-    def helper(i, j):
-        def compute_rest():
-            ___________________
-            ___________________
-            ___________________
-            ___________________
-        return Stream(______, compute_rest)
-    return helper(_____, _____)</code></pre>
+<pre><code>(define (num&#x2d;stream)
+    (define (helper i j)
+        (cons&#x2d;stream ______
+            _______________
+            _______________
+            _______________
+    (helper ______ ______)
+)</code></pre>
 
 
     <button id='7' class='toggleButton'>
@@ -561,18 +559,16 @@ j: 1  1  2  1  2  3  1  2  3  4</code></pre>
 <p>It follows that <code>j</code> should never be greater than <code>i</code>. With this, we can
 complete our solution:</p>
 
-<pre><code>def num_stream():
-    def helper(i, j):
-        def compute_rest():
-            if j &gt;= i:
-                return helper(i + 1, 1)
-            else:
-                return helper(i, j + 1)
-        return Stream(j, compute_rest)
-    return helper(1, 1)</code></pre>
+<pre><code>(define (num&#x2d;stream)
+    (define (helper i j)
+        (cons&#x2d;stream j
+            (if (&gt;= j i) (helper (+ i 1) 1)
+                         (helper (i (+ j 1))))))
+    (helper 1 1)
+)</code></pre>
 
-<p>In <code>compute_rest</code>, when <code>j &gt;= i</code>, then <code>i</code> should move onto the next
-block (<code>i + 1</code>), and <code>j</code> should restart to 1 (since it's the start of
+<p>In the rest of the stream, when <code>j &gt;= i</code>, then <code>i</code> should move onto the next
+block (<code>(+ i 1)</code>), and <code>j</code> should restart to 1 (since it's the start of
 the new block).</p>
 
 </div>

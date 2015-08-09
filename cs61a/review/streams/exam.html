@@ -89,8 +89,7 @@
       </div>
 
       <div id='content'>
-        You can find the source code that contains the Stream class
-<a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/30.py">here</a>.
+        
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -108,10 +107,10 @@
 <p>Given the following function, list the first 5 elements of the Stream
 that is returned by <code>stream1()</code>.</p>
 
-<pre><code>def stream1():
-    def compute_rest():
-        return add_streams(stream1(), stream1().rest)
-    return Stream(0, lambda: Stream(1, compute_rest))</code></pre>
+<pre><code>(define (stream1)
+    (cons&#x2d;stream 0
+        (cons&#x2d;stream 1
+            (add&#x2d;streams (stream1) (stream&#x2d;cdr (stream1))))))</code></pre>
 
 
     <button id='0' class='toggleButton'>
@@ -130,10 +129,9 @@ that is returned by <code>stream1()</code>.</p>
 <p>Given the following function, list the first 5 elements of the Stream
 that is returned by <code>stream2()</code>.</p>
 
-<pre><code>def stream2():
-    def compute_rest():
-        return add_streams(stream2(), stream2())
-    return Stream(1, compute_rest)</code></pre>
+<pre><code>(define (stream2)
+    (cons&#x2d;stream 1
+        (add&#x2d;streams (stream2) (stream2))))</code></pre>
 
 
     <button id='1' class='toggleButton'>
@@ -153,26 +151,17 @@ that is returned by <code>stream2()</code>.</p>
 
 <h3 class="question" id="q3">Question 3: </h3>
 
-<p>Create a function <code>make_fact_stream</code>, which returns a Stream whose
+<p>Create a function <code>make&#x2d;fact&#x2d;stream</code>, which returns a Stream whose
 <em>n</em>th element is <em>n</em>!  (factorial of <em>n</em>).</p>
 
-<pre><code>def make_fact_stream():
-    &quot;&quot;&quot;Returns a Stream of factorials.
+<pre><code>(define (make&#x2d;fact&#x2d;stream)
+    &#x27;YOUR&#x2d;CODE&#x2d;HERE
+)
 
-    &gt;&gt;&gt; s = make_fact_stream()
-    &gt;&gt;&gt; s.first      # 0!
-    1
-    &gt;&gt;&gt; s.rest.first # 1!
-    1
-    &gt;&gt;&gt; s.rest.rest.first   # 2!
-    2
-    &gt;&gt;&gt; s.rest.rest.rest.first  # 3!
-    6
-    &quot;&quot;&quot;
-    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+scm&gt; (stream&#x2d;to&#x2d;list (make&#x2d;fact&#x2d;stream 4))
+(1 1 2 6)</code></pre>
 
-<p><strong>Hint</strong>: This is similar to the <code>make_fib_stream()</code> function from
-discussion. Try writing an iterative factorial function first, then
+<p><strong>Hint</strong>: Try writing an iterative factorial function first, then
 convert it into the Stream function.  You should also use a helper
 function.</p>
 
@@ -183,20 +172,20 @@ function.</p>
 
     <div class="solution 2">
 
-<pre><code>def make_fact_stream():
-    return fact_help(0, 1)
+<pre><code>(define (make&#x2d;fact&#x2d;stream)
+    (helper 0 1))
 
-def fact_help(n, total)
-    def rest():
-        return fact_help(n + 1, total * (n + 1))
-    return Stream(total, rest)
+(define (helper n total)
+    (cons&#x2d;stream total
+        (helper (+ n 1)
+                (* total (+ n 1)))))
 
 # here&#x27;s the iterative factorial we use to convert
 def infinite_fact():
     n, total = 0, 1
     while True:
         print(total)
-        n, total = n + 1, total * n</code></pre>
+        n, total = n + 1, total * (n + 1)</code></pre>
 
 </div>
     
@@ -204,6 +193,12 @@ def infinite_fact():
 
 <h2 id="more-practice-problems">More practice problems</h2>
 
+
+<p><em>Note</em>: The following link contains Stream questions, but the questions use the
+Python version of streams. The thought process behind each problem is the same,
+but if you feel that you would not benefit from reading Python stream code (as
+opposed to Scheme stream code), then it's better if you find stream questions
+elsewhere (Summer 2014 final is a good idea).</p>
 
 <p>This
 <a href="http://www-inst.eecs.berkeley.edu/~cs61a/su12/lab/lab13/lab13.php">link</a>
