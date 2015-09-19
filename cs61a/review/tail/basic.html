@@ -4,7 +4,7 @@
     <meta name='author' content='Albert Wu'>
     <title>Tail Recursion: basic</title>
 
-    <script src='/public/js/jquery-1.10.1.min.js'></script>
+    <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
 
     <link rel='stylesheet' type='text/css' href='/public/css/bootstrap.min.css'>
@@ -182,9 +182,9 @@ list <code>lst</code> and return the reverse of that list.</p>
     ; YOUR CODE HERE
     )
 
-STk&gt; (reverse &#x27;(1 2 3 4))
+scm&gt; (reverse &#x27;(1 2 3 4))
 (4 3 2 1)
-STk&gt; (reverse nil)
+scm&gt; (reverse nil)
 ()</code></pre>
 
 <p><strong>Hint</strong>: You should use a helper function.</p>
@@ -216,13 +216,13 @@ elements in the list using the <code>combiner</code>, beginnning at <code>start<
     ; YOUR CODE HERE
     )
 
-STk&gt; (reduce + &#x27;(1 2 3 4) 0)
+scm&gt; (reduce + &#x27;(1 2 3 4) 0)
 10
-STk&gt; (reduce &#x2d; &#x27;(1 2 3 4) 0)
+scm&gt; (reduce &#x2d; &#x27;(1 2 3 4) 0)
 &#x2d;10
-STk&gt; (reduce + &#x27;(1 2 3 4) 10)
+scm&gt; (reduce + &#x27;(1 2 3 4) 10)
 20
-STk&gt; (reduce * &#x27;(1 2 3 4) 1)
+scm&gt; (reduce * &#x27;(1 2 3 4) 1)
 24</code></pre>
 
 
@@ -250,9 +250,9 @@ elements in the list satisfy the predicate.</p>
     ; YOUR CODE HERE
     )
 
-STk&gt; (all &#x27;(1 2 3 4) even?)
+scm&gt; (all &#x27;(1 2 3 4) even?)
 #f
-STk&gt; (all &#x27;(1 3 5) odd?)
+scm&gt; (all &#x27;(1 3 5) odd?)
 #t</code></pre>
 
 
@@ -280,11 +280,11 @@ in the list.</p>
     ; YOUR CODE HERE
     )
 
-STk&gt; (count &#x27;(1 2 3 4) 3)
+scm&gt; (count &#x27;(1 2 3 4) 3)
 1
-STk&gt; (count &#x27;(2 3) 5)
+scm&gt; (count &#x27;(2 3) 5)
 0
-STk&gt; (count &#x27;(2 2 4 2 3) 2)
+scm&gt; (count &#x27;(2 2 4 2 3) 2)
 3</code></pre>
 
 
@@ -305,7 +305,6 @@ STk&gt; (count &#x27;(2 2 4 2 3) 2)
     
 
 
-  </div>
   </div>
 
   <div class='col-md-3'>
