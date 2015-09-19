@@ -2,19 +2,20 @@
 <html>
   <head>
     <meta name='author' content='Albert Wu'>
-    <meta name='description' content='CS 61A TA website for Albert Wu'>
     <title>Environment Diagrams | Albert Wu</title>
+
+    <script src='/public/js/jquery-1.10.1.min.js'></script>
+    <script src='/public/js/bootstrap.min.js'></script>
+
+    <link rel='stylesheet' type='text/css' href='/public/css/bootstrap.min.css'>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
-    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-green.css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <script src='/public/js/highlight.pack.js'></script>
     <script>
-      hljs.configure({languages:['python', 'lisp']});
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-<link href='/cs61a/notes/public/css/' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
 
     
 
@@ -31,70 +32,40 @@
 
   </head>
   <body>
-    <div id='nav-bar-toggle'>
-      <div id='nav-bar-toggle-icon'>
-        &lt;
+    <!-- Top navbar (for small window sizes) -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-section">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Albert Wu</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-section">
+          <ul class="nav navbar-nav">
+            <li><a href="/cs61a/">CS 61A</a></li>
+            <li><a href="/projects/">Projects</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <div class='header'>
+      <div class='container'>
+        <h1>Environment Diagrams</h1>
       </div>
     </div>
 
-    <div id='container'>
-      <div id='logo'>
-        <h1 id='nav-bar-hide'>Environment Diagrams</h1>
-      </div>
-
-      <div id='nav-bar'>
-        <div id='nav-bar-headers'>
-          <ul>
-            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
-            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
-              </li>
-          </ul>
-        </div>
-        <div id='accordion'>
-          <h3>Contents</h3>
-<div>
-<ul>
-  <li><a href="#preface-a-defense">Preface: a defense</a></li>
-  <li><a href="#purpose">Purpose</a></li>
-  <li><a href="#terminology">Terminology</a></li>
-  <ul>
-  <li><a href="#frames">Frames</a></li>
-  <li><a href="#variables-versus-values">Variables versus Values</a></li>
-  <li><a href="#arrows-pointers">Arrows/Pointers</a></li>
-</ul>
-
-  <li><a href="#drawing-diagrams">Drawing diagrams</a></li>
-  <ul>
-  <li><a href="#global-frame">Global Frame</a></li>
-  <li><a href="#bindings">Bindings</a></li>
-  <li><a href="#function-calls">Function calls</a></li>
-  <li><a href="#additional-rules">Additional rules</a></li>
-</ul>
-
-  <li><a href="#variable-lookup">Variable lookup</a></li>
-  <li><a href="#more-complicated-examples">More complicated examples</a></li>
-  <ul>
-  <li><a href="#function-calls-in-function-bodies">Function calls in function bodies</a></li>
-  <li><a href="#function-calls-as-operands">Function calls as operands</a></li>
-  <li><a href="#reassigning-functions">Reassigning functions</a></li>
-  <li><a href="#nested-functions">Nested functions</a></li>
-  <li><a href="#built-in-functions">Built-in functions</a></li>
-</ul>
-
-</ul>
-
-</div>
-        </div>
-        <div id='nav-bar-fixed'>
-          
-
-<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
-  course page</a></p>
-        </div>
-      </div>
-
-      <div id='content'>
-        <p>Environment Diagrams are a visual tool to keep track of bindings and
+    <!-- Content -->
+    <div class='container'>
+      <div class='row'>
+  <div class='col-md-9' id='content'>
+    <p>Environment Diagrams are a visual tool to keep track of bindings and
 state of a computer program. In this class, we use Python as our
 primary language, but the diagrams we teach can be applied to similar
 languages.</p>
@@ -306,14 +277,14 @@ assignment:</p>
 
 <p>where <code>x</code> is the variable and <code>3</code> is the value.</p>
 
-<p><img src="public/img/environments/x-equals-3.png" alt="x = 3"></p>
+<p><img src="/public/img/environments/x-equals-3.png" alt="x = 3"></p>
 
 <p>The second line is a little more involved. There is a complex
 expression on the right-hand side of the <code>=</code>, so we must <em>evaluate</em> it
 first. Notice in the following diagram that <code>y</code> is bound to <code>6</code>, not
 <code>1 + 2 + 3</code>:</p>
 
-<p><img src="public/img/environments/y-equals-6.png" alt="y = 1 + 2 + 3"></p>
+<p><img src="/public/img/environments/y-equals-6.png" alt="y = 1 + 2 + 3"></p>
 
 <p>The next line is a <code>def</code> statement:</p>
 
@@ -326,7 +297,7 @@ an interpreter, you don't execute the body of the function right away
 (e.g. when you define <code>square</code>, you don't immediately calculate
 <code>x*x</code>). Instead, we just make a <strong>binding</strong>.</p>
 
-<p><img src="public/img/environments/def-square.png" alt="def square(x):"></p>
+<p><img src="/public/img/environments/def-square.png" alt="def square(x):"></p>
 
 <p>The variable is <code>square</code>, and the value is an arrow pointing to a
 function object. Notice the <em>function object</em> also says <code>square</code> &mdash;
@@ -386,7 +357,7 @@ of a function call is <code>square(y)</code>. There are five simple steps:</p>
   we evaluated the corresponding operand to have a value of <code>6</code>. Now
   we draw the binding:</p>
 
-  <p><img src="public/img/environments/square-y.png" alt="square(y)"></p></li>
+  <p><img src="/public/img/environments/square-y.png" alt="square(y)"></p></li>
   <li><p><strong>Execute the body of the function</strong>. The body of <code>square</code> just
   says <code>return x*x</code>. There are no bindings and no function calls, so
   just compute <code>x*x</code>.</p>
@@ -395,7 +366,7 @@ of a function call is <code>square(y)</code>. There are five simple steps:</p>
   in <code>square</code> is called a <strong>local variable</strong>.</p></li>
   <li><p><strong>Write the return value</strong> (which is <code>6*6 = 36</code>):</p>
 
-  <p><img src="public/img/environments/return-x-times-x.png" alt="<code>return x*x</code>"></p></li>
+  <p><img src="/public/img/environments/return-x-times-x.png" alt="`return x*x`"></p></li>
 </ol>
 
 <p>And that's it! Once we're done with the function call, we exit the
@@ -456,7 +427,7 @@ for <code>square</code> do we draw? What are the parents for those frames?</p>
 
 <p>The first three bindings look like this:</p>
 
-<p><img src="public/img/environments/bindings.png" alt="bindings"></p>
+<p><img src="/public/img/environments/bindings.png" alt="bindings"></p>
 
 <p>The last line says</p>
 
@@ -472,7 +443,7 @@ for <code>square</code> do we draw? What are the parents for those frames?</p>
   <li><p><strong>Bind formal parameters</strong>. <code>double</code> has one parameter <code>x</code>, which
   is bound to the operand <code>3</code>.</p>
 
-  <p><img src="public/img/environments/double-x.png" alt="<code>double(x)</code>"></p></li>
+  <p><img src="/public/img/environments/double-x.png" alt="`double(x)`"></p></li>
   <li><strong>Execute the body of the function</strong>. <code>double</code> has one line that
   says <code>return square(x+1) &#x2d; square(x) &#x2d; 1</code>. We have to evaluate each
   part of this expression:</li>
@@ -489,12 +460,12 @@ for <code>square</code> do we draw? What are the parents for those frames?</p>
     <li><p><strong>Bind formal parameters</strong>. <code>square</code> has one parameter <code>x</code>,
     which is bound to <code>4</code></p>
 
-<pre><code>  ![`square(x+1)`](public/img/environments/square&#x2d;x&#x2d;plus&#x2d;1.png)</code></pre></li>
+<pre><code>  ![`square(x+1)`](/public/img/environments/square&#x2d;x&#x2d;plus&#x2d;1.png)</code></pre></li>
     <li><strong>Execute the body of the function</strong>. <code>square</code> computes <code>x*x</code>,
     which is <code>16</code>.</li>
     <li><p><strong>Write the return value</strong>, which is <code>16</code>.</p>
 
-<pre><code>  ![`return x*x`](public/img/environments/return&#x2d;x&#x2d;times&#x2d;x3.png)</code></pre></li>
+<pre><code>  ![`return x*x`](/public/img/environments/return&#x2d;x&#x2d;times&#x2d;x3.png)</code></pre></li>
   </ol></li>
   <li><p><code>square(x)</code></p>
 
@@ -506,12 +477,12 @@ for <code>square</code> do we draw? What are the parents for those frames?</p>
     <li><p><strong>Bind formal parameters</strong>. <code>square</code> has one parameter <code>x</code>,
     which is bound to <code>3</code></p>
 
-<pre><code>   ![`square(x)`](public/img/environments/square&#x2d;x.png)</code></pre></li>
+<pre><code>   ![`square(x)`](/public/img/environments/square&#x2d;x.png)</code></pre></li>
     <li><strong>Execute the body of the function</strong>. <code>square</code> computes <code>x*x</code>,
     which is <code>9</code>.</li>
     <li><p><strong>Write the return value</strong>, which is <code>9</code>.</p>
 
-<pre><code>   ![`return x*x`](public/img/environments/return&#x2d;x&#x2d;times&#x2d;x4.png)</code></pre></li>
+<pre><code>   ![`return x*x`](/public/img/environments/return&#x2d;x&#x2d;times&#x2d;x4.png)</code></pre></li>
   </ol>
 
   <p>Now that we know <code>square(x+1)</code> is <code>16</code> and <code>square(x)</code> is <code>9</code>, we
@@ -521,7 +492,7 @@ for <code>square</code> do we draw? What are the parents for those frames?</p>
     <li><strong>Write the return value</strong> of <code>double</code>, which is <code>6</code>.</li>
   </ol>
 
-  <p><img src="public/img/environments/double-return.png" alt="<code>return square(x + 1) &#x2d; square(x) &#x2d; 1</code>"></p></li>
+  <p><img src="/public/img/environments/double-return.png" alt="`return square(x + 1) - square(x) - 1`"></p></li>
 </ul>
 
 
@@ -546,7 +517,7 @@ above!</p>
 
 <p>The first three bindings look like this:</p>
 
-<p><img src="public/img/environments/bindings.png" alt="bindings"></p>
+<p><img src="/public/img/environments/bindings.png" alt="bindings"></p>
 
 <p>Now for the hard part:</p>
 
@@ -568,7 +539,7 @@ or <code>double</code>? The procedure is as follows:</p>
     <code>x</code>, and its operand is <code>3</code>, so bind <code>x</code> to <code>3</code> in the new
     frame. Your diagram should look like this now:</p>
 
-    <p><img src="public/img/environments/double-x.png" alt="<code>double(x)</code>"></p></li>
+    <p><img src="/public/img/environments/double-x.png" alt="`double(x)`"></p></li>
     <li><p><strong>Execute the body of the function</strong>.</p>
 
     <p>The first line binds <code>ans = x + x</code></p></li>
@@ -577,23 +548,23 @@ or <code>double</code>? The procedure is as follows:</p>
     <li><strong>Draw a box with the value</strong></li>
     <li><p><strong>Write the variable</strong>, which is <code>ans</code></p>
 
-    <p><img src="public/img/environments/ans-equals-x-plus-x.png" alt="<code>ans = x + x</code>"></p></li>
+    <p><img src="/public/img/environments/ans-equals-x-plus-x.png" alt="`ans = x + x`"></p></li>
     <li><p><strong>Write the return value</strong>. The return value is <code>ans</code>,
     which is <code>6</code>.</p>
 
-    <p><img src="public/img/environments/return-ans.png" alt="<code>return ans</code>"></p></li>
+    <p><img src="/public/img/environments/return-ans.png" alt="`return ans`"></p></li>
   </ol></li>
   <li><strong>Draw a new frame</strong> for <code>square</code></li>
   <li><p><strong>Bind formal parameters</strong>. We saw in step 1 that <code>double(x)</code>
   is <code>6</code>. <code>square</code> has a single parameter called <code>x</code>, so we bind
   <code>x</code> to <code>6</code> in the new frame for <code>square</code></p>
 
-  <p><img src="public/img/environments/square-double-x.png" alt="<code>square(double(x))</code>"></p></li>
+  <p><img src="/public/img/environments/square-double-x.png" alt="`square(double(x))`"></p></li>
   <li><strong>Execute the body of the function</strong>. <code>square</code> just says
   <code>return x*x</code>. Since <code>x</code> is <code>6</code>, <code>x*x = 36</code></li>
   <li><p><strong>Write the return value</strong>, which is <code>36</code></p>
 
-  <p><img src="public/img/environments/return-x-times-x2.png" alt="<code>return x*x</code>"></p></li>
+  <p><img src="/public/img/environments/return-x-times-x2.png" alt="`return x*x`"></p></li>
 </ol>
 
 
@@ -616,7 +587,7 @@ bar()</code></pre>
 evaluates to. If you got 10, you are correct! Let's see why, by
 drawing the diagram. The <code>def</code> statements are drawn as follows:</p>
 
-<p><img src="public/img/environments/bindings3.png" alt="bindings"></p>
+<p><img src="/public/img/environments/bindings3.png" alt="bindings"></p>
 
 <p>The next line is the function reassignment:</p>
 
@@ -632,11 +603,11 @@ drawing the diagram. The <code>def</code> statements are drawn as follows:</p>
   it with an arrow pointing to the <code>foo</code> function.</li>
   <li><p><strong>Write the variable</strong>. <code>bar</code> is already written.</p>
 
-  <p><img src="public/img/environments/bar-equals-foo.png" alt="bar = foo"></p></li>
+  <p><img src="/public/img/environments/bar-equals-foo.png" alt="bar = foo"></p></li>
 </ol>
 
-<p><strong>Note</strong>: in the picture, the <code>bar</code> function disappears, but you don't
-have to erase it from your diagram.</p>
+<blockquote><p><strong>Note</strong>: in the picture, the <code>bar</code> function disappears, but you don't
+have to erase it from your diagram.</p></blockquote>
 
 <p>The final line is</p>
 
@@ -651,11 +622,11 @@ have to erase it from your diagram.</p>
   (don't label it <code>bar</code>!)</li>
   <li><p><strong>Bind formal parameters</strong>. <code>foo</code> has no parameters.</p>
 
-  <p><img src="public/img/environments/bar.png" alt="bar()"></p></li>
+  <p><img src="/public/img/environments/bar.png" alt="bar()"></p></li>
   <li><strong>Execute the body of the function</strong>. It just returns <code>10</code></li>
   <li><p><strong>Write the return value</strong>.</p>
 
-  <p><img src="public/img/environments/return-10.png" alt="return 20"></p></li>
+  <p><img src="/public/img/environments/return-10.png" alt="return 20"></p></li>
 </ol>
 
 
@@ -678,11 +649,11 @@ fn(3)</code></pre>
 
 <p>The first binding (for defining <code>outer</code>) looks like this:</p>
 
-<p><img src="public/img/environments/bindings2.png" alt="def outer(x):"></p>
+<p><img src="/public/img/environments/bindings2.png" alt="def outer(x):"></p>
 
-<p><strong>Note</strong>: we haven't drawn a binding for <code>inner</code> yet! That's because
+<blockquote><p><strong>Note</strong>: we haven't drawn a binding for <code>inner</code> yet! That's because
 <code>inner</code> is defined in the body of <code>outer</code>, and we don't execute the
-body of <code>outer</code> when we're just defining it.</p>
+body of <code>outer</code> when we're just defining it.</p></blockquote>
 
 <p>The next line is</p>
 
@@ -702,7 +673,7 @@ bindings:</p>
   <li><p><strong>Bind formal parameters</strong>. <code>outer</code> has one paramter <code>x</code> that is
     bound to <code>2</code></p>
 
-  <p><img src="public/img/environments/outer-2.png" alt="fn = outer(2)"></p></li>
+  <p><img src="/public/img/environments/outer-2.png" alt="fn = outer(2)"></p></li>
   <li><p><strong>Execute the body of the function</strong>. The first thing in <code>outer</code>
     is a <code>def</code> statement, so we follow the rules for bindings:</p>
 
@@ -714,17 +685,17 @@ bindings:</p>
      primitive, we need to draw an arrow to the function object</li>
     <li><p><strong>Write the variable</strong>, which is <code>inner</code>.</p>
 
-<pre><code>![def inner(y)](public/img/environments/def&#x2d;inner.png)</code></pre></li>
+<pre><code>![def inner(y)](/public/img/environments/def&#x2d;inner.png)</code></pre></li>
   </ol></li>
   <li><p><strong>Write the return value</strong>. <code>inner</code> points to a function object,
     so the return value points to what <code>inner</code> points to.</p>
 
-  <p><img src="public/img/environments/return-inner.png" alt="return inner"></p></li>
+  <p><img src="/public/img/environments/return-inner.png" alt="return inner"></p></li>
   <li><strong>Draw a box with the value</strong>. Since the value is a function
   object, we draw an arrow pointing to that function object</li>
   <li><p><strong>Write the variable</strong>, which is <code>fn</code>.</p>
 
-  <p><img src="public/img/environments/fn-equals.png" alt="fn = outer(2)"></p></li>
+  <p><img src="/public/img/environments/fn-equals.png" alt="fn = outer(2)"></p></li>
 </ol>
 
 <p>The next line is</p>
@@ -742,7 +713,7 @@ bindings:</p>
   <li><p><strong>Bind formal parameters</strong>. <code>inner</code> has one parameter <code>y</code>, which is
   bound to 3.</p>
 
-  <p><img src="public/img/environments/fn-3.png" alt="fn(3)"></p></li>
+  <p><img src="/public/img/environments/fn-3.png" alt="fn(3)"></p></li>
   <li><strong>Execute the body of the function</strong>. <code>inner</code> just says <code>return x +
   y</code>. It gets a little tricky, though. Currently, we're in the frame
   for <code>inner</code>, but there's no binding for <code>x</code> in that frame! Where do
@@ -751,7 +722,7 @@ bindings:</p>
   use.</li>
   <li><p><strong>Write the return value</strong>, which is <code>2 + 3 = 5</code>.</p>
 
-  <p><img src="public/img/environments/return-x-plus-y.png" alt="return x + y"></p></li>
+  <p><img src="/public/img/environments/return-x-plus-y.png" alt="return x + y"></p></li>
 </ol>
 
 
@@ -775,7 +746,7 @@ demonstrates the difference between <code>print</code> and <code>return</code>.<
 
 <p>The function findings are as follows:</p>
 
-<p><img src="public/img/environments/bindings4.png" alt="bindings"></p>
+<p><img src="/public/img/environments/bindings4.png" alt="bindings"></p>
 
 <p>The next line is</p>
 
@@ -792,18 +763,18 @@ demonstrates the difference between <code>print</code> and <code>return</code>.<
     <li><p><strong>Bind formal parameters</strong>. <code>square1</code> has a single paramter
     <code>x</code>, which is bound to <code>4</code>.</p>
 
-    <p><img src="public/img/environments/square1-4.png" alt="square1(4)"></p></li>
+    <p><img src="/public/img/environments/square1-4.png" alt="square1(4)"></p></li>
     <li><strong>Execute the body of the function</strong>. <code>x</code> is bound to <code>4</code>, so
     <code>x*x = 16</code>.</li>
     <li><p><strong>Write the return value</strong>, which is 16.</p>
 
-    <p><img src="public/img/environments/return-x-times-x5.png" alt="<code>return x*x</code>"></p></li>
+    <p><img src="/public/img/environments/return-x-times-x5.png" alt="`return x*x`"></p></li>
   </ol></li>
   <li><strong>Draw a box with the value</strong>. We're back in Global, so that's
   where we put the value <code>16</code>.</li>
   <li><p><strong>Write the variable</strong>, which is <code>a</code></p>
 
-  <p><img src="public/img/environments/a-equals.png" alt="a = square1(4)"></p></li>
+  <p><img src="/public/img/environments/a-equals.png" alt="a = square1(4)"></p></li>
 </ol>
 
 <p>And thus, <code>a</code> is bound to <code>16</code>. Nothing new here.</p>
@@ -823,7 +794,7 @@ demonstrates the difference between <code>print</code> and <code>return</code>.<
     <li><p><strong>Bind formal parameters</strong>. <code>square1</code> has a single paramter
     <code>x</code>, which is bound to <code>4</code>.</p>
 
-    <p><img src="public/img/environments/square2-4.png" alt="square2(4)"></p></li>
+    <p><img src="/public/img/environments/square2-4.png" alt="square2(4)"></p></li>
     <li><p><strong>Execute the body of the function</strong>. Here, the line is to
     <code>print(x*x)</code>. This <strong>is a function call</strong>, but <code>print</code> is a
     built-in function, so we do NOT draw a new frame for it.</p>
@@ -832,34 +803,73 @@ demonstrates the difference between <code>print</code> and <code>return</code>.<
     <li><p><strong>Write the return value</strong>. Since there's no <code>return</code>
     statement, the <code>square2</code> implicitly returns <code>None</code>.</p>
 
-    <p><img src="public/img/environments/print-x-times-x.png" alt="<code>print(x*x)</code>"></p></li>
+    <p><img src="/public/img/environments/print-x-times-x.png" alt="`print(x*x)`"></p></li>
   </ol></li>
   <li><strong>Draw a box with the value</strong>. We're back in Global, so that's
   where we put the value <code>None</code>.</li>
   <li><p><strong>Write the variable</strong>, which is <code>b</code></p>
 
-  <p><img src="public/img/environments/b-equals.png" alt="b = square2(4)"></p></li>
+  <p><img src="/public/img/environments/b-equals.png" alt="b = square2(4)"></p></li>
 </ol>
 
 <p>Notice that <code>b</code> is bound to <code>None</code>, not 16 &mdash; that's the difference
 between <code>return</code> and <code>print</code>!</p>
-      </div>
+  </div>
+
+  <div class='col-md-3'>
+    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+      Environment Diagrams
+<hr/>
+      <ul>
+  <li><a href="#preface-a-defense">Preface: a defense</a></li>
+  <li><a href="#purpose">Purpose</a></li>
+  <li><a href="#terminology">Terminology</a></li>
+  <ul>
+  <li><a href="#frames">Frames</a></li>
+  <li><a href="#variables-versus-values">Variables versus Values</a></li>
+  <li><a href="#arrows-pointers">Arrows/Pointers</a></li>
+</ul>
+
+  <li><a href="#drawing-diagrams">Drawing diagrams</a></li>
+  <ul>
+  <li><a href="#global-frame">Global Frame</a></li>
+  <li><a href="#bindings">Bindings</a></li>
+  <li><a href="#function-calls">Function calls</a></li>
+  <li><a href="#additional-rules">Additional rules</a></li>
+</ul>
+
+  <li><a href="#variable-lookup">Variable lookup</a></li>
+  <li><a href="#more-complicated-examples">More complicated examples</a></li>
+  <ul>
+  <li><a href="#function-calls-in-function-bodies">Function calls in function bodies</a></li>
+  <li><a href="#function-calls-as-operands">Function calls as operands</a></li>
+  <li><a href="#reassigning-functions">Reassigning functions</a></li>
+  <li><a href="#nested-functions">Nested functions</a></li>
+  <li><a href="#built-in-functions">Built-in functions</a></li>
+</ul>
+
+</ul>
+
+    </nav>
+  </div>
+</div>
     </div>
   </body>
 
-  <script src='/public/js/jquery-1.10.1.min.js'></script>
-  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
-  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
-  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <script src="/public/js/nav-bar.js"></script>
   <script>
-    $(document).ready(function() {
-      $('#accordion').accordion({
-        heightStyle: 'content'
-      });
-      $.localScroll();
-    });
-  </script>
-  
+$(document).ready(function() {
+  $('.sidebar ul').addClass('nav nav-stacked');
+  $('body').scrollspy({
+    target: '.sidebar',
+  });
+  var affixOffset = 50;
+  $('.sidebar').affix({
+    offset: {
+      top: $('#content').offset().top - affixOffset
+    }
+  });
+  $('.sidebar').css('top', affixOffset);
+});
+</script>
+
 </html>

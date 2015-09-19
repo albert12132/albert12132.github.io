@@ -2,19 +2,20 @@
 <html>
   <head>
     <meta name='author' content='Albert Wu'>
-    <meta name='description' content='CS 61A TA website for Albert Wu'>
     <title>Git | Albert Wu</title>
+
+    <script src='/public/js/jquery-1.10.1.min.js'></script>
+    <script src='/public/js/bootstrap.min.js'></script>
+
+    <link rel='stylesheet' type='text/css' href='/public/css/bootstrap.min.css'>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
-    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-green.css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <script src='/public/js/highlight.pack.js'></script>
     <script>
-      hljs.configure({languages:['python', 'lisp']});
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-<link href='/cs61a/notes/public/css/' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
 
     
 
@@ -31,74 +32,40 @@
 
   </head>
   <body>
-    <div id='nav-bar-toggle'>
-      <div id='nav-bar-toggle-icon'>
-        &lt;
+    <!-- Top navbar (for small window sizes) -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-section">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Albert Wu</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-section">
+          <ul class="nav navbar-nav">
+            <li><a href="/cs61a/">CS 61A</a></li>
+            <li><a href="/projects/">Projects</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <div class='header'>
+      <div class='container'>
+        <h1>Git</h1>
       </div>
     </div>
 
-    <div id='container'>
-      <div id='logo'>
-        <h1 id='nav-bar-hide'>Git</h1>
-      </div>
-
-      <div id='nav-bar'>
-        <div id='nav-bar-headers'>
-          <ul>
-            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
-            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
-              </li>
-          </ul>
-        </div>
-        <div id='accordion'>
-          <h3>Contents</h3>
-<div>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<ul>
-<li><a href="#installing-git">Installing Git</a></li>
-<li><a href="#online-hosting">Online Hosting</a></li>
-</ul>
-<li><a href="#getting-started">Getting Started</a></li>
-<ul>
-<li><a href="#joining-a-repo">Joining a repo</a></li>
-</ul>
-<li><a href="#basic-work-cycle">Basic Work Cycle</a></li>
-<ul>
-<li><a href="#pull">Pull</a></li>
-<li><a href="#add">Add</a></li>
-<li><a href="#commit">Commit</a></li>
-<li><a href="#push">Push</a></li>
-</ul>
-<li><a href="#gitignore">.gitignore</a></li>
-<li><a href="#merge-conflicts">Merge Conflicts</a></li>
-<li><a href="#revision-selection">Revision Selection</a></li>
-<ul>
-<li><a href="#commit-logs">Commit logs</a></li>
-<li><a href="#revert">Revert</a></li>
-<li><a href="#checkout">Checkout</a></li>
-</ul>
-<li><a href="#branching">Branching</a></li>
-<ul>
-<li><a href="#creating-a-branch">Creating a branch</a></li>
-<li><a href="#switching-between-branches">Switching between branches</a></li>
-<li><a href="#merging-branches">Merging branches</a></li>
-<li><a href="#pushing-and-pulling-branches">Pushing and Pulling branches</a></li>
-</ul>
-</ul>
-
-</div>
-        </div>
-        <div id='nav-bar-fixed'>
-          
-
-<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
-  course page</a></p>
-        </div>
-      </div>
-
-      <div id='content'>
-        <h2 id="introduction">Introduction</h2>
+    <!-- Content -->
+    <div class='container'>
+      <div class='row'>
+  <div class='col-md-9' id='content'>
+    <h2 id="introduction">Introduction</h2>
 
 
 <p>When working on projects for this class, you'll need some way to share
@@ -126,6 +93,7 @@ reference.</p>
 
 <h3 id="installing-git">Installing Git</h3>
 
+
 <p>You can download the latest version of Git
 <a href="http://git-scm.com/downloads">here</a>.</p>
 
@@ -136,12 +104,13 @@ using to interact with Git.</p>
 
 <h3 id="online-hosting">Online Hosting</h3>
 
+
 <p>In addition to Git (used from the command line), many people also use
 an online hosting service. These services provide a centralized
 overview of your project. Here are two such services:</p>
 
 <ul>
-  <li><a href="https://github.com/">GitHub</a>: a very popular choice -- many, if not
+  <li><a href="https://github.com/">GitHub</a>: a very popular choice &mdash; many, if not
   most, people use GitHub.</li>
   <li><a href="https://bitbucket.org/">Bitbucket</a>: allows users to create an
   unlimited number of private repositories.</li>
@@ -152,7 +121,7 @@ is limited. For this reason, we encourage you to use Bitbucket <em>for
 this class</em>. Remember, <strong>you may only share code with your partner.
 Sharing, or even showing code to anyone besides your partner and the
 61A staff is considered cheating.</strong> In the past, we've had incidents
-of students copying code from the public repos of other students --
+of students copying code from the public repos of other students &mdash;
 make sure this doesn't happen to you.</p>
 
 <p>That's not to say you shouldn't use GitHub at all. You can (and
@@ -170,7 +139,7 @@ GitHub.</p>
 Bitbucket.</p>
 
 <p>You'll be taken to your homepage. There should be a button labeled
-"Create repository." Every project starts with a <strong>repository</strong> --
+"Create repository." Every project starts with a <strong>repository</strong> &mdash;
 this is where you'll be storing your code.</p>
 
 <p>Fill in the information about your project. You can call it whatever
@@ -200,16 +169,17 @@ want. Usually, <code>README</code>s provide a summary of your project.</p>
 <p>Assuming you have your project files in the repo, type the following
 in your terminal:</p>
 
-<pre><code>git add -A
-git commit -m &quot;First commit&quot;
+<pre><code>git add &#x2d;A
+git commit &#x2d;m &quot;First commit&quot;
 git push origin master</code></pre>
 
 <p>We'll explain what these three lines do later. For now, refresh the
-Bitbucket page -- you'll see the code you committed. To see the actual
+Bitbucket page &mdash; you'll see the code you committed. To see the actual
 source code, click on "Source." You've just created your first repo!</p>
 
 
 <h3 id="joining-a-repo">Joining a repo</h3>
+
 
 <p>If you started the repo, you can invite your partner to join. Since
 we're using private repos, you'll need to send your partner an
@@ -230,7 +200,7 @@ invitation.</p>
 <p>Once your partner has joined the repo, they can immediately copy the
 source code onto their own computer. From the "Overview" page, find a
 line labeled "HTTPS" on the right side of the page. There should be a
-URL to the right of the "HTTPS" -- copy it, and type this into your
+URL to the right of the "HTTPS" &mdash; copy it, and type this into your
 terminal</p>
 
 <pre><code>git clone &lt;repo url&gt;</code></pre>
@@ -261,6 +231,7 @@ machine. So how do you publish your changes?</p>
 
 <h3 id="pull">Pull</h3>
 
+
 <p>Usually, you will be working with other people (e.g. your project
 partner). To receive updates that they have made, you need to <code>pull</code>:</p>
 
@@ -269,7 +240,7 @@ partner). To receive updates that they have made, you need to <code>pull</code>:
 <p><code>origin</code> is the nickname of your repository (so that you don't have to
 type in the full name every time). <code>master</code> is the main <strong>branch</strong> of
 your repository. These names were configured when you first created
-the repository -- if you want, you can change them.</p>
+the repository &mdash; if you want, you can change them.</p>
 
 <p>We'll explain in more detail what <a href="#branching">branching</a> means later.
 For now, this will be enough to get your partner's updates. All their
@@ -278,6 +249,7 @@ making some edits of your own!</p>
 
 
 <h3 id="add">Add</h3>
+
 
 <p><em>Adding</em> a file tells <code>git</code> that you want to include that file in the
 next commit. After modifying a file, you can add it by typing this:</p>
@@ -291,10 +263,10 @@ expansion, so the following are valid</p>
 git add file*.py          # adds all files that start with &#x27;file&#x27;
                           # and end in &#x27;.py&#x27;</code></pre>
 
-<p>If you want to add all modified files at once, you can use the <code>-A</code>
+<p>If you want to add all modified files at once, you can use the <code>&#x2d;A</code>
 flag:</p>
 
-<pre><code>git add -A</code></pre>
+<pre><code>git add &#x2d;A</code></pre>
 
 <p>Git also supports some UNIX-like commands:</p>
 
@@ -311,14 +283,15 @@ been added with this command:</p>
 
 <h3 id="commit">Commit</h3>
 
+
 <p><em>Committing</em> changes tells <code>git</code> to create a new stage in the revision
-history. Think of it as a checkpoint -- if you need to revert to a
+history. Think of it as a checkpoint &mdash; if you need to revert to a
 previous stage, you'll reset it to one of the previous commits.</p>
 
 <p>To commit changes (you'll need to have <a href="#add">added</a> changes
 first), type</p>
 
-<pre><code>git commit -m &quot;Your message here&quot;</code></pre>
+<pre><code>git commit &#x2d;m &quot;Your message here&quot;</code></pre>
 
 <p>Git requires commits to contain a brief message. The message should
 describe the changes you've made. Make sure the message is concise.</p>
@@ -330,6 +303,7 @@ changes.</p>
 
 <h3 id="push">Push</h3>
 
+
 <p>To make your changes available to collaborators, you should <code>push</code>
 your changes:</p>
 
@@ -338,8 +312,8 @@ your changes:</p>
 <p>Git will prompt you for your Bitbucket credentials. After it's done,
 you can go to the website and view your changes!</p>
 
-<p><strong>Note</strong>: The <code>origin</code> and <code>master</code> represent the same things as in
-<code>git push</code>.</p>
+<blockquote><p><strong>Note</strong>: The <code>origin</code> and <code>master</code> represent the same things as in
+<code>git push</code>.</p></blockquote>
 
 
 <h2 id="gitignore">.gitignore</h2>
@@ -370,15 +344,15 @@ Git won't know which modification should be the final one.</p>
 
 <p>When this happens, Git will notify you of the problem:</p>
 
-<pre><code>Auto-merging hog.py
+<pre><code>Auto&#x2d;merging hog.py
 CONFLICT (content): Merge conflict in hog.py
 Automatic merge failed; fix conflicts and then commit the result.</code></pre>
 
 <p>In the example above, there is a merge conflict in the file <code>hog.py</code>.
 We'll work with this scenario for this example.</p>
 
-<p><strong>Note</strong>: non-conflicting changes will have been successfully pulled,
-so you don't need to <code>git pull</code> again.</p>
+<blockquote><p><strong>Note</strong>: non-conflicting changes will have been successfully pulled,
+so you don't need to <code>git pull</code> again.</p></blockquote>
 
 <p>Open up <code>hog.py</code> (the conflicted file). After scrolling through the
 file, you should see one or more blocks of code delimited in this
@@ -411,6 +385,7 @@ projct). Git provides a way to revert back to a certain <strong>commit</strong>.
 
 <h3 id="commit-logs">Commit logs</h3>
 
+
 <p>First, the following command shows you your local commit history:</p>
 
 <pre><code>git log</code></pre>
@@ -434,7 +409,7 @@ the log.</p>
 <p>You can also generate a condensed version of the log by using the
 following flag:</p>
 
-<pre><code>git log --pretty=format:&#x27;%h %s&#x27;</code></pre>
+<pre><code>git log &#x2d;&#x2d;pretty=format:&#x27;%h %s&#x27;</code></pre>
 
 <p>In this case, the string <code>%h %s</code> specifies the format to be the commit
 ID, then a space, followed by the commit message. You can <a href="http://git-scm.com/book/en/Git-Basics-Viewing-the-Commit-History">customize
@@ -442,7 +417,7 @@ the
 format</a>.</p>
 
 <p>Once you've found the commit you are looking for, remember its ID
-(technically, it's called a <em>hash</em>) -- this is the long hexidecimal
+(technically, it's called a <em>hash</em>) &mdash; this is the long hexidecimal
 number found in the line</p>
 
 <pre><code>commit ...</code></pre>
@@ -466,6 +441,7 @@ to the correct commit:</p>
 
 <h3 id="revert">Revert</h3>
 
+
 <p>The following command will undo committed changes:</p>
 
 <pre><code>git revert &lt;commit ID&gt;</code></pre>
@@ -478,7 +454,7 @@ are two important aspects of <code>revert</code>:</p>
   ID&gt;</code>. Instead, it simply undoes changes introduced by <code>&lt;commit ID&gt;</code>.
   It will appear as if you never made that commit, but all commits you
   made after it will still be reflected in your project.</li>
-  <li><code>revert</code> creates a <em>new commit</em> -- it does not delete an old commit.
+  <li><code>revert</code> creates a <em>new commit</em> &mdash; it does not delete an old commit.
   Git finds out what changes have to be made in order to undo the
   specified commit, and makes a new commit reflecting these changes.</li>
 </ul>
@@ -495,8 +471,8 @@ you can do</p>
 <p>An explanation can be found
 <a href="http://www.atlassian.com/git/tutorial/undoing-changes#!revert">here</a>.</p>
 
-<p><strong>Note</strong>: the two properties above make <code>revert</code> a safe and useful way
-to selectively undo a change:</p>
+<blockquote><p><strong>Note</strong>: the two properties above make <code>revert</code> a safe and useful way
+to selectively undo a change:</p></blockquote>
 
 <ul>
   <li>If you just want to get rid of a small bug that was introduced at a
@@ -508,6 +484,7 @@ to selectively undo a change:</p>
 
 
 <h3 id="checkout">Checkout</h3>
+
 
 <p>If you just want to revert a single file, you can use the <code>checkout</code>
 command:</p>
@@ -567,9 +544,10 @@ are in the <code>master</code> branch.</p>
 
 <h3 id="creating-a-branch">Creating a branch</h3>
 
+
 <p>Continuing with the Hog Q5 scenario, let's create a branch:</p>
 
-<pre><code>git checkout -b q5</code></pre>
+<pre><code>git checkout &#x2d;b q5</code></pre>
 
 <p>This creates a <em>local</em> branch called <code>q5</code> and immediately switches to
 it. This is a shortcut for</p>
@@ -587,12 +565,13 @@ have two branches, and that you are in the <code>q5</code> branch:</p>
 <code>master</code> branch. You can still do <code>add</code> and <code>commit</code>. The commit will
 only affect the current branch.</p>
 
-<p><strong>Note</strong>: you have not created a <em>remote</em> branch yet -- i.e. no one
+<blockquote><p><strong>Note</strong>: you have not created a <em>remote</em> branch yet &mdash; i.e. no one
 else can see the new branch you created. It is only local to your own
-machine.</p>
+machine.</p></blockquote>
 
 
 <h3 id="switching-between-branches">Switching between branches</h3>
+
 
 <p>You might need to switch back to the <code>master</code> branch to work on
 something else. To do this, type</p>
@@ -611,6 +590,7 @@ be in the correct <em>local</em> branch.</p>
 
 <h3 id="merging-branches">Merging branches</h3>
 
+
 <p>After implementing and testing our new solution for Q5, we can
 incorporate it into our main project. To do this, we merge (make sure
 you've committed all changes on the q5 branch):</p>
@@ -619,23 +599,24 @@ you've committed all changes on the q5 branch):</p>
 git merge q5</code></pre>
 
 <p>Now, the <code>master</code> branch and the <code>q5</code> branch point to the same commit
-stage -- in other words, the <code>master</code> branch contains all the changes
+stage &mdash; in other words, the <code>master</code> branch contains all the changes
 you made on the <code>q5</code> branch!</p>
 
 <p>You can check which branches have been matched to your current branch:</p>
 
-<pre><code>git branch --merged     # lists merged branches
-git branch --no-merged  # lists unmerged branches</code></pre>
+<pre><code>git branch &#x2d;&#x2d;merged     # lists merged branches
+git branch &#x2d;&#x2d;no&#x2d;merged  # lists unmerged branches</code></pre>
 
 <p>You may want to continue working on the <code>q5</code> branch (maybe you want to
 try out another solution), so you might want to keep it around. If you
 want to delete the branch, however, you can type</p>
 
 <pre><code>git checkout master
-git branch -d q5</code></pre>
+git branch &#x2d;d q5</code></pre>
 
 
 <h3 id="pushing-and-pulling-branches">Pushing and Pulling branches</h3>
+
 
 <p>Up until now, all the branches we've created are local to our own
 computer. To share a branch with your collaborators, you need to push
@@ -647,7 +628,7 @@ git push origin q5</code></pre>
 <p>To retrieve a branch that you don't have yet (let's call it <code>q10</code>),
 you can do</p>
 
-<pre><code>git checkout -b q10   # create a local q10 branch
+<pre><code>git checkout &#x2d;b q10   # create a local q10 branch
 git pull origin q10</code></pre>
 
 <p>In general, make sure you are in the correct local branch before you
@@ -659,23 +640,71 @@ pull from the server.</p>
 
 <p>For more information, see <a href="http://git-scm.com/book/en/Git-Branching-Remote-Branches">this
 link</a>.</p>
-      </div>
+  </div>
+
+  <div class='col-md-3'>
+    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+      Git
+<hr/>
+      <ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <ul>
+  <li><a href="#installing-git">Installing Git</a></li>
+  <li><a href="#online-hosting">Online Hosting</a></li>
+</ul>
+
+  <li><a href="#getting-started">Getting Started</a></li>
+  <ul>
+  <li><a href="#joining-a-repo">Joining a repo</a></li>
+</ul>
+
+  <li><a href="#basic-work-cycle">Basic Work Cycle</a></li>
+  <ul>
+  <li><a href="#pull">Pull</a></li>
+  <li><a href="#add">Add</a></li>
+  <li><a href="#commit">Commit</a></li>
+  <li><a href="#push">Push</a></li>
+</ul>
+
+  <li><a href="#gitignore">.gitignore</a></li>
+  <li><a href="#merge-conflicts">Merge Conflicts</a></li>
+  <li><a href="#revision-selection">Revision Selection</a></li>
+  <ul>
+  <li><a href="#commit-logs">Commit logs</a></li>
+  <li><a href="#revert">Revert</a></li>
+  <li><a href="#checkout">Checkout</a></li>
+</ul>
+
+  <li><a href="#branching">Branching</a></li>
+  <ul>
+  <li><a href="#creating-a-branch">Creating a branch</a></li>
+  <li><a href="#switching-between-branches">Switching between branches</a></li>
+  <li><a href="#merging-branches">Merging branches</a></li>
+  <li><a href="#pushing-and-pulling-branches">Pushing and Pulling branches</a></li>
+</ul>
+
+</ul>
+
+    </nav>
+  </div>
+</div>
     </div>
   </body>
 
-  <script src='/public/js/jquery-1.10.1.min.js'></script>
-  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
-  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
-  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <script src="/public/js/nav-bar.js"></script>
   <script>
-    $(document).ready(function() {
-      $('#accordion').accordion({
-        heightStyle: 'content'
-      });
-      $.localScroll();
-    });
-  </script>
-  
+$(document).ready(function() {
+  $('.sidebar ul').addClass('nav nav-stacked');
+  $('body').scrollspy({
+    target: '.sidebar',
+  });
+  var affixOffset = 50;
+  $('.sidebar').affix({
+    offset: {
+      top: $('#content').offset().top - affixOffset
+    }
+  });
+  $('.sidebar').css('top', affixOffset);
+});
+</script>
+
 </html>

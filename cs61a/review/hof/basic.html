@@ -2,19 +2,21 @@
 <html>
   <head>
     <meta name='author' content='Albert Wu'>
-    <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>Higher-Order Functions: basic | Albert Wu</title>
+    <title>Higher-Order Functions: basic</title>
+
+    <script src='/public/js/jquery-1.10.1.min.js'></script>
+    <script src='/public/js/bootstrap.min.js'></script>
+
+    <link rel='stylesheet' type='text/css' href='/public/css/bootstrap.min.css'>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
-    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-green.css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <script src='/public/js/highlight.pack.js'></script>
     <script>
-      hljs.configure({languages:['python', 'lisp']});
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+<link rel='stylesheet' type='text/css' href='/public/css/review.css'>
     
 
     <!-- Google Analytics -->
@@ -30,81 +32,40 @@
 
   </head>
   <body>
-    <div id='nav-bar-toggle'>
-      <div id='nav-bar-toggle-icon'>
-        &lt;
+    <!-- Top navbar (for small window sizes) -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-section">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Albert Wu</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-section">
+          <ul class="nav navbar-nav">
+            <li><a href="/cs61a/">CS 61A</a></li>
+            <li><a href="/projects/">Projects</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <div class='header'>
+      <div class='container'>
+        <h1>Higher-Order Functions: basic-level questions</h1>
       </div>
     </div>
 
-    <div id='container'>
-      <div id='logo'>
-        <h1 id='nav-bar-hide'>Higher-Order Functions: basic</h1>
-      </div>
-
-      <div id='nav-bar'>
-        <div id='nav-bar-headers'>
-          <ul>
-            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
-            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
-              </li>
-          </ul>
-        </div>
-        <div id='accordion'>
-          <h3>Contents</h3>
-<div>
-<ul>
-  <li><a href="#conceptual-questions">Conceptual Questions</a></li>
-  <ul>
-  <li><a href="#q1">Question 1: </a></li>
-  <li><a href="#q2">Question 2: </a></li>
-</ul>
-
-  <li><a href="#what-would-python-print">What would Python print?</a></li>
-  <ul>
-  <li><a href="#q3">Question 3: </a></li>
-  <li><a href="#q4">Question 4: </a></li>
-  <li><a href="#q5">Question 5: </a></li>
-</ul>
-
-  <li><a href="#environment-diagrams">Environment Diagrams</a></li>
-  <ul>
-  <li><a href="#q6">Question 6: </a></li>
-  <li><a href="#q7">Question 7: </a></li>
-  <li><a href="#q8">Question 8: </a></li>
-  <li><a href="#q9">Question 9: </a></li>
-  <li><a href="#q10">Question 10: </a></li>
-</ul>
-
-  <li><a href="#code-writing-questions">Code-Writing questions</a></li>
-  <ul>
-  <li><a href="#q11">Question 11: </a></li>
-</ul>
-
-</ul>
-
-</div>
-<h3>Navigation</h3>
-<div>
-  <ul>
-    <li><a href='/cs61a/review'>All Topics</a></li>
-    <li><a href='/cs61a/review/mt1'>Midterm
-      1</a></li>
-    <li><a href='/cs61a/review/mt2'>Midterm
-      2</a></li>
-    <li><a href='/cs61a/review/final'>Final</a></li>
-  </ul>
-</div>
-        </div>
-        <div id='nav-bar-fixed'>
-          
-
-<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
-  course page</a></p>
-        </div>
-      </div>
-
-      <div id='content'>
-        
+    <!-- Content -->
+    <div class='container'>
+      <div class='row'>
+  <div class='col-md-9' id='content'>
+    
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -114,10 +75,11 @@
 
   
 
+
 <h2 id="conceptual-questions">Conceptual Questions</h2>
 
 
-<h3 class="question" id="q1">Question 1: </h3>
+<h3 class="question" id="q1">Question 1</h3>
 
 <p>What is the definition of a higher-order function?</p>
 
@@ -139,7 +101,7 @@ the following:</p>
 </div>
     
 
-<h3 class="question" id="q2">Question 2: </h3>
+<h3 class="question" id="q2">Question 2</h3>
 
 <p>In the following code, what type of object (number, boolean, string,
 function) does <code>foo</code> return?  What type of object should <code>x</code>
@@ -168,7 +130,7 @@ will result in an error (because it will try <code>x(y)</code>).</p>
 <h2 id="what-would-python-print">What would Python print?</h2>
 
 
-<h3 class="question" id="q3">Question 3: </h3>
+<h3 class="question" id="q3">Question 3</h3>
 
 
     <pre><code>&gt;&gt;&gt; def silly():
@@ -188,7 +150,7 @@ will result in an error (because it will try <code>x(y)</code>).</p>
     </button>
     
 
-<h3 class="question" id="q4">Question 4: </h3>
+<h3 class="question" id="q4">Question 4</h3>
 
 
     <pre><code>&gt;&gt;&gt; def func1(fn):
@@ -209,7 +171,7 @@ will result in an error (because it will try <code>x(y)</code>).</p>
     </button>
     
 
-<h3 class="question" id="q5">Question 5: </h3>
+<h3 class="question" id="q5">Question 5</h3>
 
 
     <pre><code>&gt;&gt;&gt; def dream1(totem):
@@ -233,7 +195,7 @@ False</span></code></pre>
 <h2 id="environment-diagrams">Environment Diagrams</h2>
 
 
-<h3 class="question" id="q6">Question 6: </h3>
+<h3 class="question" id="q6">Question 6</h3>
 
 <pre><code>def my_strat(score):
     return score + 2
@@ -260,7 +222,7 @@ result = play(my_strat)
     </div>
     
 
-<h3 class="question" id="q7">Question 7: </h3>
+<h3 class="question" id="q7">Question 7</h3>
 
 <pre><code>def fun(x):
     return x**2
@@ -287,7 +249,7 @@ b = a(2)
     </div>
     
 
-<h3 class="question" id="q8">Question 8: </h3>
+<h3 class="question" id="q8">Question 8</h3>
 
 <pre><code>def square(x):
     return x * x
@@ -311,7 +273,7 @@ a(4)</code></pre>
     </div>
     
 
-<h3 class="question" id="q9">Question 9: </h3>
+<h3 class="question" id="q9">Question 9</h3>
 
 <pre><code>x = 4
 
@@ -334,7 +296,7 @@ c = outer(square)(square)</code></pre>
     </div>
     
 
-<h3 class="question" id="q10">Question 10: </h3>
+<h3 class="question" id="q10">Question 10</h3>
 
 <pre><code>def one(f):
     a = 1
@@ -374,7 +336,7 @@ result = middle(cube)
 <h2 id="code-writing-questions">Code-Writing questions</h2>
 
 
-<h3 class="question" id="q11">Question 11: </h3>
+<h3 class="question" id="q11">Question 11</h3>
 
 <p>Write a function <code>make_mod</code> that takes a number, <code>n</code>, as an argument,
 and returns a new function. The new function should take a single
@@ -407,25 +369,64 @@ argument, <code>x</code>, and return the result of <code>x</code> modulo <code>n
 </div>
     
 
+
   </div>
-      </div>
+  </div>
+
+  <div class='col-md-3'>
+    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+      Higher-Order Functions: basic
+<hr/>
+      <ul>
+  <li><a href="#conceptual-questions">Conceptual Questions</a></li>
+  <ul>
+  <li><a href="#q1">Question 1</a></li>
+  <li><a href="#q2">Question 2</a></li>
+</ul>
+
+  <li><a href="#what-would-python-print">What would Python print?</a></li>
+  <ul>
+  <li><a href="#q3">Question 3</a></li>
+  <li><a href="#q4">Question 4</a></li>
+  <li><a href="#q5">Question 5</a></li>
+</ul>
+
+  <li><a href="#environment-diagrams">Environment Diagrams</a></li>
+  <ul>
+  <li><a href="#q6">Question 6</a></li>
+  <li><a href="#q7">Question 7</a></li>
+  <li><a href="#q8">Question 8</a></li>
+  <li><a href="#q9">Question 9</a></li>
+  <li><a href="#q10">Question 10</a></li>
+</ul>
+
+  <li><a href="#code-writing-questions">Code-Writing questions</a></li>
+  <ul>
+  <li><a href="#q11">Question 11</a></li>
+</ul>
+
+</ul>
+
+    </nav>
+  </div>
+</div>
     </div>
   </body>
 
-  <script src='/public/js/jquery-1.10.1.min.js'></script>
-  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
-  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
-  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <script src="/public/js/nav-bar.js"></script>
   <script>
-    $(document).ready(function() {
-      $('#accordion').accordion({
-        heightStyle: 'content'
-      });
-      $.localScroll();
-    });
-  </script>
-  <script src='/cs61a/review/public/js/toggle.js'></script>
-  
+$(document).ready(function() {
+  $('.sidebar ul').addClass('nav nav-stacked');
+  $('body').scrollspy({
+    target: '.sidebar',
+  });
+  var affixOffset = 50;
+  $('.sidebar').affix({
+    offset: {
+      top: $('#content').offset().top - affixOffset
+    }
+  });
+  $('.sidebar').css('top', affixOffset);
+});
+</script>
+<script src='/public/js/toggle.js'></script>
 </html>

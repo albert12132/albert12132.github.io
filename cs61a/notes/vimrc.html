@@ -2,19 +2,20 @@
 <html>
   <head>
     <meta name='author' content='Albert Wu'>
-    <meta name='description' content='CS 61A TA website for Albert Wu'>
     <title>Vimrc | Albert Wu</title>
+
+    <script src='/public/js/jquery-1.10.1.min.js'></script>
+    <script src='/public/js/bootstrap.min.js'></script>
+
+    <link rel='stylesheet' type='text/css' href='/public/css/bootstrap.min.css'>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
-    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-green.css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <script src='/public/js/highlight.pack.js'></script>
     <script>
-      hljs.configure({languages:['python', 'lisp']});
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-<link href='/cs61a/notes/public/css/' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
 
     
 
@@ -31,68 +32,40 @@
 
   </head>
   <body>
-    <div id='nav-bar-toggle'>
-      <div id='nav-bar-toggle-icon'>
-        &lt;
+    <!-- Top navbar (for small window sizes) -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-section">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Albert Wu</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-section">
+          <ul class="nav navbar-nav">
+            <li><a href="/cs61a/">CS 61A</a></li>
+            <li><a href="/projects/">Projects</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <div class='header'>
+      <div class='container'>
+        <h1>Vimrc</h1>
       </div>
     </div>
 
-    <div id='container'>
-      <div id='logo'>
-        <h1 id='nav-bar-hide'>Vimrc</h1>
-      </div>
-
-      <div id='nav-bar'>
-        <div id='nav-bar-headers'>
-          <ul>
-            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
-            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
-              </li>
-          </ul>
-        </div>
-        <div id='accordion'>
-          <h3>Contents</h3>
-<div>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<ul>
-<li><a href="#location">Location</a></li>
-<li><a href="#sample-vimrc">Sample vimrc</a></li>
-</ul>
-<li><a href="#filetype-syntax">Filetype Syntax</a></li>
-<li><a href="#settings">Settings</a></li>
-<ul>
-<li><a href="#miscellaneous">Miscellaneous</a></li>
-<li><a href="#dimensions">Dimensions</a></li>
-<li><a href="#information">Information</a></li>
-<li><a href="#navigation">Navigation</a></li>
-<li><a href="#searching">Searching</a></li>
-<li><a href="#tabs">Tabs</a></li>
-<li><a href="#backups">Backups</a></li>
-</ul>
-<li><a href="#key-bindings">Key bindings</a></li>
-<li><a href="#normal-mode-key-bindings">Normal Mode Key Bindings</a></li>
-<ul>
-<li><a href="#windows">Windows</a></li>
-<li><a href="#line-movement">Line movement</a></li>
-<li><a href="#screen-centering">Screen centering</a></li>
-</ul>
-<li><a href="#command-mode-key-bindings">Command Mode Key Bindings</a></li>
-</ul>
-</ul>
-
-</div>
-        </div>
-        <div id='nav-bar-fixed'>
-          
-
-<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
-  course page</a></p>
-        </div>
-      </div>
-
-      <div id='content'>
-        <h2 id="introduction">Introduction</h2>
+    <!-- Content -->
+    <div class='container'>
+      <div class='row'>
+  <div class='col-md-9' id='content'>
+    <h2 id="introduction">Introduction</h2>
 
 
 <p>The <code>.vimrc</code> is <a href="vim.html">Vim</a>'s configuration file.
@@ -101,6 +74,7 @@ adding lines to <code>.vimrc</code>.</p>
 
 
 <h3 id="location">Location</h3>
+
 
 <p>The <code>.vimrc</code> file goes in your home directory. The <code>.</code> at the
 beginning will hide the file from a normal <code>ls</code> UNIX command (so as
@@ -112,7 +86,9 @@ itself:</p>
 
 <h3 id="sample-vimrc">Sample vimrc</h3>
 
-<p>You can find my <code>.vimrc</code> file <a href="/public/vimrc">here</a>.
+
+<p>You can find my <code>.vimrc</code> file <a href="https://github.com/albert12132/dotfiles/blob/master/vim-files/vimrc">on
+Github</a>.
 It contains most of the settings described here.</p>
 
 
@@ -143,16 +119,18 @@ colorscheme):</p>
 <p>This turns off Vi compatibility. This is especially important if you
 are using Vim on your class account.</p>
 
-<p><strong>Note</strong>: the <code>&quot;</code> (double-quote) character begins a comment in
-VimScript.</p>
+<blockquote><p><strong>Note</strong>: the <code>&quot;</code> (double-quote) character begins a comment in
+VimScript.</p></blockquote>
 
 
 <h3 id="miscellaneous">Miscellaneous</h3>
+
 
 <pre><code>set noerrorbells    &quot; Gets rid of beeping sound</code></pre>
 
 
 <h3 id="dimensions">Dimensions</h3>
+
 
 <pre><code>set lines=50        &quot; Vim starts with this many lines
 set columns=80      &quot; You can change these numbers
@@ -166,6 +144,7 @@ it.</p>
 
 <h3 id="information">Information</h3>
 
+
 <pre><code>set showcmd         &quot; Show (partial) command in status line
 set showmode        &quot; Show the current mode
 set laststatus=2    &quot; Always show status line</code></pre>
@@ -177,11 +156,12 @@ Here is the one I use:</p>
 <pre><code>set statusline=%.40F%=%m\ %Y\ Line:\ %3l/%L[%3p%%]</code></pre>
 
 <p>The full filepath is displayed on the left, and various things are
-displayed on the right -- whether or not the file has been modified,
+displayed on the right &mdash; whether or not the file has been modified,
 the filetype, the line number, and the percentage through the file.</p>
 
 
 <h3 id="navigation">Navigation</h3>
+
 
 <pre><code>set nu              &quot; Set line numbering
 set scrolloff=5     &quot; Keep at least 5 lines above/below cursor
@@ -194,6 +174,7 @@ it can be distracting for some people.</p>
 
 <h3 id="searching">Searching</h3>
 
+
 <pre><code>set ignorecase      &quot; Do case insensitive matching
 set smartcase       &quot; Unless you explicitly search for upper case
 set incsearch       &quot; Incremental search
@@ -203,6 +184,7 @@ set showmatch       &quot; Show matching parentheses</code></pre>
 
 <h3 id="tabs">Tabs</h3>
 
+
 <pre><code>set expandtab       &quot; Uses spaces instead of tabs
 set tabstop=4       &quot; Each tab is 4 spaces
 set shiftwidth=4    &quot; Sets the &gt;&gt; and &lt;&lt; width
@@ -210,6 +192,7 @@ set autoindent</code></pre>
 
 
 <h3 id="backups">Backups</h3>
+
 
 <pre><code>set nobackup        &quot; remove backup files
 set noswapfile      &quot; remove swap files</code></pre>
@@ -244,13 +227,15 @@ example, normal mode mappings are done with <code>nmap</code>, <code>nremap</cod
 
 <h3 id="windows">Windows</h3>
 
-<pre><code>nnoremap &lt;C-k&gt;  &lt;C-w&gt;k    &quot; Move along windows faster
-nnoremap &lt;C-j&gt;  &lt;C-w&gt;j
-nnoremap &lt;C-h&gt;  &lt;C-w&gt;h
-nnoremap &lt;C-l&gt;  &lt;C-w&gt;l</code></pre>
+
+<pre><code>nnoremap &lt;C&#x2d;k&gt;  &lt;C&#x2d;w&gt;k    &quot; Move along windows faster
+nnoremap &lt;C&#x2d;j&gt;  &lt;C&#x2d;w&gt;j
+nnoremap &lt;C&#x2d;h&gt;  &lt;C&#x2d;w&gt;h
+nnoremap &lt;C&#x2d;l&gt;  &lt;C&#x2d;w&gt;l</code></pre>
 
 
 <h3 id="line-movement">Line movement</h3>
+
 
 <pre><code>nnoremap j      gj        &quot; Move along rows, not lines
 nnoremap k      gk        &quot; Useful for long lines
@@ -259,6 +244,7 @@ nnoremap $      g$</code></pre>
 
 
 <h3 id="screen-centering">Screen centering</h3>
+
 
 <pre><code>nnoremap &lt;space&gt;  zz      &quot; Centers screen around cursor
 nnoremap n        nzz
@@ -276,23 +262,62 @@ cnoremap X&lt;CR&gt; x&lt;CR&gt;
 cnoremap Sh&lt;CR&gt; sh&lt;CR&gt;
 cnoremap sH&lt;CR&gt; sh&lt;CR&gt;
 cnoremap SH&lt;CR&gt; sh&lt;CR&gt;</code></pre>
-      </div>
+  </div>
+
+  <div class='col-md-3'>
+    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+      Vimrc
+<hr/>
+      <ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <ul>
+  <li><a href="#location">Location</a></li>
+  <li><a href="#sample-vimrc">Sample vimrc</a></li>
+</ul>
+
+  <li><a href="#filetype-syntax">Filetype Syntax</a></li>
+  <li><a href="#settings">Settings</a></li>
+  <ul>
+  <li><a href="#miscellaneous">Miscellaneous</a></li>
+  <li><a href="#dimensions">Dimensions</a></li>
+  <li><a href="#information">Information</a></li>
+  <li><a href="#navigation">Navigation</a></li>
+  <li><a href="#searching">Searching</a></li>
+  <li><a href="#tabs">Tabs</a></li>
+  <li><a href="#backups">Backups</a></li>
+</ul>
+
+  <li><a href="#key-bindings">Key bindings</a></li>
+  <li><a href="#normal-mode-key-bindings">Normal Mode Key Bindings</a></li>
+  <ul>
+  <li><a href="#windows">Windows</a></li>
+  <li><a href="#line-movement">Line movement</a></li>
+  <li><a href="#screen-centering">Screen centering</a></li>
+</ul>
+
+  <li><a href="#command-mode-key-bindings">Command Mode Key Bindings</a></li>
+</ul>
+
+    </nav>
+  </div>
+</div>
     </div>
   </body>
 
-  <script src='/public/js/jquery-1.10.1.min.js'></script>
-  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
-  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
-  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <script src="/public/js/nav-bar.js"></script>
   <script>
-    $(document).ready(function() {
-      $('#accordion').accordion({
-        heightStyle: 'content'
-      });
-      $.localScroll();
-    });
-  </script>
-  
+$(document).ready(function() {
+  $('.sidebar ul').addClass('nav nav-stacked');
+  $('body').scrollspy({
+    target: '.sidebar',
+  });
+  var affixOffset = 50;
+  $('.sidebar').affix({
+    offset: {
+      top: $('#content').offset().top - affixOffset
+    }
+  });
+  $('.sidebar').css('top', affixOffset);
+});
+</script>
+
 </html>

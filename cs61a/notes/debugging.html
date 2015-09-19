@@ -2,19 +2,20 @@
 <html>
   <head>
     <meta name='author' content='Albert Wu'>
-    <meta name='description' content='CS 61A TA website for Albert Wu'>
     <title>Debugging | Albert Wu</title>
+
+    <script src='/public/js/jquery-1.10.1.min.js'></script>
+    <script src='/public/js/bootstrap.min.js'></script>
+
+    <link rel='stylesheet' type='text/css' href='/public/css/bootstrap.min.css'>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
-    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-green.css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <script src='/public/js/highlight.pack.js'></script>
     <script>
-      hljs.configure({languages:['python', 'lisp']});
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-<link href='/cs61a/notes/public/css/' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
 
     
 
@@ -31,72 +32,40 @@
 
   </head>
   <body>
-    <div id='nav-bar-toggle'>
-      <div id='nav-bar-toggle-icon'>
-        &lt;
+    <!-- Top navbar (for small window sizes) -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-section">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Albert Wu</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-section">
+          <ul class="nav navbar-nav">
+            <li><a href="/cs61a/">CS 61A</a></li>
+            <li><a href="/projects/">Projects</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <div class='header'>
+      <div class='container'>
+        <h1>Debugging</h1>
       </div>
     </div>
 
-    <div id='container'>
-      <div id='logo'>
-        <h1 id='nav-bar-hide'>Debugging</h1>
-      </div>
-
-      <div id='nav-bar'>
-        <div id='nav-bar-headers'>
-          <ul>
-            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
-            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
-              </li>
-          </ul>
-        </div>
-        <div id='accordion'>
-          <h3>Contents</h3>
-<div>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<ul>
-<li><a href="#traceback-messages">Traceback Messages</a></li>
-<li><a href="#error-messages">Error Messages</a></li>
-</ul>
-<li><a href="#debugging-process">Debugging Process</a></li>
-<ul>
-<li><a href="#running-doctests">Running doctests</a></li>
-<li><a href="#writing-your-own-tests">Writing your own tests</a></li>
-<li><a href="#using-print-statements">Using <code>print</code> statements</a></li>
-<li><a href="#long-term-debugging">Long-term debugging</a></li>
-</ul>
-<li><a href="#error-types">Error Types</a></li>
-<ul>
-<li><a href="#syntaxerror"><code>SyntaxError</code></a></li>
-<li><a href="#indentationerror"><code>IndentationError</code></a></li>
-<li><a href="#typeerror"><code>TypeError</code></a></li>
-<li><a href="#nameerror"><code>NameError</code></a></li>
-<li><a href="#indexerror"><code>IndexError</code></a></li>
-</ul>
-<li><a href="#common-bugs">Common Bugs</a></li>
-<ul>
-<li><a href="#spelling">Spelling</a></li>
-<li><a href="#missing-parentheses">Missing Parentheses</a></li>
-<li><a href="#missing-close-quotes">Missing close quotes</a></li>
-<li><a href="#vs"><code>=</code> vs. <code>==</code></a></li>
-<li><a href="#infinite-loops">Infinite Loops</a></li>
-<li><a href="#off-by-one-errors">Off-by-one errors</a></li>
-</ul>
-</ul>
-
-</div>
-        </div>
-        <div id='nav-bar-fixed'>
-          
-
-<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
-  course page</a></p>
-        </div>
-      </div>
-
-      <div id='content'>
-        <h2 id="introduction">Introduction</h2>
+    <!-- Content -->
+    <div class='container'>
+      <div class='row'>
+  <div class='col-md-9' id='content'>
+    <h2 id="introduction">Introduction</h2>
 
 
 <p>By now, you will have encountered various bugs when programming for
@@ -117,6 +86,7 @@ function(s) caused the problem.</p>
 
 
 <h3 id="traceback-messages">Traceback Messages</h3>
+
 
 <p>Notice that the lines in the traceback appear to be paired together.
 The <strong>first</strong> line in such a pair has the following format:</p>
@@ -144,6 +114,7 @@ recent call last."</p>
 
 <h3 id="error-messages">Error Messages</h3>
 
+
 <p>The very last line in the traceback message is the error statement. An
 <em>error statement</em> has the following format:</p>
 
@@ -167,6 +138,7 @@ recent call last."</p>
 
 <h3 id="running-doctests">Running doctests</h3>
 
+
 <p>Python has a great way to quickly write tests for your code. These are
 called doctests, and look like this:</p>
 
@@ -183,20 +155,20 @@ called doctests, and look like this:</p>
 <strong>doctests</strong>. To run them, go to your terminal and
 type:</p>
 
-<pre><code>python3 -m doctest file.py</code></pre>
+<pre><code>python3 &#x2d;m doctest file.py</code></pre>
 
 <p>This effectively loads your file into the Python interpreter, and
 checks to see if each doctest input (e.g. <code>foo(4)</code>) is the same as the
 specified output (e.g. <code>4</code>). If it isn't, a message will tell you
 which doctests you failed.</p>
 
-<p>The command line tool has a <code>-v</code> option that stands for "verbose."</p>
+<p>The command line tool has a <code>&#x2d;v</code> option that stands for "verbose."</p>
 
-<pre><code>python3 -m doctest file.py -v</code></pre>
+<pre><code>python3 &#x2d;m doctest file.py &#x2d;v</code></pre>
 
 <p>In addition to telling you which doctests you failed, it will also
 tell you which doctests passed. I personally find that information
-unnecessary, so I usually leave <code>-v</code> out.</p>
+unnecessary, so I usually leave <code>&#x2d;v</code> out.</p>
 
 <p>Usually, we will provide doctests for you in the starter files.
 <strong>Always run these doctests</strong>. Submitting an assignment without
@@ -212,12 +184,13 @@ line requires you to (1) type in a single line, and (2) that's it!</p>
 
 <h3 id="writing-your-own-tests">Writing your own tests</h3>
 
+
 <p>In addition to doctests, you can write your own tests. There are two
 ways to do this: (1) write additional doctests, or (2) write testing
 functions.</p>
 
 <p>Writing your own tests is good practice for the future.  Remember,
-before the project deadlines, our autograder only runs sanity tests --
+before the project deadlines, our autograder only runs sanity tests &mdash;
 a subset of all the tests we will eventually run.  In other words,
 <strong>passing the autograder does not mean you get full credit</strong>. As such,
 it is a very good idea to write your own test cases.</p>
@@ -231,7 +204,7 @@ function from Project 1).</p>
 <ul>
   <li><strong>Write some tests before you write code</strong>: this is called
   test-driven development. Writing down how you expect the function to
-  behave first -- this can guide you when writing the actual code.</li>
+  behave first &mdash; this can guide you when writing the actual code.</li>
   <li><strong>Write more tests after you write code</strong>: once you are sure your
   code passes the initial doctests, write some more tests to take care
   of edge cases.</li>
@@ -241,6 +214,7 @@ function from Project 1).</p>
 
 
 <h3 id="using-print-statements">Using <code>print</code> statements</h3>
+
 
 <p>Once the doctests tell you where the error is, you have to figure what
 went wrong. If the doctest gave you a traceback message, look at what
@@ -279,7 +253,7 @@ might have to add a print statement before the return to check
 <p>Some advice:</p>
 
 <ul>
-  <li><p>Don't just print out a variable -- add some sort of message to make
+  <li><p>Don't just print out a variable &mdash; add some sort of message to make
   it easier for you to read:</p>
 
 <pre><code>print(tmp)   # harder to keep track
@@ -300,8 +274,9 @@ while i &lt; n:
 
 <h3 id="long-term-debugging">Long-term debugging</h3>
 
+
 <p>The <code>print</code> statements described above are meant for quick debugging
-of one-time errors -- after figuring out the error, you would remove
+of one-time errors &mdash; after figuring out the error, you would remove
 all the <code>print</code> statements.</p>
 
 <p>However, sometimes we would like to leave the debugging code if we
@@ -332,6 +307,7 @@ a "flag").</p>
 
 <h3 id="syntaxerror"><code>SyntaxError</code></h3>
 
+
 <ul>
   <li><strong>Cause</strong>: code syntax mistake</li>
   <li><p><strong>Example</strong>:</p>
@@ -351,6 +327,7 @@ SyntaxError: invalid syntax</code></pre></li>
 
 <h3 id="indentationerror"><code>IndentationError</code></h3>
 
+
 <ul>
   <li><strong>Cause</strong>: improper indentation</li>
   <li><p><strong>Example</strong>:</p>
@@ -367,6 +344,7 @@ IndentationError: unindent does not match any outer indentation level</code></pr
 
 
 <h3 id="typeerror"><code>TypeError</code></h3>
+
 
 <ul>
   <li><p><strong>Cause 1</strong>:</p>
@@ -407,6 +385,7 @@ TypeError: add expected 2 arguments, got 1</code></pre></li>
 
 <h3 id="nameerror"><code>NameError</code></h3>
 
+
 <ul>
   <li><strong>Cause</strong>: variable not assigned to anything OR it doesn't
   exist. This includes function names.</li>
@@ -428,6 +407,7 @@ NameError: global name &#x27;x&#x27; is not defined</code></pre></li>
 
 <h3 id="indexerror"><code>IndexError</code></h3>
 
+
 <ul>
   <li><strong>Cause</strong>: trying to index a sequence (e.g. a tuple, list,
   string) with a number that exceeds the size of the sequence.</li>
@@ -448,6 +428,7 @@ IndexError: tuple index out of range</code></pre></li>
 
 <h3 id="spelling">Spelling</h3>
 
+
 <p>Python is <em>case sensitive</em>. The variable <code>hello</code> is not the same as <code>Hello</code> or
 <code>hello</code> or <code>helo</code>.  This will usually show up as a <code>NameError</code>, but sometimes
 misspelled variables will actually have been defined. In that case, it can be
@@ -456,6 +437,7 @@ spelling mistake.</p>
 
 
 <h3 id="missing-parentheses">Missing Parentheses</h3>
+
 
 <p>A common bug is to leave off the closing parenthesis. This will show up as a
 <code>SyntaxError</code>. Consider the following code:</p>
@@ -479,6 +461,7 @@ line, you are probably forgetting a parenthesis somewhere.</p>
 
 <h3 id="missing-close-quotes">Missing close quotes</h3>
 
+
 <p>This is similar to the previous bug, but much easier to catch. Python will
 actually tell you the line that is missing the quote:</p>
 
@@ -492,6 +475,7 @@ SyntaxError: EOL while scanning string literal</code></pre>
 
 <h3 id="vs"><code>=</code> vs. <code>==</code></h3>
 
+
 <p>The single equal sign <code>=</code> is used for <em>assignment</em>; the double equal sign <code>==</code>
 is used for testing equivalence. The most common error of this form is
 something like:</p>
@@ -500,6 +484,7 @@ something like:</p>
 
 
 <h3 id="infinite-loops">Infinite Loops</h3>
+
 
 <p>Infinite loops are often caused by <code>while</code> loops whose conditions never change.
 For example:</p>
@@ -518,26 +503,72 @@ while i &lt; 10:
 
 <h3 id="off-by-one-errors">Off-by-one errors</h3>
 
+
 <p>Sometimes a <code>while</code> loop or recursive function might stop one iteration too
 short. Here, it's best to walk through the iteration/recursion to see what
 number the loop stops at.</p>
-      </div>
+  </div>
+
+  <div class='col-md-3'>
+    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+      Debugging
+<hr/>
+      <ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <ul>
+  <li><a href="#traceback-messages">Traceback Messages</a></li>
+  <li><a href="#error-messages">Error Messages</a></li>
+</ul>
+
+  <li><a href="#debugging-process">Debugging Process</a></li>
+  <ul>
+  <li><a href="#running-doctests">Running doctests</a></li>
+  <li><a href="#writing-your-own-tests">Writing your own tests</a></li>
+  <li><a href="#using-print-statements">Using <code>print</code> statements</a></li>
+  <li><a href="#long-term-debugging">Long-term debugging</a></li>
+</ul>
+
+  <li><a href="#error-types">Error Types</a></li>
+  <ul>
+  <li><a href="#syntaxerror"><code>SyntaxError</code></a></li>
+  <li><a href="#indentationerror"><code>IndentationError</code></a></li>
+  <li><a href="#typeerror"><code>TypeError</code></a></li>
+  <li><a href="#nameerror"><code>NameError</code></a></li>
+  <li><a href="#indexerror"><code>IndexError</code></a></li>
+</ul>
+
+  <li><a href="#common-bugs">Common Bugs</a></li>
+  <ul>
+  <li><a href="#spelling">Spelling</a></li>
+  <li><a href="#missing-parentheses">Missing Parentheses</a></li>
+  <li><a href="#missing-close-quotes">Missing close quotes</a></li>
+  <li><a href="#vs"><code>=</code> vs. <code>==</code></a></li>
+  <li><a href="#infinite-loops">Infinite Loops</a></li>
+  <li><a href="#off-by-one-errors">Off-by-one errors</a></li>
+</ul>
+
+</ul>
+
+    </nav>
+  </div>
+</div>
     </div>
   </body>
 
-  <script src='/public/js/jquery-1.10.1.min.js'></script>
-  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
-  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
-  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <script src="/public/js/nav-bar.js"></script>
   <script>
-    $(document).ready(function() {
-      $('#accordion').accordion({
-        heightStyle: 'content'
-      });
-      $.localScroll();
-    });
-  </script>
-  
+$(document).ready(function() {
+  $('.sidebar ul').addClass('nav nav-stacked');
+  $('body').scrollspy({
+    target: '.sidebar',
+  });
+  var affixOffset = 50;
+  $('.sidebar').affix({
+    offset: {
+      top: $('#content').offset().top - affixOffset
+    }
+  });
+  $('.sidebar').css('top', affixOffset);
+});
+</script>
+
 </html>

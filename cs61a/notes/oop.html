@@ -2,19 +2,20 @@
 <html>
   <head>
     <meta name='author' content='Albert Wu'>
-    <meta name='description' content='CS 61A TA website for Albert Wu'>
     <title>Object Oriented Programming | Albert Wu</title>
+
+    <script src='/public/js/jquery-1.10.1.min.js'></script>
+    <script src='/public/js/bootstrap.min.js'></script>
+
+    <link rel='stylesheet' type='text/css' href='/public/css/bootstrap.min.css'>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
-    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-green.css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <script src='/public/js/highlight.pack.js'></script>
     <script>
-      hljs.configure({languages:['python', 'lisp']});
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-<link href='/cs61a/notes/public/css/' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
 
     
 
@@ -31,80 +32,40 @@
 
   </head>
   <body>
-    <div id='nav-bar-toggle'>
-      <div id='nav-bar-toggle-icon'>
-        &lt;
+    <!-- Top navbar (for small window sizes) -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-section">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Albert Wu</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-section">
+          <ul class="nav navbar-nav">
+            <li><a href="/cs61a/">CS 61A</a></li>
+            <li><a href="/projects/">Projects</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <div class='header'>
+      <div class='container'>
+        <h1>Object Oriented Programming</h1>
       </div>
     </div>
 
-    <div id='container'>
-      <div id='logo'>
-        <h1 id='nav-bar-hide'>Object Oriented Programming</h1>
-      </div>
-
-      <div id='nav-bar'>
-        <div id='nav-bar-headers'>
-          <ul>
-            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
-            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
-              </li>
-          </ul>
-        </div>
-        <div id='accordion'>
-          <h3>Contents</h3>
-<div>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#terminology">Terminology</a></li>
-<ul>
-<li><a href="#basics">Basics</a></li>
-<li><a href="#methods">Methods</a></li>
-<li><a href="#variables">Variables</a></li>
-<ul>
-<li><a href="#local-variables">Local Variables</a></li>
-<li><a href="#instance-variables">Instance Variables</a></li>
-<li><a href="#class-variables">Class Variables</a></li>
-</ul>
-<li><a href="#syntax">Syntax</a></li>
-<ul>
-<li><a href="#defining-classes">Defining classes</a></li>
-<li><a href="#using-a-class">Using a class</a></li>
-</ul>
-<li><a href="#inheritance">Inheritance</a></li>
-<ul>
-<li><a href="#overriding-methods">Overriding methods</a></li>
-<li><a href="#object"><code>object</code></a></li>
-</ul>
-<li><a href="#design-principles">Design Principles</a></li>
-<ul>
-<li><a href="#use-inheritance-whenever-possible">Use inheritance whenever possible</a></li>
-<li><a href="#call-superclass-methods-when-possible">Call superclass methods when possible</a></li>
-<li><a href="#instance-vs-class-variables">Instance vs. Class variables</a></li>
-<li><a href="#methods-vs-variables">Methods vs. Variables</a></li>
-</ul>
-<li><a href="#other-features">Other Features</a></li>
-<ul>
-<li><a href="#variable-lookup">Variable lookup</a></li>
-<li><a href="#property-methods">Property methods</a></li>
-<li><a href="#static-methods">Static methods</a></li>
-<li><a href="#multiple-inheritance">Multiple Inheritance</a></li>
-</ul>
-<li><a href="#java-a-comparison">Java: a comparison</a></li>
-</ul>
-</ul>
-
-</div>
-        </div>
-        <div id='nav-bar-fixed'>
-          
-
-<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
-  course page</a></p>
-        </div>
-      </div>
-
-      <div id='content'>
-        <h2 id="introduction">Introduction</h2>
+    <!-- Content -->
+    <div class='container'>
+      <div class='row'>
+  <div class='col-md-9' id='content'>
+    <h2 id="introduction">Introduction</h2>
 
 
 <p><strong>Object Oriented Programming</strong> is a programming paradigm (i.e. a way
@@ -138,7 +99,7 @@ Python</a>.</p>
         time = 10
         while time &gt; 0:
             print(time)
-            time -= 1</code></pre>
+            time &#x2d;= 1</code></pre>
 
 <p>Here's a list of terminology we will be covering:</p>
 
@@ -167,7 +128,7 @@ objects, you use the following syntax:</p>
 
 <pre><code>my_computer = Computer(&#x27;Albert&#x27;, &#x27;Linux&#x27;)</code></pre>
 
-<p>The left side is just a variable assignment -- nothing new. On the
+<p>The left side is just a variable assignment &mdash; nothing new. On the
 right side, it looks like we are calling <code>Computer</code> as if it was a
 function. This is known as the <span
 id='term-constructor'><strong>constructor</strong></span> of an object. In general,
@@ -187,7 +148,7 @@ Take a look at <code>__init__</code> definition in the <code>Computer</code> cla
 
 <p>It looks like we're defining a function. When we use a <code>def</code>
 statement inside of a <code>class</code>, we create a method. A <span
-id='term-method'><strong>method</strong></span> is very much like a function -- we
+id='term-method'><strong>method</strong></span> is very much like a function &mdash; we
 can call it with arguments, and it performs some computations. The
 only difference is that a method is tied to the class. To see what
 this means, consider the following code:</p>
@@ -207,7 +168,7 @@ it looks like it should take in one:</p>
 <pre><code>def boot(self):
     ...</code></pre>
 
-<p>The <code>self</code> argument refers to the object that is calling <code>boot</code> -- in
+<p>The <code>self</code> argument refers to the object that is calling <code>boot</code> &mdash; in
 this case, <code>self</code> is <code>my_computer</code>. The dot notation <em>implicitly</em>
 passes in <code>my_computer</code> as <code>self</code>, so we don't have to put it as an
 argument when we call <code>boot</code>. We'll talk more about this later.</p>
@@ -287,7 +248,7 @@ a couple of properties:</p>
 <p>Notice in the <code>__init__</code> method that we create two instance variables:
 <code>self.owner</code> and <code>self.operating_system</code>. Instance variables are
 always preceded by <code>self.</code>. This means the variable <code>self.owner</code> is a
-different variable than <code>owner</code> -- they just happen to have similar
+different variable than <code>owner</code> &mdash; they just happen to have similar
 names.</p>
 
 <p>The first property (persistence) is demonstrated with the
@@ -357,7 +318,7 @@ how to use it.</p>
 <p>By convention, class names are written in
 <a href="http://en.wikipedia.org/wiki/CamelCase">CamelCase</a> (e.g. <code>ClassName</code>
 as opposed to <code>class_name</code>). Don't worry about the <code>object</code> part yet
--- we'll explain that when we talk about <a href="#inheritance">inheritance</a>.</p>
+&mdash; we'll explain that when we talk about <a href="#inheritance">inheritance</a>.</p>
 
 <p>To create <strong>methods</strong>, use a <code>def</code> statement inside the class:</p>
 
@@ -402,7 +363,7 @@ declaration at the top of the class:</p>
     class_variable = 9001
 
     def __init__(self, args):
-        ClassName.class_variable -= 10</code></pre>
+        ClassName.class_variable &#x2d;= 10</code></pre>
 
 <p>Notice that, when declaring the <code>class_variable</code> outside of a method,
 we just put the variable name without dot notation (i.e.
@@ -529,7 +490,7 @@ for <code>b.method1</code>, Python will first look in the <code>B</code> class f
 call <code>method1</code>. If it can't find one (as in this case), it looks in
 the superclass (<code>A</code>) for <code>method1</code>.</p>
 
-<p>This is useful for writing concise code -- we don't need to repeat
+<p>This is useful for writing concise code &mdash; we don't need to repeat
 something we've already written.</p>
 
 
@@ -573,13 +534,13 @@ use dot notation, where the superclass name (<code>A</code>) precedes the dot.
 Also notice that, when we call <code>A.method1</code>, we have to <em>explicitly</em>
 pass in <code>self</code> as the first argument.</p>
 
-<p><strong>Note 1</strong>: this implementation of <code>B</code> will also print out <code>hello</code>,
+<blockquote><p><strong>Note 1</strong>: this implementation of <code>B</code> will also print out <code>hello</code>,
 just like in the previous implementation. The only difference is that
 this implementation calls the superclass method.</p>
 
 <p><strong>Note 2</strong>: we don't cover <code>super()</code> in this class. If you're
 interested, see
-<a href="http://docs.python.org/3.1/library/functions.html#super">this</a>.</p>
+<a href="http://docs.python.org/3.1/library/functions.html#super">this</a>.</p></blockquote>
 
 
 <h3 id="object"><code>object</code></h3>
@@ -595,7 +556,7 @@ definitions:</p>
 inheritance. In fact, that's exactly what is happening: when we put
 <code>object</code> there, we inherit from the <code>object</code> class.</p>
 
-<p><code>object</code> is the superclass of all classes in Python -- all classes
+<p><code>object</code> is the superclass of all classes in Python &mdash; all classes
 inherit from <code>object</code>. The <code>object</code> class has some general methods
 defined, such as <code>__init__</code>.</p>
 
@@ -638,7 +599,7 @@ If you need to update a method (to make it more efficient, do
 something different, etc.) that is shared by many classes, inheritance
 allows you to change it in just one class. If you don't use
 inheritance, you'll have to go through each class that shares that
-method -- this makes it easier to make mistakes! For this reason,
+method &mdash; this makes it easier to make mistakes! For this reason,
 inheritance makes code maintenance a lot easier.</p>
 
 <p>Consider the following example:</p>
@@ -887,23 +848,78 @@ OOP concepts present in Python. There are some differences however:</p>
   by convention, should use <code>lower_case_and_underscores</code>.</li>
   <li><strong>Python supports multiple inheritance.</strong></li>
 </ul>
-      </div>
+  </div>
+
+  <div class='col-md-3'>
+    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+      Object Oriented Programming
+<hr/>
+      <ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#terminology">Terminology</a></li>
+  <ul>
+  <li><a href="#basics">Basics</a></li>
+  <li><a href="#methods">Methods</a></li>
+  <li><a href="#variables">Variables</a></li>
+  <ul>
+  <li><a href="#local-variables">Local Variables</a></li>
+  <li><a href="#instance-variables">Instance Variables</a></li>
+  <li><a href="#class-variables">Class Variables</a></li>
+</ul>
+
+</ul>
+
+  <li><a href="#syntax">Syntax</a></li>
+  <ul>
+  <li><a href="#defining-classes">Defining classes</a></li>
+  <li><a href="#using-a-class">Using a class</a></li>
+</ul>
+
+  <li><a href="#inheritance">Inheritance</a></li>
+  <ul>
+  <li><a href="#overriding-methods">Overriding methods</a></li>
+  <li><a href="#object"><code>object</code></a></li>
+</ul>
+
+  <li><a href="#design-principles">Design Principles</a></li>
+  <ul>
+  <li><a href="#use-inheritance-whenever-possible">Use inheritance whenever possible</a></li>
+  <li><a href="#call-superclass-methods-when-possible">Call superclass methods when possible</a></li>
+  <li><a href="#instance-vs-class-variables">Instance vs. Class variables</a></li>
+  <li><a href="#methods-vs-variables">Methods vs. Variables</a></li>
+</ul>
+
+  <li><a href="#other-features">Other Features</a></li>
+  <ul>
+  <li><a href="#variable-lookup">Variable lookup</a></li>
+  <li><a href="#property-methods">Property methods</a></li>
+  <li><a href="#static-methods">Static methods</a></li>
+  <li><a href="#multiple-inheritance">Multiple Inheritance</a></li>
+</ul>
+
+  <li><a href="#java-a-comparison">Java: a comparison</a></li>
+</ul>
+
+    </nav>
+  </div>
+</div>
     </div>
   </body>
 
-  <script src='/public/js/jquery-1.10.1.min.js'></script>
-  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
-  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
-  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <script src="/public/js/nav-bar.js"></script>
   <script>
-    $(document).ready(function() {
-      $('#accordion').accordion({
-        heightStyle: 'content'
-      });
-      $.localScroll();
-    });
-  </script>
-  
+$(document).ready(function() {
+  $('.sidebar ul').addClass('nav nav-stacked');
+  $('body').scrollspy({
+    target: '.sidebar',
+  });
+  var affixOffset = 50;
+  $('.sidebar').affix({
+    offset: {
+      top: $('#content').offset().top - affixOffset
+    }
+  });
+  $('.sidebar').css('top', affixOffset);
+});
+</script>
+
 </html>

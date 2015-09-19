@@ -2,19 +2,21 @@
 <html>
   <head>
     <meta name='author' content='Albert Wu'>
-    <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>Identity vs. Equality: basic | Albert Wu</title>
+    <title>Identity vs. Equality: basic</title>
+
+    <script src='/public/js/jquery-1.10.1.min.js'></script>
+    <script src='/public/js/bootstrap.min.js'></script>
+
+    <link rel='stylesheet' type='text/css' href='/public/css/bootstrap.min.css'>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
-    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-green.css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <script src='/public/js/highlight.pack.js'></script>
     <script>
-      hljs.configure({languages:['python', 'lisp']});
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-<link rel='stylesheet' type='text/css' href='/cs61a/review/public/css/style.css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+<link rel='stylesheet' type='text/css' href='/public/css/review.css'>
     
 
     <!-- Google Analytics -->
@@ -30,67 +32,40 @@
 
   </head>
   <body>
-    <div id='nav-bar-toggle'>
-      <div id='nav-bar-toggle-icon'>
-        &lt;
+    <!-- Top navbar (for small window sizes) -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-section">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Albert Wu</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-section">
+          <ul class="nav navbar-nav">
+            <li><a href="/cs61a/">CS 61A</a></li>
+            <li><a href="/projects/">Projects</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <div class='header'>
+      <div class='container'>
+        <h1>Identity vs. Equality: basic-level questions</h1>
       </div>
     </div>
 
-    <div id='container'>
-      <div id='logo'>
-        <h1 id='nav-bar-hide'>Identity vs. Equality: basic</h1>
-      </div>
-
-      <div id='nav-bar'>
-        <div id='nav-bar-headers'>
-          <ul>
-            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
-            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
-              </li>
-          </ul>
-        </div>
-        <div id='accordion'>
-          <h3>Contents</h3>
-<div>
-<ul>
-  <li><a href="#conceptual-questions">Conceptual Questions</a></li>
-  <ul>
-  <li><a href="#q1">Question 1: </a></li>
-  <li><a href="#q2">Question 2: </a></li>
-  <li><a href="#q3">Question 3: </a></li>
-</ul>
-
-  <li><a href="#what-would-python-print">What would Python print?</a></li>
-  <ul>
-  <li><a href="#q4">Question 4: </a></li>
-  <li><a href="#q5">Question 5: </a></li>
-</ul>
-
-</ul>
-
-</div>
-<h3>Navigation</h3>
-<div>
-  <ul>
-    <li><a href='/cs61a/review'>All Topics</a></li>
-    <li><a href='/cs61a/review/mt1'>Midterm
-      1</a></li>
-    <li><a href='/cs61a/review/mt2'>Midterm
-      2</a></li>
-    <li><a href='/cs61a/review/final'>Final</a></li>
-  </ul>
-</div>
-        </div>
-        <div id='nav-bar-fixed'>
-          
-
-<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
-  course page</a></p>
-        </div>
-      </div>
-
-      <div id='content'>
-        
+    <!-- Content -->
+    <div class='container'>
+      <div class='row'>
+  <div class='col-md-9' id='content'>
+    
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -100,10 +75,11 @@
 
   
 
+
 <h2 id="conceptual-questions">Conceptual Questions</h2>
 
 
-<h3 class="question" id="q1">Question 1: </h3>
+<h3 class="question" id="q1">Question 1</h3>
 
 <p>What condition must be satisfied for the expression <code>a is b</code> to be
 <code>True</code>?</p>
@@ -120,7 +96,7 @@
 </div>
     
 
-<h3 class="question" id="q2">Question 2: </h3>
+<h3 class="question" id="q2">Question 2</h3>
 
 <p>What special method determines if <code>a == b</code> to be <code>True</code>?</p>
 
@@ -139,7 +115,7 @@ for user-defined types behaves the same way as <code>is</code>.</p>
 </div>
     
 
-<h3 class="question" id="q3">Question 3: </h3>
+<h3 class="question" id="q3">Question 3</h3>
 
 <p>For built-in types, if <code>a is b</code> is <code>True</code>, is <code>a == b</code> guaranteed to be
 <code>True</code>?</p>
@@ -162,7 +138,7 @@ this property!</p>
 <h2 id="what-would-python-print">What would Python print?</h2>
 
 
-<h3 class="question" id="q4">Question 4: </h3>
+<h3 class="question" id="q4">Question 4</h3>
 
 
     <pre><code>&gt;&gt;&gt; s = [1, 2, 3, 4]
@@ -183,7 +159,7 @@ this property!</p>
     </button>
     
 
-<h3 class="question" id="q5">Question 5: </h3>
+<h3 class="question" id="q5">Question 5</h3>
 
 
     <pre><code>&gt;&gt;&gt; s = (1, 2, 3, 4)
@@ -201,25 +177,50 @@ this property!</p>
     </button>
     
 
+
   </div>
-      </div>
+  </div>
+
+  <div class='col-md-3'>
+    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+      Identity vs. Equality: basic
+<hr/>
+      <ul>
+  <li><a href="#conceptual-questions">Conceptual Questions</a></li>
+  <ul>
+  <li><a href="#q1">Question 1</a></li>
+  <li><a href="#q2">Question 2</a></li>
+  <li><a href="#q3">Question 3</a></li>
+</ul>
+
+  <li><a href="#what-would-python-print">What would Python print?</a></li>
+  <ul>
+  <li><a href="#q4">Question 4</a></li>
+  <li><a href="#q5">Question 5</a></li>
+</ul>
+
+</ul>
+
+    </nav>
+  </div>
+</div>
     </div>
   </body>
 
-  <script src='/public/js/jquery-1.10.1.min.js'></script>
-  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
-  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
-  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <script src="/public/js/nav-bar.js"></script>
   <script>
-    $(document).ready(function() {
-      $('#accordion').accordion({
-        heightStyle: 'content'
-      });
-      $.localScroll();
-    });
-  </script>
-  <script src='/cs61a/review/public/js/toggle.js'></script>
-  
+$(document).ready(function() {
+  $('.sidebar ul').addClass('nav nav-stacked');
+  $('body').scrollspy({
+    target: '.sidebar',
+  });
+  var affixOffset = 50;
+  $('.sidebar').affix({
+    offset: {
+      top: $('#content').offset().top - affixOffset
+    }
+  });
+  $('.sidebar').css('top', affixOffset);
+});
+</script>
+<script src='/public/js/toggle.js'></script>
 </html>

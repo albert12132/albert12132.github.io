@@ -2,19 +2,20 @@
 <html>
   <head>
     <meta name='author' content='Albert Wu'>
-    <meta name='description' content='CS 61A TA website for Albert Wu'>
     <title>Vim | Albert Wu</title>
+
+    <script src='/public/js/jquery-1.10.1.min.js'></script>
+    <script src='/public/js/bootstrap.min.js'></script>
+
+    <link rel='stylesheet' type='text/css' href='/public/css/bootstrap.min.css'>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
-    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-green.css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <script src='/public/js/highlight.pack.js'></script>
     <script>
-      hljs.configure({languages:['python', 'lisp']});
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/cs61a/public/css/style.css'>
-<link href='/cs61a/notes/public/css/' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
 
     
 
@@ -31,77 +32,40 @@
 
   </head>
   <body>
-    <div id='nav-bar-toggle'>
-      <div id='nav-bar-toggle-icon'>
-        &lt;
+    <!-- Top navbar (for small window sizes) -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-section">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Albert Wu</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-section">
+          <ul class="nav navbar-nav">
+            <li><a href="/cs61a/">CS 61A</a></li>
+            <li><a href="/projects/">Projects</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <div class='header'>
+      <div class='container'>
+        <h1>Vim</h1>
       </div>
     </div>
 
-    <div id='container'>
-      <div id='logo'>
-        <h1 id='nav-bar-hide'>Vim</h1>
-      </div>
-
-      <div id='nav-bar'>
-        <div id='nav-bar-headers'>
-          <ul>
-            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
-            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
-              </li>
-          </ul>
-        </div>
-        <div id='accordion'>
-          <h3>Contents</h3>
-<div>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#getting-vim">Getting Vim</a></li>
-<ul>
-<li><a href="#linux">Linux</a></li>
-<li><a href="#macs">Macs</a></li>
-<li><a href="#windows">Windows</a></li>
-</ul>
-<li><a href="#basics">Basics</a></li>
-<ul>
-<li><a href="#vim-tutor">Vim Tutor</a></li>
-</ul>
-<li><a href="#modes">Modes</a></li>
-<li><a href="#insert-mode">Insert mode</a></li>
-<li><a href="#normal-mode">Normal mode</a></li>
-<ul>
-<li><a href="#navigation">Navigation</a></li>
-<li><a href="#undoing-changes">Undoing changes</a></li>
-<li><a href="#deleting-text">Deleting text</a></li>
-<li><a href="#yanking-text">Yanking text</a></li>
-<li><a href="#putting-text">Putting text</a></li>
-<li><a href="#searching">Searching</a></li>
-<li><a href="#replacing-text">Replacing text</a></li>
-</ul>
-<li><a href="#visual-mode">Visual mode</a></li>
-<ul>
-<li><a href="#block-visual-mode">Block visual mode</a></li>
-</ul>
-<li><a href="#command-mode">Command mode</a></li>
-<ul>
-<li><a href="#find-and-replace">Find and replace</a></li>
-</ul>
-<li><a href="#multiple-windows">Multiple Windows</a></li>
-<li><a href="#vimrc">.vimrc</a></li>
-</ul>
-</ul>
-
-</div>
-        </div>
-        <div id='nav-bar-fixed'>
-          
-
-<p><a href='http://www-inst.eecs.berkeley.edu/~cs61a/'>CS 61A
-  course page</a></p>
-        </div>
-      </div>
-
-      <div id='content'>
-        <h2 id="introduction">Introduction</h2>
+    <!-- Content -->
+    <div class='container'>
+      <div class='row'>
+  <div class='col-md-9' id='content'>
+    <h2 id="introduction">Introduction</h2>
 
 
 <p>Vim is a <em>mode-based</em> editor, meaning it has different modes with
@@ -113,11 +77,11 @@ bother having modes in the first place. However, you'll find that,
 with practice, switching between and using different modes becomes
 effortless and makes coding much faster.</p>
 
-<p>One <strong>note</strong> before we begin: when first learning Vim, you'll be
+<blockquote><p>One <strong>note</strong> before we begin: when first learning Vim, you'll be
 tempted to use your mouse and/or the arrow keys. <strong>Don't do it</strong>. The
-whole point of using Vim is to "throw away the mouse" -- you'll find
+whole point of using Vim is to "throw away the mouse" &mdash; you'll find
 that, after some practice, using Vim's shortcuts will be more
-productive.</p>
+productive.</p></blockquote>
 
 
 <h2 id="getting-vim">Getting Vim</h2>
@@ -139,13 +103,15 @@ not to be compatible with Vi, Vim's predecessor.</p>
 
 <h3 id="linux">Linux</h3>
 
-<p>You can use your package manager to install Vim. For Ubuntu, use the
-<code>apt-get</code> package manager:</p>
 
-<pre><code>sudo apt-get install vim</code></pre>
+<p>You can use your package manager to install Vim. For Ubuntu, use the
+<code>apt&#x2d;get</code> package manager:</p>
+
+<pre><code>sudo apt&#x2d;get install vim</code></pre>
 
 
 <h3 id="macs">Macs</h3>
+
 
 <p>OS X comes pre-installed with Vim. If you want the graphical user
 interface (GUI) version, you can also install
@@ -154,9 +120,10 @@ interface (GUI) version, you can also install
 
 <h3 id="windows">Windows</h3>
 
+
 <p>You can find the files to download
 <a href="http://www.vim.org/download.php#pc">here</a>. I personally haven't used
-Vim on Windows before -- I suspect it won't be as satisfactory as
+Vim on Windows before &mdash; I suspect it won't be as satisfactory as
 using it on a UNIX-based machine.</p>
 
 
@@ -175,13 +142,13 @@ using it on a UNIX-based machine.</p>
 terminal.</p>
 
 <p>Try typing some words. You'll notice what you type is not rendered on
-the screen. Vim uses different <em>modes</em> -- the mode Vim starts in is
+the screen. Vim uses different <em>modes</em> &mdash; the mode Vim starts in is
 called <strong>normal mode</strong>.</p>
 
 <p>We'll talk more about normal mode in a bit. Students usually find it
 reassuring to know how to type text first. The mode for regular
 editing is called <strong>insert mode</strong>. To switch from normal mode to
-insert mode, press the letter <code>i</code>. Now try typing -- text should be
+insert mode, press the letter <code>i</code>. Now try typing &mdash; text should be
 showing up.</p>
 
 <p>To save the file, we need to return to normal mode. To do so, just
@@ -202,16 +169,17 @@ add an exclamation mark after the command:</p>
 
 <pre><code>:q!</code></pre>
 
-<p>And there you have it -- a (very, very, very) basic work cycle in Vim!</p>
+<p>And there you have it &mdash; a (very, very, very) basic work cycle in Vim!</p>
 
-<p><strong>Note</strong>: you might have noticed that pressing the <code>ESC</code> key every
+<blockquote><p><strong>Note</strong>: you might have noticed that pressing the <code>ESC</code> key every
 time you want to switch back to normal mode takes quite a bit of work,
 since the <code>ESC</code> key is all the way in the top-left corner of your
 keyboard. Most people who use Vim remap their <code>ESC</code> key to something
-else (such as <code>CAPS</code> lock).</p>
+else (such as <code>CAPS</code> lock).</p></blockquote>
 
 
 <h3 id="vim-tutor">Vim Tutor</h3>
+
 
 <p>Vim provides a great built-in tutor to teach you the basics. From the
 terminal, type</p>
@@ -261,7 +229,7 @@ insert:</p>
   <li><code>S</code>: deletes the entire line and enters insert mode</li>
 </ul>
 
-<p>Experiment with each one -- I personally use <code>i</code>, <code>A</code>, <code>I</code>, and <code>o</code> the
+<p>Experiment with each one &mdash; I personally use <code>i</code>, <code>A</code>, <code>I</code>, and <code>o</code> the
 most.</p>
 
 
@@ -269,13 +237,14 @@ most.</p>
 
 
 <p>Normal mode is used for navigation and manipulating text. There is a
-wide variety of commands -- the most frequently used are described
+wide variety of commands &mdash; the most frequently used are described
 here.</p>
 
 <p>Remember, to enter normal mode, just press <code>ESC</code>.</p>
 
 
 <h3 id="navigation">Navigation</h3>
+
 
 <p>In normal mode, the four basic navigation keys are <code>h</code>, <code>j</code>, <code>k</code>, <code>l</code>.</p>
 
@@ -288,7 +257,7 @@ here.</p>
 
 <p>While you can use the arrow keys, you'll find (with time) that using
 <code>hjkl</code> is much faster. Trust me, take the time to learn how to use
-them -- it'll pay off.</p>
+them &mdash; it'll pay off.</p>
 
 <p>There are lots of other navigation keys:</p>
 
@@ -321,10 +290,10 @@ them -- it'll pay off.</p>
   <li><p>screen:</p>
 
   <ul>
-    <li><code>CTRL-f</code>: moves an entire "page" down</li>
-    <li><code>CTRL-b</code>: moves an entire "page" up</li>
-    <li><code>CTRL-d</code>: moves half a "page" down</li>
-    <li><code>CTRL-u</code>: moves half a "page" up</li>
+    <li><code>CTRL&#x2d;f</code>: moves an entire "page" down</li>
+    <li><code>CTRL&#x2d;b</code>: moves an entire "page" up</li>
+    <li><code>CTRL&#x2d;d</code>: moves half a "page" down</li>
+    <li><code>CTRL&#x2d;u</code>: moves half a "page" up</li>
   </ul></li>
   <li><p>document-level</p>
 
@@ -337,23 +306,25 @@ them -- it'll pay off.</p>
 
 <h3 id="undoing-changes">Undoing changes</h3>
 
-<p>The undo key is <code>u</code> -- it undoes any modifications to the text. Vim
+
+<p>The undo key is <code>u</code> &mdash; it undoes any modifications to the text. Vim
 remembers several levels of modifications, so you can keep pressing
 <code>u</code> to undo further and futher back. You can configure Vim to remember
 a certain number of levels.</p>
 
-<p>There is also a redo functionality -- to undo an undo, press <code>CTRL-r</code>.
+<p>There is also a redo functionality &mdash; to undo an undo, press <code>CTRL&#x2d;r</code>.
 Again, Vim will remember multiple levels, so you can redo multiple
 times.</p>
 
 
 <h3 id="deleting-text">Deleting text</h3>
 
+
 <p>The <code>x</code> command deletes a single character:</p>
 
 <ul>
   <li><code>x</code>: deletes the character right underneath the cursor</li>
-  <li><code>X</code>: (i.e. <code>SHIFT-x</code>) deletes the character right before the cursor</li>
+  <li><code>X</code>: (i.e. <code>SHIFT&#x2d;x</code>) deletes the character right before the cursor</li>
 </ul>
 
 <p>Using <code>d</code> provides more flexibility and range:</p>
@@ -371,11 +342,12 @@ times.</p>
 <p>I use <code>x</code>, <code>dd</code>, <code>dw</code>, and <code>D</code> the most. Of course, play around with
 the commands and see which ones you're comfortable with.</p>
 
-<p><strong>Note</strong>: Vim's delete functionality acts like <em>cut</em> -- Vim remembers
-what you deleted, and you can immediately paste the deleted text.</p>
+<blockquote><p><strong>Note</strong>: Vim's delete functionality acts like <em>cut</em> &mdash; Vim remembers
+what you deleted, and you can immediately paste the deleted text.</p></blockquote>
 
 
 <h3 id="yanking-text">Yanking text</h3>
+
 
 <p><em>Yanking</em> is the same as copying text. The primary operator to do so
 is <code>y</code>:</p>
@@ -386,33 +358,35 @@ is <code>y</code>:</p>
   <li><code>yj</code>: copy this line and the next</li>
 </ul>
 
-<p><strong>Note</strong>: Yanking and deleting use the same buffer to store text, so
-they will overwrite each other.</p>
+<blockquote><p><strong>Note</strong>: Yanking and deleting use the same buffer to store text, so
+they will overwrite each other.</p></blockquote>
 
 
 <h3 id="putting-text">Putting text</h3>
+
 
 <p>In Vim, pasting is called <em>putting</em> text. The primary key to do so is
 <code>p</code>:</p>
 
 <ul>
   <li><code>p</code>: puts copied text right after the cursor</li>
-  <li><code>P</code>: (i.e. <code>SHIFT-p</code>) puts copied text right before the cursor</li>
+  <li><code>P</code>: (i.e. <code>SHIFT&#x2d;p</code>) puts copied text right before the cursor</li>
 </ul>
 
-<p>Note that, if you had deleted or yanked an entire line, <code>p</code> will place
+<blockquote><p>Note that, if you had deleted or yanked an entire line, <code>p</code> will place
 the line after the current one, and <code>P</code> will place the line before the
-current one.</p>
+current one.</p></blockquote>
 
 
 <h3 id="searching">Searching</h3>
 
+
 <p>You can initiate a search from normal mode in the following ways:</p>
 
 <ul>
-  <li><code>/</code>: starts a <em>forward search</em> -- moving to the "next" match will go
+  <li><code>/</code>: starts a <em>forward search</em> &mdash; moving to the "next" match will go
   down the document</li>
-  <li><code>?</code>: starts a <em>backward search</em> -- moving to the "next" match will go
+  <li><code>?</code>: starts a <em>backward search</em> &mdash; moving to the "next" match will go
   up the document</li>
 </ul>
 
@@ -437,16 +411,17 @@ mode.</p>
 
 <h3 id="replacing-text">Replacing text</h3>
 
+
 <p>There are two ways to replace text from normal mode:</p>
 
 <ul>
   <li><code>r</code>: replaces the character under the cursor. After pressing <code>r</code>, type
   the new character, and it will take the place of the old one.</li>
   <li><code>R</code>: enters <strong>replace mode</strong>, which is like pressing the Insert key
-  -- it allows you type text, but replaces existing text.</li>
+  &mdash; it allows you type text, but replaces existing text.</li>
 </ul>
 
-<p>There are lots of other commands in normal mode -- look for them on
+<p>There are lots of other commands in normal mode &mdash; look for them on
 the internet.</p>
 
 
@@ -458,8 +433,8 @@ several ways to switch from normal mode to visual mode:</p>
 
 <ul>
   <li><code>v</code>: enters regular visual mode.</li>
-  <li><code>V</code>: (i.e. <code>SHIFT-v</code>) highlights entire lines at a time.</li>
-  <li><code>CTRL-v</code>: "block" visual mode</li>
+  <li><code>V</code>: (i.e. <code>SHIFT&#x2d;v</code>) highlights entire lines at a time.</li>
+  <li><code>CTRL&#x2d;v</code>: "block" visual mode</li>
 </ul>
 
 <p>In each visual mode, you can use normal mode commands for various
@@ -480,10 +455,11 @@ mode.</p>
 
 <h3 id="block-visual-mode">Block visual mode</h3>
 
+
 <p>You'll notice that in regular visual mode, navigating up and down will
 highlight all text on the line. "Block" visual mode highlights a block
 of text. The best way to understand it is to try it: from normal mode,
-type <code>CTRL-v</code>, and then press <code>k</code> to go up -- notice that it literally
+type <code>CTRL&#x2d;v</code>, and then press <code>k</code> to go up &mdash; notice that it literally
 highlights the character above the cursor, without any of the other
 characters on the line!</p>
 
@@ -520,7 +496,7 @@ the most frequently used ones.</p>
 <p>These two commands come in handy; for example, if you want to run a
 doctest, you can type</p>
 
-<pre><code>:!python3 -m doctest %</code></pre>
+<pre><code>:!python3 &#x2d;m doctest %</code></pre>
 
 <p>and it will run the doctests for the file you are currently working on
 (the <code>%</code> is a special character in Vim that stands for the name of the
@@ -538,6 +514,7 @@ work.</p>
 
 
 <h3 id="find-and-replace">Find and replace</h3>
+
 
 <p>As mentioned above, Vim also has a find-and-replace utility. It
 behaves like the UNIX program <code>sed</code>, so it has regular expression
@@ -559,7 +536,7 @@ couple of characters to be aware of:</p>
   <li><code>s</code>: stands for "substitute." The <code>s</code> should follow the range.</li>
   <li><code>/</code>: the forward slashes are delimiters that separate the different
   fields. Technically, you can replace the <code>/</code> with any character you
-  want, as long as you are consistent -- for example, you can do
+  want, as long as you are consistent &mdash; for example, you can do
   <code>:%s_search pattern_replace pattern_g</code>, but then any unescaped <code>_</code>s
   in the search and replace patterns will be interpreted as
   delimeters.</li>
@@ -603,7 +580,7 @@ command with the file name</p>
 <pre><code>:split filename
 :vsplit filename</code></pre>
 
-<p>To navigate between windows, type <code>CTRL-w</code>, followed by one of the
+<p>To navigate between windows, type <code>CTRL&#x2d;w</code>, followed by one of the
 <code>hjkl</code> keys.</p>
 
 <p>To close a window, move to that window and quit (type <code>:q</code>).</p>
@@ -614,24 +591,74 @@ command with the file name</p>
 
 <p>To configure Vim, you can create a file called a <code>.vimrc</code> (the <code>.</code>
 hides the file from a normal <code>ls</code> command, but it is still there).
-Learn more <a href="/vimrc.html">here</a>.</p>
-      </div>
+Learn more <a href="vimrc.html">here</a>.</p>
+  </div>
+
+  <div class='col-md-3'>
+    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+      Vim
+<hr/>
+      <ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#getting-vim">Getting Vim</a></li>
+  <ul>
+  <li><a href="#linux">Linux</a></li>
+  <li><a href="#macs">Macs</a></li>
+  <li><a href="#windows">Windows</a></li>
+</ul>
+
+  <li><a href="#basics">Basics</a></li>
+  <ul>
+  <li><a href="#vim-tutor">Vim Tutor</a></li>
+</ul>
+
+  <li><a href="#modes">Modes</a></li>
+  <li><a href="#insert-mode">Insert mode</a></li>
+  <li><a href="#normal-mode">Normal mode</a></li>
+  <ul>
+  <li><a href="#navigation">Navigation</a></li>
+  <li><a href="#undoing-changes">Undoing changes</a></li>
+  <li><a href="#deleting-text">Deleting text</a></li>
+  <li><a href="#yanking-text">Yanking text</a></li>
+  <li><a href="#putting-text">Putting text</a></li>
+  <li><a href="#searching">Searching</a></li>
+  <li><a href="#replacing-text">Replacing text</a></li>
+</ul>
+
+  <li><a href="#visual-mode">Visual mode</a></li>
+  <ul>
+  <li><a href="#block-visual-mode">Block visual mode</a></li>
+</ul>
+
+  <li><a href="#command-mode">Command mode</a></li>
+  <ul>
+  <li><a href="#find-and-replace">Find and replace</a></li>
+</ul>
+
+  <li><a href="#multiple-windows">Multiple Windows</a></li>
+  <li><a href="#vimrc">.vimrc</a></li>
+</ul>
+
+    </nav>
+  </div>
+</div>
     </div>
   </body>
 
-  <script src='/public/js/jquery-1.10.1.min.js'></script>
-  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
-  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
-  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <script src="/public/js/nav-bar.js"></script>
   <script>
-    $(document).ready(function() {
-      $('#accordion').accordion({
-        heightStyle: 'content'
-      });
-      $.localScroll();
-    });
-  </script>
-  
+$(document).ready(function() {
+  $('.sidebar ul').addClass('nav nav-stacked');
+  $('body').scrollspy({
+    target: '.sidebar',
+  });
+  var affixOffset = 50;
+  $('.sidebar').affix({
+    offset: {
+      top: $('#content').offset().top - affixOffset
+    }
+  });
+  $('.sidebar').css('top', affixOffset);
+});
+</script>
+
 </html>

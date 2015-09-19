@@ -2,15 +2,17 @@
 <html>
   <head>
     <meta name='author' content='Albert Wu'>
-    <meta name='description' content=''>
     <title>Albert Wu</title>
+
+    <script src='/public/js/jquery-1.10.1.min.js'></script>
+    <script src='/public/js/bootstrap.min.js'></script>
+
+    <link rel='stylesheet' type='text/css' href='/public/css/bootstrap.min.css'>
     <link rel='stylesheet' type='text/css' href='/public/css/style.css'>
-    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' type='text/css' href='/public/css/mono-blue.css'>
+    <link rel='stylesheet' type='text/css' href='/public/css/mono-green.css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <script src='/public/js/highlight.pack.js'></script>
     <script>
-      hljs.configure({languages:[]});
       hljs.initHighlightingOnLoad();
     </script>
     <link rel='stylesheet' type='text/css' href='/public/css/about.css'>
@@ -29,74 +31,74 @@
 
   </head>
   <body>
-    <div id='nav-bar-toggle'>
-      <div id='nav-bar-toggle-icon'>
-        &lt;
+    <!-- Top navbar (for small window sizes) -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-section">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Albert Wu</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse-section">
+          <ul class="nav navbar-nav">
+            <li><a href="/cs61a/">CS 61A</a></li>
+            <li><a href="/projects/">Projects</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <div class='header'>
+      <div class='container'>
+        <h1>Albert Wu</h1>
+
+<p>Hello! I'm a recent UC Berkeley grad and software engineer at
+Google.</p>
       </div>
     </div>
 
-    <div id='container'>
-      <div id='logo'>
-        <h1 id='nav-bar-hide'>Albert Wu</h1>
+    <!-- Content -->
+    <div class='container'>
+      <div class='row'>
+  <div class='col-md-6'>
+    <div class='main-featured-item'>
+      <a href='/cs61a/'>
+        <span class='main-featured-item-link'></span>
+      </a>
+
+      <div class='main-featured-item-title'>
+        CS 61A
       </div>
-
-      <div id='nav-bar'>
-        <div id='nav-bar-headers'>
-          <ul>
-            <li id='nav-bar-headers-about'><a href='/'>About</a></li>
-            <li id='nav-bar-headers-cs61a'><a href='/cs61a'>CS 61A</a>
-              </li>
-          </ul>
-        </div>
-        <div id='accordion'>
-          
-        </div>
-        <div id='nav-bar-fixed'>
-          
-        </div>
+      <div class='main-featured-item-description'>
+        Practice problems and notes for UC Berkeley's introductory computer
+        science course
       </div>
-
-      <div id='content'>
-        <div id='acknowledgements'>
-    <h2>Recently...</h2>
-
-    <p><i>7/13/2014</i>: See the documentation for
-    <a href="/projects/templar">Templar</a>,
-    a static templating engine written for Python programmers.</p>
-
-    <h2>Website</h2>
-    <p>You can find the code used to generate this website on
-    <a href='https://github.com/albert12132/albertwu.org'>Github</a>.</p>
-
-    <p>Acknowledgements go to</p>
-    <ul>
-      <li><a href='http://jquery.com/'>jQuery</a></li>
-      <li><a href='http://jqueryui.com/'>jQuery UI</a></li>
-      <li><a
-        href='https://code.google.com/p/python-markdown2/'>Markdown2</a></li>
-      <li><a href='http://www.pythontutor.com/'>Online Python
-        Tutor</a></li>
-      <li><a
-        href='https://code.google.com/p/google-code-prettify/'>Prettify</a></li>
-    </ul>
+    </div>
   </div>
+
+  <div class='col-md-6'>
+    <div class='main-featured-item'>
+      <a href='/projects/'>
+        <span class='main-featured-item-link'></span>
+      </a>
+
+      <div class='main-featured-item-title'>
+        Projects
       </div>
+      <div class='main-featured-item-description'>
+        Various programming projects that I've contributed to.
+      </div>
+    </div>
+  </div>
+</div>
     </div>
   </body>
 
-  <script src='/public/js/jquery-1.10.1.min.js'></script>
-  <script src="/public/js/jquery-scrolltofixed-min.js"></script>
-  <script src="/public/js/jquery.localscroll-1.2.7-min.js"></script>
-  <script src="/public/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <script src="/public/js/nav-bar.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('#accordion').accordion({
-        heightStyle: 'content'
-      });
-      $.localScroll();
-    });
-  </script>
   
 </html>
