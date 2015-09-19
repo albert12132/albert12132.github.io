@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name='author' content='Albert Wu'>
+    <meta name='author' content='Albert Wu'/>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+    <meta name='viewport' content='width=device-width'/>
     <title>Environment Diagrams | Albert Wu</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
@@ -277,14 +279,14 @@ assignment:</p>
 
 <p>where <code>x</code> is the variable and <code>3</code> is the value.</p>
 
-<p><img src="/public/img/environments/x-equals-3.png" alt="x = 3"></p>
+<p><img src="/public/img/environments/x-equals-3.png" alt="x = 3" class="img-responsive"></p>
 
 <p>The second line is a little more involved. There is a complex
 expression on the right-hand side of the <code>=</code>, so we must <em>evaluate</em> it
 first. Notice in the following diagram that <code>y</code> is bound to <code>6</code>, not
 <code>1 + 2 + 3</code>:</p>
 
-<p><img src="/public/img/environments/y-equals-6.png" alt="y = 1 + 2 + 3"></p>
+<p><img src="/public/img/environments/y-equals-6.png" alt="y = 1 + 2 + 3" class="img-responsive"></p>
 
 <p>The next line is a <code>def</code> statement:</p>
 
@@ -297,7 +299,7 @@ an interpreter, you don't execute the body of the function right away
 (e.g. when you define <code>square</code>, you don't immediately calculate
 <code>x*x</code>). Instead, we just make a <strong>binding</strong>.</p>
 
-<p><img src="/public/img/environments/def-square.png" alt="def square(x):"></p>
+<p><img src="/public/img/environments/def-square.png" alt="def square(x):" class="img-responsive"></p>
 
 <p>The variable is <code>square</code>, and the value is an arrow pointing to a
 function object. Notice the <em>function object</em> also says <code>square</code> &mdash;
@@ -357,7 +359,7 @@ of a function call is <code>square(y)</code>. There are five simple steps:</p>
   we evaluated the corresponding operand to have a value of <code>6</code>. Now
   we draw the binding:</p>
 
-  <p><img src="/public/img/environments/square-y.png" alt="square(y)"></p></li>
+  <p><img src="/public/img/environments/square-y.png" alt="square(y)" class="img-responsive"></p></li>
   <li><p><strong>Execute the body of the function</strong>. The body of <code>square</code> just
   says <code>return x*x</code>. There are no bindings and no function calls, so
   just compute <code>x*x</code>.</p>
@@ -366,7 +368,7 @@ of a function call is <code>square(y)</code>. There are five simple steps:</p>
   in <code>square</code> is called a <strong>local variable</strong>.</p></li>
   <li><p><strong>Write the return value</strong> (which is <code>6*6 = 36</code>):</p>
 
-  <p><img src="/public/img/environments/return-x-times-x.png" alt="`return x*x`"></p></li>
+  <p><img src="/public/img/environments/return-x-times-x.png" alt="`return x*x`" class="img-responsive"></p></li>
 </ol>
 
 <p>And that's it! Once we're done with the function call, we exit the
@@ -427,7 +429,7 @@ for <code>square</code> do we draw? What are the parents for those frames?</p>
 
 <p>The first three bindings look like this:</p>
 
-<p><img src="/public/img/environments/bindings.png" alt="bindings"></p>
+<p><img src="/public/img/environments/bindings.png" alt="bindings" class="img-responsive"></p>
 
 <p>The last line says</p>
 
@@ -443,7 +445,7 @@ for <code>square</code> do we draw? What are the parents for those frames?</p>
   <li><p><strong>Bind formal parameters</strong>. <code>double</code> has one parameter <code>x</code>, which
   is bound to the operand <code>3</code>.</p>
 
-  <p><img src="/public/img/environments/double-x.png" alt="`double(x)`"></p></li>
+  <p><img src="/public/img/environments/double-x.png" alt="`double(x)`" class="img-responsive"></p></li>
   <li><strong>Execute the body of the function</strong>. <code>double</code> has one line that
   says <code>return square(x+1) &#x2d; square(x) &#x2d; 1</code>. We have to evaluate each
   part of this expression:</li>
@@ -492,7 +494,7 @@ for <code>square</code> do we draw? What are the parents for those frames?</p>
     <li><strong>Write the return value</strong> of <code>double</code>, which is <code>6</code>.</li>
   </ol>
 
-  <p><img src="/public/img/environments/double-return.png" alt="`return square(x + 1) - square(x) - 1`"></p></li>
+  <p><img src="/public/img/environments/double-return.png" alt="`return square(x + 1) - square(x) - 1`" class="img-responsive"></p></li>
 </ul>
 
 
@@ -517,7 +519,7 @@ above!</p>
 
 <p>The first three bindings look like this:</p>
 
-<p><img src="/public/img/environments/bindings.png" alt="bindings"></p>
+<p><img src="/public/img/environments/bindings.png" alt="bindings" class="img-responsive"></p>
 
 <p>Now for the hard part:</p>
 
@@ -539,7 +541,7 @@ or <code>double</code>? The procedure is as follows:</p>
     <code>x</code>, and its operand is <code>3</code>, so bind <code>x</code> to <code>3</code> in the new
     frame. Your diagram should look like this now:</p>
 
-    <p><img src="/public/img/environments/double-x.png" alt="`double(x)`"></p></li>
+    <p><img src="/public/img/environments/double-x.png" alt="`double(x)`" class="img-responsive"></p></li>
     <li><p><strong>Execute the body of the function</strong>.</p>
 
     <p>The first line binds <code>ans = x + x</code></p></li>
@@ -548,23 +550,23 @@ or <code>double</code>? The procedure is as follows:</p>
     <li><strong>Draw a box with the value</strong></li>
     <li><p><strong>Write the variable</strong>, which is <code>ans</code></p>
 
-    <p><img src="/public/img/environments/ans-equals-x-plus-x.png" alt="`ans = x + x`"></p></li>
+    <p><img src="/public/img/environments/ans-equals-x-plus-x.png" alt="`ans = x + x`" class="img-responsive"></p></li>
     <li><p><strong>Write the return value</strong>. The return value is <code>ans</code>,
     which is <code>6</code>.</p>
 
-    <p><img src="/public/img/environments/return-ans.png" alt="`return ans`"></p></li>
+    <p><img src="/public/img/environments/return-ans.png" alt="`return ans`" class="img-responsive"></p></li>
   </ol></li>
   <li><strong>Draw a new frame</strong> for <code>square</code></li>
   <li><p><strong>Bind formal parameters</strong>. We saw in step 1 that <code>double(x)</code>
   is <code>6</code>. <code>square</code> has a single parameter called <code>x</code>, so we bind
   <code>x</code> to <code>6</code> in the new frame for <code>square</code></p>
 
-  <p><img src="/public/img/environments/square-double-x.png" alt="`square(double(x))`"></p></li>
+  <p><img src="/public/img/environments/square-double-x.png" alt="`square(double(x))`" class="img-responsive"></p></li>
   <li><strong>Execute the body of the function</strong>. <code>square</code> just says
   <code>return x*x</code>. Since <code>x</code> is <code>6</code>, <code>x*x = 36</code></li>
   <li><p><strong>Write the return value</strong>, which is <code>36</code></p>
 
-  <p><img src="/public/img/environments/return-x-times-x2.png" alt="`return x*x`"></p></li>
+  <p><img src="/public/img/environments/return-x-times-x2.png" alt="`return x*x`" class="img-responsive"></p></li>
 </ol>
 
 
@@ -587,7 +589,7 @@ bar()</code></pre>
 evaluates to. If you got 10, you are correct! Let's see why, by
 drawing the diagram. The <code>def</code> statements are drawn as follows:</p>
 
-<p><img src="/public/img/environments/bindings3.png" alt="bindings"></p>
+<p><img src="/public/img/environments/bindings3.png" alt="bindings" class="img-responsive"></p>
 
 <p>The next line is the function reassignment:</p>
 
@@ -603,7 +605,7 @@ drawing the diagram. The <code>def</code> statements are drawn as follows:</p>
   it with an arrow pointing to the <code>foo</code> function.</li>
   <li><p><strong>Write the variable</strong>. <code>bar</code> is already written.</p>
 
-  <p><img src="/public/img/environments/bar-equals-foo.png" alt="bar = foo"></p></li>
+  <p><img src="/public/img/environments/bar-equals-foo.png" alt="bar = foo" class="img-responsive"></p></li>
 </ol>
 
 <blockquote><p><strong>Note</strong>: in the picture, the <code>bar</code> function disappears, but you don't
@@ -622,11 +624,11 @@ have to erase it from your diagram.</p></blockquote>
   (don't label it <code>bar</code>!)</li>
   <li><p><strong>Bind formal parameters</strong>. <code>foo</code> has no parameters.</p>
 
-  <p><img src="/public/img/environments/bar.png" alt="bar()"></p></li>
+  <p><img src="/public/img/environments/bar.png" alt="bar()" class="img-responsive"></p></li>
   <li><strong>Execute the body of the function</strong>. It just returns <code>10</code></li>
   <li><p><strong>Write the return value</strong>.</p>
 
-  <p><img src="/public/img/environments/return-10.png" alt="return 20"></p></li>
+  <p><img src="/public/img/environments/return-10.png" alt="return 20" class="img-responsive"></p></li>
 </ol>
 
 
@@ -649,7 +651,7 @@ fn(3)</code></pre>
 
 <p>The first binding (for defining <code>outer</code>) looks like this:</p>
 
-<p><img src="/public/img/environments/bindings2.png" alt="def outer(x):"></p>
+<p><img src="/public/img/environments/bindings2.png" alt="def outer(x):" class="img-responsive"></p>
 
 <blockquote><p><strong>Note</strong>: we haven't drawn a binding for <code>inner</code> yet! That's because
 <code>inner</code> is defined in the body of <code>outer</code>, and we don't execute the
@@ -673,7 +675,7 @@ bindings:</p>
   <li><p><strong>Bind formal parameters</strong>. <code>outer</code> has one paramter <code>x</code> that is
     bound to <code>2</code></p>
 
-  <p><img src="/public/img/environments/outer-2.png" alt="fn = outer(2)"></p></li>
+  <p><img src="/public/img/environments/outer-2.png" alt="fn = outer(2)" class="img-responsive"></p></li>
   <li><p><strong>Execute the body of the function</strong>. The first thing in <code>outer</code>
     is a <code>def</code> statement, so we follow the rules for bindings:</p>
 
@@ -690,12 +692,12 @@ bindings:</p>
   <li><p><strong>Write the return value</strong>. <code>inner</code> points to a function object,
     so the return value points to what <code>inner</code> points to.</p>
 
-  <p><img src="/public/img/environments/return-inner.png" alt="return inner"></p></li>
+  <p><img src="/public/img/environments/return-inner.png" alt="return inner" class="img-responsive"></p></li>
   <li><strong>Draw a box with the value</strong>. Since the value is a function
   object, we draw an arrow pointing to that function object</li>
   <li><p><strong>Write the variable</strong>, which is <code>fn</code>.</p>
 
-  <p><img src="/public/img/environments/fn-equals.png" alt="fn = outer(2)"></p></li>
+  <p><img src="/public/img/environments/fn-equals.png" alt="fn = outer(2)" class="img-responsive"></p></li>
 </ol>
 
 <p>The next line is</p>
@@ -713,7 +715,7 @@ bindings:</p>
   <li><p><strong>Bind formal parameters</strong>. <code>inner</code> has one parameter <code>y</code>, which is
   bound to 3.</p>
 
-  <p><img src="/public/img/environments/fn-3.png" alt="fn(3)"></p></li>
+  <p><img src="/public/img/environments/fn-3.png" alt="fn(3)" class="img-responsive"></p></li>
   <li><strong>Execute the body of the function</strong>. <code>inner</code> just says <code>return x +
   y</code>. It gets a little tricky, though. Currently, we're in the frame
   for <code>inner</code>, but there's no binding for <code>x</code> in that frame! Where do
@@ -722,7 +724,7 @@ bindings:</p>
   use.</li>
   <li><p><strong>Write the return value</strong>, which is <code>2 + 3 = 5</code>.</p>
 
-  <p><img src="/public/img/environments/return-x-plus-y.png" alt="return x + y"></p></li>
+  <p><img src="/public/img/environments/return-x-plus-y.png" alt="return x + y" class="img-responsive"></p></li>
 </ol>
 
 
@@ -746,7 +748,7 @@ demonstrates the difference between <code>print</code> and <code>return</code>.<
 
 <p>The function findings are as follows:</p>
 
-<p><img src="/public/img/environments/bindings4.png" alt="bindings"></p>
+<p><img src="/public/img/environments/bindings4.png" alt="bindings" class="img-responsive"></p>
 
 <p>The next line is</p>
 
@@ -763,18 +765,18 @@ demonstrates the difference between <code>print</code> and <code>return</code>.<
     <li><p><strong>Bind formal parameters</strong>. <code>square1</code> has a single paramter
     <code>x</code>, which is bound to <code>4</code>.</p>
 
-    <p><img src="/public/img/environments/square1-4.png" alt="square1(4)"></p></li>
+    <p><img src="/public/img/environments/square1-4.png" alt="square1(4)" class="img-responsive"></p></li>
     <li><strong>Execute the body of the function</strong>. <code>x</code> is bound to <code>4</code>, so
     <code>x*x = 16</code>.</li>
     <li><p><strong>Write the return value</strong>, which is 16.</p>
 
-    <p><img src="/public/img/environments/return-x-times-x5.png" alt="`return x*x`"></p></li>
+    <p><img src="/public/img/environments/return-x-times-x5.png" alt="`return x*x`" class="img-responsive"></p></li>
   </ol></li>
   <li><strong>Draw a box with the value</strong>. We're back in Global, so that's
   where we put the value <code>16</code>.</li>
   <li><p><strong>Write the variable</strong>, which is <code>a</code></p>
 
-  <p><img src="/public/img/environments/a-equals.png" alt="a = square1(4)"></p></li>
+  <p><img src="/public/img/environments/a-equals.png" alt="a = square1(4)" class="img-responsive"></p></li>
 </ol>
 
 <p>And thus, <code>a</code> is bound to <code>16</code>. Nothing new here.</p>
@@ -794,7 +796,7 @@ demonstrates the difference between <code>print</code> and <code>return</code>.<
     <li><p><strong>Bind formal parameters</strong>. <code>square1</code> has a single paramter
     <code>x</code>, which is bound to <code>4</code>.</p>
 
-    <p><img src="/public/img/environments/square2-4.png" alt="square2(4)"></p></li>
+    <p><img src="/public/img/environments/square2-4.png" alt="square2(4)" class="img-responsive"></p></li>
     <li><p><strong>Execute the body of the function</strong>. Here, the line is to
     <code>print(x*x)</code>. This <strong>is a function call</strong>, but <code>print</code> is a
     built-in function, so we do NOT draw a new frame for it.</p>
@@ -803,13 +805,13 @@ demonstrates the difference between <code>print</code> and <code>return</code>.<
     <li><p><strong>Write the return value</strong>. Since there's no <code>return</code>
     statement, the <code>square2</code> implicitly returns <code>None</code>.</p>
 
-    <p><img src="/public/img/environments/print-x-times-x.png" alt="`print(x*x)`"></p></li>
+    <p><img src="/public/img/environments/print-x-times-x.png" alt="`print(x*x)`" class="img-responsive"></p></li>
   </ol></li>
   <li><strong>Draw a box with the value</strong>. We're back in Global, so that's
   where we put the value <code>None</code>.</li>
   <li><p><strong>Write the variable</strong>, which is <code>b</code></p>
 
-  <p><img src="/public/img/environments/b-equals.png" alt="b = square2(4)"></p></li>
+  <p><img src="/public/img/environments/b-equals.png" alt="b = square2(4)" class="img-responsive"></p></li>
 </ol>
 
 <p>Notice that <code>b</code> is bound to <code>None</code>, not 16 &mdash; that's the difference
