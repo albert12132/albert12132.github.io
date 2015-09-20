@@ -65,9 +65,9 @@
 
     <!-- Content -->
     <div class='container'>
-      <div class='row'>
-  <div class='col-md-9' id='content'>
-    
+  <div class='row'>
+    <div class='col-md-9' id='content'>
+      
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -218,7 +218,7 @@ result = play(my_strat)
     <button id='6' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 6">
+    <div class="solution 6 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+my_strat%28score%29%3A%0A++++return+score+%2B+2%0A%0Adef+play%28strat%29%3A%0A++++i%2C+roll+%3D+0%2C+strat%280%29%0A++++while+i+%3C+roll%3A%0A++++++++result+%3D+my_strat%28i%29%0A++++++++i+%2B%3D+1%0A++++return+i%0A%0Aresult+%3D+play%28my_strat%29%0A%0A%23+How+many+times+do+we+call+my_strat%3F%0A%23+Remember+to+label+the+frames+with+the+intrinsic%0A%23+name+of+the+functions">
     </iframe>
     </div>
@@ -245,7 +245,7 @@ b = a(2)
     <button id='7' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 7">
+    <div class="solution 7 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+fun%28x%29%3A%0A++++return+x%2A%2A2%0A%0Adef+time%28y%29%3A%0A++++y%2C+x+%3D+4%2C+5%0A++++def+fun%28y%29%3A%0A++++++++return+y+%2B+x%0A++++return+fun%0A%0Aa+%3D+time%2810%29%0Ab+%3D+a%282%29%0A%0A%23+Which+fun+is+called%3F%0A%23+Which+y+is+used%3F%0A%23+What+type+of+object+is+a%3F">
     </iframe>
     </div>
@@ -269,7 +269,7 @@ a(4)</code></pre>
     <button id='8' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 8">
+    <div class="solution 8 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+square%28x%29%3A%0A++++return+x+%2A+x%0A%0Adef+boom%28fn%29%3A%0A++++def+bam%28x%29%3A%0A++++++++print%28x%29%0A++++++++return+fn%28x%29%0A++++return+bam%0A%0Aboom%28square%29%0Aa+%3D+boom%28square%29%0Aa%284%29">
     </iframe>
     </div>
@@ -292,7 +292,7 @@ c = outer(square)(square)</code></pre>
     <button id='9' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 9">
+    <div class="solution 9 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=x+%3D+4%0A%0Adef+outer%28f%29%3A%0A++++def+inner%28g%29%3A%0A++++++++return+f%28g%28x%29%29%0A++++return+inner%0A%0Adef+square%28x%29%3A%0A++++return+x%2A%2A2%0A%0Ac+%3D+outer%28square%29%28square%29">
     </iframe>
     </div>
@@ -328,7 +328,7 @@ result = middle(cube)
     <button id='10' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 10">
+    <div class="solution 10 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+one%28f%29%3A%0A++++a+%3D+1%0A++++def+two%28g%29%3A%0A++++++++b+%3D+2%0A++++++++def+three%28h%29%3A%0A++++++++++++c+%3D+3%0A++++++++++++return+f%28a%29+%2B+g%28b%29+%2B+h%28c%29%0A++++++++return+three%0A++++return+two%0A%0Adef+identity%28x%29%3A%0A++++return+x%0A%0Adef+square%28x%29%3A%0A++++return+x%2A%2A2%0A%0Adef+cube%28x%29%3A%0A++++return+x%2A%2A3%0A%0Amiddle+%3D+one%28identity%29%28square%29%0Aresult+%3D+middle%28cube%29%0A%0A%23+what+function+is+middle%3F%0A%23+What+are+the+parents+of+each+frame%3F">
     </iframe>
     </div>
@@ -372,13 +372,13 @@ argument, <code>x</code>, and return the result of <code>x</code> modulo <code>n
     
 
 
-  </div>
+    </div>
 
-  <div class='col-md-3'>
-    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-      Higher-Order Functions: basic
+    <div class='col-md-3'>
+      <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+        Higher-Order Functions: basic
 <hr/>
-      <ul>
+        <ul>
   <li><a href="#conceptual-questions">Conceptual Questions</a></li>
   <ul>
   <li><a href="#q1">Question 1</a></li>
@@ -408,10 +408,10 @@ argument, <code>x</code>, and return the result of <code>x</code> modulo <code>n
 
 </ul>
 
-    </nav>
+      </nav>
+    </div>
   </div>
 </div>
-    </div>
   </body>
 
   <script>

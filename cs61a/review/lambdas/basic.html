@@ -65,9 +65,9 @@
 
     <!-- Content -->
     <div class='container'>
-      <div class='row'>
-  <div class='col-md-9' id='content'>
-    
+  <div class='row'>
+    <div class='col-md-9' id='content'>
+      
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -229,7 +229,7 @@ higher(square)(5)</code></pre>
     <button id='5' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 5">
+    <div class="solution 5 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=square+%3D+lambda+x%3A+x+%2A+x%0Ahigher+%3D+lambda+f%3A+lambda+y%3A+f%28f%28y%29%29%0A%0Ahigher%28square%29%285%29">
     </iframe>
     </div>
@@ -242,20 +242,20 @@ higher(square)(5)</code></pre>
     <button id='6' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 6">
+    <div class="solution 6 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=a+%3D+%28lambda+f%2C+a%3A+f%28a%29%29%28lambda+b%3A+b+%2A+b%2C+2%29">
     </iframe>
     </div>
     
 
 
-  </div>
+    </div>
 
-  <div class='col-md-3'>
-    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-      Lambda Expressions: basic
+    <div class='col-md-3'>
+      <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+        Lambda Expressions: basic
 <hr/>
-      <ul>
+        <ul>
   <li><a href="#conceptual-questions">Conceptual Questions</a></li>
   <ul>
   <li><a href="#q1">Question 1</a></li>
@@ -281,10 +281,10 @@ higher(square)(5)</code></pre>
 
 </ul>
 
-    </nav>
+      </nav>
+    </div>
   </div>
 </div>
-    </div>
   </body>
 
   <script>

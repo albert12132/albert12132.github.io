@@ -65,9 +65,9 @@
 
     <!-- Content -->
     <div class='container'>
-      <div class='row'>
-  <div class='col-md-9' id='content'>
-    
+  <div class='row'>
+    <div class='col-md-9' id='content'>
+      
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -201,7 +201,7 @@ b = branch(8)</code></pre>
     <button id='6' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 6">
+    <div class="solution 6 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+branch%28x%29%3A%0A++++if+x+%3E+10%3A%0A++++++++x+-%3D+5%0A++++elif+x+%3E+7%3A%0A++++++++x+-%3D+2%0A++++if+x+%25+2+%3D%3D+0%3A%0A++++++++return+%27even%27%0A++++else%3A%0A++++++++return+%27odd%27%0A%0Aa+%3D+branch%2812%29%0Ab+%3D+branch%288%29">
     </iframe>
     </div>
@@ -220,7 +220,7 @@ b = uhoh(False)</code></pre>
     <button id='7' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 7">
+    <div class="solution 7 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+uhoh%28x%29%3A%0A++++if+x%3A%0A++++++++y+%3D+5%0A++++return+y%0A%0Aa+%3D+uhoh%28True%29%0Ab+%3D+uhoh%28False%29">
     </iframe>
     </div>
@@ -240,7 +240,7 @@ while i &lt; 2:
     <button id='8' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 8">
+    <div class="solution 8 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+is_even%28x%29%3A%0A++++return+x+%25+2+%3D%3D+0%0A%0Ai+%3D+0%0Awhile+i+%3C+2%3A%0A++++if+is_even%28i%29%3A%0A++++++++print%28i%29%0A++++i+%2B%3D+1">
     </iframe>
     </div>
@@ -371,13 +371,13 @@ fibonacci number, and False otherwise.</p>
     
 
 
-  </div>
+    </div>
 
-  <div class='col-md-3'>
-    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-      Control Structures: basic
+    <div class='col-md-3'>
+      <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+        Control Structures: basic
 <hr/>
-      <ul>
+        <ul>
   <li><a href="#what-would-python-print">What would Python print?</a></li>
   <ul>
   <li><a href="#q1">Question 1</a></li>
@@ -401,10 +401,10 @@ fibonacci number, and False otherwise.</p>
 
 </ul>
 
-    </nav>
+      </nav>
+    </div>
   </div>
 </div>
-    </div>
   </body>
 
   <script>

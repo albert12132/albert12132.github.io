@@ -65,9 +65,9 @@
 
     <!-- Content -->
     <div class='container'>
-      <div class='row'>
-  <div class='col-md-9' id='content'>
-    
+  <div class='row'>
+    <div class='col-md-9' id='content'>
+      
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -219,7 +219,7 @@ counter()</code></pre>
     <button id='3' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 3">
+    <div class="solution 3 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+make_counter%28%29%3A%0A++++count+%3D+0%0A++++def+counter%28%29%3A%0A++++++++nonlocal+count%0A++++++++count+%2B%3D+1%0A++++++++return+count%0A++++return+counter%0A%0Acounter+%3D+make_counter%28%29%0Acounter%28%29%0Acounter%28%29">
     </iframe>
     </div>
@@ -242,7 +242,7 @@ bar(4)</code></pre>
     <button id='4' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 4">
+    <div class="solution 4 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+foo%28%29%3A%0A++++lst+%3D+%5B%5D%0A++++def+bar%28m%29%3A%0A++++++++nonlocal+lst%0A++++++++lst+%3D+lst+%2B+%5Bm%5D%0A++++++++return+lst%0A++++return+bar%0A%0Abar+%3D+foo%28%29%0Abar%283%29%0Abar%284%29">
     </iframe>
     </div>
@@ -264,20 +264,20 @@ bar(4)</code></pre>
     <button id='5' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 5">
+    <div class="solution 5 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+foo%28%29%3A%0A++++lst+%3D+%5B%5D%0A++++def+bar%28m%29%3A%0A++++++++lst.append%28m%29%0A++++++++return+lst%0A++++return+bar%0A%0Abar+%3D+foo%28%29%0Abar%283%29%0Abar%284%29">
     </iframe>
     </div>
     
 
 
-  </div>
+    </div>
 
-  <div class='col-md-3'>
-    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-      Nonlocal: basic
+    <div class='col-md-3'>
+      <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+        Nonlocal: basic
 <hr/>
-      <ul>
+        <ul>
   <li><a href="#conceptual-questions">Conceptual Questions</a></li>
   <ul>
   <li><a href="#q1">Question 1</a></li>
@@ -294,10 +294,10 @@ bar(4)</code></pre>
 
 </ul>
 
-    </nav>
+      </nav>
+    </div>
   </div>
 </div>
-    </div>
   </body>
 
   <script>

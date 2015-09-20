@@ -65,9 +65,9 @@
 
     <!-- Content -->
     <div class='container'>
-      <div class='row'>
-  <div class='col-md-9' id='content'>
-    
+  <div class='row'>
+    <div class='col-md-9' id='content'>
+      
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -97,7 +97,7 @@ b = square2(3)
     <button id='0' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 0">
+    <div class="solution 0 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+square1%28x%29%3A%0A++++return+x+%2A+x%0A%0Adef+square2%28x%29%3A%0A++++print%28x+%2A+x%29%0A%0Aa+%3D+square1%283%29%0Ab+%3D+square2%283%29%0A%0A%23+How+does+return+behave+differently+than+print%3F">
     </iframe>
     </div>
@@ -119,7 +119,7 @@ result = sum_of_squares(3, 4)
     <button id='1' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 1">
+    <div class="solution 1 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+square%28x%29%3A%0A++++return+x+%2A+x%0A%0Adef+sum_of_squares%28x%2C+y%29%3A%0A++++return+square%28x%29+%2B+square%28y%29%0A%0Aresult+%3D+sum_of_squares%283%2C+4%29%0A%0A%23+How+many+times+do+we+call+mul%3F%0A%23+How+many+frames+do+we+draw+for+mul%3F">
     </iframe>
     </div>
@@ -141,7 +141,7 @@ second = add(3, 4)
     <button id='2' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 2">
+    <div class="solution 2 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=from+operator+import+add%0Afirst+%3D+add%283%2C+4%29%0A%0Adef+add%28a%2C+b%29%3A%0A++++return+a+%2B+b%0A%0Asecond+%3D+add%283%2C+4%29%0A%0A%23+What+changes+between+the+first+time+we+call+add+and+the%0A%23+second+time%3F+How+does+this+affect+our+diagram%3F">
     </iframe>
     </div>
@@ -164,7 +164,7 @@ success = assign(3, 9001)
     <button id='3' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 3">
+    <div class="solution 3 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=score%2C+opp_score+%3D+0%2C+0%0A%0Adef+assign%28arg0%2C+arg1%29%3A%0A++++score+%3D+arg0%0A++++opp_score+%3D+arg1%0A++++return+True%0A%0Asuccess+%3D+assign%283%2C+9001%29%0A%0A%23+But+did+we+really+succeed%3F%0A%23+Did+the+global+values+of+score+and+opp_score+change%3F">
     </iframe>
     </div>
@@ -186,7 +186,7 @@ result = foo(4)
     <button id='4' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 4">
+    <div class="solution 4 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=goal+%3D+100%0A%0Adef+foo%28x%29%3A%0A++++y+%3D+x+%2B+goal%0A++++return+b%0A%0Aresult+%3D+foo%284%29%0A%0A%23+What%27s+the+lookup+procedure+for+goal%3F%0A%23+Does+result+ever+show+up+in+the+diagram%3F">
     </iframe>
     </div>
@@ -207,20 +207,20 @@ result = a_plus_abs_b(4, &#x2d;4)</code></pre>
     <button id='5' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 5">
+    <div class="solution 5 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=from+operator+import+add%2C+sub%0Adef+a_plus_abs_b%28a%2C+b%29%3A%0A++++if+b+%3C+0%3A%0A++++++++op+%3D+sub%0A++++else%3A%0A++++++++op+%3D+add%0A++++return+op%28a%2C+b%29%0A%0Aresult+%3D+a_plus_abs_b%284%2C+-4%29">
     </iframe>
     </div>
     
 
 
-  </div>
+    </div>
 
-  <div class='col-md-3'>
-    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-      Environment Diagrams: basic
+    <div class='col-md-3'>
+      <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+        Environment Diagrams: basic
 <hr/>
-      <ul>
+        <ul>
   <li><a href="#environment-diagrams">Environment Diagrams</a></li>
   <ul>
   <li><a href="#q1">Question 1</a></li>
@@ -233,10 +233,10 @@ result = a_plus_abs_b(4, &#x2d;4)</code></pre>
 
 </ul>
 
-    </nav>
+      </nav>
+    </div>
   </div>
 </div>
-    </div>
   </body>
 
   <script>

@@ -61,14 +61,213 @@
       <div class='container'>
         <h1>Projects</h1>
 
-<p>Various software projects that I contribute to.</p>
+<p>Various software projects that I contribute to. My projects can be found on
+<a href="https://github.com/albert12132">Github</a>.</p>
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
-      Nothing to see here yet. Coming soon!
+    <div class='section white'>
+  <div class='container'>
+    <div class='row'>
+      <div class='section-overview col-md-6 col-md-offset-3'>
+        <h1 class='section-title'>
+          Building CS 61A
+        </h1>
+        <p>
+          My most recent work (2014-2015 school year) has been related to CS 61A
+          infrastructure.
+        </p>
+      </div>
     </div>
+
+    <hr/>
+
+    
+
+
+  <div class='row'>
+    <div class='col-md-3'>
+      <div class='text-center'>
+        <h2 class='item-title'><a href="http://su15.cs61a.org">cs61a.org</a></h2>
+      </div>
+    </div>
+    <div class='col-md-9'>
+      
+<p>In preparation for co-lecturing CS 61A in summer 2015, I redesigned the
+<a href="http://su15.cs61a.org">class's website</a> using
+<a href="http://getbootstrap.com/">Bootstrap</a> to improve responsiveness.  With
+students' ease-of-use in mind, I added</p>
+
+<ul>
+  <li>fixed sidebars on assignment pages for easier navigation</li>
+  <li>an auto-updating quick-links section on the home page for fast access to
+  upcoming assignments.</li>
+  <li>a resource search bar that queries by resource name, type, and topic</li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+<hr/>
+
+
+  <div class='row'>
+    <div class='col-md-3'>
+      <div class='text-center'>
+        <h2 class='item-title'><a href="https://github.com/Cal-CS-61A-Staff/ok-client">ok-client</a></h2>
+      </div>
+    </div>
+    <div class='col-md-9'>
+      
+<p>In Fall 2014, CS 61A developed an autograding system called
+<a href="https://github.com/Cal-CS-61A-Staff/ok">OK</a>. I led development on the
+student-facing command-line autograding script called
+<a href="https://github.com/Cal-CS-61A-Staff/ok-client">ok-client</a>, which features</p>
+
+<ul>
+  <li>autograding to test correctness for programming assignments in the Python3
+  programming language</li>
+  <li>an "unlocking mechanism" in which students answer questions to "unlock"
+  autograder tests before the tests can be used for correctness testing. You
+  can read more about the idea in <a href="/public/pubs/las15-unlocking.pdf">this
+  paper</a>.</li>
+  <li>collection of student usage statistics, which are aggregated and stored on
+  OK's servers. This data is used for CS education research.</li>
+</ul>
+
+
+    </div>
+  </div>
+
+
+<hr/>
+
+
+  <div class='row'>
+    <div class='col-md-3'>
+      <div class='text-center'>
+        <h2 class='item-title'><a href="https://github.com/albert12132/templar">Templar</a></h2>
+      </div>
+    </div>
+    <div class='col-md-9'>
+      
+<p>CS 61A reuses material from semester to semester, but with some differences due
+to scheduling changes.  To address this, I wrote
+<a href="https://github.com/albert12132/templar">Templar</a>, which features</p>
+
+<ul>
+  <li>a Markdown-to-HTML converter, so that course material could be written with
+  little markup overhead</li>
+  <li>a plain-text linker, so existing resources can be reused without the
+  need of duplication between semesters</li>
+  <li>a static templating engine that supports template inheritance and embedded
+  Python, to build a consistent front-end while minimizing code repetition</li>
+</ul>
+
+<p>I also use Templar to generate this website.</p>
+
+
+    </div>
+  </div>
+
+
+
+  </div>
+</div>
+
+
+<div class='section light-green'>
+  <div class='container'>
+    <div class='row'>
+      <div class='section-overview col-md-6 col-md-offset-3'>
+        <h1 class='section-title'>
+          Personal projects
+        </h1>
+        <p>
+          Some side projects that I wrote for fun.
+        </p>
+      </div>
+    </div>
+
+    <hr/>
+
+    
+
+
+  <div class='row'>
+    <div class='col-md-3'>
+      <div class='text-center'>
+        <h2 class='item-title'><a href="https://github.com/albert12132/albertwu.org">albertwu.org</a></h2>
+      </div>
+    </div>
+    <div class='col-md-9'>
+      
+<p>My personal website. From Summer 2012 to Summer 2015, my website was primarily
+used to host CS 61A-related practice problems and notes that I wrote over the
+years.  The code I originally used to generate my website was the predecessor
+of Templar (I now use Templar to build my website).</p>
+
+<p>If you've seen my website before, you may have noticed I recently redesigned it!</p>
+
+
+    </div>
+  </div>
+
+
+<hr/>
+
+
+  <div class='row'>
+    <div class='col-md-3'>
+      <div class='text-center'>
+        <h2 class='item-title'><a href="https://github.com/albert12132/tweetbot">Tweetbot</a></h2>
+      </div>
+    </div>
+    <div class='col-md-9'>
+      
+<p>A Twitter bot that I built with my good friend Brian for a quick hackathon. If
+you tweet to
+<a href="https://twitter.com/TweetLikeMeBot/with_replies">@TweetLikeMeBot</a>, our bot
+replies with random message crafted from your most recent tweets. You can also
+ask @TweetLikeMeBot to tweet someone directly at
+<a href="http://tweetbot.herokuapp.com/">tweetbot.herokuapp.com/</a>.</p>
+
+<p>Tweetbot is written with <a href="https://nodejs.org/en/">node.js</a> and the <a href="https://dev.twitter.com/overview/api">Twitter
+API</a>. The messages are generated by
+sampling from a Markov model of bigrams of previous tweets.</p>
+
+
+    </div>
+  </div>
+
+
+<hr/>
+
+
+  <div class='row'>
+    <div class='col-md-3'>
+      <div class='text-center'>
+        <h2 class='item-title'><a href="https://github.com/albert12132/java2python">java2python</a></h2>
+      </div>
+    </div>
+    <div class='col-md-9'>
+      
+<p>A web-based Java-to-Python3 compiler that I wrote as a learning exercise. I
+experimented with <a href="https://nodejs.org/en/">node.js</a> web development, CSS, and JavaScript. The
+compiler supports a subset of Java syntax.</p>
+
+
+    </div>
+  </div>
+
+
+
+
+  </div>
+</div>
   </body>
 
   

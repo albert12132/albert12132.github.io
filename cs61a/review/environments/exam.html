@@ -65,9 +65,9 @@
 
     <!-- Content -->
     <div class='container'>
-      <div class='row'>
-  <div class='col-md-9' id='content'>
-    
+  <div class='row'>
+    <div class='col-md-9' id='content'>
+      
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -100,7 +100,7 @@ result = funny(sad(1))
     <button id='0' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 0">
+    <div class="solution 0 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+funny%28joke%29%3A%0A++++hoax+%3D+joke+%2B+1%0A++++return+funny%28hoax%29%0A%0Adef+sad%28joke%29%3A%0A++++hoax+%3D+joke+-+1%0A++++return+hoax+%2B+hoax%0A%0Afunny%2C+sad+%3D+sad%2C+funny%0Aresult+%3D+funny%28sad%281%29%29%0A%0A%23+pay+special+attention+to+the+names+of%0A%23+the+frames%21">
     </iframe>
     </div>
@@ -121,7 +121,7 @@ result = first(10)</code></pre>
     <button id='1' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 1">
+    <div class="solution 1 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+double%28x%29%3A%0A++++return+double%28x+%2B+x%29%0A%0Afirst+%3D+double%0A%0Adef+double%28y%29%3A%0A++++return+y+%2B+y%0A%0Aresult+%3D+first%2810%29">
     </iframe>
     </div>
@@ -144,7 +144,7 @@ result = fun(boo)(10)</code></pre>
     <button id='2' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 2">
+    <div class="solution 2 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+fun%28fun%29%3A%0A++++def+time%28time%29%3A%0A++++++++return+fun%28x%29%0A++++x+%3D+4%0A++++return+time%0A%0Adef+boo%28x%29%3A%0A++++return+x%2A%2A2%0A++++x+%3D+5%0A%0Aresult+%3D+fun%28boo%29%2810%29">
     </iframe>
     </div>
@@ -166,7 +166,7 @@ trick(3, 4)</code></pre>
     <button id='3' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 3">
+    <div class="solution 3 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=from+operator+import+sub%0Adef+trick%28me%2C+you%29%3A%0A++++sub+%3D+treat%0A++++return+sub%0A%0Adef+treat%28me%2C+you%29%3A%0A++++return+sub%28me%2C+1%29%0A%0Atreat+%3D+trick%0Atrick%283%2C+4%29">
     </iframe>
     </div>
@@ -186,20 +186,20 @@ result = easy(4)(easy)(2)</code></pre>
     <button id='4' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 4">
+    <div class="solution 4 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+easy%28x%29%3A%0A++++def+peasy%28y%29%3A%0A++++++++def+ironic%28name%29%3A%0A++++++++++++return+name%28x%2C+y%29%0A++++++++return+y%0A++++return+peasy%0A%0Aresult+%3D+easy%284%29%28easy%29%282%29">
     </iframe>
     </div>
     
 
 
-  </div>
+    </div>
 
-  <div class='col-md-3'>
-    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-      Environment Diagrams: exam
+    <div class='col-md-3'>
+      <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+        Environment Diagrams: exam
 <hr/>
-      <ul>
+        <ul>
   <li><a href="#environment-diagrams">Environment Diagrams</a></li>
   <ul>
   <li><a href="#q1">Question 1</a></li>
@@ -211,10 +211,10 @@ result = easy(4)(easy)(2)</code></pre>
 
 </ul>
 
-    </nav>
+      </nav>
+    </div>
   </div>
 </div>
-    </div>
   </body>
 
   <script>

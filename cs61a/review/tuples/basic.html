@@ -65,9 +65,9 @@
 
     <!-- Content -->
     <div class='container'>
-      <div class='row'>
-  <div class='col-md-9' id='content'>
-    
+  <div class='row'>
+    <div class='col-md-9' id='content'>
+      
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -324,7 +324,7 @@ x = (1, 2, draw(y))</code></pre>
     <button id='8' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 8">
+    <div class="solution 8 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+draw%28me%29%3A%0A++++return+me%5B2%5D%0A%0Ay+%3D+%284%2C+5%2C+6%29%0Ax+%3D+%281%2C+2%2C+draw%28y%29%29">
     </iframe>
     </div>
@@ -342,20 +342,20 @@ x = draw(y, 3)</code></pre>
     <button id='9' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution 9">
+    <div class="solution 9 iframe-container">
     <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+draw%28me%2C+too%29%3A%0A++++tup+%3D+%28too%2C%29%0A++++return+me+%2B+tup%0A%0Ay+%3D+%281%2C+2%29%0Ax+%3D+draw%28y%2C+3%29">
     </iframe>
     </div>
     
 
 
-  </div>
+    </div>
 
-  <div class='col-md-3'>
-    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-      Tuples: basic
+    <div class='col-md-3'>
+      <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+        Tuples: basic
 <hr/>
-      <ul>
+        <ul>
   <li><a href="#conceptual-questions">Conceptual Questions</a></li>
   <ul>
   <li><a href="#q1">Question 1</a></li>
@@ -384,10 +384,10 @@ x = draw(y, 3)</code></pre>
 
 </ul>
 
-    </nav>
+      </nav>
+    </div>
   </div>
 </div>
-    </div>
   </body>
 
   <script>
