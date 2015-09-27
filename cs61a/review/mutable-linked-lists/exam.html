@@ -4,7 +4,7 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Links as Classes: basic</title>
+    <title>Mutable Linked Lists: exam</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -59,7 +59,7 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Links as Classes: basic-level questions</h1>
+        <h1>Mutable Linked Lists: exam-level questions</h1>
       </div>
     </div>
 
@@ -67,7 +67,19 @@
     <div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      
+      <blockquote>
+    <p>If you need help reviewing Mutable Linked Lists, take a look at these
+    resources:</p>
+
+    
+<ul>
+  <li><a href="https://docs.google.com/presentation/d/18KropyOg2nZf8e8Ot0JAqxTh0mQp5WnfjeU4dc5cUkU/edit">Albert's and Robert's
+  slides</a></li>
+</ul>
+
+  </blockquote>
+
+  
 <p>For this section, we will be using the <code>Link</code> class implementation
 from lecture:</p>
 
@@ -102,13 +114,28 @@ from lecture:</p>
   
 
 
-<h2 id="conceptual-questions">Conceptual Questions</h2>
+<h2 id="code-writing-questions">Code-Writing questions</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
 
-<p>What type of object can <code>self.first</code> be? What type of object can
-<code>self.rest</code> be?</p>
+<p>Implement a function <code>validate</code>, which takes a Link and returns True
+if the Link is valid.</p>
+
+<pre><code>def validate(lst):
+    &quot;&quot;&quot;Returns True if lst is a valid Link.
+
+    &gt;&gt;&gt; lst = Link(1, Link(2, Link(3)))
+    &gt;&gt;&gt; validate(lst)
+    True
+    &gt;&gt;&gt; okay = Link(Link(1), Link(2))
+    &gt;&gt;&gt; validate(okay)
+    True
+    &gt;&gt;&gt; bad = Link(1, 2)
+    &gt;&gt;&gt; validate(Link.empty)
+    True
+    &quot;&quot;&quot;
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
     <button id='0' class='toggleButton'>
@@ -117,16 +144,32 @@ from lecture:</p>
 
     <div class="solution 0">
 
-<p><code>self.first</code> can be any type of object, including a <code>Link</code>.
-<code>self.rest</code> can only be a <code>Link</code> or <code>Link.empty</code>.</p>
+<pre><code>def validate(lst):
+    if lst is Link.empty:
+        return True
+    elif lst.rest is not Link.empty and type(lst.rest) != Link:
+        return False
+    else:
+        return valdiate(lst.rest)</code></pre>
 
 </div>
     
 
 <h3 class="question" id="q2">Question 2</h3>
 
-<p>How is the <code>Link</code> class different the <code>link</code> abstract data type we
-saw earlier in the course?</p>
+<p>Implement a function <code>count</code>, which takes a Link and another value,
+and counts the number of times that <code>value</code> is found in the Link.</p>
+
+<pre><code>def count(r, value):
+    &quot;&quot;&quot;Counts the number of times VALUE shows up in R.
+
+    &gt;&gt;&gt; r = Link(3, Link(3, Link(2, Link(3))))
+    &gt;&gt;&gt; count(r, 3)
+    3
+    &gt;&gt;&gt; count(r, 2)
+    1
+    &quot;&quot;&quot;
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
     <button id='1' class='toggleButton'>
@@ -135,32 +178,41 @@ saw earlier in the course?</p>
 
     <div class="solution 1">
 
-<p>The <code>Link</code> class is mutable, meaning we can modify its contents. On
-the other hand, the <code>link</code> abstract data type is immutable, so it can
-not be mutated after it is created.</p>
+<pre><code>def count(r, value):
+    if r is Link.empty:
+        return 0
+    elif r.first == value:
+        return 1 + count(r.rest, value)
+    else:
+        return count(r.rest, value)</code></pre>
 
 </div>
     
 
-
-<h2 id="code-writing-questions">Code-Writing questions</h2>
-
-
 <h3 class="question" id="q3">Question 3</h3>
 
-<p>Implement a function <code>seq_to_link</code>, which takes any type of sequence
-(e.g. tuple, list) and converts it to a <code>Link</code>.</p>
+<p>Implement a function <code>extend_link</code>, which takes two Links, <code>s1</code> and
+<code>s2</code>, and mutates <code>s1</code> such that it contains the elements of <code>s2</code> at
+its tail. Do this mutatively &mdash; don't return anything! Also, make sure
+<code>s2</code> itself does not get attached to <code>s1</code>. You may assume <code>s1</code> always
+has at least one element.</p>
 
-<pre><code>def seq_to_link(seq):
-    &quot;&quot;&quot;Converts SEQ into an Link.
+<pre><code>def extend_link(s1, s2):
+    &quot;&quot;&quot;Extends s1 to include the elements of s2.
 
-    &gt;&gt;&gt; seq = [1, 2, 3, 4]
-    &gt;&gt;&gt; seq_to_link(seq)
-    Link(1, Link(2, Link(3, Link(4))))
-    &gt;&gt;&gt; null = ()
-    &gt;&gt;&gt; seq_to_link(null) is Link.empty
+    &gt;&gt;&gt; s1 = Link(1)
+    &gt;&gt;&gt; s2 = Link(2, Link(3))
+    &gt;&gt;&gt; extend_link(s1, s2)
+    &gt;&gt;&gt; s1
+    Link(1, Link(2, Link(3)))
+    &gt;&gt;&gt; s1.rest is not s2
     True
-    &quot;&quot;&quot;</code></pre>
+    &quot;&quot;&quot;
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
+
+<p><strong>Hint</strong>: This question is similar to the <code>extend_link</code> from lecture,
+except this version mutates the original Link and does not make <code>s2</code>
+part of <code>s1</code>.""",</p>
 
 
     <button id='2' class='toggleButton'>
@@ -169,35 +221,36 @@ not be mutated after it is created.</p>
 
     <div class="solution 2">
 
-<pre><code># recursive
-def seq_to_link(seq):
-    if not seq:
-        return Link.empty
-    return Link(seq[0], seq_to_link(seq[1:]))
-
-# iterative
-def seq_to_link(seq):
-    new = Link.empty
-    for elem in seq[::&#x2d;1]:
-        new = Link(elem, new)
-    return new</code></pre>
+<pre><code>def extend_link(s1, s2):
+    if s2 is Link.empty:
+        return
+    elif s1.rest is Link.empty:
+        s1.rest = Link(s2.first)
+        extend_link(s1.rest, s2.rest)
+    else:
+        extend_link(s1.rest, s2)</code></pre>
 
 </div>
     
 
 <h3 class="question" id="q4">Question 4</h3>
 
-<p>Implement a function <code>map_link</code>, which takes a Link and a function
-<code>fn</code>, and applies <code>fn</code> to every element in the Link. <code>map_link</code>
-should <strong>mutate</strong> the Link &mdash; do not return a new one!</p>
+<p>Implement a function <code>deep_map</code>, which takes an (possibly nested) Link
+and a function <code>fn</code>, and applies <code>fn</code> to every element in the Link. If
+an element is itself a Link, recursively apply <code>fn</code> to each of the
+element's elements.</p>
 
-<pre><code>def map_link(fn, lst):
-    &quot;&quot;&quot;Maps FN onto every element of the Link lst.
+<pre><code>def deep_map(fn, lst):
+    &quot;&quot;&quot;Applies FN to every element in lst.
 
-    &gt;&gt;&gt; r = Link(1, Link(2, Link(3)))
-    &gt;&gt;&gt; map_link(lambda x: x*x, r)
-    &gt;&gt;&gt; r
+    &gt;&gt;&gt; normal = Link(1, Link(2, Link(3)))
+    &gt;&gt;&gt; deep_map(lambda x: x*x, normal)
+    &gt;&gt;&gt; normal
     Link(1, Link(4, Link(9)))
+    &gt;&gt;&gt; nested = Link(Link(1, Link(2)), Link(3, Link(4)))
+    &gt;&gt;&gt; deep_map(lambda x: x*x, nested)
+    &gt;&gt;&gt; nested
+    Link(Link(1, Link(4)), Link(9, Link(16)))
     &quot;&quot;&quot;
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
@@ -208,17 +261,14 @@ should <strong>mutate</strong> the Link &mdash; do not return a new one!</p>
 
     <div class="solution 3">
 
-<pre><code># recursive
-def map_link(fn, lst):
-    if lst is not Link.empty:
+<pre><code>def deep_map(fn, lst):
+    if lst is Link.empty:
+        return
+    if type(lst.first) == Link:
+        deep_map(fn, lst.first)
+    else:
         lst.first = fn(lst.first)
-        map_link(fn, lst.rest)
-
-# iterative
-def map_link(fn, lst):
-    while lst is not Link.empty:
-        lst.first = fn(lst.first)
-        lst = lst.rest</code></pre>
+    deep_map(fn, lst.rest)</code></pre>
 
 </div>
     
@@ -228,17 +278,13 @@ def map_link(fn, lst):
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Links as Classes: basic
+        Mutable Linked Lists: exam
 <hr/>
         <ul>
-  <li><a href="#conceptual-questions">Conceptual Questions</a></li>
+  <li><a href="#code-writing-questions">Code-Writing questions</a></li>
   <ul>
   <li><a href="#q1">Question 1</a></li>
   <li><a href="#q2">Question 2</a></li>
-</ul>
-
-  <li><a href="#code-writing-questions">Code-Writing questions</a></li>
-  <ul>
   <li><a href="#q3">Question 3</a></li>
   <li><a href="#q4">Question 4</a></li>
 </ul>

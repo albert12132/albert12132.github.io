@@ -4,7 +4,7 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Trees: exam</title>
+    <title>Tree ADT: exam</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -59,7 +59,7 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Trees: exam-level questions</h1>
+        <h1>Tree ADT: exam-level questions</h1>
       </div>
     </div>
 
@@ -67,11 +67,18 @@
     <div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      
-<p>We will be using the OOP implementation of <code>Tree</code>s from lecture,
-found
-<a href="http://www-inst.eecs.berkeley.edu/~cs61a/sp13/slides/25.py">here</a></p>
+      <blockquote>
+    <p>If you need help reviewing Tree ADT, take a look at these
+    resources:</p>
 
+    
+<ul>
+  <li><a href="https://docs.google.com/presentation/d/1BXO9nB7I-iyzDuoBbvWqo4vUbJqBBhhVlxzOVv9aFAA/edit">Albert's and Robert's slides</a></li>
+</ul>
+
+  </blockquote>
+
+  
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -82,39 +89,60 @@ found
   
 
 
-<h2 id="trees">Trees</h2>
+<h2 id="tree-adt">Tree ADT</h2>
 
+
+<p>Recall that we learned two different tree representations in this
+class:</p>
+
+<ul>
+  <li>Abstract data type (defined in terms of functions). This is what this
+  worksheet covers.</li>
+  <li>Object-oriented programming (defined in termes of classes and
+  methods). This will be covered in another review session.</li>
+</ul>
+
+<p>The tree abstract data type is defined in terms of these four
+functions:</p>
+
+<pre><code>def tree(root, subtrees=[]):
+    return [root] + list(subtrees)
+
+def root(t):
+    return t[0]
+
+def subtrees(t):
+    return t[1:]
+
+def is_leaf(t):
+    return not subtrees(t)</code></pre>
+
+<p>Since this is an ADT, we don't care so much about the implementation of
+the constructors and selectors: as long as we know what they do, we can
+use them.</p>
+
+<p>Remember, trees are <strong>recursively defined</strong> (trees are constructed
+using smaller trees). For most questions involving the tree ADT, you
+can break down the thought process into three steps:</p>
+
+<ol>
+  <li><strong>Base case</strong>: Usually, this is if the tree is a leaf (use the
+  <code>is_leaf</code> function)</li>
+  <li><strong>Recursive call</strong>: Consider what a recursive call on a single
+  branch will do. What information does it give you?</li>
+  <li><strong>Recursive case</strong>: Make recursive calls on each branch (using a
+  <code>for</code> loop or a list comprehension) and combine that in some way
+  with the root for your final answer.</li>
+</ol>
 
 <h3 class="question" id="q1">Question 1</h3>
 
-<p>Implement a function <code>equal</code> which takes two trees and returns <code>True</code>
-if they satisfy all the following conditions:</p>
+<p>Implement a function <code>contains</code>, which takes a tree <code>t</code> and an element
+<code>e</code>. <code>contains</code> will return True if <code>t</code> contains the element <code>e</code>, and
+False otherwise.</p>
 
-<ul>
-  <li>The data of both Trees are equal</li>
-  <li>The Trees have the same number of children</li>
-  <li><p>All corresponding pairs of sub-Trees are also <code>equal</code></p>
-
-  <p>def equal(t1, t2):</p>
-
-<pre><code>&quot;&quot;&quot;Returns Tree if t1 and t2 are equal trees.
-
-&gt;&gt;&gt; t1 = Tree(1,
-...           [Tree(2, [Tree(4)]),
-...            Tree(3)])
-&gt;&gt;&gt; t2 = Tree(1,
-...           [Tree(2, [Tree(4)]),
-...            Tree(3)])
-&gt;&gt;&gt; equal(t1, t2)
-True
-&gt;&gt;&gt; t3 = Tree(1,
-...           [Tree(2),
-...            Tree(3, [Tree(4)])])
-&gt;&gt;&gt; equal(t1, t3)
-False
-&quot;&quot;&quot;
-&quot;*** YOUR CODE HERE ***&quot;</code></pre></li>
-</ul>
+<pre><code>def contains(t, e):
+    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
     <button id='0' class='toggleButton'>
@@ -123,32 +151,55 @@ False
 
     <div class="solution 0">
 
-<pre><code>def equal(t1, t2):
-    if t1.entry != t2.entry:
-        return False
-    elif len(t1.subtrees) != len(t2.subtrees):
+<pre><code>def contains(t, e):
+    if e == root(t):
+        return True
+    elif is_leaf(t):
         return False
     else:
-        return all(equal(child1, child2) for child1, child2
-                   in zip(t1.subtrees, t2.subtrees))</code></pre>
+        for b in subtrees(t):
+            if contains(b, e):
+                return True
+        return False</code></pre>
+
+<p>It is possible to use a list comprehension to solve this problem,
+thanks to the built-in <code>any</code> function. The <code>any</code> function takes a list
+of booleans and returns True if any of those booleans is True:</p>
+
+<pre><code>def contains(t, e):
+    if e == root(t):
+        return True
+    elif is_leaf(t):
+        return False
+    else:
+        return any([contains(b, e) for b in subtrees(t)])</code></pre>
+
+<p>While this version is more concise, it is also more inefficient (why?).</p>
 
 </div>
     
 
 <h3 class="question" id="q2">Question 2</h3>
 
-<p>Implement a function <code>size</code> that returns the number of elements in a
-given Tree.</p>
+<p>Implement a function <code>all_paths</code>, which takes a tree <code>t</code>. <code>all_paths</code>
+will return a list of paths from the root to each leaf. For example,
+consider the following tree:</p>
 
-<pre><code>def size(t):
-    &quot;&quot;&quot;Returns the number of elements in a tree.
+<pre><code>  5
+ / \
+ 3  6
+/ \
+2  1</code></pre>
 
-    &gt;&gt;&gt; t1 = Tree(1,
-    ...           [Tree(2, [Tree(4)]),
-    ...            Tree(3)])
-    &gt;&gt;&gt; size(t1)
-    4
-    &quot;&quot;&quot;
+<p>Calling <code>all_paths</code> on this tree would return</p>
+
+<pre><code>[[5, 3, 2],
+ [5, 3, 1],
+ [5, 6]    ]</code></pre>
+
+<p>The list contains three paths (each path is itself a list).</p>
+
+<pre><code>def all_paths(t):
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
@@ -158,33 +209,58 @@ given Tree.</p>
 
     <div class="solution 1">
 
-<pre><code>def size(t):
-    return 1 + sum([size(child) for child in t.subtrees])</code></pre>
+<pre><code>def all_paths(t):
+    if is_leaf(t):
+        return [[root(t)]]
+    else:
+        total = []
+        for b in subtrees(t):
+            for path in all_paths(b):
+                total.append([root(tree)] + path)
+        return total</code></pre>
+
+<p>It is possible to solve this using a list comprehension, but the list
+comprehension gets a little complicated:</p>
+
+<pre><code>def all_paths(t):
+    if is_leaf(t):
+        return [[root(t)]]
+    else:
+        return [[root(tree)] + path for b in subtrees(t)
+                                    for path in all_paths(b)]</code></pre>
+
+<p>Notice that the <code>for</code> statements in the list comprehension are exactly
+the same as the two <code>for</code> loops in the original solution.</p>
 
 </div>
     
 
 <h3 class="question" id="q3">Question 3</h3>
 
-<p>Implement a function <code>height</code>, which returns the height of a Tree. The
-<em>height</em> of a tree is defined as the number of branches from the
-<em>root</em> to the bottom-most <em>leaf</em> of the Tree.</p>
+<p>Implement a function <code>max_tree</code>, which takes a tree <code>t</code>. It returns a
+new tree with the exact same structure as <code>t</code>; at each node in the new
+tree, the entry is the largest number that is contained in that node's
+subtrees or the corresponding node in <code>t</code>. For example, consider this
+tree:</p>
 
-<p>By definition, a leaf has a height of 0, since there are 0 branches
-from the root to the root.</p>
+<pre><code>  5
+ / \
+ 3  6
+/ \
+2  4</code></pre>
 
-<pre><code>def height(t):
-    &quot;&quot;&quot;Returns the height of the tree.
+<p>Calling <code>max_tree</code> will return the following tree:</p>
 
-    &gt;&gt;&gt; leaf = Tree(1)
-    &gt;&gt;&gt; height(leaf)
-    0
-    &gt;&gt;&gt; t1 = Tree(1,
-    ...           [Tree(2, [Tree(4)]),
-    ...            Tree(3)])
-    &gt;&gt;&gt; height(t1)
-    2
-    &quot;&quot;&quot;
+<pre><code>  6
+ / \
+ 4  6
+/ \
+2  4</code></pre>
+
+<p>For example, the largest number that occurs at the root or below it is
+6 (i.e. <code>max(5, 3, 2, 4, 6) = 6</code>), so the root of the new tree is 6.</p>
+
+<pre><code>def max_tree(t):
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
@@ -194,265 +270,13 @@ from the root to the root.</p>
 
     <div class="solution 2">
 
-<pre><code>def height(t):
-    if len(t.subtrees) == 0:
-        return 0
-    return 1 + max([height(child) for child in t.subtrees])</code></pre>
-
-</div>
-    
-
-<h3 class="question" id="q4">Question 4</h3>
-
-<p>Implement a function <code>same_shape</code>, which takes two <code>Tree</code>s and returns
-True if the trees have the same structure, but not necessarily the same
-entries.</p>
-
-<pre><code>def same_shape(t1, t2):
-    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
-
-
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-
-    <div class="solution 3">
-
-<pre><code>def same_shape(t1, t2):
-    if not t1.subtrees or not t2.subtrees:
-        return not t1.subtrees and not t2.subtrees
-    elif len(t1.subtrees) != len(t2.subtrees):
-        return False
-    for i in range(len(t1.subtrees)):
-        if not same_shape(t1.subtrees[i], t2.subtrees[i]):
-            return False
-    return True</code></pre>
-
-</div>
-    
-
-<h3 class="question" id="q5">Question 5</h3>
-
-<p>Implement a function <code>sprout_leaves</code>, which takes a <code>Tree</code> and a list
-of values. For every leaf of the <code>Tree</code>, mutate it so that it has a
-list of branches where the items are the elements in the list of
-values.</p>
-
-<pre><code>def sprout_leaves(t, vals):
-    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
-
-
-    <button id='4' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-
-    <div class="solution 4">
-
-<pre><code>def sprout_leaves(t, vals):
-    if not t.subtrees:
-        t.subtrees = [Tree(v) for v in vals]
+<pre><code>def max_tree(t):
+    if is_leaf(t):
+        return tree(root(t))
     else:
-        for branch in t.subtrees:
-            sprout_leaves(branch, vals)</code></pre>
-
-</div>
-    
-
-<h3 class="question" id="q6">Question 6</h3>
-
-<p>Implement a function <code>prune_leaves</code>, which takes a <code>Tree</code> and a list
-of values. For every leaf of the <code>Tree</code>, remove it if its entry is in
-the list of values.</p>
-
-<pre><code>def prune_leaves(t, vals):
-    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
-
-
-    <button id='5' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-
-    <div class="solution 5">
-
-<pre><code>def prune_leaves(t, vals):
-    if not t.subtrees:
-        if t.entry not in vals:
-            return t
-        else:
-            return None
-    new_branches = [prune_leaves(branch, vals) for branch in t.subtrees]
-    t.subtrees = [b for b in new_branches if b is not None]
-    return t</code></pre>
-
-</div>
-    
-
-
-<h2 id="binary-search-trees">Binary Search Trees</h2>
-
-
-<h3 class="question" id="q7">Question 7</h3>
-
-<p>Implement two functions, <code>max_bst</code> and <code>min_bst</code>, which take a binary
-search tree and returns the maximum and minimum values, respectively.</p>
-
-<pre><code>def max_bst(b):
-    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
-
-
-    <button id='6' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-
-    <div class="solution 6">
-
-<pre><code>def max_bst(b):
-    if b.right.is_empty:
-        return b.entry
-    return max_tree(b.right)</code></pre>
-
-</div>
-    
-
-<pre><code>def min_bst(b):
-    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
-
-
-    <button id='7' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-
-    <div class="solution 7">
-
-<pre><code>def min_bst(b):
-    if b.left.is_empty:
-        return b.entry
-    return min_tree(b.left)</code></pre>
-
-</div>
-    
-
-<h3 class="question" id="q8">Question 8</h3>
-
-<p>Implement the function <code>contains</code>, which takes a binary search tree and
-an item, and returns True if the binary search tree contains the item,
-and False if it doesn't.</p>
-
-<pre><code>def contains(b, item):
-    &quot;&quot;&quot;Returns True if B contains ITEM.
-
-    &gt;&gt;&gt; b1 = Tree(2,
-    ...           Tree(1),
-    ...           Tree(4, Tree(3)))
-    &gt;&gt;&gt; contains(b1, 4)
-    True
-    &gt;&gt;&gt; contains(b1, 8)
-    False
-    &quot;&quot;&quot;
-    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
-
-
-    <button id='8' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-
-    <div class="solution 8">
-
-<pre><code>def contains(b, item):
-    if b is None:
-        return False
-    elif b.entry == item:
-        return True
-    elif b.entry &gt; item:
-        return contains(b.left, item)
-    elif b.entry &lt; item:
-        return contains(b.right, item)</code></pre>
-
-</div>
-    
-
-<h3 class="question" id="q9">Question 9</h3>
-
-<p>Implement the function <code>in_order</code>, which takes a binary search tree,
-and returns a list containing its items from smallest to largest. In
-computer science, this is known as an <strong>in-order traversal</strong>.</p>
-
-<pre><code>def in_order(b):
-    &quot;&quot;&quot;Returns the items in B, a binary search tree, in sorted
-    order.
-
-    &gt;&gt;&gt; b1 = Tree(2,
-    ...           Tree(1),
-    ...           Tree(4, Tree(3)))
-    &gt;&gt;&gt; in_order(b1)
-    [1, 2, 3, 4]
-    &gt;&gt;&gt; singleton = Tree(4)
-    &gt;&gt;&gt; in_order(singleton)
-    [4]
-    &quot;&quot;&quot;
-    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
-
-
-    <button id='9' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-
-    <div class="solution 9">
-
-<pre><code>def in_order(b):
-    if b is None:
-        return []
-    else:
-        left = in_order(b.left)
-        right = in_order(b.right)
-        return left + [b.entry] + right</code></pre>
-
-</div>
-    
-
-<h3 class="question" id="q10">Question 10</h3>
-
-<p>Implement a function <code>nth_largest</code>, which takes a <strong>binary search
-tree</strong> and a number <code>n</code> (greater than or equal to 1), and returns the
-<code>nth</code> largest item in the tree. For example, <code>nth_largest(b, 1)</code> should
-return the largest item in <code>b</code>. If <code>n</code> is greater than the number of
-items in the tree, return None.</p>
-
-<p><strong>Hint</strong>: You can assume there is a <code>size</code> function that returns the
-number of elements in a given tree.</p>
-
-<pre><code>def nth_largest(b, n):
-    &quot;&quot;&quot;Returns the Nth largest item in T.
-
-    &gt;&gt;&gt; b1 = Tree(2,
-    ...           Tree(1),
-    ...           Tree(4, Tree(3)))
-    &gt;&gt;&gt; nth_largest(b1, 1)
-    4
-    &gt;&gt;&gt; nth_largest(b1, 3)
-    2
-    &gt;&gt;&gt; nth_largest(b1, 4)
-    1
-    &quot;&quot;&quot;
-    &quot;*** YOUR CODE HERE ***&quot;</code></pre>
-
-
-    <button id='10' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-
-    <div class="solution 10">
-
-<pre><code>def nth_largest(b, n):
-    if b is None:
-        return None
-    right = size(b.right)
-    if right == n &#x2d; 1:
-        return b.entry
-    elif right &gt; n &#x2d; 1:
-        return nth_largest(b.right, n)
-    elif right &lt; n &#x2d; 1:
-        return nth_largest(b.left, n &#x2d; 1 &#x2d; right)</code></pre>
+        new_subtrees = [max_tree(b) for b in subtrees(t)]
+        new_root = max([root(t)] + [root(s) for s in new_subtrees])
+        return tree(new_root, new_subtrees)</code></pre>
 
 </div>
     
@@ -462,25 +286,14 @@ number of elements in a given tree.</p>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Trees: exam
+        Tree ADT: exam
 <hr/>
         <ul>
-  <li><a href="#trees">Trees</a></li>
+  <li><a href="#tree-adt">Tree ADT</a></li>
   <ul>
   <li><a href="#q1">Question 1</a></li>
   <li><a href="#q2">Question 2</a></li>
   <li><a href="#q3">Question 3</a></li>
-  <li><a href="#q4">Question 4</a></li>
-  <li><a href="#q5">Question 5</a></li>
-  <li><a href="#q6">Question 6</a></li>
-</ul>
-
-  <li><a href="#binary-search-trees">Binary Search Trees</a></li>
-  <ul>
-  <li><a href="#q7">Question 7</a></li>
-  <li><a href="#q8">Question 8</a></li>
-  <li><a href="#q9">Question 9</a></li>
-  <li><a href="#q10">Question 10</a></li>
 </ul>
 
 </ul>
