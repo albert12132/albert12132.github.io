@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Streams: exam</title>
+    <title>
+Streams: exam
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,24 +66,26 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Streams: exam-level questions</h1>
+        
+<h1>Streams: exam-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Streams, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/111ucG9UwZ8ESAWGY5zWq65Nd6er_lICOfXnsEZMtSik/edit#slide=id.g63e95c8f9_111_1134">Albert's and Robert's
   slides</a></li>
 </ul>
-
   </blockquote>
 
   
@@ -87,10 +96,7 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="conceptual-questions">Conceptual Questions</h2>
+  <h2 id="conceptual-questions">Conceptual Questions</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
@@ -104,16 +110,16 @@ that is returned by <code>stream1()</code>.</p>
             (add&#x2d;streams (stream1) (stream&#x2d;cdr (stream1))))))</code></pre>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <p>0, 1, 1, 2, 3 (the Fibonacci numbers)</p>
 
 </div>
-    
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
@@ -125,16 +131,16 @@ that is returned by <code>stream2()</code>.</p>
         (add&#x2d;streams (stream2) (stream2))))</code></pre>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <p>1, 2, 4, 8, 16 (the powers of 2)</p>
 
 </div>
-    
+        
 
 
 <h2 id="code-writing-questions">Code-Writing questions</h2>
@@ -157,11 +163,11 @@ convert it into the Stream function.  You should also use a helper
 function.</p>
 
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 2">
+        <div class="solution 2">
 
 <pre><code>(define (make&#x2d;fact&#x2d;stream)
     (helper 0 1))
@@ -179,7 +185,7 @@ def infinite_fact():
         n, total = n + 1, total * (n + 1)</code></pre>
 
 </div>
-    
+        
 
 
 <h2 id="more-practice-problems">More practice problems</h2>
@@ -202,35 +208,37 @@ stuck!</p>
 Don't worry about the Py section &mdash; we didn't cover that this
 semester.</p>
 
-
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Streams: exam
+        
+Streams: exam
 <hr/>
+
         <ul>
   <li><a href="#conceptual-questions">Conceptual Questions</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+  </ul>
   <li><a href="#code-writing-questions">Code-Writing questions</a></li>
   <ul>
-  <li><a href="#q3">Question 3</a></li>
-</ul>
-
+    <li><a href="#q3">Question 3</a></li>
+  </ul>
   <li><a href="#more-practice-problems">More practice problems</a></li>
 </ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -245,5 +253,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

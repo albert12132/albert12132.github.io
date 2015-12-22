@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Tail Recursion: basic</title>
+    <title>
+Tail Recursion: basic
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,24 +66,26 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Tail Recursion: basic-level questions</h1>
+        
+<h1>Tail Recursion: basic-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Tail Recursion, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/111ucG9UwZ8ESAWGY5zWq65Nd6er_lICOfXnsEZMtSik/edit">Albert's and Robert's
   slides</a></li>
 </ul>
-
   </blockquote>
 
   
@@ -87,10 +96,7 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="conceptual-questions">Conceptual Questions</h2>
+  <h2 id="conceptual-questions">Conceptual Questions</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
@@ -98,11 +104,11 @@
 <p>What is tail call optimization? What is the benefit to using it?</p>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <p>Tail call optimization is a compiler/interpreter optimization that
 makes memory usage more efficient for recursion. Normally, each
@@ -112,7 +118,7 @@ optimization, once we move on to the next recursive call, the old
 frame gets discarded, leaving only one frame in memory at a time.</p>
 
 </div>
-    
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
@@ -120,11 +126,11 @@ frame gets discarded, leaving only one frame in memory at a time.</p>
 important for tail call optimization?</p>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <p>A tail context is a location in a Scheme function that the interpreter
 can identify as tail recursive.  A Scheme function needs to be written
@@ -140,7 +146,7 @@ should perform tail call optimization. The following are tail contexts:</p>
 </ul>
 
 </div>
-    
+        
 
 <h3 class="question" id="q3">Question 3</h3>
 
@@ -167,11 +173,11 @@ should perform tail call optimization. The following are tail contexts:</p>
         (and (four fn (cdr x)) (fn x))))</code></pre>
 
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 2">
+        <div class="solution 2">
 
 <ol>
   <li><code>one</code>: not tail recursive</li>
@@ -181,7 +187,7 @@ should perform tail call optimization. The following are tail contexts:</p>
 </ol>
 
 </div>
-    
+        
 
 
 <h2 id="code-writing-question">Code-Writing question</h2>
@@ -204,11 +210,11 @@ scm&gt; (reverse nil)
 <p><strong>Hint</strong>: You should use a helper function.</p>
 
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 3">
+        <div class="solution 3">
 
 <pre><code>(define (reverse lst)
     (define (reverse&#x2d;help lst so&#x2d;far)
@@ -218,7 +224,7 @@ scm&gt; (reverse nil)
     (reverse&#x2d;help lst nil))</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q5">Question 5</h3>
 
@@ -240,11 +246,11 @@ scm&gt; (reduce * &#x27;(1 2 3 4) 1)
 24</code></pre>
 
 
-    <button id='4' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='4' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 4">
+        <div class="solution 4">
 
 <pre><code>(define (reduce combiner lst start)
     (if (null? lst)
@@ -252,7 +258,7 @@ scm&gt; (reduce * &#x27;(1 2 3 4) 1)
         (reduce combiner (cdr lst) (combiner start (car lst)))))</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q6">Question 6</h3>
 
@@ -270,11 +276,11 @@ scm&gt; (all &#x27;(1 3 5) odd?)
 #t</code></pre>
 
 
-    <button id='5' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='5' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 5">
+        <div class="solution 5">
 
 <pre><code>(define (all lst pred)
     (if (null? lst)
@@ -282,7 +288,7 @@ scm&gt; (all &#x27;(1 3 5) odd?)
         (and (pred (car lst)) (all (cdr lst) pred))))</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q7">Question 7</h3>
 
@@ -302,11 +308,11 @@ scm&gt; (count &#x27;(2 2 4 2 3) 2)
 3</code></pre>
 
 
-    <button id='6' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='6' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 6">
+        <div class="solution 6">
 
 <pre><code>(define (count lst item)
     (define (count&#x2d;help lst num)
@@ -316,40 +322,42 @@ scm&gt; (count &#x27;(2 2 4 2 3) 2)
     (count&#x2d;help lst 0))</code></pre>
 
 </div>
-    
-
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Tail Recursion: basic
+        
+Tail Recursion: basic
 <hr/>
+
         <ul>
   <li><a href="#conceptual-questions">Conceptual Questions</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-  <li><a href="#q3">Question 3</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+    <li><a href="#q3">Question 3</a></li>
+  </ul>
   <li><a href="#code-writing-question">Code-Writing question</a></li>
   <ul>
-  <li><a href="#q4">Question 4</a></li>
-  <li><a href="#q5">Question 5</a></li>
-  <li><a href="#q6">Question 6</a></li>
-  <li><a href="#q7">Question 7</a></li>
+    <li><a href="#q4">Question 4</a></li>
+    <li><a href="#q5">Question 5</a></li>
+    <li><a href="#q6">Question 6</a></li>
+    <li><a href="#q7">Question 7</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -364,5 +372,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

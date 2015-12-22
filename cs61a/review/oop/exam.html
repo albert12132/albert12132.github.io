@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>OOP: exam</title>
+    <title>
+OOP: exam
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,25 +66,27 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>OOP: exam-level questions</h1>
+        
+<h1>OOP: exam-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing OOP, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/1MgFiiLa1xtQ4LfGOFZ0McvifBh0F5RaLZ23B5E1cRyQ/edit">Albert's and Robert's slides (Pokemon
   examples!)</a></li>
   <li><a href="https://docs.google.com/presentation/d/1KlUU5wxUvSig1q4ZXoe_ujSn9zSfp-ehzBvzaX19KPM/edit">Albert's and Robert's slides (inheritance)</a></li>
 </ul>
-
   </blockquote>
 
   
@@ -88,10 +97,7 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="what-would-python-print">What would Python print?</h2>
+  <h2 id="what-would-python-print">What would Python print?</h2>
 
 
 <p>For the following questions, use the following class definition:</p>
@@ -116,7 +122,7 @@
 <h3 class="question" id="q1">Question 1</h3>
 
 
-    <pre><code>&gt;&gt;&gt; acc_aa = Account(&quot;aa&quot;)
+        <pre><code>&gt;&gt;&gt; acc_aa = Account(&quot;aa&quot;)
 &gt;&gt;&gt; acc_aa.register(&quot;Peter Perfect&quot;)
 <span class="blank2">______</span><span class="hidden solution 2">Registered Peter Perfect</span>
 &gt;&gt;&gt; Account.register(self, &quot;Jom Magrotker&quot;)
@@ -126,17 +132,17 @@
 &gt;&gt;&gt; Account.register(&quot;Jom Magrotker&quot;)
 <span class="blank2">______</span><span class="hidden solution 2">TypeError: requires 2 arguments, since it&#x27;s not a bound method</span></code></pre>
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
 <p>Use the <code>acc_aa</code> from the previous question.</p>
 
 
-    <pre><code>&gt;&gt;&gt; f1 = Account.register
+        <pre><code>&gt;&gt;&gt; f1 = Account.register
 &gt;&gt;&gt; f1(acc_aa, &quot;Peter Perfect&quot;)
 <span class="blank3">______</span><span class="hidden solution 3">Registered Peter Perfect</span>
 &gt;&gt;&gt; f2 = acc_aa.register
@@ -145,17 +151,17 @@
 &gt;&gt;&gt; f2(&quot;Peter Perfect&quot;)
 <span class="blank3">______</span><span class="hidden solution 3">Registered Peter Perfect</span></code></pre>
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 <h3 class="question" id="q3">Question 3</h3>
 
 <p>Use the <code>acc_aa</code> from the previous question.</p>
 
 
-    <pre><code>&gt;&gt;&gt; Account.register = lambda self: &quot;WAT&quot;
+        <pre><code>&gt;&gt;&gt; Account.register = lambda self: &quot;WAT&quot;
 &gt;&gt;&gt; Account.register(acc_aa, &quot;Hello&quot;)
 <span class="blank4">______</span><span class="hidden solution 4">TypeError: should only take one argument, self (but it is not a bound method!)</span>
 &gt;&gt;&gt; Account.register(&quot;Hello&quot;)
@@ -165,10 +171,10 @@
 &gt;&gt;&gt; acc_aa.register()
 <span class="blank4">______</span><span class="hidden solution 4">&#x27;WAT&#x27;</span></code></pre>
 
-    <button id='4' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='4' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 <h3 class="question" id="q4">Question 4</h3>
 
@@ -176,7 +182,7 @@
 original definition of the <code>Account</code> class.</p>
 
 
-    <pre><code>&gt;&gt;&gt; acc_aa = Account(&quot;aa&quot;)
+        <pre><code>&gt;&gt;&gt; acc_aa = Account(&quot;aa&quot;)
 &gt;&gt;&gt; acc_aa.register(&quot;Peter Perfect&quot;)
 <span class="blank5">______</span><span class="hidden solution 5">Registered Peter Perfect</span>
 &gt;&gt;&gt; acc_zz = Account(&quot;zz&quot;)
@@ -188,10 +194,10 @@ original definition of the <code>Account</code> class.</p>
 &gt;&gt;&gt; acc_zz.student
 <span class="blank5">______</span><span class="hidden solution 5">&#x27;Bozo&#x27;</span></code></pre>
 
-    <button id='5' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='5' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 
 <h2 id="code-writing-questions">Code-Writing questions</h2>
@@ -270,11 +276,11 @@ the list. For more descriptions of the behavior, see the doctest.</p>
         &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <pre><code>class CircularBuffer:
     def __init__(self, n):
@@ -299,7 +305,7 @@ the list. For more descriptions of the behavior, see the doctest.</p>
             return elem</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q6">Question 6</h3>
 
@@ -347,11 +353,11 @@ the list. For more descriptions of the behavior, see the doctest.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <pre><code>class Chef:
     storage = {}
@@ -384,39 +390,41 @@ the list. For more descriptions of the behavior, see the doctest.</p>
         self.cooked = False</code></pre>
 
 </div>
-    
-
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        OOP: exam
+        
+OOP: exam
 <hr/>
+
         <ul>
   <li><a href="#what-would-python-print">What would Python print?</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-  <li><a href="#q3">Question 3</a></li>
-  <li><a href="#q4">Question 4</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+    <li><a href="#q3">Question 3</a></li>
+    <li><a href="#q4">Question 4</a></li>
+  </ul>
   <li><a href="#code-writing-questions">Code-Writing questions</a></li>
   <ul>
-  <li><a href="#q5">Question 5</a></li>
-  <li><a href="#q6">Question 6</a></li>
+    <li><a href="#q5">Question 5</a></li>
+    <li><a href="#q6">Question 6</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -431,5 +439,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

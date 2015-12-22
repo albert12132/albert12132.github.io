@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Mutable Linked Lists: exam</title>
+    <title>
+Mutable Linked Lists: exam
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,28 +66,29 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Mutable Linked Lists: exam-level questions</h1>
+        
+<h1>Mutable Linked Lists: exam-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Mutable Linked Lists, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/18KropyOg2nZf8e8Ot0JAqxTh0mQp5WnfjeU4dc5cUkU/edit">Albert's and Robert's
   slides</a></li>
 </ul>
-
   </blockquote>
 
-  
-<p>For this section, we will be using the <code>Link</code> class implementation
+  <p>For this section, we will be using the <code>Link</code> class implementation
 from lecture:</p>
 
 <pre><code>class Link(object):
@@ -104,17 +112,13 @@ from lecture:</p>
         return &#x27;Link({}, {})&#x27;.format(repr(self.first),
                                       repr(self.rest))</code></pre>
 
-
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
 
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="code-writing-questions">Code-Writing questions</h2>
+  <h2 id="code-writing-questions">Code-Writing questions</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
@@ -138,11 +142,11 @@ if the Link is valid.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <pre><code>def validate(lst):
     if lst is Link.empty:
@@ -153,7 +157,7 @@ if the Link is valid.</p>
         return valdiate(lst.rest)</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
@@ -172,11 +176,11 @@ and counts the number of times that <code>value</code> is found in the Link.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <pre><code>def count(r, value):
     if r is Link.empty:
@@ -187,7 +191,7 @@ and counts the number of times that <code>value</code> is found in the Link.</p>
         return count(r.rest, value)</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q3">Question 3</h3>
 
@@ -215,11 +219,11 @@ except this version mutates the original Link and does not make <code>s2</code>
 part of <code>s1</code>.""",</p>
 
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 2">
+        <div class="solution 2">
 
 <pre><code>def extend_link(s1, s2):
     if s2 is Link.empty:
@@ -231,7 +235,7 @@ part of <code>s1</code>.""",</p>
         extend_link(s1.rest, s2)</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q4">Question 4</h3>
 
@@ -255,11 +259,11 @@ element's elements.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 3">
+        <div class="solution 3">
 
 <pre><code>def deep_map(fn, lst):
     if lst is Link.empty:
@@ -271,33 +275,36 @@ element's elements.</p>
     deep_map(fn, lst.rest)</code></pre>
 
 </div>
-    
-
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Mutable Linked Lists: exam
+        
+Mutable Linked Lists: exam
 <hr/>
+
         <ul>
   <li><a href="#code-writing-questions">Code-Writing questions</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-  <li><a href="#q3">Question 3</a></li>
-  <li><a href="#q4">Question 4</a></li>
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+    <li><a href="#q3">Question 3</a></li>
+    <li><a href="#q4">Question 4</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -312,5 +319,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

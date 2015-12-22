@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>OOP: basic</title>
+    <title>
+OOP: basic
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,25 +66,27 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>OOP: basic-level questions</h1>
+        
+<h1>OOP: basic-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing OOP, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/1MgFiiLa1xtQ4LfGOFZ0McvifBh0F5RaLZ23B5E1cRyQ/edit">Albert's and Robert's slides (Pokemon
   examples!)</a></li>
   <li><a href="https://docs.google.com/presentation/d/1KlUU5wxUvSig1q4ZXoe_ujSn9zSfp-ehzBvzaX19KPM/edit">Albert's and Robert's slides (inheritance)</a></li>
 </ul>
-
   </blockquote>
 
   
@@ -88,10 +97,7 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="variables-conceptual-questions">Variables: Conceptual Questions</h2>
+  <h2 id="variables-conceptual-questions">Variables: Conceptual Questions</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
@@ -105,11 +111,11 @@
 </ol>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <ol>
   <li><strong>Local variable</strong>: a variable that is only visible within the scope
@@ -141,7 +147,7 @@
 </ol>
 
 </div>
-    
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
@@ -171,11 +177,11 @@ variables:</p>
 </ol>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <ol>
   <li><code>name</code>: local</li>
@@ -188,7 +194,7 @@ variables:</p>
 </ol>
 
 </div>
-    
+        
 
 <h3 class="question" id="q3">Question 3</h3>
 
@@ -208,11 +214,11 @@ objects ever created.</p>
 </ul>
 
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 2">
+        <div class="solution 2">
 
 <p>This would be a <strong>class variable</strong>. The new code would look like this:</p>
 
@@ -223,7 +229,7 @@ objects ever created.</p>
         Person.population += 1</code></pre>
 
 </div>
-    
+        
 
 
 <h2 id="variables-what-would-python-print">Variables: What would Python print?</h2>
@@ -251,7 +257,7 @@ objects ever created.</p>
 <h3 class="question" id="q4">Question 4</h3>
 
 
-    <pre><code>&gt;&gt;&gt; self.id
+        <pre><code>&gt;&gt;&gt; self.id
 <span class="blank6">______</span><span class="hidden solution 6">NameError</span>
 &gt;&gt;&gt; acc_aa = Account(&quot;aa&quot;)
 &gt;&gt;&gt; acc_aa.id
@@ -288,10 +294,10 @@ objects ever created.</p>
 &gt;&gt;&gt; acc_zz.num_of_accounts
 <span class="blank6">______</span><span class="hidden solution 6">9001</span></code></pre>
 
-    <button id='6' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='6' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 
 <h2 id="methods-conceptual-questions">Methods: Conceptual Questions</h2>
@@ -322,11 +328,11 @@ objects ever created.</p>
 raised, even though I didn't pass in an argument for <code>self</code>?</p>
 
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 3">
+        <div class="solution 3">
 
 <p>The dot notation will implicitly pass <code>acc_aa</code> into <code>type</code> as <code>self</code>.
 This is known as a <strong>bound method</strong>. Another way to think about it is
@@ -337,35 +343,35 @@ that <code>acc_aa.register</code> acts like a curried function</p>
 Registered!</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q6">Question 6</h3>
 
 <p>Can a method have the same name as a variable?</p>
 
 
-    <button id='4' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='4' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 4">
+        <div class="solution 4">
 
 <p>No; in python, variables and methods share the same namespace, so
 variable and method names can collide if you aren't careful.</p>
 
 </div>
-    
+        
 
 <h3 class="question" id="q7">Question 7</h3>
 
 <p>What does the <code>@property</code> decorator do?</p>
 
 
-    <button id='5' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='5' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 5">
+        <div class="solution 5">
 
 <p>The <code>@property</code> decorator allows you to use the affected method to
 be accessed like a variable. For example, the following method</p>
@@ -380,7 +386,7 @@ be accessed like a variable. For example, the following method</p>
 3</code></pre>
 
 </div>
-    
+        
 
 
 <h2 id="methods-what-would-python-print">Methods: What would Python print?</h2>
@@ -408,7 +414,7 @@ be accessed like a variable. For example, the following method</p>
 <h3 class="question" id="q8">Question 8</h3>
 
 
-    <pre><code>&gt;&gt;&gt; acc_aa = Account(&quot;aa&quot;)
+        <pre><code>&gt;&gt;&gt; acc_aa = Account(&quot;aa&quot;)
 &gt;&gt;&gt; acc_aa.register
 <span class="blank7">______</span><span class="hidden solution 7">&lt;bound method Account.register ...&gt;</span>
 &gt;&gt;&gt; Account.register
@@ -424,52 +430,52 @@ be accessed like a variable. For example, the following method</p>
 &gt;&gt;&gt; acc_aa.type = &quot;Nothing&quot;
 <span class="blank7">______</span><span class="hidden solution 7">AttributeError</span></code></pre>
 
-    <button id='7' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
-
+        <button id='7' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        OOP: basic
+        
+OOP: basic
 <hr/>
+
         <ul>
   <li><a href="#variables-conceptual-questions">Variables: Conceptual Questions</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-  <li><a href="#q3">Question 3</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+    <li><a href="#q3">Question 3</a></li>
+  </ul>
   <li><a href="#variables-what-would-python-print">Variables: What would Python print?</a></li>
   <ul>
-  <li><a href="#q4">Question 4</a></li>
-</ul>
-
+    <li><a href="#q4">Question 4</a></li>
+  </ul>
   <li><a href="#methods-conceptual-questions">Methods: Conceptual Questions</a></li>
   <ul>
-  <li><a href="#q5">Question 5</a></li>
-  <li><a href="#q6">Question 6</a></li>
-  <li><a href="#q7">Question 7</a></li>
-</ul>
-
+    <li><a href="#q5">Question 5</a></li>
+    <li><a href="#q6">Question 6</a></li>
+    <li><a href="#q7">Question 7</a></li>
+  </ul>
   <li><a href="#methods-what-would-python-print">Methods: What would Python print?</a></li>
   <ul>
-  <li><a href="#q8">Question 8</a></li>
+    <li><a href="#q8">Question 8</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -484,5 +490,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

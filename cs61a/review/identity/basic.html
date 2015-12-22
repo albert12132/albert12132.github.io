@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Identity vs. Equality: basic</title>
+    <title>
+Identity vs. Equality: basic
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,24 +66,26 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Identity vs. Equality: basic-level questions</h1>
+        
+<h1>Identity vs. Equality: basic-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Identity vs. Equality, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/1PC5Yw-AxxOyTaPhZ-kJ0JvVMwaVCyVmBmWdiNqGZeVo/edit#slide=id.g5b71800b6_0_281">Albert's and Robert's
   slides</a></li>
 </ul>
-
   </blockquote>
 
   
@@ -87,10 +96,7 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="conceptual-questions">Conceptual Questions</h2>
+  <h2 id="conceptual-questions">Conceptual Questions</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
@@ -99,27 +105,27 @@
 <code>True</code>?</p>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <p><code>a</code> and <code>b</code> must reference the same physical object in memory.</p>
 
 </div>
-    
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
 <p>What special method determines if <code>a == b</code> to be <code>True</code>?</p>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <p>In each class, the <code>__eq__</code> determines if two objects are equivalent
 (but not identical). For user-defined types (i.e.  classes), you can
@@ -127,7 +133,7 @@ implement your own <code>__eq__</code> method!  Otherwise, the default <code>__e
 for user-defined types behaves the same way as <code>is</code>.</p>
 
 </div>
-    
+        
 
 <h3 class="question" id="q3">Question 3</h3>
 
@@ -135,18 +141,18 @@ for user-defined types behaves the same way as <code>is</code>.</p>
 <code>True</code>?</p>
 
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 2">
+        <div class="solution 2">
 
 <p>Yes. in other words, a built-in object is, by definition, equivalent
 with itself. However, for user-defined types, you are able to break
 this property!</p>
 
 </div>
-    
+        
 
 
 <h2 id="what-would-python-print">What would Python print?</h2>
@@ -155,7 +161,7 @@ this property!</p>
 <h3 class="question" id="q4">Question 4</h3>
 
 
-    <pre><code>&gt;&gt;&gt; s = [1, 2, 3, 4]
+        <pre><code>&gt;&gt;&gt; s = [1, 2, 3, 4]
 &gt;&gt;&gt; s == [1, 2, 3, 4]
 <span class="blank3">______</span><span class="hidden solution 3">True</span>
 &gt;&gt;&gt; s is [1, 2, 3, 4]
@@ -168,15 +174,15 @@ this property!</p>
 &gt;&gt;&gt; a[1:] is s[1:]
 <span class="blank3">______</span><span class="hidden solution 3">False  # slicing always creates new objects in memory</span></code></pre>
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 <h3 class="question" id="q5">Question 5</h3>
 
 
-    <pre><code>&gt;&gt;&gt; s = (1, 2, 3, 4)
+        <pre><code>&gt;&gt;&gt; s = (1, 2, 3, 4)
 &gt;&gt;&gt; s is (1, 2, 3, 4)
 <span class="blank4">______</span><span class="hidden solution 4">False  # Immutability has nothing to do with identity</span>
 &gt;&gt;&gt; s == [1, 2, 3, 4]
@@ -186,41 +192,43 @@ this property!</p>
 &gt;&gt;&gt; &#x27;hello&#x27; is &#x27;hello&#x27;
 <span class="blank4">______</span><span class="hidden solution 4">True   # strings are special &#x2d;&#x2d; Python only creates one copy of a string literal in memory</span></code></pre>
 
-    <button id='4' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
-
+        <button id='4' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Identity vs. Equality: basic
+        
+Identity vs. Equality: basic
 <hr/>
+
         <ul>
   <li><a href="#conceptual-questions">Conceptual Questions</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-  <li><a href="#q3">Question 3</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+    <li><a href="#q3">Question 3</a></li>
+  </ul>
   <li><a href="#what-would-python-print">What would Python print?</a></li>
   <ul>
-  <li><a href="#q4">Question 4</a></li>
-  <li><a href="#q5">Question 5</a></li>
+    <li><a href="#q4">Question 4</a></li>
+    <li><a href="#q5">Question 5</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -235,5 +243,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

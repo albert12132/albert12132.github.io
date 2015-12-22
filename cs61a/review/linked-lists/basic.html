@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Linked Lists: basic</title>
+    <title>
+Linked Lists: basic
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,28 +66,29 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Linked Lists: basic-level questions</h1>
+        
+<h1>Linked Lists: basic-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Linked Lists, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/11XHLwY9hI-meQh6pxltCmdd-sgVLkT_0BXtC1BglmOI/edit">Albert's and Robert's
   slides</a></li>
 </ul>
-
   </blockquote>
 
-  
-<p>We will be using the following implementation of immutable linked
+  <p>We will be using the following implementation of immutable linked
 lists. Keep in mind that your code should not depend on the assumption
 that links are implemented as lists &mdash; preserve data abstraction!</p>
 
@@ -95,17 +103,13 @@ def first(s):
 def rest(s):
     return s[1]</code></pre>
 
-
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
 
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="concept-questions">Concept Questions</h2>
+  <h2 id="concept-questions">Concept Questions</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
@@ -114,17 +118,17 @@ def rest(s):
 What type of object can <code>rest</code> be?</p>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <p><code>first</code> can be any type of object, even a linked list. <code>rest</code> can only be a
 linked list.</p>
 
 </div>
-    
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
@@ -139,11 +143,11 @@ linked list.</p>
 </ol>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <p>The correct answers are in bold:</p>
 
@@ -156,7 +160,7 @@ linked list.</p>
 </ol>
 
 </div>
-    
+        
 
 <h3 class="question" id="q3">Question 3</h3>
 
@@ -165,16 +169,16 @@ linked list.</p>
 <pre><code>1, 3, lambda x: x, &#x27;hi&#x27;</code></pre>
 
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 2">
+        <div class="solution 2">
 
 <pre><code>link(1, link(3, link(lambda x: x, link(&#x27;hi&#x27;, empty))))</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q4">Question 4</h3>
 
@@ -183,16 +187,16 @@ linked list.</p>
 <pre><code>link(&#x27;this&#x27;, link(link(&#x27;is&#x27;, link(&#x27;a&#x27;, empty)), link(&#x27;question&#x27;, empty)))</code></pre>
 
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 3">
+        <div class="solution 3">
 
 <p><code>&#x27;question&#x27;</code></p>
 
 </div>
-    
+        
 
 <h3 class="question" id="q5">Question 5</h3>
 
@@ -201,16 +205,16 @@ how many elements are in the linked list, not including the elements of
 nested linked lists?</p>
 
 
-    <button id='4' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='4' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 4">
+        <div class="solution 4">
 
 <p>3</p>
 
 </div>
-    
+        
 
 
 <h2 id="what-would-python-print">What would Python print?</h2>
@@ -219,7 +223,7 @@ nested linked lists?</p>
 <h3 class="question" id="q6">Question 6</h3>
 
 
-    <pre><code>&gt;&gt;&gt; r = link(1, link(2, link(3, empty)))
+        <pre><code>&gt;&gt;&gt; r = link(1, link(2, link(3, empty)))
 &gt;&gt;&gt; first(r)
 <span class="blank7">______</span><span class="hidden solution 7">1</span>
 &gt;&gt;&gt; rest(r)
@@ -231,10 +235,10 @@ nested linked lists?</p>
 &gt;&gt;&gt; first(rest(rest(r)))
 <span class="blank7">______</span><span class="hidden solution 7">3</span></code></pre>
 
-    <button id='7' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='7' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 
 <h2 id="code-writing-questions">Code-Writing Questions</h2>
@@ -256,11 +260,11 @@ and returns a list that contains the same elements as the linked list.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='5' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='5' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 5">
+        <div class="solution 5">
 
 <p>A recursive version:</p>
 
@@ -279,7 +283,7 @@ and returns a list that contains the same elements as the linked list.</p>
     return new</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q8">Question 8</h3>
 
@@ -296,11 +300,11 @@ a linked list.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='6' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='6' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 6">
+        <div class="solution 6">
 
 <p>A recursive version:</p>
 
@@ -322,44 +326,46 @@ a linked list.</p>
     return lst</code></pre>
 
 </div>
-    
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Linked Lists: basic
+        
+Linked Lists: basic
 <hr/>
+
         <ul>
   <li><a href="#concept-questions">Concept Questions</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-  <li><a href="#q3">Question 3</a></li>
-  <li><a href="#q4">Question 4</a></li>
-  <li><a href="#q5">Question 5</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+    <li><a href="#q3">Question 3</a></li>
+    <li><a href="#q4">Question 4</a></li>
+    <li><a href="#q5">Question 5</a></li>
+  </ul>
   <li><a href="#what-would-python-print">What would Python print?</a></li>
   <ul>
-  <li><a href="#q6">Question 6</a></li>
-</ul>
-
+    <li><a href="#q6">Question 6</a></li>
+  </ul>
   <li><a href="#code-writing-questions">Code-Writing Questions</a></li>
   <ul>
-  <li><a href="#q7">Question 7</a></li>
-  <li><a href="#q8">Question 8</a></li>
+    <li><a href="#q7">Question 7</a></li>
+    <li><a href="#q8">Question 8</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -374,5 +380,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

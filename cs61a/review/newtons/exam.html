@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Newton's method: exam</title>
+    <title>
+Newton's method: exam
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,23 +66,26 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Newton's method: exam-level questions</h1>
+        
+<h1>Newton's method: exam-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Newton's method, take a look at these
     resources:</p>
 
     
   </blockquote>
 
-  
-<p>We will be using the implementation of Newton's method and
+  <p>We will be using the implementation of Newton's method and
 iterative improvement from lecture:</p>
 
 <pre><code># iterative improvement framework
@@ -106,17 +116,13 @@ def find_zero(f, df):
         return approx_eq(f(x), 0)
     return improve(newton_update(f, df), near_zero)&quot;&quot;&quot;)</code></pre>
 
-
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
 
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="code-writing-questions">Code-Writing questions</h2>
+  <h2 id="code-writing-questions">Code-Writing questions</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
@@ -129,18 +135,18 @@ finding the zero of the fourth root (since that's just <code>x = 0</code>).</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <pre><code>def fourth_root(x):
     f = lambda y: y**4 &#x2d; x
     return find_zero(f, make_derivative(f))</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
@@ -158,11 +164,11 @@ a critical point for that function.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <pre><code>def critical_point(f):
     df = make_derivative(f)
@@ -170,7 +176,7 @@ a critical point for that function.</p>
     return find_zero(df, ddf)</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q3">Question 3</h3>
 
@@ -185,11 +191,11 @@ problem.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 2">
+        <div class="solution 2">
 
 <pre><code>def newton_update(f, df, offset=1e&#x2d;5):
     def update(x):
@@ -200,7 +206,7 @@ problem.</p>
     return update</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q4">Question 4</h3>
 
@@ -247,11 +253,11 @@ the docstring for more details.</p>
     return improve(update, isclose, initial_guess)</code></pre>
 
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 3">
+        <div class="solution 3">
 
 <pre><code>def equilibrium(supply, demand, tolerance=1e&#x2d;2):
     initial_guess = 1
@@ -265,33 +271,36 @@ the docstring for more details.</p>
     return improve(update, isclose, initial_guess)&quot;&quot;&quot;</code></pre>
 
 </div>
-    
-
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Newton's method: exam
+        
+Newton's method: exam
 <hr/>
+
         <ul>
   <li><a href="#code-writing-questions">Code-Writing questions</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-  <li><a href="#q3">Question 3</a></li>
-  <li><a href="#q4">Question 4</a></li>
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+    <li><a href="#q3">Question 3</a></li>
+    <li><a href="#q4">Question 4</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -306,5 +315,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Iterators and Generators: exam</title>
+    <title>
+Iterators and Generators: exam
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,24 +66,26 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Iterators and Generators: exam-level questions</h1>
+        
+<h1>Iterators and Generators: exam-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Iterators and Generators, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/1zqKEmNFG90YUoBtFvEX5nsMURhrR5fXQz36tXKVECb0/edit">Albert's and Robert's
   slides</a></li>
 </ul>
-
   </blockquote>
 
   
@@ -87,10 +96,7 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="iterators-cross-out-the-errors">Iterators: Cross out the errors</h2>
+  <h2 id="iterators-cross-out-the-errors">Iterators: Cross out the errors</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
@@ -142,11 +148,11 @@ class NatIter:
         return tmp</code></pre>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <pre><code>class Naturals:
     &quot;&quot;&quot;Doctests.
@@ -179,7 +185,7 @@ class NatIter:
         return tmp</code></pre>
 
 </div>
-    
+        
 
 
 <h2 id="iterators-fill-in-the-blanks">Iterators: Fill in the blanks</h2>
@@ -222,11 +228,11 @@ class NatIter:
             return result</code></pre>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <pre><code>class Rlist:
     class EmptyList:
@@ -259,7 +265,7 @@ the <code>Rlist</code> class is technically an iterator. As such, its
 (<code>self.curr</code>) to the next node in the Rlist (<code>self.cur.rest</code>)."""</p>
 
 </div>
-    
+        
 
 
 <h2 id="generators-code-writing-questions">Generators: Code-writing questions</h2>
@@ -286,11 +292,11 @@ clarification).  <code>zip</code> will stop once one of the input iterators stop
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 2">
+        <div class="solution 2">
 
 <pre><code>def zip(iter1, iter2):
     while True:
@@ -300,7 +306,7 @@ clarification).  <code>zip</code> will stop once one of the input iterators stop
             break</code></pre>
 
 </div>
-    
+        
 
 
 <h2 id="generators-fill-in-the-blank">Generators: Fill in the blank</h2>
@@ -341,11 +347,11 @@ called.  Each line should be represented as a Python list.</p>
         curr = new</code></pre>
 
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 3">
+        <div class="solution 3">
 
 <pre><code>def pascals():
     curr = [1]
@@ -359,45 +365,45 @@ called.  Each line should be represented as a Python list.</p>
         curr = new</code></pre>
 
 </div>
-    
-
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Iterators and Generators: exam
+        
+Iterators and Generators: exam
 <hr/>
+
         <ul>
   <li><a href="#iterators-cross-out-the-errors">Iterators: Cross out the errors</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+  </ul>
   <li><a href="#iterators-fill-in-the-blanks">Iterators: Fill in the blanks</a></li>
   <ul>
-  <li><a href="#q2">Question 2</a></li>
-</ul>
-
+    <li><a href="#q2">Question 2</a></li>
+  </ul>
   <li><a href="#generators-code-writing-questions">Generators: Code-writing questions</a></li>
   <ul>
-  <li><a href="#q3">Question 3</a></li>
-</ul>
-
+    <li><a href="#q3">Question 3</a></li>
+  </ul>
   <li><a href="#generators-fill-in-the-blank">Generators: Fill in the blank</a></li>
   <ul>
-  <li><a href="#q4">Question 4</a></li>
+    <li><a href="#q4">Question 4</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -412,5 +418,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

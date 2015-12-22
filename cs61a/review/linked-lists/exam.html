@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Recursive Lists: exam</title>
+    <title>
+Recursive Lists: exam
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,28 +66,29 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Recursive Lists: exam-level questions</h1>
+        
+<h1>Recursive Lists: exam-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Recursive Lists, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/11XHLwY9hI-meQh6pxltCmdd-sgVLkT_0BXtC1BglmOI/edit">Albert's and Robert's
   slides</a></li>
 </ul>
-
   </blockquote>
 
-  
-<p>We will be using the following implementation of immutable linked
+  <p>We will be using the following implementation of immutable linked
 lists. Keep in mind that your code should not depend on the assumption
 that links are implemented as lists &mdash; preserve data abstraction!</p>
 
@@ -95,22 +103,19 @@ def first(s):
 def rest(s):
     return s[1]</code></pre>
 
-
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
 
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-<h2 id="what-would-python-print">What would Python print?</h2>
+  <h2 id="what-would-python-print">What would Python print?</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
 
 
-    <pre><code>&gt;&gt;&gt; r = link(1, link(link(2, empty), link(4, empty)))
+        <pre><code>&gt;&gt;&gt; r = link(1, link(link(2, empty), link(4, empty)))
 &gt;&gt;&gt; first(r)
 <span class="blank2">______</span><span class="hidden solution 2">1</span>
 &gt;&gt;&gt; first(rest(rest(r)))
@@ -118,15 +123,15 @@ def rest(s):
 &gt;&gt;&gt; first(first(rest(r)))
 <span class="blank2">______</span><span class="hidden solution 2">2</span></code></pre>
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
 
-    <pre><code>&gt;&gt;&gt; r = link(1, link(link(2, empty), link(4, empty)))
+        <pre><code>&gt;&gt;&gt; r = link(1, link(link(2, empty), link(4, empty)))
 &gt;&gt;&gt; first(r)
 <span class="blank3">______</span><span class="hidden solution 3">1</span>
 &gt;&gt;&gt; first(rest(rest(r)))
@@ -134,15 +139,15 @@ def rest(s):
 &gt;&gt;&gt; first(first(rest(r)))
 <span class="blank3">______</span><span class="hidden solution 3">2</span></code></pre>
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 <h3 class="question" id="q3">Question 3</h3>
 
 
-    <pre><code>&gt;&gt;&gt; r = link(link(1, link(2, empty)), link(3, link(4, empty)))
+        <pre><code>&gt;&gt;&gt; r = link(link(1, link(2, empty)), link(3, link(4, empty)))
 &gt;&gt;&gt; first(rest(r))
 <span class="blank4">______</span><span class="hidden solution 4">3</span>
 &gt;&gt;&gt; first(rest(first(r)))
@@ -150,10 +155,10 @@ def rest(s):
 &gt;&gt;&gt; first(first(rest(r)))
 <span class="blank4">______</span><span class="hidden solution 4">IndexError</span></code></pre>
 
-    <button id='4' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='4' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 
 <h2 id="code-writing-questions">Code-Writing questions</h2>
@@ -179,11 +184,11 @@ linked list.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <pre><code>def alternate(r):
     if r == empty:
@@ -194,7 +199,7 @@ linked list.</p>
         return link(first(r), alternate(rest(rest(r)))</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q5">Question 5</h3>
 
@@ -216,11 +221,11 @@ given predicate.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <pre><code>def filter(pred, lst):
     if r == empty:
@@ -231,37 +236,40 @@ given predicate.</p>
         return filter(pred, rest(lst))</code></pre>
 
 </div>
-    
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Recursive Lists: exam
+        
+Recursive Lists: exam
 <hr/>
+
         <ul>
   <li><a href="#what-would-python-print">What would Python print?</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-  <li><a href="#q3">Question 3</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+    <li><a href="#q3">Question 3</a></li>
+  </ul>
   <li><a href="#code-writing-questions">Code-Writing questions</a></li>
   <ul>
-  <li><a href="#q4">Question 4</a></li>
-  <li><a href="#q5">Question 5</a></li>
+    <li><a href="#q4">Question 4</a></li>
+    <li><a href="#q5">Question 5</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -276,5 +284,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

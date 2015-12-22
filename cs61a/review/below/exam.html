@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>OOP Below-the-line: exam</title>
+    <title>
+OOP Below-the-line: exam
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,24 +66,26 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>OOP Below-the-line: exam-level questions</h1>
+        
+<h1>OOP Below-the-line: exam-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing OOP Below-the-line, take a look at these
     resources:</p>
 
     
   </blockquote>
 
-  
-<p>The code for the below-the-line OOP is <a href="/public/source/review/oop.py">here</a> for reference.</p>
-
+  <p>The code for the below-the-line OOP is <a href="/public/source/review/oop.py">here</a> for reference.</p>
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -84,10 +93,7 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="concept-questions">Concept Questions</h2>
+  <h2 id="concept-questions">Concept Questions</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
@@ -97,18 +103,18 @@
 classes? If so, how would we do it?</p>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <p>Yes, we can still create instances of classes. You would have to explicitly call <code>init_instance</code>:</p>
 
 <pre><code>init_instance(ExampleClass, arg1, arg2)</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
@@ -124,11 +130,11 @@ classes? If so, how would we do it?</p>
         return value   # this line changed</code></pre>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <p>Methods would never get bound to instances. We would still be able to
 call methods, but we would have to pass in the instance explicitly
@@ -141,7 +147,7 @@ inst[&#x27;get&#x27;](&#x27;method1&#x27;)(arg1, arg2)
 inst[&#x27;get&#x27;](&#x27;method1&#x27;)(inst, arg1, arg2)</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q3">Question 3</h3>
 
@@ -151,11 +157,11 @@ two cases: 1) <code>base_class</code> is <code>None</code>; 2) <code>base_class<
 other than <code>None</code>.</p>
 
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 2">
+        <div class="solution 2">
 
 <p>There are two cases:</p>
 
@@ -170,7 +176,7 @@ other than <code>None</code>.</p>
 </ol>
 
 </div>
-    
+        
 
 <h3 class="question" id="q4">Question 4</h3>
 
@@ -184,18 +190,18 @@ other than <code>None</code>.</p>
         return None    # this line changed</code></pre>
 
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 3">
+        <div class="solution 3">
 
 <p>Instances would have no way of looking in the class for unfound
 attributes. This means we would not be able to retrieve class variables
 or methods.</p>
 
 </div>
-    
+        
 
 
 <h2 id="code-writing-questions">Code-Writing Questions</h2>
@@ -230,11 +236,11 @@ class AppleStore(Shop):
             print(&quot;Sorry!&quot;)</code></pre>
 
 
-    <button id='4' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='4' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 4">
+        <div class="solution 4">
 
 <pre><code>def make_shop_class():
     def __init__(self, inventory):
@@ -268,38 +274,40 @@ def make_applestore_class(base_class=make_shop_class()):
                             base_class)</code></pre>
 
 </div>
-    
-
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        OOP Below-the-line: exam
+        
+OOP Below-the-line: exam
 <hr/>
+
         <ul>
   <li><a href="#concept-questions">Concept Questions</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-  <li><a href="#q3">Question 3</a></li>
-  <li><a href="#q4">Question 4</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+    <li><a href="#q3">Question 3</a></li>
+    <li><a href="#q4">Question 4</a></li>
+  </ul>
   <li><a href="#code-writing-questions">Code-Writing Questions</a></li>
   <ul>
-  <li><a href="#q5">Question 5</a></li>
+    <li><a href="#q5">Question 5</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -314,5 +322,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

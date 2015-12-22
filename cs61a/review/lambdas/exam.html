@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Lambda Expressions: exam</title>
+    <title>
+Lambda Expressions: exam
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,24 +66,26 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Lambda Expressions: exam-level questions</h1>
+        
+<h1>Lambda Expressions: exam-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Lambda Expressions, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/1K4a54Qp716fWcGaTLDAyAYv-CCBy4p6P66M97eTAFgI/edit#slide=id.ga22ca5c9c_0_367">Albert's and Robert's
   slides</a></li>
 </ul>
-
   </blockquote>
 
   
@@ -87,10 +96,7 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="code-writing-questions">Code-Writing questions</h2>
+  <h2 id="code-writing-questions">Code-Writing questions</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
@@ -102,16 +108,16 @@ number 42.</p>
 result = (lambda ____, question: one(__________)(x, 4)</code></pre>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <pre><code>result = (lambda one, question: one(46, question)())(x, 4)</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
@@ -122,16 +128,16 @@ boolean True.</p>
 result = (lambda ______: x(fair)(dice))(lambda fair: fair == 3, 3)</code></pre>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <pre><code>result = (lambda fair, dice: x(fair)(dice))(lambda fair: fair == 3, 3)</code></pre>
 
 </div>
-    
+        
 
 <quesiton>
 
@@ -162,18 +168,18 @@ result = (lambda ______: x(fair)(dice))(lambda fair: fair == 3, 3)</code></pre>
 2</code></pre>
 
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 2">
+        <div class="solution 2">
 
 <pre><code>mapper(lambda x: 2 * x + 1, 4)
 mapper(lambda x: x &#x2d; 2, 5)
 mapper(lambda x: (x + 1) * (&#x2d;1) ** x // 2, 5)</code></pre>
 
 </div>
-    
+        
 
 
 <h2 id="environment-diagrams">Environment Diagrams</h2>
@@ -186,14 +192,14 @@ mapper(lambda x: (x + 1) * (&#x2d;1) ** x // 2, 5)</code></pre>
 g = f(3)
 f(4)(5)(6)</code></pre>
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 3 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=f+%3D+lambda+x%3A+lambda+y%3A+lambda+z%3A+g%28x+%2B+y+%2B+z%29%0A%0Ag+%3D+f%283%29%0Af%284%29%285%29%286%29">
-    </iframe>
-    </div>
-    
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 3 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=f+%3D+lambda+x%3A+lambda+y%3A+lambda+z%3A+g%28x+%2B+y+%2B+z%29%0A%0Ag+%3D+f%283%29%0Af%284%29%285%29%286%29">
+        </iframe>
+        </div>
+        
 
 <h3 class="question" id="q4">Question 4</h3>
 
@@ -201,14 +207,14 @@ f(4)(5)(6)</code></pre>
 
 result = fn(lambda x: x*x, 2)</code></pre>
 
-    <button id='4' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 4 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=fn+%3D+lambda+f%2C+a%3A+f%28f%282%2Aa%29%29%0A%0Aresult+%3D+fn%28lambda+x%3A+x%2Ax%2C+2%29">
-    </iframe>
-    </div>
-    
+        <button id='4' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 4 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=fn+%3D+lambda+f%2C+a%3A+f%28f%282%2Aa%29%29%0A%0Aresult+%3D+fn%28lambda+x%3A+x%2Ax%2C+2%29">
+        </iframe>
+        </div>
+        
 
 <h3 class="question" id="q5">Question 5</h3>
 
@@ -220,45 +226,47 @@ def example(x):
 
 result = example(fn())()</code></pre>
 
-    <button id='5' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 5 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=fn+%3D+lambda%3A+lambda%3A+print%28%27hi%27%29%0A%0Adef+example%28x%29%3A%0A++++print%28%27example%27%29%0A++++return+x%0A%0Aresult+%3D+example%28fn%28%29%29%28%29">
-    </iframe>
-    </div>
-    
-
+        <button id='5' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 5 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=fn+%3D+lambda%3A+lambda%3A+print%28%27hi%27%29%0A%0Adef+example%28x%29%3A%0A++++print%28%27example%27%29%0A++++return+x%0A%0Aresult+%3D+example%28fn%28%29%29%28%29">
+        </iframe>
+        </div>
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Lambda Expressions: exam
+        
+Lambda Expressions: exam
 <hr/>
+
         <ul>
   <li><a href="#code-writing-questions">Code-Writing questions</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+  </ul>
   <li><a href="#environment-diagrams">Environment Diagrams</a></li>
   <ul>
-  <li><a href="#q3">Question 3</a></li>
-  <li><a href="#q4">Question 4</a></li>
-  <li><a href="#q5">Question 5</a></li>
+    <li><a href="#q3">Question 3</a></li>
+    <li><a href="#q4">Question 4</a></li>
+    <li><a href="#q5">Question 5</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -273,5 +281,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

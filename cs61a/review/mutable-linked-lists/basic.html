@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Mutable Linked Lists: basic</title>
+    <title>
+Mutable Linked Lists: basic
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,28 +66,29 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Mutable Linked Lists: basic-level questions</h1>
+        
+<h1>Mutable Linked Lists: basic-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Mutable Linked Lists, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/18KropyOg2nZf8e8Ot0JAqxTh0mQp5WnfjeU4dc5cUkU/edit">Albert's and Robert's
   slides</a></li>
 </ul>
-
   </blockquote>
 
-  
-<p>For this section, we will be using the <code>Link</code> class implementation
+  <p>For this section, we will be using the <code>Link</code> class implementation
 from lecture:</p>
 
 <pre><code>class Link(object):
@@ -104,17 +112,13 @@ from lecture:</p>
         return &#x27;Link({}, {})&#x27;.format(repr(self.first),
                                       repr(self.rest))</code></pre>
 
-
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
 
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="conceptual-questions">Conceptual Questions</h2>
+  <h2 id="conceptual-questions">Conceptual Questions</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
@@ -123,17 +127,17 @@ from lecture:</p>
 <code>self.rest</code> be?</p>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <p><code>self.first</code> can be any type of object, including a <code>Link</code>.
 <code>self.rest</code> can only be a <code>Link</code> or <code>Link.empty</code>.</p>
 
 </div>
-    
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
@@ -141,18 +145,18 @@ from lecture:</p>
 saw earlier in the course?</p>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <p>The <code>Link</code> class is mutable, meaning we can modify its contents. On
 the other hand, the <code>link</code> abstract data type is immutable, so it can
 not be mutated after it is created.</p>
 
 </div>
-    
+        
 
 
 <h2 id="code-writing-questions">Code-Writing questions</h2>
@@ -175,11 +179,11 @@ not be mutated after it is created.</p>
     &quot;&quot;&quot;</code></pre>
 
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 2">
+        <div class="solution 2">
 
 <pre><code># recursive
 def seq_to_link(seq):
@@ -195,7 +199,7 @@ def seq_to_link(seq):
     return new</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q4">Question 4</h3>
 
@@ -214,11 +218,11 @@ should <strong>mutate</strong> the Link &mdash; do not return a new one!</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 3">
+        <div class="solution 3">
 
 <pre><code># recursive
 def map_link(fn, lst):
@@ -233,37 +237,39 @@ def map_link(fn, lst):
         lst = lst.rest</code></pre>
 
 </div>
-    
-
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Mutable Linked Lists: basic
+        
+Mutable Linked Lists: basic
 <hr/>
+
         <ul>
   <li><a href="#conceptual-questions">Conceptual Questions</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+  </ul>
   <li><a href="#code-writing-questions">Code-Writing questions</a></li>
   <ul>
-  <li><a href="#q3">Question 3</a></li>
-  <li><a href="#q4">Question 4</a></li>
+    <li><a href="#q3">Question 3</a></li>
+    <li><a href="#q4">Question 4</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -278,5 +284,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

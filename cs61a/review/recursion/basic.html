@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Recursion: basic</title>
+    <title>
+Recursion: basic
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,24 +66,26 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Recursion: basic-level questions</h1>
+        
+<h1>Recursion: basic-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Recursion, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/10GYJwCNS0N41pTcUWxNpLlBpFpCxzBG3OVSKjkHLopQ/edit">Albert's and Robert's slides (recursion)</a></li>
   <li><a href="https://docs.google.com/presentation/d/1PgyLb9WUgGpnjX_&mdash;cjtNHO3iXT-aHQW8O2RKGPc_IE/edit#slide=id.p">Albert's and Robert's slides (tree recursion)</a></li>
 </ul>
-
   </blockquote>
 
   
@@ -87,10 +96,7 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="conceptual-questions">Conceptual Questions</h2>
+  <h2 id="conceptual-questions">Conceptual Questions</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
@@ -98,17 +104,17 @@
 <p>What is a recursive function?</p>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <p>A <strong>recursive function</strong> is a function that calls itself one or more
 times. The call to itself is called a <strong>recursive call</strong>.</p>
 
 </div>
-    
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
@@ -116,11 +122,11 @@ times. The call to itself is called a <strong>recursive call</strong>.</p>
 with each other?</p>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <p>A <strong>base case</strong> is an input that requires no recursive calls to
 compute; the output for that input is "immediately" known. A
@@ -130,7 +136,7 @@ the function again, it eventually needs a stopping point: that stopping
 point is the base case."""</p>
 
 </div>
-    
+        
 
 <h3 class="question" id="q3">Question 3</h3>
 
@@ -138,11 +144,11 @@ point is the base case."""</p>
 recursive function?</p>
 
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 2">
+        <div class="solution 2">
 
 <p>A <strong>tree recursive</strong> function is a function that makes two more
 recursive calls to itself (for example, the <code>fibonacci</code> function). This
@@ -150,7 +156,7 @@ is different from linearly recursive functions (such as <code>factorial</code>),
 because linearly recursive functions make exactly one recursive call.</p>
 
 </div>
-    
+        
 
 <h3 class="question" id="q4">Question 4</h3>
 
@@ -161,11 +167,11 @@ fix it:</p>
     return n * factorial(n)</code></pre>
 
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 3">
+        <div class="solution 3">
 
 <p>There are two problems with <code>factorial</code>.</p>
 
@@ -187,7 +193,7 @@ otherwise the function will still loop forever!</p>
         return n * factorial(n &#x2d; 1)</code></pre>
 
 </div>
-    
+        
 
 
 <h2 id="code-writing-questions">Code-Writing questions</h2>
@@ -221,11 +227,11 @@ recursion!</strong></p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='4' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='4' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 4">
+        <div class="solution 4">
 
 <pre><code>def geo_sum(a, r, n):
     if n == 1:
@@ -234,7 +240,7 @@ recursion!</strong></p>
         return a + geo_sum(a*r, r, n&#x2d;1)</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q6">Question 6</h3>
 
@@ -263,11 +269,11 @@ def is_prime(i):
     return True</code></pre>
 
 
-    <button id='5' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='5' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 5">
+        <div class="solution 5">
 
 <pre><code>def num_primes(n):
     if n &lt; 2:
@@ -278,7 +284,7 @@ def is_prime(i):
         return num_primes(n &#x2d; 1)</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q7">Question 7</h3>
 
@@ -304,11 +310,11 @@ number <em>i</em> such that <code>a &lt; i &lt; b</code> and <code>pred(i)</code
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='6' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='6' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 6">
+        <div class="solution 6">
 
 <pre><code>def any(a, b, pred):
     if a == b:
@@ -317,40 +323,42 @@ number <em>i</em> such that <code>a &lt; i &lt; b</code> and <code>pred(i)</code
         return pred(b) or any(a, b &#x2d; 1, pred)</code></pre>
 
 </div>
-    
-
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Recursion: basic
+        
+Recursion: basic
 <hr/>
+
         <ul>
   <li><a href="#conceptual-questions">Conceptual Questions</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-  <li><a href="#q3">Question 3</a></li>
-  <li><a href="#q4">Question 4</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+    <li><a href="#q3">Question 3</a></li>
+    <li><a href="#q4">Question 4</a></li>
+  </ul>
   <li><a href="#code-writing-questions">Code-Writing questions</a></li>
   <ul>
-  <li><a href="#q5">Question 5</a></li>
-  <li><a href="#q6">Question 6</a></li>
-  <li><a href="#q7">Question 7</a></li>
+    <li><a href="#q5">Question 5</a></li>
+    <li><a href="#q6">Question 6</a></li>
+    <li><a href="#q7">Question 7</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -365,5 +373,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

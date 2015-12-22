@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Map, filter, and friends: exam</title>
+    <title>
+Map, filter, and friends: exam
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,32 +66,32 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Map, filter, and friends: exam-level questions</h1>
+        
+<h1>Map, filter, and friends: exam-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Map, filter, and friends, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/1skXespdgvJRzwUmW1oSxHP54_bKkJPGkF1-N9poNRt4/edit#slide=id.ga2e4b373c_0_10">Albert's and Robert's
   slides</a></li>
 </ul>
-
   </blockquote>
 
-  
-<p><strong>NOTE</strong>: The questions in this seciton are <strong>NOT</strong> reflective of the
+  <p><strong>NOTE</strong>: The questions in this seciton are <strong>NOT</strong> reflective of the
 level of midterm &mdash; they are much more difficult.  You should treat
 these questions as extra for experts &mdash; don't focus too much on these
 questions!</p>
-
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -92,16 +99,13 @@ questions!</p>
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="what-would-python-print">What would Python print?</h2>
+  <h2 id="what-would-python-print">What would Python print?</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
 
 
-    <pre><code>&gt;&gt;&gt; tup = (1, 2, 3)
+        <pre><code>&gt;&gt;&gt; tup = (1, 2, 3)
 &gt;&gt;&gt; pairs = ((1, 2), (3, 4))
 &gt;&gt;&gt; tuple(map(lambda x: tuple(map(lambda y: x*y, tup)), tup))
 <span class="blank2">______</span><span class="hidden solution 2">((1, 2, 3), (2, 4, 6), (3, 6, 9))</span>
@@ -116,15 +120,15 @@ questions!</p>
 &gt;&gt;&gt; tuple(filter(None, tup))
 <span class="blank2">______</span><span class="hidden solution 2">(1, 2, 3)</span></code></pre>
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
 
-    <pre><code>&gt;&gt;&gt; from functools import reduce
+        <pre><code>&gt;&gt;&gt; from functools import reduce
 &gt;&gt;&gt; reduce(lambda x, y: x + y, tup, 100)
 <span class="blank3">______</span><span class="hidden solution 3">106</span>
 &gt;&gt;&gt; reduce(lambda x, y: (x, y), tup)
@@ -136,10 +140,10 @@ questions!</p>
 &gt;&gt;&gt; tuple(map(reduce, (lambda x, y: x + y,)*4, pairs))
 <span class="blank3">______</span><span class="hidden solution 3">(3, 7)</span></code></pre>
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 
 <h2 id="code-writing-questions">Code-Writing questions</h2>
@@ -163,11 +167,11 @@ string, may help you here.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <pre><code>def capitalize(s):
     return reduce(lambda x, y: x + &#x27; &#x27; + y,
@@ -177,7 +181,7 @@ string, may help you here.</p>
                       [&#x27;.&#x27;] + s.split()))</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q4">Question 4</h3>
 
@@ -196,11 +200,11 @@ assume the list is of even length.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <pre><code>def shuffle(seq):
     return list(reduce(lambda x, y: x + y,
@@ -209,37 +213,39 @@ assume the list is of even length.</p>
                            seq[len(seq)//2:])))</code></pre>
 
 </div>
-    
-
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Map, filter, and friends: exam
+        
+Map, filter, and friends: exam
 <hr/>
+
         <ul>
   <li><a href="#what-would-python-print">What would Python print?</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+  </ul>
   <li><a href="#code-writing-questions">Code-Writing questions</a></li>
   <ul>
-  <li><a href="#q3">Question 3</a></li>
-  <li><a href="#q4">Question 4</a></li>
+    <li><a href="#q3">Question 3</a></li>
+    <li><a href="#q4">Question 4</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -254,5 +260,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

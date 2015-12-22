@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Scheme: exam</title>
+    <title>
+Scheme: exam
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,23 +66,25 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Scheme: exam-level questions</h1>
+        
+<h1>Scheme: exam-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Scheme, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/1abmDnKjrq1tcjGvvRNAKhOiSTSE2lyagtcEPal07Gbo/edit">Albert's and Robert's slides</a></li>
 </ul>
-
   </blockquote>
 
   
@@ -86,10 +95,7 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="what-would-scheme-print">What would Scheme print</h2>
+  <h2 id="what-would-scheme-print">What would Scheme print</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
@@ -100,7 +106,7 @@ function (or multiple), write "FUNCTION" in place of that function. If
 the expression causes an error, write "ERROR".</p>
 
 
-    <pre><code>scm&gt; (cons 1 (cons 2 (cons 3 (cons 4 nil))))
+        <pre><code>scm&gt; (cons 1 (cons 2 (cons 3 (cons 4 nil))))
 <span class="blank3">______</span><span class="hidden solution 3">(1 2 3 4)</span>
 scm&gt; (cons (cons (cons 3 2) 1) (cons 4 nil))
 <span class="blank3">______</span><span class="hidden solution 3">(((3 . 2) . 1) 4)</span>
@@ -113,10 +119,10 @@ scm&gt; (define (x) (lambda (x) (list x x)))
 scm&gt; (((car ((x) x))) 4)
 <span class="blank3">______</span><span class="hidden solution 3">(4 4)</span></code></pre>
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 
 <h2 id="code-writing-questions">Code-Writing questions</h2>
@@ -146,11 +152,11 @@ scm&gt; (count&#x2d;stairways 8)
 4</code></pre>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <pre><code>(define (count&#x2d;stairways n)
     (cond ((= n 1) 0)
@@ -159,7 +165,7 @@ scm&gt; (count&#x2d;stairways 8)
                    (count&#x2d;stairways (&#x2d; n 3))))))</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q3">Question 3</h3>
 
@@ -187,11 +193,11 @@ scm&gt; (count&#x2d;stairways 4)
 53</code></pre>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <pre><code>(define (count&#x2d;serpinski n)
     (if (= n 1)
@@ -208,7 +214,7 @@ scm&gt; (count&#x2d;stairways 4)
 </ol>
 
 </div>
-    
+        
 
 
 <h2 id="fill-in-the-blank-questions">Fill-in the blank questions</h2>
@@ -235,11 +241,11 @@ scm&gt; (construct 6 &#x27;())
 ()</code></pre>
 
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 2">
+        <div class="solution 2">
 
 <pre><code>(define (construct value lists)
     (if (null? lists)
@@ -248,37 +254,39 @@ scm&gt; (construct 6 &#x27;())
               (construct value (cdr lists)))))</code></pre>
 
 </div>
-    
-
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Scheme: exam
+        
+Scheme: exam
 <hr/>
+
         <ul>
   <li><a href="#what-would-scheme-print">What would Scheme print</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+  </ul>
   <li><a href="#code-writing-questions">Code-Writing questions</a></li>
   <ul>
-  <li><a href="#q2">Question 2</a></li>
-  <li><a href="#q3">Question 3</a></li>
-</ul>
-
+    <li><a href="#q2">Question 2</a></li>
+    <li><a href="#q3">Question 3</a></li>
+  </ul>
   <li><a href="#fill-in-the-blank-questions">Fill-in the blank questions</a></li>
 </ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -293,5 +301,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

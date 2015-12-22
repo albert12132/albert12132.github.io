@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Identity vs. Equality: exam</title>
+    <title>
+Identity vs. Equality: exam
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,24 +66,26 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Identity vs. Equality: exam-level questions</h1>
+        
+<h1>Identity vs. Equality: exam-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Identity vs. Equality, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/1PC5Yw-AxxOyTaPhZ-kJ0JvVMwaVCyVmBmWdiNqGZeVo/edit#slide=id.g5b71800b6_0_281">Albert's and Robert's
   slides</a></li>
 </ul>
-
   </blockquote>
 
   
@@ -87,16 +96,13 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="what-would-python-print">What would Python print?</h2>
+  <h2 id="what-would-python-print">What would Python print?</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
 
 
-    <pre><code>&gt;&gt;&gt; def outer():
+        <pre><code>&gt;&gt;&gt; def outer():
 ...     def inner():
 ...         return 42
 ...     return inner
@@ -111,15 +117,15 @@
 &gt;&gt;&gt; [1, 2, outer()] == [1, 2, outer()]
 <span class="blank0">______</span><span class="hidden solution 0">False  # == for list checks if each pair of elements satisfies ==</span></code></pre>
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
 
-    <pre><code>&gt;&gt;&gt; a = [1, 2, 3, 4]
+        <pre><code>&gt;&gt;&gt; a = [1, 2, 3, 4]
 &gt;&gt;&gt; a[0] = a
 &gt;&gt;&gt; a is a[0]
 <span class="blank1">______</span><span class="hidden solution 1">True</span>
@@ -133,34 +139,37 @@
 &gt;&gt;&gt; a == b
 <span class="blank1">______</span><span class="hidden solution 1">False  # keys AND values must be equivalent</span></code></pre>
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
-
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Identity vs. Equality: exam
+        
+Identity vs. Equality: exam
 <hr/>
+
         <ul>
   <li><a href="#what-would-python-print">What would Python print?</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -175,5 +184,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

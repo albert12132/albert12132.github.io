@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Recursion: exam</title>
+    <title>
+Recursion: exam
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,24 +66,26 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Recursion: exam-level questions</h1>
+        
+<h1>Recursion: exam-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Recursion, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/10GYJwCNS0N41pTcUWxNpLlBpFpCxzBG3OVSKjkHLopQ/edit">Albert's and Robert's slides (recursion)</a></li>
   <li><a href="https://docs.google.com/presentation/d/1PgyLb9WUgGpnjX_&mdash;cjtNHO3iXT-aHQW8O2RKGPc_IE/edit#slide=id.p">Albert's and Robert's slides (tree recursion)</a></li>
 </ul>
-
   </blockquote>
 
   
@@ -87,11 +96,10 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
+  <h2 id="code-writing-questions">Code-Writing Questions</h2>
 
 
-<h2 id="code-writing-questions">Code-Writing Questions</h2>
-
+<h3 class="question" id="q1">Question 1</h3>
 
 <p>In game theory, a <em>subtraction game</em> is a simple game with two players,
 player 0 and player 1.  At the beginning, there is a pile of <em>n</em>
@@ -126,11 +134,11 @@ following ideas:</p>
 </ul>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <pre><code>def can_win(number):
     if number &lt;= 0:
@@ -144,13 +152,13 @@ following ideas:</p>
     return False</code></pre>
 
 </div>
-    
+        
 
 
 <h2 id="environment-diagrams">Environment Diagrams</h2>
 
 
-<h3 class="question" id="q1">Question 1</h3>
+<h3 class="question" id="q2">Question 2</h3>
 
 <pre><code>def factorial(n):
     if n == 0:
@@ -159,16 +167,16 @@ following ideas:</p>
 
 ans = factorial(2)</code></pre>
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 1 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+factorial%28n%29%3A%0A++++if+n+%3D%3D+0%3A%0A++++++++return+1%0A++++return+n+%2A+factorial%28n-1%29%0A%0Aans+%3D+factorial%282%29">
-    </iframe>
-    </div>
-    
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 1 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+factorial%28n%29%3A%0A++++if+n+%3D%3D+0%3A%0A++++++++return+1%0A++++return+n+%2A+factorial%28n-1%29%0A%0Aans+%3D+factorial%282%29">
+        </iframe>
+        </div>
+        
 
-<h3 class="question" id="q2">Question 2</h3>
+<h3 class="question" id="q3">Question 3</h3>
 
 <pre><code>def foo(n):
     i = 0
@@ -180,16 +188,16 @@ ans = factorial(2)</code></pre>
 
 result = foo(4)</code></pre>
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 2 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+foo%28n%29%3A%0A++++i+%3D+0%0A++++if+n+%3D%3D+0%3A%0A++++++++return+0%0A++++result+%3D+foo%28n+-+2%29%0A++++i+%2B%3D+1%0A++++return+i+%2B+result%0A%0Aresult+%3D+foo%284%29">
-    </iframe>
-    </div>
-    
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 2 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+foo%28n%29%3A%0A++++i+%3D+0%0A++++if+n+%3D%3D+0%3A%0A++++++++return+0%0A++++result+%3D+foo%28n+-+2%29%0A++++i+%2B%3D+1%0A++++return+i+%2B+result%0A%0Aresult+%3D+foo%284%29">
+        </iframe>
+        </div>
+        
 
-<h3 class="question" id="q3">Question 3</h3>
+<h3 class="question" id="q4">Question 4</h3>
 
 <pre><code>def bar(f):
     def g(x):
@@ -202,40 +210,46 @@ result = foo(4)</code></pre>
 f = 4
 bar(lambda x: x + f)(2)</code></pre>
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 3 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+bar%28f%29%3A%0A++++def+g%28x%29%3A%0A++++++++if+x+%3D%3D+1%3A%0A++++++++++++return+f%28x%29%0A++++++++else%3A%0A++++++++++++return+f%28x%29+%2B+g%28x+-+1%29%0A++++return+g%0A%0Af+%3D+4%0Abar%28lambda+x%3A+x+%2B+f%29%282%29">
-    </iframe>
-    </div>
-    
-
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 3 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+bar%28f%29%3A%0A++++def+g%28x%29%3A%0A++++++++if+x+%3D%3D+1%3A%0A++++++++++++return+f%28x%29%0A++++++++else%3A%0A++++++++++++return+f%28x%29+%2B+g%28x+-+1%29%0A++++return+g%0A%0Af+%3D+4%0Abar%28lambda+x%3A+x+%2B+f%29%282%29">
+        </iframe>
+        </div>
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Recursion: exam
+        
+Recursion: exam
 <hr/>
+
         <ul>
   <li><a href="#code-writing-questions">Code-Writing Questions</a></li>
+  <ul>
+    <li><a href="#q1">Question 1</a></li>
+  </ul>
   <li><a href="#environment-diagrams">Environment Diagrams</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-  <li><a href="#q3">Question 3</a></li>
+    <li><a href="#q2">Question 2</a></li>
+    <li><a href="#q3">Question 3</a></li>
+    <li><a href="#q4">Question 4</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -250,5 +264,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

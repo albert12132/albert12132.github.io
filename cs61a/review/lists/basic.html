@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Lists: basic</title>
+    <title>
+Lists: basic
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,24 +66,26 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Lists: basic-level questions</h1>
+        
+<h1>Lists: basic-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Lists, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/1skXespdgvJRzwUmW1oSxHP54_bKkJPGkF1-N9poNRt4/edit#slide=id.p">Albert's and Robert's
   slides</a></li>
 </ul>
-
   </blockquote>
 
   
@@ -87,16 +96,13 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="what-would-python-print">What would Python print?</h2>
+  <h2 id="what-would-python-print">What would Python print?</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
 
 
-    <pre><code>&gt;&gt;&gt; L = [1, 2, 3, 4]
+        <pre><code>&gt;&gt;&gt; L = [1, 2, 3, 4]
 &gt;&gt;&gt; L[0]
 <span class="blank2">______</span><span class="hidden solution 2">1</span>
 &gt;&gt;&gt; L[100]
@@ -107,15 +113,15 @@
 &gt;&gt;&gt; L
 <span class="blank2">______</span><span class="hidden solution 2">[1, 2, 100, 4]</span></code></pre>
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
 
-    <pre><code>&gt;&gt;&gt; L = [1, 2, 3, 4]
+        <pre><code>&gt;&gt;&gt; L = [1, 2, 3, 4]
 &gt;&gt;&gt; L[1:3]
 <span class="blank3">______</span><span class="hidden solution 3">[2, 3]</span>
 &gt;&gt;&gt; L[:2]
@@ -129,15 +135,15 @@
 &gt;&gt;&gt; L[::&#x2d;1]
 <span class="blank3">______</span><span class="hidden solution 3">[4, 3, 2, 1]</span></code></pre>
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 <h3 class="question" id="q3">Question 3</h3>
 
 
-    <pre><code>&gt;&gt;&gt; L = [1, 2, 3, 4]
+        <pre><code>&gt;&gt;&gt; L = [1, 2, 3, 4]
 &gt;&gt;&gt; [1, 2] + [3, 4]
 <span class="blank4">______</span><span class="hidden solution 4">[1, 2, 3, 4]</span>
 &gt;&gt;&gt; [1, 2] * 2
@@ -158,10 +164,10 @@
 &gt;&gt;&gt; L
 <span class="blank4">______</span><span class="hidden solution 4">[1, 2, 4, 5, 6]</span></code></pre>
 
-    <button id='4' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='4' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 
 <h2 id="code-writing-questions">Code-Writing questions</h2>
@@ -184,18 +190,18 @@ creating any new lists. Do NOT return anything.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <pre><code>def reverse(L):
     for i in range(len(L)//2):
         L[i], L[&#x2d;i&#x2d;1] = L[&#x2d;i&#x2d;1], L[i]</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q5">Question 5</h3>
 
@@ -215,49 +221,51 @@ anything.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <pre><code>def map_mut(f, L):
     for i in range(len(L)):
         L[i] = f(L[i])</code></pre>
 
 </div>
-    
-
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Lists: basic
+        
+Lists: basic
 <hr/>
+
         <ul>
   <li><a href="#what-would-python-print">What would Python print?</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-  <li><a href="#q3">Question 3</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+    <li><a href="#q3">Question 3</a></li>
+  </ul>
   <li><a href="#code-writing-questions">Code-Writing questions</a></li>
   <ul>
-  <li><a href="#q4">Question 4</a></li>
-  <li><a href="#q5">Question 5</a></li>
+    <li><a href="#q4">Question 4</a></li>
+    <li><a href="#q5">Question 5</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -272,5 +280,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

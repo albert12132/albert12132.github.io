@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Higher-Order Functions: exam</title>
+    <title>
+Higher-Order Functions: exam
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,20 +66,23 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Higher-Order Functions: exam-level questions</h1>
+        
+<h1>Higher-Order Functions: exam-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Higher-Order Functions, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/1RijXoFtQxe2zdl6dYzwn0KMTW8gXiP7MMQgKd-MHXBo/edit#slide=id.p">Albert's and Robert's slides part
   1</a></li>
   <li><a href="https://docs.google.com/presentation/d/1K4a54Qp716fWcGaTLDAyAYv-CCBy4p6P66M97eTAFgI/edit#slide=id.p">Albert's and Robert's slides part
@@ -80,7 +90,6 @@
   <li><a href="https://docs.google.com/presentation/d/11-75T8zaVP1V2rwADDDtyt77hX-LKIeUu1hPMmfGXME/edit#slide=id.ga271ab36d_1_364">Albert's and Robert's slides part
   3</a></li>
 </ul>
-
   </blockquote>
 
   
@@ -91,10 +100,7 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="environment-diagrams">Environment Diagrams</h2>
+  <h2 id="environment-diagrams">Environment Diagrams</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
@@ -108,14 +114,14 @@ def g(x):
 y = 2
 result = f(g(f))</code></pre>
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 0 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+f%28x%29%3A%0A++++return+lambda+y%3A+x%28y%29%0A%0Adef+g%28x%29%3A%0A++++return+lambda+%3A+f%28x%29+%2B+f%28y%29%0A%0Ay+%3D+2%0Aresult+%3D+f%28g%28f%29%29">
-    </iframe>
-    </div>
-    
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 0 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+f%28x%29%3A%0A++++return+lambda+y%3A+x%28y%29%0A%0Adef+g%28x%29%3A%0A++++return+lambda+%3A+f%28x%29+%2B+f%28y%29%0A%0Ay+%3D+2%0Aresult+%3D+f%28g%28f%29%29">
+        </iframe>
+        </div>
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
@@ -130,14 +136,14 @@ def make_bad_strategy(p):
 
 num_rolls = make_bad_strategy(1)(50, 50)</code></pre>
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 1 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+always_roll%28n%29%3A%0A++++return+lambda+s0%2C+s1%3A+n%0A%0Adef+make_bad_strategy%28p%29%3A%0A++++def+strategy%28s0%2C+s1%29%3A%0A++++++++%23+next+line+is+bad+style%21%0A++++++++return+always_roll%281+-+p%29%28s0%2C+s1%29%0A++++return+strategy%0A%0Anum_rolls+%3D+make_bad_strategy%281%29%2850%2C+50%29">
-    </iframe>
-    </div>
-    
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 1 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+always_roll%28n%29%3A%0A++++return+lambda+s0%2C+s1%3A+n%0A%0Adef+make_bad_strategy%28p%29%3A%0A++++def+strategy%28s0%2C+s1%29%3A%0A++++++++%23+next+line+is+bad+style%21%0A++++++++return+always_roll%281+-+p%29%28s0%2C+s1%29%0A++++return+strategy%0A%0Anum_rolls+%3D+make_bad_strategy%281%29%2850%2C+50%29">
+        </iframe>
+        </div>
+        
 
 <h3 class="question" id="q3">Question 3</h3>
 
@@ -152,14 +158,14 @@ x = 10
 new = test(lambda score: score &#x2d; x)
 new(42)</code></pre>
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 2 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+test%28fn%29%3A%0A++++def+new_fn%28x%29%3A%0A++++++++if+x+%3E+10%3A%0A++++++++++++return+new_fn%28x+%25+10%29%0A++++++++else%3A%0A++++++++++++return+fn%28x%29%0A++++return+new_fn%0Ax+%3D+10%0Anew+%3D+test%28lambda+score%3A+score+-+x%29%0Anew%2842%29">
-    </iframe>
-    </div>
-    
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 2 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+test%28fn%29%3A%0A++++def+new_fn%28x%29%3A%0A++++++++if+x+%3E+10%3A%0A++++++++++++return+new_fn%28x+%25+10%29%0A++++++++else%3A%0A++++++++++++return+fn%28x%29%0A++++return+new_fn%0Ax+%3D+10%0Anew+%3D+test%28lambda+score%3A+score+-+x%29%0Anew%2842%29">
+        </iframe>
+        </div>
+        
 
 <h3 class="question" id="q4">Question 4</h3>
 
@@ -173,14 +179,14 @@ def foo(foo):
 x = 5
 foo(5)(4)()</code></pre>
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 3 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=x+%3D+4%0Adef+foo%28foo%29%3A%0A++++def+bar%28y%29%3A%0A++++++++y+%2B%3D+foo%0A++++++++return+lambda+%3A+y+%2B+x%0A++++foo+%2B%3D+3%0A++++return+bar%0Ax+%3D+5%0Afoo%285%29%284%29%28%29">
-    </iframe>
-    </div>
-    
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 3 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=x+%3D+4%0Adef+foo%28foo%29%3A%0A++++def+bar%28y%29%3A%0A++++++++y+%2B%3D+foo%0A++++++++return+lambda+%3A+y+%2B+x%0A++++foo+%2B%3D+3%0A++++return+bar%0Ax+%3D+5%0Afoo%285%29%284%29%28%29">
+        </iframe>
+        </div>
+        
 
 <h3 class="question" id="q5">Question 5</h3>
 
@@ -194,14 +200,14 @@ foo(5)(4)()</code></pre>
 inception = lambda secret: lambda: secret
 real = dream1(inception)(42)</code></pre>
 
-    <button id='4' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 4 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+dream1%28f%29%3A%0A++++kick+%3D+lambda+x%3A+mind%28%29%0A++++def+dream2%28secret%29%3A%0A++++++++mind+%3D+f%28secret%29%0A++++++++kick%282%29%0A++++return+dream2%0A%0Ainception+%3D+lambda+secret%3A+lambda%3A+secret%0Areal+%3D+dream1%28inception%29%2842%29">
-    </iframe>
-    </div>
-    
+        <button id='4' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 4 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+dream1%28f%29%3A%0A++++kick+%3D+lambda+x%3A+mind%28%29%0A++++def+dream2%28secret%29%3A%0A++++++++mind+%3D+f%28secret%29%0A++++++++kick%282%29%0A++++return+dream2%0A%0Ainception+%3D+lambda+secret%3A+lambda%3A+secret%0Areal+%3D+dream1%28inception%29%2842%29">
+        </iframe>
+        </div>
+        
 
 <h3 class="question" id="q6">Question 6</h3>
 
@@ -214,42 +220,45 @@ real = dream1(inception)(42)</code></pre>
 
 albert(lambda: albert)()</code></pre>
 
-    <button id='5' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 5 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+albert%28albert%29%3A%0A++++albert+%3D+albert%28%29%0A++++def+albert%28%29%3A%0A++++++++albert+%3D+lambda+albert%3A+albert%0A++++++++return+albert%28albert%29%0A++++return+albert%0A%0Aalbert%28lambda%3A+albert%29%28%29">
-    </iframe>
-    </div>
-    
-
+        <button id='5' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 5 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+albert%28albert%29%3A%0A++++albert+%3D+albert%28%29%0A++++def+albert%28%29%3A%0A++++++++albert+%3D+lambda+albert%3A+albert%0A++++++++return+albert%28albert%29%0A++++return+albert%0A%0Aalbert%28lambda%3A+albert%29%28%29">
+        </iframe>
+        </div>
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Higher-Order Functions: exam
+        
+Higher-Order Functions: exam
 <hr/>
+
         <ul>
   <li><a href="#environment-diagrams">Environment Diagrams</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-  <li><a href="#q3">Question 3</a></li>
-  <li><a href="#q4">Question 4</a></li>
-  <li><a href="#q5">Question 5</a></li>
-  <li><a href="#q6">Question 6</a></li>
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+    <li><a href="#q3">Question 3</a></li>
+    <li><a href="#q4">Question 4</a></li>
+    <li><a href="#q5">Question 5</a></li>
+    <li><a href="#q6">Question 6</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -264,5 +273,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

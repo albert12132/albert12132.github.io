@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Tuples: basic</title>
+    <title>
+Tuples: basic
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,25 +66,27 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Tuples: basic-level questions</h1>
+        
+<h1>Tuples: basic-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Tuples, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/07_1pp.pdf">Lecture: Recursion</a></li>
   <li><a href="http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/09_1pp.pdf">Lecture: Function Examples</a></li>
   <li><a href="http://inst.eecs.berkeley.edu/~cs61a/sp14/lab/lab03/lab03.php">Lab 3</a></li>
 </ul>
-
   </blockquote>
 
   
@@ -88,10 +97,7 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="conceptual-questions">Conceptual Questions</h2>
+  <h2 id="conceptual-questions">Conceptual Questions</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
@@ -99,11 +105,11 @@
 <p>What does <em>immutability</em> mean? How does it relate to tuples?</p>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <p>An object that is <em>immutable</em> cannot be modified after it is created.
 For example, tuples and strings are immutable. Consider the following:</p>
@@ -122,7 +128,7 @@ mutating the original tuple</strong>. Instead we are creating a new tuple, and
 assigning it to <code>x</code>.</p>
 
 </div>
-    
+        
 
 
 <h2 id="what-would-python-print">What would Python print?</h2>
@@ -131,7 +137,7 @@ assigning it to <code>x</code>.</p>
 <h3 class="question" id="q2">Question 2</h3>
 
 
-    <pre><code>&gt;&gt;&gt; x = (1, 2, 3, 4)
+        <pre><code>&gt;&gt;&gt; x = (1, 2, 3, 4)
 &gt;&gt;&gt; x[0]
 <span class="blank4">______</span><span class="hidden solution 4">1</span>
 &gt;&gt;&gt; x[3]
@@ -147,15 +153,15 @@ assigning it to <code>x</code>.</p>
 &gt;&gt;&gt; x[5.0]
 <span class="blank4">______</span><span class="hidden solution 4">TypeError</span></code></pre>
 
-    <button id='4' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='4' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 <h3 class="question" id="q3">Question 3</h3>
 
 
-    <pre><code>&gt;&gt;&gt; x = (1, 2, 3, 4)
+        <pre><code>&gt;&gt;&gt; x = (1, 2, 3, 4)
 &gt;&gt;&gt; x[0:4]
 <span class="blank5">______</span><span class="hidden solution 5">(1, 2, 3, 4)</span>
 &gt;&gt;&gt; x[1:3]
@@ -171,15 +177,15 @@ assigning it to <code>x</code>.</p>
 &gt;&gt;&gt; x[100:10000]
 <span class="blank5">______</span><span class="hidden solution 5">()</span></code></pre>
 
-    <button id='5' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='5' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 <h3 class="question" id="q4">Question 4</h3>
 
 
-    <pre><code>&gt;&gt;&gt; x = (1, 2, 3, 4)
+        <pre><code>&gt;&gt;&gt; x = (1, 2, 3, 4)
 &gt;&gt;&gt; x[0:3:2]
 <span class="blank6">______</span><span class="hidden solution 6">(1, 3)</span>
 &gt;&gt;&gt; x[:3:2]
@@ -193,15 +199,15 @@ assigning it to <code>x</code>.</p>
 &gt;&gt;&gt; x[0:4:&#x2d;1]
 <span class="blank6">______</span><span class="hidden solution 6">()</span></code></pre>
 
-    <button id='6' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='6' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 <h3 class="question" id="q5">Question 5</h3>
 
 
-    <pre><code>&gt;&gt;&gt; x = (1, 2, 3, 4)
+        <pre><code>&gt;&gt;&gt; x = (1, 2, 3, 4)
 &gt;&gt;&gt; x[0]
 <span class="blank7">______</span><span class="hidden solution 7">1</span>
 &gt;&gt;&gt; x[0:1]
@@ -222,10 +228,10 @@ assigning it to <code>x</code>.</p>
 ...     print(&quot;hi&quot;)
 <span class="blank7">______</span><span class="hidden solution 7"># nothing</span></code></pre>
 
-    <button id='7' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='7' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 
 <h2 id="code-writing-questions">Code-Writing questions</h2>
@@ -245,11 +251,11 @@ assigning it to <code>x</code>.</p>
     &quot;&quot;&quot;</code></pre>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <pre><code>def reverse(tup):
     if not tup:
@@ -257,7 +263,7 @@ assigning it to <code>x</code>.</p>
     return reverse(tup[1:]) + (tup[0],)</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q7">Question 7</h3>
 
@@ -275,11 +281,11 @@ given tuple. The result should be a newly created tuple.</p>
     &quot;&quot;&quot;</code></pre>
 
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 2">
+        <div class="solution 2">
 
 <pre><code>def map(fn, tup):
     if not tup:
@@ -287,7 +293,7 @@ given tuple. The result should be a newly created tuple.</p>
     return (fn(tup[0]),) + map(fn, tup[1:])</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q8">Question 8</h3>
 
@@ -305,11 +311,11 @@ tuple <code>tup</code>, and returns a new tuple that contains only the elements 
     &quot;&quot;&quot;</code></pre>
 
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 3">
+        <div class="solution 3">
 
 <pre><code>def filter(cond, tup):
     if not tup:
@@ -320,7 +326,7 @@ tuple <code>tup</code>, and returns a new tuple that contains only the elements 
         return filter(cond, tup[1:])</code></pre>
 
 </div>
-    
+        
 
 
 <h2 id="environment-diagrams">Environment Diagrams</h2>
@@ -334,14 +340,14 @@ tuple <code>tup</code>, and returns a new tuple that contains only the elements 
 y = (4, 5, 6)
 x = (1, 2, draw(y))</code></pre>
 
-    <button id='8' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 8 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+draw%28me%29%3A%0A++++return+me%5B2%5D%0A%0Ay+%3D+%284%2C+5%2C+6%29%0Ax+%3D+%281%2C+2%2C+draw%28y%29%29">
-    </iframe>
-    </div>
-    
+        <button id='8' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 8 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+draw%28me%29%3A%0A++++return+me%5B2%5D%0A%0Ay+%3D+%284%2C+5%2C+6%29%0Ax+%3D+%281%2C+2%2C+draw%28y%29%29">
+        </iframe>
+        </div>
+        
 
 <h3 class="question" id="q10">Question 10</h3>
 
@@ -352,58 +358,58 @@ x = (1, 2, draw(y))</code></pre>
 y = (1, 2)
 x = draw(y, 3)</code></pre>
 
-    <button id='9' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 9 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+draw%28me%2C+too%29%3A%0A++++tup+%3D+%28too%2C%29%0A++++return+me+%2B+tup%0A%0Ay+%3D+%281%2C+2%29%0Ax+%3D+draw%28y%2C+3%29">
-    </iframe>
-    </div>
-    
-
+        <button id='9' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 9 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+draw%28me%2C+too%29%3A%0A++++tup+%3D+%28too%2C%29%0A++++return+me+%2B+tup%0A%0Ay+%3D+%281%2C+2%29%0Ax+%3D+draw%28y%2C+3%29">
+        </iframe>
+        </div>
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Tuples: basic
+        
+Tuples: basic
 <hr/>
+
         <ul>
   <li><a href="#conceptual-questions">Conceptual Questions</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+  </ul>
   <li><a href="#what-would-python-print">What would Python print?</a></li>
   <ul>
-  <li><a href="#q2">Question 2</a></li>
-  <li><a href="#q3">Question 3</a></li>
-  <li><a href="#q4">Question 4</a></li>
-  <li><a href="#q5">Question 5</a></li>
-</ul>
-
+    <li><a href="#q2">Question 2</a></li>
+    <li><a href="#q3">Question 3</a></li>
+    <li><a href="#q4">Question 4</a></li>
+    <li><a href="#q5">Question 5</a></li>
+  </ul>
   <li><a href="#code-writing-questions">Code-Writing questions</a></li>
   <ul>
-  <li><a href="#q6">Question 6</a></li>
-  <li><a href="#q7">Question 7</a></li>
-  <li><a href="#q8">Question 8</a></li>
-</ul>
-
+    <li><a href="#q6">Question 6</a></li>
+    <li><a href="#q7">Question 7</a></li>
+    <li><a href="#q8">Question 8</a></li>
+  </ul>
   <li><a href="#environment-diagrams">Environment Diagrams</a></li>
   <ul>
-  <li><a href="#q9">Question 9</a></li>
-  <li><a href="#q10">Question 10</a></li>
+    <li><a href="#q9">Question 9</a></li>
+    <li><a href="#q10">Question 10</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -418,5 +424,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

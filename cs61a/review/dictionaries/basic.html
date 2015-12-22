@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Dictionaries: basic</title>
+    <title>
+Dictionaries: basic
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,24 +66,26 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Dictionaries: basic-level questions</h1>
+        
+<h1>Dictionaries: basic-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Dictionaries, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/1skXespdgvJRzwUmW1oSxHP54_bKkJPGkF1-N9poNRt4/edit#slide=id.ga2e4b373c_0_5">Albert and Robert's
   slides</a></li>
 </ul>
-
   </blockquote>
 
   
@@ -87,10 +96,7 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="conceptual-questions">Conceptual Questions</h2>
+  <h2 id="conceptual-questions">Conceptual Questions</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
@@ -99,11 +105,11 @@
 objects can be used as values?</p>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <p>Any <strong>immutable</strong> object can be used as a key &mdash; this includes numbers,
 strings, and tuples. Mutable objects, such as lists and dictionaries,
@@ -111,43 +117,43 @@ are not allowed to be used as keys.  Anything can be used as a value,
 however.</p>
 
 </div>
-    
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
 <p>How many objects can a single key map to?</p>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <p>A single key can only map on to one value. That value can, however, be
 a sequence like a tuple or a list, so you can effectively map to
 multiple things (but it still only counts as one value).</p>
 
 </div>
-    
+        
 
 <h3 class="question" id="q3">Question 3</h3>
 
 <p>Are dictionaries ordered?</p>
 
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 2">
+        <div class="solution 2">
 
 <p>Python dictionaries are not ordered. If you were to iterate through the
 dictionary, the order in which you iterate through them is not
 necessarily the order in which you added them.</p>
 
 </div>
-    
+        
 
 
 <h2 id="what-would-python-print">What would Python print?</h2>
@@ -156,7 +162,7 @@ necessarily the order in which you added them.</p>
 <h3 class="question" id="q4">Question 4</h3>
 
 
-    <pre><code>&gt;&gt;&gt; logins = {&#x27;albert&#x27;: &#x27;cs61a&#x2d;tg&#x27;}&quot;
+        <pre><code>&gt;&gt;&gt; logins = {&#x27;albert&#x27;: &#x27;cs61a&#x2d;tg&#x27;}&quot;
 &gt;&gt;&gt; logins[&#x27;albert&#x27;]
 <span class="blank3">______</span><span class="hidden solution 3">&#x27;cs61a&#x2d;tg&#x27;</span>
 &gt;&gt;&gt; logins[&#x27;cs61a&#x2d;tg&#x27;]
@@ -173,40 +179,42 @@ albert  # not necessarily in that order</span>
 <span class="blank3">______</span><span class="hidden solution 3">allen None
 albert cs61a&#x2d;tg # not necessarily in that order</span></code></pre>
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
-
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Dictionaries: basic
+        
+Dictionaries: basic
 <hr/>
+
         <ul>
   <li><a href="#conceptual-questions">Conceptual Questions</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-  <li><a href="#q3">Question 3</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+    <li><a href="#q3">Question 3</a></li>
+  </ul>
   <li><a href="#what-would-python-print">What would Python print?</a></li>
   <ul>
-  <li><a href="#q4">Question 4</a></li>
+    <li><a href="#q4">Question 4</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -221,5 +229,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

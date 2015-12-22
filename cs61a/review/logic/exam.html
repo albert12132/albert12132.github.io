@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Logic: exam</title>
+    <title>
+Logic: exam
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,28 +66,29 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Logic: exam-level questions</h1>
+        
+<h1>Logic: exam-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Logic, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/1UQeqb496rhwwNmGY-82wJ63ag8FTbIOtKDYnEbGOfXc/edit">Albert's and Robert's
   slides</a></li>
 </ul>
-
   </blockquote>
 
-  
-<p>We will be using the Logic interpreter, which you can get
+  <p>We will be using the Logic interpreter, which you can get
 <a href="http://cs61a.org/lab/lab15/logic">here</a>.  You can run the Logic interpreter
 from your terminal with:</p>
 
@@ -93,17 +101,13 @@ from your terminal with:</p>
 <p>Alternatively, you can use the <a href="http://www-inst.eecs.berkeley.edu/~cs61a/fa13/logic/logic.html">online Logic
 interpreter</a></p>
 
-
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
 
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="code-writing-questions">Code-Writing questions</h2>
+  <h2 id="code-writing-questions">Code-Writing questions</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
@@ -124,11 +128,11 @@ Success!
 what: (1 3 2 4 5)</code></pre>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <pre><code>(fact (interleave ?lst () ?lst))
 (fact (interleave () ?lst ?lst))
@@ -136,7 +140,7 @@ what: (1 3 2 4 5)</code></pre>
       (interleave ?x ?y ?z))</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
@@ -154,18 +158,18 @@ logic&gt; (query (zip (1 2) (3 4) (1 3 2 4)))
 Failed.</code></pre>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <pre><code>(fact (zip () () ()))
 (fact (zip (?a . ?x) (?b . ?y) ((?a ?b) . ?z))
       (zip ?x ?y ?z))</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q3">Question 3</h3>
 
@@ -185,11 +189,11 @@ Success!
 what: (5 2 4)</code></pre>
 
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 2">
+        <div class="solution 2">
 
 <pre><code>(fact (reverse () ()))
 (fact (reverse (?f . ?rest) ?lst)
@@ -197,7 +201,7 @@ what: (5 2 4)</code></pre>
       (append ?reverse&#x2d;rest (?f) ?lst))</code></pre>
 
 </div>
-    
+        
 
 
 <h2 id="logical-trees-courtesy-of-sarah-kim">Logical Trees (courtesy of Sarah Kim)</h2>
@@ -241,17 +245,17 @@ Sucess!
 tree: tree&#x2d;7</code></pre>
 
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 3">
+        <div class="solution 3">
 
 <pre><code>(fact (find&#x2d;entry ?number ?entry)
       (tree ?number ?entry ?left ?right))</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q5">Question 5</h3>
 
@@ -264,24 +268,24 @@ logic&gt; (query (check&#x2d;leaf tree&#x2d;4))
 Failed.</code></pre>
 
 
-    <button id='4' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='4' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 4">
+        <div class="solution 4">
 
 <pre><code>(fact (check&#x2d;leaf ?number)
       (tree ?number ?leaf none none))</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q6">Question 6</h3>
 
 <p>What would Logic print?</p>
 
 
-    <pre><code>logic&gt; (query (check&#x2d;leaf ?x))
+        <pre><code>logic&gt; (query (check&#x2d;leaf ?x))
 <span class="blank9">______</span><span class="hidden solution 9">Success!
 x: tree&#x2d;5
 x: tree&#x2d;6
@@ -289,10 +293,10 @@ x: tree&#x2d;10
 x: tree&#x2d;11
 x: tree&#x2d;12</span></code></pre>
 
-    <button id='9' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='9' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 <h3 class="question" id="q7">Question 7</h3>
 Write a <code>smallest&#x2d;entry</code> fact that finds the smallest entry of a tree.
@@ -307,11 +311,11 @@ logic&gt; (query (smallest&#x2d;entry tree&#x2d;7 ?leaf))
 leaf: 9</code></pre>
 
 
-    <button id='5' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='5' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 5">
+        <div class="solution 5">
 
 <pre><code>(fact (smallest&#x2d;entry ?number ?entry)
       (tree ?number ?entry none ?right))
@@ -320,7 +324,7 @@ leaf: 9</code></pre>
       (smallest&#x2d;entry ?left ?entry))</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q8">Question 8</h3>
 
@@ -331,11 +335,11 @@ Success!
 parent: tree&#x2d;8</code></pre>
 
 
-    <button id='6' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='6' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 6">
+        <div class="solution 6">
 
 <pre><code>(fact (find&#x2d;parent ?number ?parent)
       (tree ?parent ?entry ?number ?right))
@@ -343,7 +347,7 @@ parent: tree&#x2d;8</code></pre>
       (tree ?parent ?entry ?left ?number))</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q9">Question 9</h3>
 
@@ -359,11 +363,11 @@ members: tree&#x2d;8
 members: tree&#x2d;11</code></pre>
 
 
-    <button id='7' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='7' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 7">
+        <div class="solution 7">
 
 <pre><code>(fact (generation ?number ?grandfather)
       (find&#x2d;parent ?number ?father)
@@ -371,7 +375,7 @@ members: tree&#x2d;11</code></pre>
 (fact (generation ?number ?number))</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q10">Question 10</h3>
 
@@ -381,11 +385,11 @@ before the first fact?</p>
 <pre><code>logic&gt; (query (generation tree&#x2d;11 ?members))</code></pre>
 
 
-    <button id='8' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='8' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 8">
+        <div class="solution 8">
 
 <pre><code>Success!
 members: tree&#x2d;11
@@ -395,43 +399,45 @@ members: tree&#x2d;2
 members: tree&#x2d;1</code></pre>
 
 </div>
-    
-
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Logic: exam
+        
+Logic: exam
 <hr/>
+
         <ul>
   <li><a href="#code-writing-questions">Code-Writing questions</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-  <li><a href="#q3">Question 3</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+    <li><a href="#q3">Question 3</a></li>
+  </ul>
   <li><a href="#logical-trees-courtesy-of-sarah-kim">Logical Trees (courtesy of Sarah Kim)</a></li>
   <ul>
-  <li><a href="#q4">Question 4</a></li>
-  <li><a href="#q5">Question 5</a></li>
-  <li><a href="#q6">Question 6</a></li>
-  <li><a href="#q7">Question 7</a></li>
-  <li><a href="#q8">Question 8</a></li>
-  <li><a href="#q9">Question 9</a></li>
-  <li><a href="#q10">Question 10</a></li>
+    <li><a href="#q4">Question 4</a></li>
+    <li><a href="#q5">Question 5</a></li>
+    <li><a href="#q6">Question 6</a></li>
+    <li><a href="#q7">Question 7</a></li>
+    <li><a href="#q8">Question 8</a></li>
+    <li><a href="#q9">Question 9</a></li>
+    <li><a href="#q10">Question 10</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -446,5 +452,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Control Structures: basic</title>
+    <title>
+Control Structures: basic
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,25 +66,27 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Control Structures: basic-level questions</h1>
+        
+<h1>Control Structures: basic-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Control Structures, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/1p6rgyp4_lPLT6mtOdyKQ1VsuZOuiqaUIVYSm2c7CCu8/edit#slide=id.ga20165374_0_406">Albert and Robert's slides part 1</a></li>
   <li><a href="https://docs.google.com/presentation/d/11-75T8zaVP1V2rwADDDtyt77hX-LKIeUu1hPMmfGXME/edit#slide=id.ga271ab36d_1_245">Albert and Robert's slides part
   2</a></li>
 </ul>
-
   </blockquote>
 
   
@@ -88,16 +97,13 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="what-would-python-print">What would Python print?</h2>
+  <h2 id="what-would-python-print">What would Python print?</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
 
 
-    <pre><code>&gt;&gt;&gt; x = 4
+        <pre><code>&gt;&gt;&gt; x = 4
 &gt;&gt;&gt; x &gt; 2 and x &lt; 6
 <span class="blank3">______</span><span class="hidden solution 3">True</span>
 &gt;&gt;&gt; True and not True    # a.k.a. a contradiciton
@@ -117,15 +123,15 @@
 &gt;&gt;&gt; 3 or 4
 <span class="blank3">______</span><span class="hidden solution 3">3</span></code></pre>
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
 
-    <pre><code>&gt;&gt;&gt; if True:
+        <pre><code>&gt;&gt;&gt; if True:
 ...     print(&#x27;True!&#x27;)
 ... else:
 ...     print(&#x27;False!&#x27;)
@@ -149,15 +155,15 @@
 ...     print(&#x27;Boring number&#x27;)
 <span class="blank4">______</span><span class="hidden solution 4">The answer to everything</span></code></pre>
 
-    <button id='4' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='4' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 <h3 class="question" id="q3">Question 3</h3>
 
 
-    <pre><code>&gt;&gt;&gt; x = 0
+        <pre><code>&gt;&gt;&gt; x = 0
 &gt;&gt;&gt; while x &lt; 5:
 ...     x += 1
 ...     print(x)
@@ -187,10 +193,10 @@ hi!
 &gt;&gt;&gt; foo(9)
 <span class="blank5">______</span><span class="hidden solution 5">True</span></code></pre>
 
-    <button id='5' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='5' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 
 <h2 id="environment-diagrams">Environment Diagrams</h2>
@@ -211,14 +217,14 @@ hi!
 a = branch(12)
 b = branch(8)</code></pre>
 
-    <button id='6' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 6 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+branch%28x%29%3A%0A++++if+x+%3E+10%3A%0A++++++++x+-%3D+5%0A++++elif+x+%3E+7%3A%0A++++++++x+-%3D+2%0A++++if+x+%25+2+%3D%3D+0%3A%0A++++++++return+%27even%27%0A++++else%3A%0A++++++++return+%27odd%27%0A%0Aa+%3D+branch%2812%29%0Ab+%3D+branch%288%29">
-    </iframe>
-    </div>
-    
+        <button id='6' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 6 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+branch%28x%29%3A%0A++++if+x+%3E+10%3A%0A++++++++x+-%3D+5%0A++++elif+x+%3E+7%3A%0A++++++++x+-%3D+2%0A++++if+x+%25+2+%3D%3D+0%3A%0A++++++++return+%27even%27%0A++++else%3A%0A++++++++return+%27odd%27%0A%0Aa+%3D+branch%2812%29%0Ab+%3D+branch%288%29">
+        </iframe>
+        </div>
+        
 
 <h3 class="question" id="q5">Question 5</h3>
 
@@ -230,14 +236,14 @@ b = branch(8)</code></pre>
 a = uhoh(True)
 b = uhoh(False)</code></pre>
 
-    <button id='7' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 7 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+uhoh%28x%29%3A%0A++++if+x%3A%0A++++++++y+%3D+5%0A++++return+y%0A%0Aa+%3D+uhoh%28True%29%0Ab+%3D+uhoh%28False%29">
-    </iframe>
-    </div>
-    
+        <button id='7' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 7 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+uhoh%28x%29%3A%0A++++if+x%3A%0A++++++++y+%3D+5%0A++++return+y%0A%0Aa+%3D+uhoh%28True%29%0Ab+%3D+uhoh%28False%29">
+        </iframe>
+        </div>
+        
 
 <h3 class="question" id="q6">Question 6</h3>
 
@@ -250,14 +256,14 @@ while i &lt; 2:
         print(i)
     i += 1</code></pre>
 
-    <button id='8' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 8 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+is_even%28x%29%3A%0A++++return+x+%25+2+%3D%3D+0%0A%0Ai+%3D+0%0Awhile+i+%3C+2%3A%0A++++if+is_even%28i%29%3A%0A++++++++print%28i%29%0A++++i+%2B%3D+1">
-    </iframe>
-    </div>
-    
+        <button id='8' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 8 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+is_even%28x%29%3A%0A++++return+x+%25+2+%3D%3D+0%0A%0Ai+%3D+0%0Awhile+i+%3C+2%3A%0A++++if+is_even%28i%29%3A%0A++++++++print%28i%29%0A++++i+%2B%3D+1">
+        </iframe>
+        </div>
+        
 
 
 <h2 id="code-writing-question">Code-Writing question</h2>
@@ -293,11 +299,11 @@ def four(ones_win):
         result = 4</code></pre>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <pre><code>def one(x):
     if x:
@@ -316,7 +322,7 @@ def four(ones_win):
     result = 6 if ones_win else 4</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q8">Question 8</h3>
 
@@ -335,11 +341,11 @@ evaluating <code>term(k)</code>.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <pre><code>def summation(n, term):
     k, total = 1, 0
@@ -349,7 +355,7 @@ evaluating <code>term(k)</code>.</p>
     return total</code></pre>
 
 </div>
-    
+        
 
 <h3 class="question" id="q9">Question 9</h3>
 
@@ -368,11 +374,11 @@ fibonacci number, and False otherwise.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 2">
+        <div class="solution 2">
 
 <pre><code>def is_fib(n):
     cur, next = 0, 1
@@ -381,46 +387,47 @@ fibonacci number, and False otherwise.</p>
     return cur == n</code></pre>
 
 </div>
-    
-
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Control Structures: basic
+        
+Control Structures: basic
 <hr/>
+
         <ul>
   <li><a href="#what-would-python-print">What would Python print?</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-  <li><a href="#q3">Question 3</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+    <li><a href="#q3">Question 3</a></li>
+  </ul>
   <li><a href="#environment-diagrams">Environment Diagrams</a></li>
   <ul>
-  <li><a href="#q4">Question 4</a></li>
-  <li><a href="#q5">Question 5</a></li>
-  <li><a href="#q6">Question 6</a></li>
-</ul>
-
+    <li><a href="#q4">Question 4</a></li>
+    <li><a href="#q5">Question 5</a></li>
+    <li><a href="#q6">Question 6</a></li>
+  </ul>
   <li><a href="#code-writing-question">Code-Writing question</a></li>
   <ul>
-  <li><a href="#q7">Question 7</a></li>
-  <li><a href="#q8">Question 8</a></li>
-  <li><a href="#q9">Question 9</a></li>
+    <li><a href="#q7">Question 7</a></li>
+    <li><a href="#q8">Question 8</a></li>
+    <li><a href="#q9">Question 9</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -435,5 +442,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

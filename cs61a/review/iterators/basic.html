@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Iterators and Generators: basic</title>
+    <title>
+Iterators and Generators: basic
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,24 +66,26 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Iterators and Generators: basic-level questions</h1>
+        
+<h1>Iterators and Generators: basic-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Iterators and Generators, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/1zqKEmNFG90YUoBtFvEX5nsMURhrR5fXQz36tXKVECb0/edit">Albert's and Robert's
   slides</a></li>
 </ul>
-
   </blockquote>
 
   
@@ -87,10 +96,7 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="iterators-conceptual-questions">Iterators: Conceptual questions</h2>
+  <h2 id="iterators-conceptual-questions">Iterators: Conceptual questions</h2>
 
 
 <quesiton>
@@ -99,18 +105,18 @@
 type of object will it return?</p>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <p>The built-in Python function <code>iter</code> will implicitly call
 <code>obj.__iter__</code>, a method. This method will return an <strong>Iterator
 object</strong>, which is any object that has a <code>__next__</code> method.</p>
 
 </div>
-    
+        
 
 <h3 class="question" id="q1">Question 1</h3>
 
@@ -121,11 +127,11 @@ object</strong>, which is any object that has a <code>__next__</code> method.</p
 &gt;&gt;&gt; next(obj)</code></pre>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <p><code>obj</code> is not necessarily an iterator, so you should not call <code>next</code> on it.
 <code>next</code> should be called on <code>i</code> instead.</p>
@@ -135,7 +141,7 @@ you still should not call <code>next</code> on <code>obj</code>. This is to prot
 abstraction barriers.</p>
 
 </div>
-    
+        
 
 
 <h2 id="iterators-code-writing-questions">Iterators: Code-Writing Questions</h2>
@@ -163,11 +169,11 @@ next Fibonacci number every time <code>next</code> is called on it.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 2">
+        <div class="solution 2">
 
 <pre><code>class Fibonacci:
     def __init__(self):
@@ -182,7 +188,7 @@ next Fibonacci number every time <code>next</code> is called on it.</p>
         return tmp</code></pre>
 
 </div>
-    
+        
 
 
 <h2 id="generators-conceptual-questions">Generators: Conceptual questions</h2>
@@ -200,33 +206,33 @@ return?</p>
         start += 1</code></pre>
 
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 3">
+        <div class="solution 3">
 
 <p><code>gen()</code> will return a generator object, NOT the number 0. None of the
 code inside the generator function will be executed.</p>
 
 </div>
-    
+        
 
 <h3 class="question" id="q4">Question 4</h3>
 
 <p>When does a generator raise a <code>StopIteration</code> exception?</p>
 
 
-    <button id='4' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='4' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 4">
+        <div class="solution 4">
 
 <p>When the end of the generator function is reached.</p>
 
 </div>
-    
+        
 
 
 <h2 id="generators-code-writing-questions">Generators: Code-Writing questions</h2>
@@ -261,11 +267,11 @@ mapped onto them.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='5' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='5' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 5">
+        <div class="solution 5">
 
 <pre><code>def map_gen(fn, iter1):
     for elem in iter1:
@@ -274,7 +280,7 @@ mapped onto them.</p>
 <p>Since <code>iter1</code> is an iterator, we can iterate over it in a for loop.</p>
 
 </div>
-    
+        
 
 <h3 class="question" id="q6">Question 6</h3>
 
@@ -299,11 +305,11 @@ it. This time, write the iterator using a generator function.</p>
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='6' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='6' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 6">
+        <div class="solution 6">
 
 <pre><code>class Fibonacci:
     def __iter__(self):
@@ -317,47 +323,47 @@ don't need to initialize anything. We also don't need to write a
 <code>__next__</code> method, since the <code>__iter__</code> method is not returning <code>self</code>.</p>
 
 </div>
-    
-
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Iterators and Generators: basic
+        
+Iterators and Generators: basic
 <hr/>
+
         <ul>
   <li><a href="#iterators-conceptual-questions">Iterators: Conceptual questions</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+  </ul>
   <li><a href="#iterators-code-writing-questions">Iterators: Code-Writing Questions</a></li>
   <ul>
-  <li><a href="#q2">Question 2</a></li>
-</ul>
-
+    <li><a href="#q2">Question 2</a></li>
+  </ul>
   <li><a href="#generators-conceptual-questions">Generators: Conceptual questions</a></li>
   <ul>
-  <li><a href="#q3">Question 3</a></li>
-  <li><a href="#q4">Question 4</a></li>
-</ul>
-
+    <li><a href="#q3">Question 3</a></li>
+    <li><a href="#q4">Question 4</a></li>
+  </ul>
   <li><a href="#generators-code-writing-questions">Generators: Code-Writing questions</a></li>
   <ul>
-  <li><a href="#q5">Question 5</a></li>
-  <li><a href="#q6">Question 6</a></li>
+    <li><a href="#q5">Question 5</a></li>
+    <li><a href="#q6">Question 6</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -372,5 +378,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

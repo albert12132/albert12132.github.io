@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Style Guide | Albert Wu</title>
+    <title>
+Style Guide | Albert Wu
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,7 +19,9 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
 
     
 
@@ -59,15 +63,19 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Style Guide</h1>
+        
+<h1>Style Guide</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <style>
+      
+<style>
 .style-non-ess {
   color:#b78727;
   font-weight:bold;
@@ -573,77 +581,76 @@ expressions.</p>
 <pre class="style-bad"><code>L = [x + y + z for x in nums if x &gt; 10 for y in nums2 for z in nums3 if y &gt; z]</code></pre>
 
 <p>Use your best judgement.</p>
+
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Style Guide
+        
+Style Guide
 <hr/>
+
         <ul>
   <li><a href="#introduction">Introduction</a></li>
   <li><a href="#names-and-variables">Names and variables</a></li>
   <ul>
-  <li><a href="#meaningful-names">Meaningful names</a></li>
-  <li><a href="#indices-and-mathematical-symbols">Indices and mathematical symbols</a></li>
-  <li><a href="#o-and-l">'o' and 'l'</a></li>
-  <li><a href="#unnecessary-variables">Unnecessary variables</a></li>
-  <li><a href="#profanity">Profanity</a></li>
-  <li><a href="#naming-convention">Naming convention:</a></li>
-</ul>
-
+    <li><a href="#meaningful-names">Meaningful names</a></li>
+    <li><a href="#indices-and-mathematical-symbols">Indices and mathematical symbols</a></li>
+    <li><a href="#o-and-l">'o' and 'l'</a></li>
+    <li><a href="#unnecessary-variables">Unnecessary variables</a></li>
+    <li><a href="#profanity">Profanity</a></li>
+    <li><a href="#naming-convention">Naming convention:</a></li>
+  </ul>
   <li><a href="#spacing-and-indentation">Spacing and Indentation</a></li>
   <ul>
-  <li><a href="#spaces-vs-tabs">Spaces vs. tabs</a></li>
-  <li><a href="#indent-size">Indent size</a></li>
-  <li><a href="#line-length">Line Length</a></li>
-  <li><a href="#double-spacing">Double-spacing</a></li>
-  <li><a href="#spaces-with-operators">Spaces with operators</a></li>
-  <li><a href="#spacing-lists">Spacing lists</a></li>
-  <li><a href="#line-wrapping">Line wrapping</a></li>
-  <li><a href="#blank-lines">Blank lines</a></li>
-  <li><a href="#trailing-whitespace">Trailing whitespace</a></li>
-</ul>
-
+    <li><a href="#spaces-vs-tabs">Spaces vs. tabs</a></li>
+    <li><a href="#indent-size">Indent size</a></li>
+    <li><a href="#line-length">Line Length</a></li>
+    <li><a href="#double-spacing">Double-spacing</a></li>
+    <li><a href="#spaces-with-operators">Spaces with operators</a></li>
+    <li><a href="#spacing-lists">Spacing lists</a></li>
+    <li><a href="#line-wrapping">Line wrapping</a></li>
+    <li><a href="#blank-lines">Blank lines</a></li>
+    <li><a href="#trailing-whitespace">Trailing whitespace</a></li>
+  </ul>
   <li><a href="#repetition">Repetition</a></li>
   <ul>
-  <li><a href="#complex-expressions">Complex expressions</a></li>
-  <li><a href="#computation-heavy-function-calls">Computation-heavy function calls</a></li>
-  <li><a href="#if-else-conditions">if/else conditions</a></li>
-</ul>
-
+    <li><a href="#complex-expressions">Complex expressions</a></li>
+    <li><a href="#computation-heavy-function-calls">Computation-heavy function calls</a></li>
+    <li><a href="#if-else-conditions">if/else conditions</a></li>
+  </ul>
   <li><a href="#comments">Comments</a></li>
   <ul>
-  <li><a href="#docstrings">Docstrings</a></li>
-  <li><a href="#remove-commented-out-code">Remove commented-out code</a></li>
-  <li><a href="#unnecessary-comments">Unnecessary comments</a></li>
-</ul>
-
+    <li><a href="#docstrings">Docstrings</a></li>
+    <li><a href="#remove-commented-out-code">Remove commented-out code</a></li>
+    <li><a href="#unnecessary-comments">Unnecessary comments</a></li>
+  </ul>
   <li><a href="#control-structures">Control Structures</a></li>
   <ul>
-  <li><a href="#boolean-comparisons">Boolean comparisons</a></li>
-  <li><a href="#redundant-if-else">Redundant if/else</a></li>
-  <li><a href="#similar-if-else-suites">Similar if/else suites</a></li>
-  <li><a href="#while-vs-if">while vs. if</a></li>
-  <li><a href="#parentheses">Parentheses</a></li>
-</ul>
-
+    <li><a href="#boolean-comparisons">Boolean comparisons</a></li>
+    <li><a href="#redundant-if-else">Redundant if/else</a></li>
+    <li><a href="#similar-if-else-suites">Similar if/else suites</a></li>
+    <li><a href="#while-vs-if">while vs. if</a></li>
+    <li><a href="#parentheses">Parentheses</a></li>
+  </ul>
   <li><a href="#miscellaneous">Miscellaneous</a></li>
   <ul>
-  <li><a href="#semicolons">Semicolons</a></li>
-  <li><a href="#checking-none">Checking <code>None</code></a></li>
-  <li><a href="#implicit-false">Implicit <code>False</code></a></li>
-  <li><a href="#generator-expressions">Generator expressions</a></li>
+    <li><a href="#semicolons">Semicolons</a></li>
+    <li><a href="#checking-none">Checking <code>None</code></a></li>
+    <li><a href="#implicit-false">Implicit <code>False</code></a></li>
+    <li><a href="#generator-expressions">Generator expressions</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({

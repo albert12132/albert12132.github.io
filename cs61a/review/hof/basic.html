@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Higher-Order Functions: basic</title>
+    <title>
+Higher-Order Functions: basic
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,8 +19,13 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+
 <link rel='stylesheet' type='text/css' href='/public/css/review.css'>
+
     
 
     <!-- Google Analytics -->
@@ -59,20 +66,23 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Higher-Order Functions: basic-level questions</h1>
+        
+<h1>Higher-Order Functions: basic-level questions</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <blockquote>
+      
+  <blockquote>
     <p>If you need help reviewing Higher-Order Functions, take a look at these
     resources:</p>
 
-    
-<ul>
+    <ul>
   <li><a href="https://docs.google.com/presentation/d/1RijXoFtQxe2zdl6dYzwn0KMTW8gXiP7MMQgKd-MHXBo/edit#slide=id.p">Albert's and Robert's slides part
   1</a></li>
   <li><a href="https://docs.google.com/presentation/d/1K4a54Qp716fWcGaTLDAyAYv-CCBy4p6P66M97eTAFgI/edit#slide=id.p">Albert's and Robert's slides part
@@ -80,7 +90,6 @@
   <li><a href="https://docs.google.com/presentation/d/11-75T8zaVP1V2rwADDDtyt77hX-LKIeUu1hPMmfGXME/edit#slide=id.ga271ab36d_1_364">Albert's and Robert's slides part
   3</a></li>
 </ul>
-
   </blockquote>
 
   
@@ -91,10 +100,7 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  
-
-
-<h2 id="conceptual-questions">Conceptual Questions</h2>
+  <h2 id="conceptual-questions">Conceptual Questions</h2>
 
 
 <h3 class="question" id="q1">Question 1</h3>
@@ -102,11 +108,11 @@
 <p>What is the definition of a higher-order function?</p>
 
 
-    <button id='0' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='0' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 0">
+        <div class="solution 0">
 
 <p>A function is a higher-order function if it satisfies at least one of
 the following:</p>
@@ -117,7 +123,7 @@ the following:</p>
 </ul>
 
 </div>
-    
+        
 
 <h3 class="question" id="q2">Question 2</h3>
 
@@ -131,18 +137,18 @@ be for this function to work?</p>
     return inner</code></pre>
 
 
-    <button id='1' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='1' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 1">
+        <div class="solution 1">
 
 <p><code>foo</code> should return a <strong>function</strong> object (in particular, the function
 <code>inner</code>).  <code>x</code> should also be a <strong>function</strong>, or else calling <code>inner</code>
 will result in an error (because it will try <code>x(y)</code>).</p>
 
 </div>
-    
+        
 
 
 <h2 id="what-would-python-print">What would Python print?</h2>
@@ -151,7 +157,7 @@ will result in an error (because it will try <code>x(y)</code>).</p>
 <h3 class="question" id="q3">Question 3</h3>
 
 
-    <pre><code>&gt;&gt;&gt; def silly():
+        <pre><code>&gt;&gt;&gt; def silly():
 ...     def rabbit(y):
 ...         return &#x27;Tricks are for kids!&#x27;
 ...     print(&#x27;Lucky Charms?&#x27;)
@@ -163,15 +169,15 @@ will result in an error (because it will try <code>x(y)</code>).</p>
 &gt;&gt;&gt; a(5)
 <span class="blank3">______</span><span class="hidden solution 3">TypeError</span></code></pre>
 
-    <button id='3' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='3' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 <h3 class="question" id="q4">Question 4</h3>
 
 
-    <pre><code>&gt;&gt;&gt; def func1(fn):
+        <pre><code>&gt;&gt;&gt; def func1(fn):
 ...     def inner():
 ...         return fn(2)
 ...     return inner
@@ -184,15 +190,15 @@ will result in an error (because it will try <code>x(y)</code>).</p>
 &gt;&gt;&gt; func2(lambda x: x * x)
 <span class="blank4">______</span><span class="hidden solution 4">4</span></code></pre>
 
-    <button id='4' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='4' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 <h3 class="question" id="q5">Question 5</h3>
 
 
-    <pre><code>&gt;&gt;&gt; def dream1(totem):
+        <pre><code>&gt;&gt;&gt; def dream1(totem):
 ...     def dream2(totem_guess):
 ...         print(&#x27;I think my totem is a&#x27;, totem_guess)
 ...         return totem_guess == totem
@@ -204,10 +210,10 @@ will result in an error (because it will try <code>x(y)</code>).</p>
 <span class="blank5">______</span><span class="hidden solution 5">I think my totem is a spinning top
 False</span></code></pre>
 
-    <button id='5' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    
+        <button id='5' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        
 
 
 <h2 id="environment-diagrams">Environment Diagrams</h2>
@@ -231,14 +237,14 @@ result = play(my_strat)
 # Remember to label the frames with the intrinsic
 # name of the functions</code></pre>
 
-    <button id='6' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 6 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+my_strat%28score%29%3A%0A++++return+score+%2B+2%0A%0Adef+play%28strat%29%3A%0A++++i%2C+roll+%3D+0%2C+strat%280%29%0A++++while+i+%3C+roll%3A%0A++++++++result+%3D+my_strat%28i%29%0A++++++++i+%2B%3D+1%0A++++return+i%0A%0Aresult+%3D+play%28my_strat%29%0A%0A%23+How+many+times+do+we+call+my_strat%3F%0A%23+Remember+to+label+the+frames+with+the+intrinsic%0A%23+name+of+the+functions">
-    </iframe>
-    </div>
-    
+        <button id='6' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 6 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+my_strat%28score%29%3A%0A++++return+score+%2B+2%0A%0Adef+play%28strat%29%3A%0A++++i%2C+roll+%3D+0%2C+strat%280%29%0A++++while+i+%3C+roll%3A%0A++++++++result+%3D+my_strat%28i%29%0A++++++++i+%2B%3D+1%0A++++return+i%0A%0Aresult+%3D+play%28my_strat%29%0A%0A%23+How+many+times+do+we+call+my_strat%3F%0A%23+Remember+to+label+the+frames+with+the+intrinsic%0A%23+name+of+the+functions">
+        </iframe>
+        </div>
+        
 
 <h3 class="question" id="q7">Question 7</h3>
 
@@ -258,14 +264,14 @@ b = a(2)
 # Which y is used?
 # What type of object is a?</code></pre>
 
-    <button id='7' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 7 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+fun%28x%29%3A%0A++++return+x%2A%2A2%0A%0Adef+time%28y%29%3A%0A++++y%2C+x+%3D+4%2C+5%0A++++def+fun%28y%29%3A%0A++++++++return+y+%2B+x%0A++++return+fun%0A%0Aa+%3D+time%2810%29%0Ab+%3D+a%282%29%0A%0A%23+Which+fun+is+called%3F%0A%23+Which+y+is+used%3F%0A%23+What+type+of+object+is+a%3F">
-    </iframe>
-    </div>
-    
+        <button id='7' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 7 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+fun%28x%29%3A%0A++++return+x%2A%2A2%0A%0Adef+time%28y%29%3A%0A++++y%2C+x+%3D+4%2C+5%0A++++def+fun%28y%29%3A%0A++++++++return+y+%2B+x%0A++++return+fun%0A%0Aa+%3D+time%2810%29%0Ab+%3D+a%282%29%0A%0A%23+Which+fun+is+called%3F%0A%23+Which+y+is+used%3F%0A%23+What+type+of+object+is+a%3F">
+        </iframe>
+        </div>
+        
 
 <h3 class="question" id="q8">Question 8</h3>
 
@@ -282,14 +288,14 @@ boom(square)
 a = boom(square)
 a(4)</code></pre>
 
-    <button id='8' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 8 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+square%28x%29%3A%0A++++return+x+%2A+x%0A%0Adef+boom%28fn%29%3A%0A++++def+bam%28x%29%3A%0A++++++++print%28x%29%0A++++++++return+fn%28x%29%0A++++return+bam%0A%0Aboom%28square%29%0Aa+%3D+boom%28square%29%0Aa%284%29">
-    </iframe>
-    </div>
-    
+        <button id='8' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 8 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+square%28x%29%3A%0A++++return+x+%2A+x%0A%0Adef+boom%28fn%29%3A%0A++++def+bam%28x%29%3A%0A++++++++print%28x%29%0A++++++++return+fn%28x%29%0A++++return+bam%0A%0Aboom%28square%29%0Aa+%3D+boom%28square%29%0Aa%284%29">
+        </iframe>
+        </div>
+        
 
 <h3 class="question" id="q9">Question 9</h3>
 
@@ -305,14 +311,14 @@ def square(x):
 
 c = outer(square)(square)</code></pre>
 
-    <button id='9' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 9 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=x+%3D+4%0A%0Adef+outer%28f%29%3A%0A++++def+inner%28g%29%3A%0A++++++++return+f%28g%28x%29%29%0A++++return+inner%0A%0Adef+square%28x%29%3A%0A++++return+x%2A%2A2%0A%0Ac+%3D+outer%28square%29%28square%29">
-    </iframe>
-    </div>
-    
+        <button id='9' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 9 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=x+%3D+4%0A%0Adef+outer%28f%29%3A%0A++++def+inner%28g%29%3A%0A++++++++return+f%28g%28x%29%29%0A++++return+inner%0A%0Adef+square%28x%29%3A%0A++++return+x%2A%2A2%0A%0Ac+%3D+outer%28square%29%28square%29">
+        </iframe>
+        </div>
+        
 
 <h3 class="question" id="q10">Question 10</h3>
 
@@ -341,14 +347,14 @@ result = middle(cube)
 # what function is middle?
 # What are the parents of each frame?</code></pre>
 
-    <button id='10' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
-    <div class="solution 10 iframe-container">
-    <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+one%28f%29%3A%0A++++a+%3D+1%0A++++def+two%28g%29%3A%0A++++++++b+%3D+2%0A++++++++def+three%28h%29%3A%0A++++++++++++c+%3D+3%0A++++++++++++return+f%28a%29+%2B+g%28b%29+%2B+h%28c%29%0A++++++++return+three%0A++++return+two%0A%0Adef+identity%28x%29%3A%0A++++return+x%0A%0Adef+square%28x%29%3A%0A++++return+x%2A%2A2%0A%0Adef+cube%28x%29%3A%0A++++return+x%2A%2A3%0A%0Amiddle+%3D+one%28identity%29%28square%29%0Aresult+%3D+middle%28cube%29%0A%0A%23+what+function+is+middle%3F%0A%23+What+are+the+parents+of+each+frame%3F">
-    </iframe>
-    </div>
-    
+        <button id='10' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
+        <div class="solution 10 iframe-container">
+        <iframe width="900" height="500" frameborder="0" src="http://www.pythontutor.com/iframe-embed.html#mode=display&cumulative=true&py=3&code=def+one%28f%29%3A%0A++++a+%3D+1%0A++++def+two%28g%29%3A%0A++++++++b+%3D+2%0A++++++++def+three%28h%29%3A%0A++++++++++++c+%3D+3%0A++++++++++++return+f%28a%29+%2B+g%28b%29+%2B+h%28c%29%0A++++++++return+three%0A++++return+two%0A%0Adef+identity%28x%29%3A%0A++++return+x%0A%0Adef+square%28x%29%3A%0A++++return+x%2A%2A2%0A%0Adef+cube%28x%29%3A%0A++++return+x%2A%2A3%0A%0Amiddle+%3D+one%28identity%29%28square%29%0Aresult+%3D+middle%28cube%29%0A%0A%23+what+function+is+middle%3F%0A%23+What+are+the+parents+of+each+frame%3F">
+        </iframe>
+        </div>
+        
 
 
 <h2 id="code-writing-questions">Code-Writing questions</h2>
@@ -373,11 +379,11 @@ argument, <code>x</code>, and return the result of <code>x</code> modulo <code>n
     &quot;*** YOUR CODE HERE ***&quot;</code></pre>
 
 
-    <button id='2' class='toggleButton'>
-    Toggle Solution<noscript> (enable JavaScript)</noscript>
-    </button>
+        <button id='2' class='toggleButton'>
+        Toggle Solution<noscript> (enable JavaScript)</noscript>
+        </button>
 
-    <div class="solution 2">
+        <div class="solution 2">
 
 <pre><code>def make_mod(n):
     def mod_n(x):
@@ -385,52 +391,52 @@ argument, <code>x</code>, and return the result of <code>x</code> modulo <code>n
     return mod_n</code></pre>
 
 </div>
-    
-
+        
 
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Higher-Order Functions: basic
+        
+Higher-Order Functions: basic
 <hr/>
+
         <ul>
   <li><a href="#conceptual-questions">Conceptual Questions</a></li>
   <ul>
-  <li><a href="#q1">Question 1</a></li>
-  <li><a href="#q2">Question 2</a></li>
-</ul>
-
+    <li><a href="#q1">Question 1</a></li>
+    <li><a href="#q2">Question 2</a></li>
+  </ul>
   <li><a href="#what-would-python-print">What would Python print?</a></li>
   <ul>
-  <li><a href="#q3">Question 3</a></li>
-  <li><a href="#q4">Question 4</a></li>
-  <li><a href="#q5">Question 5</a></li>
-</ul>
-
+    <li><a href="#q3">Question 3</a></li>
+    <li><a href="#q4">Question 4</a></li>
+    <li><a href="#q5">Question 5</a></li>
+  </ul>
   <li><a href="#environment-diagrams">Environment Diagrams</a></li>
   <ul>
-  <li><a href="#q6">Question 6</a></li>
-  <li><a href="#q7">Question 7</a></li>
-  <li><a href="#q8">Question 8</a></li>
-  <li><a href="#q9">Question 9</a></li>
-  <li><a href="#q10">Question 10</a></li>
-</ul>
-
+    <li><a href="#q6">Question 6</a></li>
+    <li><a href="#q7">Question 7</a></li>
+    <li><a href="#q8">Question 8</a></li>
+    <li><a href="#q9">Question 9</a></li>
+    <li><a href="#q10">Question 10</a></li>
+  </ul>
   <li><a href="#code-writing-questions">Code-Writing questions</a></li>
   <ul>
-  <li><a href="#q11">Question 11</a></li>
+    <li><a href="#q11">Question 11</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
@@ -445,5 +451,7 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
+
 <script src='/public/js/toggle.js'></script>
+
 </html>

@@ -4,7 +4,9 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>Debugging | Albert Wu</title>
+    <title>
+Debugging | Albert Wu
+</title>
 
     <script src='/public/js/jquery-1.11.3.min.js'></script>
     <script src='/public/js/bootstrap.min.js'></script>
@@ -17,7 +19,9 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    <link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
+    
+
+<link rel='stylesheet' type='text/css' href='/public/css/sidebar.css'>
 
     
 
@@ -59,15 +63,19 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        <h1>Debugging</h1>
+        
+<h1>Debugging</h1>
+
       </div>
     </div>
 
     <!-- Content -->
-    <div class='container'>
+    
+<div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      <h2 id="introduction">Introduction</h2>
+      
+<h2 id="introduction">Introduction</h2>
 
 
 <p>By now, you will have encountered various bugs when programming for
@@ -509,55 +517,56 @@ while i &lt; 10:
 <p>Sometimes a <code>while</code> loop or recursive function might stop one iteration too
 short. Here, it's best to walk through the iteration/recursion to see what
 number the loop stops at.</p>
+
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-        Debugging
+        
+Debugging
 <hr/>
+
         <ul>
   <li><a href="#introduction">Introduction</a></li>
   <ul>
-  <li><a href="#traceback-messages">Traceback Messages</a></li>
-  <li><a href="#error-messages">Error Messages</a></li>
-</ul>
-
+    <li><a href="#traceback-messages">Traceback Messages</a></li>
+    <li><a href="#error-messages">Error Messages</a></li>
+  </ul>
   <li><a href="#debugging-process">Debugging Process</a></li>
   <ul>
-  <li><a href="#running-doctests">Running doctests</a></li>
-  <li><a href="#writing-your-own-tests">Writing your own tests</a></li>
-  <li><a href="#using-print-statements">Using <code>print</code> statements</a></li>
-  <li><a href="#long-term-debugging">Long-term debugging</a></li>
-</ul>
-
+    <li><a href="#running-doctests">Running doctests</a></li>
+    <li><a href="#writing-your-own-tests">Writing your own tests</a></li>
+    <li><a href="#using-print-statements">Using <code>print</code> statements</a></li>
+    <li><a href="#long-term-debugging">Long-term debugging</a></li>
+  </ul>
   <li><a href="#error-types">Error Types</a></li>
   <ul>
-  <li><a href="#syntaxerror"><code>SyntaxError</code></a></li>
-  <li><a href="#indentationerror"><code>IndentationError</code></a></li>
-  <li><a href="#typeerror"><code>TypeError</code></a></li>
-  <li><a href="#nameerror"><code>NameError</code></a></li>
-  <li><a href="#indexerror"><code>IndexError</code></a></li>
-</ul>
-
+    <li><a href="#syntaxerror"><code>SyntaxError</code></a></li>
+    <li><a href="#indentationerror"><code>IndentationError</code></a></li>
+    <li><a href="#typeerror"><code>TypeError</code></a></li>
+    <li><a href="#nameerror"><code>NameError</code></a></li>
+    <li><a href="#indexerror"><code>IndexError</code></a></li>
+  </ul>
   <li><a href="#common-bugs">Common Bugs</a></li>
   <ul>
-  <li><a href="#spelling">Spelling</a></li>
-  <li><a href="#missing-parentheses">Missing Parentheses</a></li>
-  <li><a href="#missing-close-quotes">Missing close quotes</a></li>
-  <li><a href="#vs"><code>=</code> vs. <code>==</code></a></li>
-  <li><a href="#infinite-loops">Infinite Loops</a></li>
-  <li><a href="#off-by-one-errors">Off-by-one errors</a></li>
+    <li><a href="#spelling">Spelling</a></li>
+    <li><a href="#missing-parentheses">Missing Parentheses</a></li>
+    <li><a href="#missing-close-quotes">Missing close quotes</a></li>
+    <li><a href="#vs"><code>=</code> vs. <code>==</code></a></li>
+    <li><a href="#infinite-loops">Infinite Loops</a></li>
+    <li><a href="#off-by-one-errors">Off-by-one errors</a></li>
+  </ul>
 </ul>
-
-</ul>
-
       </nav>
     </div>
   </div>
 </div>
+
   </body>
 
-  <script>
+  
+
+<script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
   $('body').scrollspy({
