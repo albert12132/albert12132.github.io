@@ -396,7 +396,7 @@ frame, and our current frame becomes Global once more.</p>
 <h2 id="variable-lookup">Variable lookup</h2>
 
 
-<p>When the looking up a variable, we always start looking in the current
+<p>When looking up a variable, we always start looking in the current
 frame. If that variable cannot be found there, we look in the frame's
 parent next. If the variable still cannot be found, we look in the
 parent's parent, and so on.</p>
@@ -464,18 +464,18 @@ for <code>square</code> do we draw? What are the parents for those frames?</p>
 
   <ol>
     <li><strong>Evaluate the operands</strong>. We're currently in <code>double</code>'s
-    frame, so <code>x</code> is <code>3</code>. Thus, <code>x + 1 = 4</code>.</li>
+      frame, so <code>x</code> is <code>3</code>. Thus, <code>x + 1 = 4</code>.</li>
     <li><strong>Draw a new frame</strong> for <code>square</code>. Since <code>square</code> was defined
-    in Global, its parent is Global.</li>
+      in Global, its parent is Global.</li>
     <li><p><strong>Bind formal parameters</strong>. <code>square</code> has one parameter <code>x</code>,
-    which is bound to <code>4</code></p>
+      which is bound to <code>4</code></p>
 
-<pre><code>  ![`square(x+1)`](/public/img/environments/square&#x2d;x&#x2d;plus&#x2d;1.png)</code></pre></li>
+    <p><img src="/public/img/environments/square-x-plus-1.png" alt="`square(x+1)`" class="img-responsive"></p></li>
     <li><strong>Execute the body of the function</strong>. <code>square</code> computes <code>x*x</code>,
-    which is <code>16</code>.</li>
+      which is <code>16</code>.</li>
     <li><p><strong>Write the return value</strong>, which is <code>16</code>.</p>
 
-<pre><code>  ![`return x*x`](/public/img/environments/return&#x2d;x&#x2d;times&#x2d;x3.png)</code></pre></li>
+    <p><img src="/public/img/environments/return-x-times-x3.png" alt="`return x*x`" class="img-responsive"></p></li>
   </ol></li>
   <li><p><code>square(x)</code></p>
 
@@ -487,12 +487,12 @@ for <code>square</code> do we draw? What are the parents for those frames?</p>
     <li><p><strong>Bind formal parameters</strong>. <code>square</code> has one parameter <code>x</code>,
     which is bound to <code>3</code></p>
 
-<pre><code>   ![`square(x)`](/public/img/environments/square&#x2d;x.png)</code></pre></li>
+    <p><img src="/public/img/environments/square-x.png" alt="`square(x)`" class="img-responsive"></p></li>
     <li><strong>Execute the body of the function</strong>. <code>square</code> computes <code>x*x</code>,
     which is <code>9</code>.</li>
     <li><p><strong>Write the return value</strong>, which is <code>9</code>.</p>
 
-<pre><code>   ![`return x*x`](/public/img/environments/return&#x2d;x&#x2d;times&#x2d;x4.png)</code></pre></li>
+    <p><img src="/public/img/environments/return-x-times-x4.png" alt="`return x*x`" class="img-responsive"></p></li>
   </ol>
 
   <p>Now that we know <code>square(x+1)</code> is <code>16</code> and <code>square(x)</code> is <code>9</code>, we
@@ -695,7 +695,7 @@ bindings:</p>
      primitive, we need to draw an arrow to the function object</li>
     <li><p><strong>Write the variable</strong>, which is <code>inner</code>.</p>
 
-<pre><code>![def inner(y)](/public/img/environments/def&#x2d;inner.png)</code></pre></li>
+    <p><img src="/public/img/environments/def-inner.png" alt="def inner(y)" class="img-responsive"></p></li>
   </ol></li>
   <li><p><strong>Write the return value</strong>. <code>inner</code> points to a function object,
     so the return value points to what <code>inner</code> points to.</p>
