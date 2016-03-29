@@ -222,7 +222,7 @@ consider the following tree:</p>
         total = []
         for b in subtrees(t):
             for path in all_paths(b):
-                total.append([root(tree)] + path)
+                total.append([root(t)] + path)
         return total</code></pre>
 
 <p>It is possible to solve this using a list comprehension, but the list
@@ -232,8 +232,8 @@ comprehension gets a little complicated:</p>
     if is_leaf(t):
         return [[root(t)]]
     else:
-        return [[root(tree)] + path for b in subtrees(t)
-                                    for path in all_paths(b)]</code></pre>
+        return [[root(t)] + path for b in subtrees(t)
+                                 for path in all_paths(b)]</code></pre>
 
 <p>Notice that the <code>for</code> statements in the list comprehension are exactly
 the same as the two <code>for</code> loops in the original solution.</p>
