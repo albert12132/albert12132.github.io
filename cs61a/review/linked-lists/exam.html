@@ -131,31 +131,15 @@ def rest(s):
 <h3 class="question" id="q2">Question 2</h3>
 
 
-        <pre><code>&gt;&gt;&gt; r = link(1, link(link(2, empty), link(4, empty)))
-&gt;&gt;&gt; first(r)
-<span class="blank3">______</span><span class="hidden solution 3">1</span>
-&gt;&gt;&gt; first(rest(rest(r)))
-<span class="blank3">______</span><span class="hidden solution 3">4</span>
-&gt;&gt;&gt; first(first(rest(r)))
-<span class="blank3">______</span><span class="hidden solution 3">2</span></code></pre>
-
-        <button id='3' class='toggleButton'>
-        Toggle Solution<noscript> (enable JavaScript)</noscript>
-        </button>
-        
-
-<h3 class="question" id="q3">Question 3</h3>
-
-
         <pre><code>&gt;&gt;&gt; r = link(link(1, link(2, empty)), link(3, link(4, empty)))
 &gt;&gt;&gt; first(rest(r))
-<span class="blank4">______</span><span class="hidden solution 4">3</span>
+<span class="blank3">______</span><span class="hidden solution 3">3</span>
 &gt;&gt;&gt; first(rest(first(r)))
-<span class="blank4">______</span><span class="hidden solution 4">2</span>
+<span class="blank3">______</span><span class="hidden solution 3">2</span>
 &gt;&gt;&gt; first(first(rest(r)))
-<span class="blank4">______</span><span class="hidden solution 4">IndexError</span></code></pre>
+<span class="blank3">______</span><span class="hidden solution 3">IndexError</span></code></pre>
 
-        <button id='4' class='toggleButton'>
+        <button id='3' class='toggleButton'>
         Toggle Solution<noscript> (enable JavaScript)</noscript>
         </button>
         
@@ -164,7 +148,7 @@ def rest(s):
 <h2 id="code-writing-questions">Code-Writing questions</h2>
 
 
-<h3 class="question" id="q4">Question 4</h3>
+<h3 class="question" id="q3">Question 3</h3>
 
 <p>Implement a function <code>alternate</code> which takes a linked list and returns
 a new linked list that contains <em>every other</em> element in the original
@@ -201,7 +185,7 @@ linked list.</p>
 </div>
         
 
-<h3 class="question" id="q5">Question 5</h3>
+<h3 class="question" id="q4">Question 4</h3>
 
 <p>Implement a function <code>filter_link</code> which takes a linked list and
 returns a new linked list that contains only elements that satisfy the
@@ -251,12 +235,11 @@ Recursive Lists: exam
   <ul>
     <li><a href="#q1">Question 1</a></li>
     <li><a href="#q2">Question 2</a></li>
-    <li><a href="#q3">Question 3</a></li>
   </ul>
   <li><a href="#code-writing-questions">Code-Writing questions</a></li>
   <ul>
+    <li><a href="#q3">Question 3</a></li>
     <li><a href="#q4">Question 4</a></li>
-    <li><a href="#q5">Question 5</a></li>
   </ul>
 </ul>
       </nav>
