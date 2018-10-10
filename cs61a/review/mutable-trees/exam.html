@@ -324,7 +324,7 @@ search tree and returns the maximum and minimum values, respectively.</p>
 <pre><code>def max_bst(b):
     if b.right.is_empty:
         return b.entry
-    return max_tree(b.right)</code></pre>
+    return max_bst(b.right)</code></pre>
 
 </div>
         
@@ -342,7 +342,7 @@ search tree and returns the maximum and minimum values, respectively.</p>
 <pre><code>def min_bst(b):
     if b.left.is_empty:
         return b.entry
-    return min_tree(b.left)</code></pre>
+    return min_bst(b.left)</code></pre>
 
 </div>
         

@@ -219,10 +219,9 @@ following properties:</p>
   <code>n</code>, but the number of elements in buffer at <em>any given time</em> must
   be less than or equal to <code>n</code>.</li>
   <li>Each buffer has a <code>start</code> that keeps track of the earliest element
-  that is currently in the buffer.  Similarly, each buffer has a <code>end</code>
-  that keeps track of the most recent element that is currently in the
-  buffer.</li>
-  <li>The buffer has a <code>append</code> method, which adds a given element into the
+  that is currently in the buffer.  Similarly, each buffer has an <code>end</code>
+  that keeps track of the next available empty index in the buffer.</li>
+  <li>The buffer has an <code>append</code> method, which adds a given element into the
   buffer. If the buffer is full, (i.e. the buffer already has <code>n</code>
   elements), do not add the element, and instead print "Buffer exceeded
   capacity".</li>
